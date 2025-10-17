@@ -1,0 +1,234 @@
+build/stm32f4xx_ll_usb.o: stm32f4xx-hal-driver/Src/stm32f4xx_ll_usb.c \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h stm32f4xx_hal_conf.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rcc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_def.h \
+ cmsis-device-f4/Include/stm32f4xx.h \
+ cmsis-device-f4/Include/stm32f407xx.h \
+ CMSIS_5/CMSIS/Core/Include/core_cm4.h \
+ CMSIS_5/CMSIS/Core/Include/cmsis_version.h \
+ CMSIS_5/CMSIS/Core/Include/cmsis_compiler.h \
+ CMSIS_5/CMSIS/Core/Include/cmsis_gcc.h \
+ CMSIS_5/CMSIS/Core/Include/mpu_armv7.h \
+ cmsis-device-f4/Include/system_stm32f4xx.h \
+ stm32f4xx-hal-driver/Inc/Legacy/stm32_hal_legacy.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rcc_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_gpio.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_exti.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cortex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_adc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_ll_adc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_adc_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_can.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_crc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cryp.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma2d.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dcmi.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dcmi_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_eth.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sram.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_ll_fsmc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_nor.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_nand.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pccard.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sdram.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_hash.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2c.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2c_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_smbus.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2s.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2s_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_iwdg.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_ltdc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pwr.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rng.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rtc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rtc_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sai.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sd.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_ll_sdmmc.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_spi.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_tim.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_tim_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_uart.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_usart.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_irda.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_smartcard.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_wwdg.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pcd.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_ll_usb.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pcd_ex.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_hcd.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dsi.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_qspi.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cec.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_fmpi2c.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_fmpsmbus.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_spdifrx.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dfsdm.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_lptim.h \
+ stm32f4xx-hal-driver/Inc/stm32f4xx_hal_mmc.h
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h:
+
+stm32f4xx_hal_conf.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rcc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_def.h:
+
+cmsis-device-f4/Include/stm32f4xx.h:
+
+cmsis-device-f4/Include/stm32f407xx.h:
+
+CMSIS_5/CMSIS/Core/Include/core_cm4.h:
+
+CMSIS_5/CMSIS/Core/Include/cmsis_version.h:
+
+CMSIS_5/CMSIS/Core/Include/cmsis_compiler.h:
+
+CMSIS_5/CMSIS/Core/Include/cmsis_gcc.h:
+
+CMSIS_5/CMSIS/Core/Include/mpu_armv7.h:
+
+cmsis-device-f4/Include/system_stm32f4xx.h:
+
+stm32f4xx-hal-driver/Inc/Legacy/stm32_hal_legacy.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rcc_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_gpio.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_gpio_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_exti.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cortex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_adc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_ll_adc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_adc_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_can.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_crc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cryp.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma2d.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dcmi.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dcmi_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_eth.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sram.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_ll_fsmc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_nor.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_nand.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pccard.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sdram.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_hash.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2c.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2c_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_smbus.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2s.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_i2s_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_iwdg.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_ltdc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pwr.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pwr_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rng.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rtc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_rtc_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sai.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sd.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_ll_sdmmc.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_spi.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_tim.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_tim_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_uart.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_usart.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_irda.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_smartcard.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_wwdg.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pcd.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_ll_usb.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_pcd_ex.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_hcd.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dsi.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_qspi.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cec.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_fmpi2c.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_fmpsmbus.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_spdifrx.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dfsdm.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_lptim.h:
+
+stm32f4xx-hal-driver/Inc/stm32f4xx_hal_mmc.h:

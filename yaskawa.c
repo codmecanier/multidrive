@@ -31,7 +31,7 @@ void yaskawa_hw_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
     DMA_InitTypeDef DMA_InitStruct = {0};
-    TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure = {0};
+    TIM_Base_InitTypeDef TIM_TimeBaseStructure = {0};
 
     // 使能时钟
     __HAL_RCC_TIM8_CLK_ENABLE();
@@ -144,9 +144,12 @@ void yaskawa_update(void)
     yaskawa_start_transmission();
 
     // 等待发送完成
-    while(!(DMA2->LISR & DMA_FLAG_TCIF1)) {
+    //while(!(DMA2->LISR & DMA_FLAG_TCIF1)) {
         // 等待发送完成
-    }
+    //}
+    // 轮询等待DMA发送完成
+    HAL_DMA_PollForTransfer(&hdma_tx, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
+
 
     // 启动接收
     yaskawa_start_reception();
@@ -172,23 +175,36 @@ void yaskawa_start_transmission(void)
     HAL_GPIO_Init(YASKAWA_TX_PORT, &GPIO_InitStruct);
 
     // 停止定时器
-    TIM8->CR1 &= ~TIM_CR1_CEN;
+    HAL_TIM_Base_Stop(&htim_tx);
 
     // 重新配置DMA
     HAL_DMA_DeInit(&hdma_tx);
-    hdma_tx.Init.PeriphBaseAddr = (uint32_t)&YASKAWA_TX_PORT->BSRR;
-    hdma_tx.Init.MemoryBaseAddr = (uint32_t)yaskawa_handle.txbuf;
-    hdma_tx.Init.BufferSize = yaskawa_handle.tx_buffer_pos;
+    hdma_tx.Instance = DMA1_Stream0; // 根据实际使用的DMA流设置
+    hdma_tx.Init.Channel = DMA_CHANNEL_0; // 根据实际DMA通道设置
+    hdma_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_tx.Init.Mode = DMA_NORMAL;
+    hdma_tx.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    hdma_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_tx.Init.MemBurst = DMA_MBURST_SINGLE;
+    hdma_tx.Init.PeriphBurst = DMA_PBURST_SINGLE;
     HAL_DMA_Init(&hdma_tx);
+
+    // 设置DMA外设地址
+    __HAL_LINKDMA(&htim_tx, hdma[TIM_DMA_ID_UPDATE], hdma_tx);
 
     // 启动DMA传输
     HAL_DMA_Start(&hdma_tx, (uint32_t)yaskawa_handle.txbuf, 
                   (uint32_t)&YASKAWA_TX_PORT->BSRR, yaskawa_handle.tx_buffer_pos);
 
     // 配置定时器DMA请求
-    TIM8->DIER = TIM_DIER_UDE;
-    TIM8->CNT = 0;
-    TIM8->CR1 |= TIM_CR1_CEN;
+    __HAL_TIM_ENABLE_DMA(&htim_tx, TIM_DMA_UPDATE);
+    __HAL_TIM_SET_COUNTER(&htim_tx, 0);
+    HAL_TIM_Base_Start(&htim_tx);
 }
 
 void yaskawa_start_reception(void)
@@ -207,24 +223,45 @@ void yaskawa_start_reception(void)
 
     // 重新配置接收DMA
     HAL_DMA_DeInit(&hdma_rx);
-    hdma_rx.Init.PeriphBaseAddr = (uint32_t)&TIM2->CCR4;
-    hdma_rx.Init.MemoryBaseAddr = (uint32_t)yaskawa_handle.timer_data;
-    hdma_rx.Init.BufferSize = YASKAWA_TIM_DATA_SIZE;
+    hdma_rx.Instance = DMA1_Stream1; // 根据实际使用的DMA流设置
+    hdma_rx.Init.Channel = DMA_CHANNEL_3; // 根据实际DMA通道设置
+    hdma_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_rx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_rx.Init.Mode = DMA_NORMAL;
+    hdma_rx.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    hdma_rx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_rx.Init.MemBurst = DMA_MBURST_SINGLE;
+    hdma_rx.Init.PeriphBurst = DMA_PBURST_SINGLE;
     HAL_DMA_Init(&hdma_rx);
+
+    // 设置DMA外设地址
+    __HAL_LINKDMA(&htim_rx, hdma[TIM_DMA_ID_CC4], hdma_rx);
 
     // 启动接收DMA
     HAL_DMA_Start(&hdma_rx, (uint32_t)&TIM2->CCR4, 
                   (uint32_t)yaskawa_handle.timer_data, YASKAWA_TIM_DATA_SIZE);
 
     // 配置定时器
-    TIM2->CR1 &= ~TIM_CR1_CEN;
-    TIM2->CCMR2 = TIM_CCMR2_CC4S_0;  // CC4映射到TI4
-    TIM2->CCER = TIM_CCER_CC4E | TIM_CCER_CC4P | TIM_CCER_CC4NP;  // 双边沿触发
-    TIM2->ARR = 0xFFFFFFFF;
-    TIM2->DIER = TIM_DIER_CC4DE;  // CC4 DMA请求
-    TIM2->CNT = 0;
-    TIM2->CCR4 = 0;
-    TIM2->CR1 |= TIM_CR1_CEN;
+    HAL_TIM_Base_Stop(&htim_rx);
+    
+    // 使用HAL库配置定时器输入捕获
+    TIM_IC_InitTypeDef TIM_ICInitStruct = {0};
+    TIM_ICInitStruct.ICPolarity = TIM_ICPOLARITY_BOTHEDGE;
+    TIM_ICInitStruct.ICSelection = TIM_ICSELECTION_DIRECTTI;
+    TIM_ICInitStruct.ICPrescaler = TIM_ICPSC_DIV1;
+    TIM_ICInitStruct.ICFilter = 0;
+    HAL_TIM_IC_ConfigChannel(&htim_rx, &TIM_ICInitStruct, TIM_CHANNEL_4);
+    
+    // 配置定时器DMA请求
+    __HAL_TIM_ENABLE_DMA(&htim_rx, TIM_DMA_CC4);
+    __HAL_TIM_SET_COUNTER(&htim_rx, 0);
+    __HAL_TIM_SET_COMPARE(&htim_rx, TIM_CHANNEL_4, 0);
+    HAL_TIM_Base_Start(&htim_rx);
+    HAL_TIM_IC_Start(&htim_rx, TIM_CHANNEL_4);
 }
 
 void yaskawa_process_received_data(void)

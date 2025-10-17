@@ -35,17 +35,23 @@ BUILD_DIR = build
 ######################################
 # source
 ######################################
+
+# Add this line to automatically include all .c files in the HAL source directory
+C_HAL_SOURCES = $(wildcard stm32f4xx-hal-driver/Src/*.c)
+# 或者一行排除多个文件
+C_HAL_SOURCES := $(filter-out stm32f4xx-hal-driver/Src/stm32f4xx_hal_timebase_%, $(C_HAL_SOURCES))
+
 # C sources
 C_SOURCES =  \
 main.c \
 yaskawa.c \
 stm32f4xx_it.c \
-system_stm32f4xx.c
+system_stm32f4xx.c \
+$(C_HAL_SOURCES)
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f407xx.s
-
+cmsis-device-f4/Source/Templates/gcc/startup_stm32f407xx.s
 
 #######################################
 # binaries
@@ -97,7 +103,10 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
--I.
+-I. \
+-Istm32f4xx-hal-driver/Inc \
+-Icmsis-device-f4/Include \
+-ICMSIS_5/CMSIS/Core/Include \
 
 
 # compile gcc flags
@@ -123,7 +132,7 @@ LDSCRIPT = STM32F407VGTx_FLASH.ld
 # libraries
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
-LDFLAGS = $(MCU) -specs=nano.libs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin

@@ -1,0 +1,2551 @@
+ARM GAS  /tmp/ccZDFzwq.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"yaskawa.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.yaskawa_hw_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	yaskawa_hw_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	yaskawa_hw_init:
+  27              	.LFB240:
+  28              		.file 1 "yaskawa.c"
+   1:yaskawa.c     **** 
+   2:yaskawa.c     **** #include "yaskawa.h"
+   3:yaskawa.c     **** #include <string.h>
+   4:yaskawa.c     **** #include <math.h>
+   5:yaskawa.c     **** 
+   6:yaskawa.c     **** // 全局变量
+   7:yaskawa.c     **** static yaskawa_handle_t yaskawa_handle = {0};
+   8:yaskawa.c     **** 
+   9:yaskawa.c     **** // DMA句柄
+  10:yaskawa.c     **** DMA_HandleTypeDef hdma_tx;
+  11:yaskawa.c     **** DMA_HandleTypeDef hdma_rx;
+  12:yaskawa.c     **** TIM_HandleTypeDef htim_tx;
+  13:yaskawa.c     **** TIM_HandleTypeDef htim_rx;
+  14:yaskawa.c     **** 
+  15:yaskawa.c     **** void yaskawa_init(void)
+  16:yaskawa.c     **** {
+  17:yaskawa.c     ****     if (yaskawa_handle.initialized) {
+  18:yaskawa.c     ****         return;
+  19:yaskawa.c     ****     }
+  20:yaskawa.c     **** 
+  21:yaskawa.c     ****     // 硬件初始化
+  22:yaskawa.c     ****     yaskawa_hw_init();
+  23:yaskawa.c     **** 
+  24:yaskawa.c     ****     // 构建Manchester编码的请求数据
+  25:yaskawa.c     ****     yaskawa_build_request();
+  26:yaskawa.c     **** 
+  27:yaskawa.c     ****     yaskawa_handle.initialized = true;
+  28:yaskawa.c     **** }
+  29:yaskawa.c     **** 
+  30:yaskawa.c     **** void yaskawa_hw_init(void)
+ARM GAS  /tmp/ccZDFzwq.s 			page 2
+
+
+  31:yaskawa.c     **** {
+  29              		.loc 1 31 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 32
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  40 0002 88B0     		sub	sp, sp, #32
+  41              	.LCFI1:
+  42              		.cfi_def_cfa_offset 48
+  32:yaskawa.c     ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+  43              		.loc 1 32 5 view .LVU1
+  33:yaskawa.c     ****     DMA_InitTypeDef DMA_InitStruct = {0};
+  44              		.loc 1 33 5 view .LVU2
+  34:yaskawa.c     ****     TIM_Base_InitTypeDef TIM_TimeBaseStructure = {0};
+  45              		.loc 1 34 5 view .LVU3
+  35:yaskawa.c     **** 
+  36:yaskawa.c     ****     // 使能时钟
+  37:yaskawa.c     ****     __HAL_RCC_TIM8_CLK_ENABLE();
+  46              		.loc 1 37 5 view .LVU4
+  47              	.LBB2:
+  48              		.loc 1 37 5 view .LVU5
+  49 0004 0024     		movs	r4, #0
+  50 0006 0094     		str	r4, [sp]
+  51              		.loc 1 37 5 view .LVU6
+  52 0008 3C4B     		ldr	r3, .L3
+  53 000a 5A6C     		ldr	r2, [r3, #68]
+  54 000c 42F00202 		orr	r2, r2, #2
+  55 0010 5A64     		str	r2, [r3, #68]
+  56              		.loc 1 37 5 view .LVU7
+  57 0012 5A6C     		ldr	r2, [r3, #68]
+  58 0014 02F00202 		and	r2, r2, #2
+  59 0018 0092     		str	r2, [sp]
+  60              		.loc 1 37 5 view .LVU8
+  61 001a 009A     		ldr	r2, [sp]
+  62              	.LBE2:
+  63              		.loc 1 37 5 view .LVU9
+  38:yaskawa.c     ****     __HAL_RCC_TIM2_CLK_ENABLE();
+  64              		.loc 1 38 5 view .LVU10
+  65              	.LBB3:
+  66              		.loc 1 38 5 view .LVU11
+  67 001c 0194     		str	r4, [sp, #4]
+  68              		.loc 1 38 5 view .LVU12
+  69 001e 1A6C     		ldr	r2, [r3, #64]
+  70 0020 42F00102 		orr	r2, r2, #1
+  71 0024 1A64     		str	r2, [r3, #64]
+  72              		.loc 1 38 5 view .LVU13
+  73 0026 1A6C     		ldr	r2, [r3, #64]
+  74 0028 02F00102 		and	r2, r2, #1
+  75 002c 0192     		str	r2, [sp, #4]
+  76              		.loc 1 38 5 view .LVU14
+  77 002e 019A     		ldr	r2, [sp, #4]
+ARM GAS  /tmp/ccZDFzwq.s 			page 3
+
+
+  78              	.LBE3:
+  79              		.loc 1 38 5 view .LVU15
+  39:yaskawa.c     ****     __HAL_RCC_DMA1_CLK_ENABLE();
+  80              		.loc 1 39 5 view .LVU16
+  81              	.LBB4:
+  82              		.loc 1 39 5 view .LVU17
+  83 0030 0294     		str	r4, [sp, #8]
+  84              		.loc 1 39 5 view .LVU18
+  85 0032 1A6B     		ldr	r2, [r3, #48]
+  86 0034 42F40012 		orr	r2, r2, #2097152
+  87 0038 1A63     		str	r2, [r3, #48]
+  88              		.loc 1 39 5 view .LVU19
+  89 003a 1A6B     		ldr	r2, [r3, #48]
+  90 003c 02F40012 		and	r2, r2, #2097152
+  91 0040 0292     		str	r2, [sp, #8]
+  92              		.loc 1 39 5 view .LVU20
+  93 0042 029A     		ldr	r2, [sp, #8]
+  94              	.LBE4:
+  95              		.loc 1 39 5 view .LVU21
+  40:yaskawa.c     ****     __HAL_RCC_DMA2_CLK_ENABLE();
+  96              		.loc 1 40 5 view .LVU22
+  97              	.LBB5:
+  98              		.loc 1 40 5 view .LVU23
+  99 0044 0394     		str	r4, [sp, #12]
+ 100              		.loc 1 40 5 view .LVU24
+ 101 0046 1A6B     		ldr	r2, [r3, #48]
+ 102 0048 42F48002 		orr	r2, r2, #4194304
+ 103 004c 1A63     		str	r2, [r3, #48]
+ 104              		.loc 1 40 5 view .LVU25
+ 105 004e 1B6B     		ldr	r3, [r3, #48]
+ 106 0050 03F48003 		and	r3, r3, #4194304
+ 107 0054 0393     		str	r3, [sp, #12]
+ 108              		.loc 1 40 5 view .LVU26
+ 109 0056 039B     		ldr	r3, [sp, #12]
+ 110              	.LBE5:
+ 111              		.loc 1 40 5 view .LVU27
+  41:yaskawa.c     **** 
+  42:yaskawa.c     ****     // TX定时器配置 (TIM8)
+  43:yaskawa.c     ****     htim_tx.Instance = TIM8;
+ 112              		.loc 1 43 5 view .LVU28
+ 113              		.loc 1 43 22 is_stmt 0 view .LVU29
+ 114 0058 2948     		ldr	r0, .L3+4
+ 115 005a 2A4B     		ldr	r3, .L3+8
+ 116 005c 0360     		str	r3, [r0]
+  44:yaskawa.c     ****     htim_tx.Init.Prescaler = 0;
+ 117              		.loc 1 44 5 is_stmt 1 view .LVU30
+ 118              		.loc 1 44 28 is_stmt 0 view .LVU31
+ 119 005e 4460     		str	r4, [r0, #4]
+  45:yaskawa.c     ****     htim_tx.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 120              		.loc 1 45 5 is_stmt 1 view .LVU32
+ 121              		.loc 1 45 30 is_stmt 0 view .LVU33
+ 122 0060 8460     		str	r4, [r0, #8]
+  46:yaskawa.c     ****     htim_tx.Init.Period = 20;  // 168MHz / (20+1) = 8MHz
+ 123              		.loc 1 46 5 is_stmt 1 view .LVU34
+ 124              		.loc 1 46 25 is_stmt 0 view .LVU35
+ 125 0062 1423     		movs	r3, #20
+ 126 0064 C360     		str	r3, [r0, #12]
+ARM GAS  /tmp/ccZDFzwq.s 			page 4
+
+
+  47:yaskawa.c     ****     htim_tx.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 127              		.loc 1 47 5 is_stmt 1 view .LVU36
+ 128              		.loc 1 47 32 is_stmt 0 view .LVU37
+ 129 0066 0461     		str	r4, [r0, #16]
+  48:yaskawa.c     ****     htim_tx.Init.RepetitionCounter = 0;
+ 130              		.loc 1 48 5 is_stmt 1 view .LVU38
+ 131              		.loc 1 48 36 is_stmt 0 view .LVU39
+ 132 0068 4461     		str	r4, [r0, #20]
+  49:yaskawa.c     ****     HAL_TIM_Base_Init(&htim_tx);
+ 133              		.loc 1 49 5 is_stmt 1 view .LVU40
+ 134 006a FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 135              	.LVL0:
+  50:yaskawa.c     **** 
+  51:yaskawa.c     ****     // RX定时器配置 (TIM2)
+  52:yaskawa.c     ****     htim_rx.Instance = TIM2;
+ 136              		.loc 1 52 5 view .LVU41
+ 137              		.loc 1 52 22 is_stmt 0 view .LVU42
+ 138 006e 264D     		ldr	r5, .L3+12
+ 139 0070 4FF08043 		mov	r3, #1073741824
+ 140 0074 2B60     		str	r3, [r5]
+  53:yaskawa.c     ****     htim_rx.Init.Prescaler = 0;
+ 141              		.loc 1 53 5 is_stmt 1 view .LVU43
+ 142              		.loc 1 53 28 is_stmt 0 view .LVU44
+ 143 0076 6C60     		str	r4, [r5, #4]
+  54:yaskawa.c     ****     htim_rx.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 144              		.loc 1 54 5 is_stmt 1 view .LVU45
+ 145              		.loc 1 54 30 is_stmt 0 view .LVU46
+ 146 0078 AC60     		str	r4, [r5, #8]
+  55:yaskawa.c     ****     htim_rx.Init.Period = 0xFFFFFFFF;
+ 147              		.loc 1 55 5 is_stmt 1 view .LVU47
+ 148              		.loc 1 55 25 is_stmt 0 view .LVU48
+ 149 007a 4FF0FF33 		mov	r3, #-1
+ 150 007e EB60     		str	r3, [r5, #12]
+  56:yaskawa.c     ****     htim_rx.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 151              		.loc 1 56 5 is_stmt 1 view .LVU49
+ 152              		.loc 1 56 32 is_stmt 0 view .LVU50
+ 153 0080 2C61     		str	r4, [r5, #16]
+  57:yaskawa.c     ****     HAL_TIM_Base_Init(&htim_rx);
+ 154              		.loc 1 57 5 is_stmt 1 view .LVU51
+ 155 0082 2846     		mov	r0, r5
+ 156 0084 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 157              	.LVL1:
+  58:yaskawa.c     **** 
+  59:yaskawa.c     ****     // 配置TIM2的输入捕获
+  60:yaskawa.c     ****     TIM_IC_InitTypeDef sConfigIC = {0};
+ 158              		.loc 1 60 5 view .LVU52
+  61:yaskawa.c     ****     sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_BOTHEDGE;
+ 159              		.loc 1 61 5 view .LVU53
+ 160              		.loc 1 61 26 is_stmt 0 view .LVU54
+ 161 0088 0A23     		movs	r3, #10
+ 162 008a 0493     		str	r3, [sp, #16]
+  62:yaskawa.c     ****     sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+ 163              		.loc 1 62 5 is_stmt 1 view .LVU55
+ 164              		.loc 1 62 27 is_stmt 0 view .LVU56
+ 165 008c 0123     		movs	r3, #1
+ 166 008e 0593     		str	r3, [sp, #20]
+  63:yaskawa.c     ****     sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+ARM GAS  /tmp/ccZDFzwq.s 			page 5
+
+
+ 167              		.loc 1 63 5 is_stmt 1 view .LVU57
+ 168              		.loc 1 63 27 is_stmt 0 view .LVU58
+ 169 0090 0694     		str	r4, [sp, #24]
+  64:yaskawa.c     ****     sConfigIC.ICFilter = 0;
+ 170              		.loc 1 64 5 is_stmt 1 view .LVU59
+ 171              		.loc 1 64 24 is_stmt 0 view .LVU60
+ 172 0092 0794     		str	r4, [sp, #28]
+  65:yaskawa.c     ****     HAL_TIM_IC_ConfigChannel(&htim_rx, &sConfigIC, TIM_CHANNEL_4);
+ 173              		.loc 1 65 5 is_stmt 1 view .LVU61
+ 174 0094 0C22     		movs	r2, #12
+ 175 0096 04A9     		add	r1, sp, #16
+ 176 0098 2846     		mov	r0, r5
+ 177 009a FFF7FEFF 		bl	HAL_TIM_IC_ConfigChannel
+ 178              	.LVL2:
+  66:yaskawa.c     **** 
+  67:yaskawa.c     ****     // TX DMA配置
+  68:yaskawa.c     ****     hdma_tx.Instance = DMA2_Stream1;
+ 179              		.loc 1 68 5 view .LVU62
+ 180              		.loc 1 68 22 is_stmt 0 view .LVU63
+ 181 009e 1B48     		ldr	r0, .L3+16
+ 182 00a0 1B4B     		ldr	r3, .L3+20
+ 183 00a2 0360     		str	r3, [r0]
+  69:yaskawa.c     ****     hdma_tx.Init.Channel = DMA_CHANNEL_7;
+ 184              		.loc 1 69 5 is_stmt 1 view .LVU64
+ 185              		.loc 1 69 26 is_stmt 0 view .LVU65
+ 186 00a4 4FF06063 		mov	r3, #234881024
+ 187 00a8 4360     		str	r3, [r0, #4]
+  70:yaskawa.c     ****     hdma_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+ 188              		.loc 1 70 5 is_stmt 1 view .LVU66
+ 189              		.loc 1 70 28 is_stmt 0 view .LVU67
+ 190 00aa 4023     		movs	r3, #64
+ 191 00ac 8360     		str	r3, [r0, #8]
+  71:yaskawa.c     ****     hdma_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 192              		.loc 1 71 5 is_stmt 1 view .LVU68
+ 193              		.loc 1 71 28 is_stmt 0 view .LVU69
+ 194 00ae C460     		str	r4, [r0, #12]
+  72:yaskawa.c     ****     hdma_tx.Init.MemInc = DMA_MINC_ENABLE;
+ 195              		.loc 1 72 5 is_stmt 1 view .LVU70
+ 196              		.loc 1 72 25 is_stmt 0 view .LVU71
+ 197 00b0 4FF48066 		mov	r6, #1024
+ 198 00b4 0661     		str	r6, [r0, #16]
+  73:yaskawa.c     ****     hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+ 199              		.loc 1 73 5 is_stmt 1 view .LVU72
+ 200              		.loc 1 73 38 is_stmt 0 view .LVU73
+ 201 00b6 4FF48053 		mov	r3, #4096
+ 202 00ba 4361     		str	r3, [r0, #20]
+  74:yaskawa.c     ****     hdma_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+ 203              		.loc 1 74 5 is_stmt 1 view .LVU74
+ 204              		.loc 1 74 35 is_stmt 0 view .LVU75
+ 205 00bc 4FF48043 		mov	r3, #16384
+ 206 00c0 8361     		str	r3, [r0, #24]
+  75:yaskawa.c     ****     hdma_tx.Init.Mode = DMA_NORMAL;
+ 207              		.loc 1 75 5 is_stmt 1 view .LVU76
+ 208              		.loc 1 75 23 is_stmt 0 view .LVU77
+ 209 00c2 C461     		str	r4, [r0, #28]
+  76:yaskawa.c     ****     hdma_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+ 210              		.loc 1 76 5 is_stmt 1 view .LVU78
+ARM GAS  /tmp/ccZDFzwq.s 			page 6
+
+
+ 211              		.loc 1 76 27 is_stmt 0 view .LVU79
+ 212 00c4 4FF44035 		mov	r5, #196608
+ 213 00c8 0562     		str	r5, [r0, #32]
+  77:yaskawa.c     ****     hdma_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 214              		.loc 1 77 5 is_stmt 1 view .LVU80
+ 215              		.loc 1 77 27 is_stmt 0 view .LVU81
+ 216 00ca 4462     		str	r4, [r0, #36]
+  78:yaskawa.c     ****     HAL_DMA_Init(&hdma_tx);
+ 217              		.loc 1 78 5 is_stmt 1 view .LVU82
+ 218 00cc FFF7FEFF 		bl	HAL_DMA_Init
+ 219              	.LVL3:
+  79:yaskawa.c     **** 
+  80:yaskawa.c     ****     // RX DMA配置
+  81:yaskawa.c     ****     hdma_rx.Instance = DMA1_Stream7;
+ 220              		.loc 1 81 5 view .LVU83
+ 221              		.loc 1 81 22 is_stmt 0 view .LVU84
+ 222 00d0 1048     		ldr	r0, .L3+24
+ 223 00d2 114B     		ldr	r3, .L3+28
+ 224 00d4 0360     		str	r3, [r0]
+  82:yaskawa.c     ****     hdma_rx.Init.Channel = DMA_CHANNEL_3;
+ 225              		.loc 1 82 5 is_stmt 1 view .LVU85
+ 226              		.loc 1 82 26 is_stmt 0 view .LVU86
+ 227 00d6 4FF0C063 		mov	r3, #100663296
+ 228 00da 4360     		str	r3, [r0, #4]
+  83:yaskawa.c     ****     hdma_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+ 229              		.loc 1 83 5 is_stmt 1 view .LVU87
+ 230              		.loc 1 83 28 is_stmt 0 view .LVU88
+ 231 00dc 8460     		str	r4, [r0, #8]
+  84:yaskawa.c     ****     hdma_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 232              		.loc 1 84 5 is_stmt 1 view .LVU89
+ 233              		.loc 1 84 28 is_stmt 0 view .LVU90
+ 234 00de C460     		str	r4, [r0, #12]
+  85:yaskawa.c     ****     hdma_rx.Init.MemInc = DMA_MINC_ENABLE;
+ 235              		.loc 1 85 5 is_stmt 1 view .LVU91
+ 236              		.loc 1 85 25 is_stmt 0 view .LVU92
+ 237 00e0 0661     		str	r6, [r0, #16]
+  86:yaskawa.c     ****     hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+ 238              		.loc 1 86 5 is_stmt 1 view .LVU93
+ 239              		.loc 1 86 38 is_stmt 0 view .LVU94
+ 240 00e2 4FF40063 		mov	r3, #2048
+ 241 00e6 4361     		str	r3, [r0, #20]
+  87:yaskawa.c     ****     hdma_rx.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+ 242              		.loc 1 87 5 is_stmt 1 view .LVU95
+ 243              		.loc 1 87 35 is_stmt 0 view .LVU96
+ 244 00e8 4FF40053 		mov	r3, #8192
+ 245 00ec 8361     		str	r3, [r0, #24]
+  88:yaskawa.c     ****     hdma_rx.Init.Mode = DMA_NORMAL;
+ 246              		.loc 1 88 5 is_stmt 1 view .LVU97
+ 247              		.loc 1 88 23 is_stmt 0 view .LVU98
+ 248 00ee C461     		str	r4, [r0, #28]
+  89:yaskawa.c     ****     hdma_rx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+ 249              		.loc 1 89 5 is_stmt 1 view .LVU99
+ 250              		.loc 1 89 27 is_stmt 0 view .LVU100
+ 251 00f0 0562     		str	r5, [r0, #32]
+  90:yaskawa.c     ****     hdma_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 252              		.loc 1 90 5 is_stmt 1 view .LVU101
+ 253              		.loc 1 90 27 is_stmt 0 view .LVU102
+ARM GAS  /tmp/ccZDFzwq.s 			page 7
+
+
+ 254 00f2 4462     		str	r4, [r0, #36]
+  91:yaskawa.c     ****     HAL_DMA_Init(&hdma_rx);
+ 255              		.loc 1 91 5 is_stmt 1 view .LVU103
+ 256 00f4 FFF7FEFF 		bl	HAL_DMA_Init
+ 257              	.LVL4:
+  92:yaskawa.c     **** }
+ 258              		.loc 1 92 1 is_stmt 0 view .LVU104
+ 259 00f8 08B0     		add	sp, sp, #32
+ 260              	.LCFI2:
+ 261              		.cfi_def_cfa_offset 16
+ 262              		@ sp needed
+ 263 00fa 70BD     		pop	{r4, r5, r6, pc}
+ 264              	.L4:
+ 265              		.align	2
+ 266              	.L3:
+ 267 00fc 00380240 		.word	1073887232
+ 268 0100 00000000 		.word	htim_tx
+ 269 0104 00040140 		.word	1073808384
+ 270 0108 00000000 		.word	htim_rx
+ 271 010c 00000000 		.word	hdma_tx
+ 272 0110 28640240 		.word	1073898536
+ 273 0114 00000000 		.word	hdma_rx
+ 274 0118 B8600240 		.word	1073897656
+ 275              		.cfi_endproc
+ 276              	.LFE240:
+ 278              		.section	.rodata.yaskawa_build_request.str1.4,"aMS",%progbits,1
+ 279              		.align	2
+ 280              	.LC0:
+ 281 0000 30313031 		.ascii	"0101010101010101010 01111110 111110 111110 111110 1"
+ 281      30313031 
+ 281      30313031 
+ 281      30313031 
+ 281      30313020 
+ 282 0033 20303131 		.ascii	" 01111110\000"
+ 282      31313131 
+ 282      3000
+ 283              		.section	.text.yaskawa_build_request,"ax",%progbits
+ 284              		.align	1
+ 285              		.global	yaskawa_build_request
+ 286              		.syntax unified
+ 287              		.thumb
+ 288              		.thumb_func
+ 289              		.fpu fpv4-sp-d16
+ 291              	yaskawa_build_request:
+ 292              	.LFB241:
+  93:yaskawa.c     **** 
+  94:yaskawa.c     **** void yaskawa_build_request(void)
+  95:yaskawa.c     **** {
+ 293              		.loc 1 95 1 is_stmt 1 view -0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 192
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298 0000 30B4     		push	{r4, r5}
+ 299              	.LCFI3:
+ 300              		.cfi_def_cfa_offset 8
+ 301              		.cfi_offset 4, -8
+ARM GAS  /tmp/ccZDFzwq.s 			page 8
+
+
+ 302              		.cfi_offset 5, -4
+ 303 0002 B0B0     		sub	sp, sp, #192
+ 304              	.LCFI4:
+ 305              		.cfi_def_cfa_offset 200
+  96:yaskawa.c     ****     // Manchester编码的请求字符串
+  97:yaskawa.c     ****     // 同步信号 + HDLC帧格式
+  98:yaskawa.c     ****     const char request[] = "0101010101010101010 01111110 111110 111110 111110 1 01111110";
+ 306              		.loc 1 98 5 view .LVU106
+ 307              		.loc 1 98 16 is_stmt 0 view .LVU107
+ 308 0004 20AC     		add	r4, sp, #128
+ 309 0006 344D     		ldr	r5, .L19
+ 310 0008 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 311 000a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 312 000c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 313 000e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 314 0010 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 315 0012 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 316 0014 95E80F00 		ldm	r5, {r0, r1, r2, r3}
+ 317 0018 07C4     		stmia	r4!, {r0, r1, r2}
+ 318 001a 2370     		strb	r3, [r4]
+  99:yaskawa.c     ****     char manchester_encoded[sizeof(request) * 2];
+ 319              		.loc 1 99 5 is_stmt 1 view .LVU108
+ 100:yaskawa.c     **** 
+ 101:yaskawa.c     ****     uint32_t tim_high = YASKAWA_TX_PIN << 16;  // 设置引脚
+ 320              		.loc 1 101 5 view .LVU109
+ 321              	.LVL5:
+ 102:yaskawa.c     ****     uint32_t tim_low = YASKAWA_TX_PIN;         // 复位引脚
+ 322              		.loc 1 102 5 view .LVU110
+ 103:yaskawa.c     **** 
+ 104:yaskawa.c     ****     // Manchester编码: 0->01, 1->10
+ 105:yaskawa.c     ****     int j = 0;
+ 323              		.loc 1 105 5 view .LVU111
+ 106:yaskawa.c     ****     for(int i = 0; request[i]; i++) {
+ 324              		.loc 1 106 5 view .LVU112
+ 325              	.LBB6:
+ 326              		.loc 1 106 9 view .LVU113
+ 327              		.loc 1 106 13 is_stmt 0 view .LVU114
+ 328 001c 0022     		movs	r2, #0
+ 329              	.LBE6:
+ 105:yaskawa.c     ****     for(int i = 0; request[i]; i++) {
+ 330              		.loc 1 105 9 view .LVU115
+ 331 001e 1146     		mov	r1, r2
+ 332              	.LBB7:
+ 333              		.loc 1 106 5 view .LVU116
+ 334 0020 0CE0     		b	.L6
+ 335              	.LVL6:
+ 336              	.L16:
+ 107:yaskawa.c     ****         if(request[i] == '0') {
+ 108:yaskawa.c     ****             manchester_encoded[j++] = '0';
+ 337              		.loc 1 108 13 is_stmt 1 view .LVU117
+ 338              		.loc 1 108 33 is_stmt 0 view .LVU118
+ 339 0022 4B1C     		adds	r3, r1, #1
+ 340              	.LVL7:
+ 341              		.loc 1 108 37 view .LVU119
+ 342 0024 30A8     		add	r0, sp, #192
+ 343 0026 0844     		add	r0, r0, r1
+ 344 0028 3024     		movs	r4, #48
+ARM GAS  /tmp/ccZDFzwq.s 			page 9
+
+
+ 345 002a 00F8BC4C 		strb	r4, [r0, #-188]
+ 109:yaskawa.c     ****             manchester_encoded[j++] = '1';
+ 346              		.loc 1 109 13 is_stmt 1 view .LVU120
+ 347              	.LVL8:
+ 348              		.loc 1 109 37 is_stmt 0 view .LVU121
+ 349 002e 30A8     		add	r0, sp, #192
+ 350 0030 0344     		add	r3, r3, r0
+ 351 0032 0231     		adds	r1, r1, #2
+ 352              	.LVL9:
+ 353              		.loc 1 109 37 view .LVU122
+ 354 0034 3120     		movs	r0, #49
+ 355 0036 03F8BC0C 		strb	r0, [r3, #-188]
+ 356              	.LVL10:
+ 357              	.L8:
+ 106:yaskawa.c     ****         if(request[i] == '0') {
+ 358              		.loc 1 106 32 is_stmt 1 discriminator 2 view .LVU123
+ 106:yaskawa.c     ****         if(request[i] == '0') {
+ 359              		.loc 1 106 33 is_stmt 0 discriminator 2 view .LVU124
+ 360 003a 0132     		adds	r2, r2, #1
+ 361              	.LVL11:
+ 362              	.L6:
+ 106:yaskawa.c     ****         if(request[i] == '0') {
+ 363              		.loc 1 106 20 is_stmt 1 discriminator 1 view .LVU125
+ 106:yaskawa.c     ****         if(request[i] == '0') {
+ 364              		.loc 1 106 27 is_stmt 0 discriminator 1 view .LVU126
+ 365 003c 30AB     		add	r3, sp, #192
+ 366 003e 1344     		add	r3, r3, r2
+ 367 0040 13F8403C 		ldrb	r3, [r3, #-64]	@ zero_extendqisi2
+ 106:yaskawa.c     ****         if(request[i] == '0') {
+ 368              		.loc 1 106 5 discriminator 1 view .LVU127
+ 369 0044 83B1     		cbz	r3, .L15
+ 107:yaskawa.c     ****         if(request[i] == '0') {
+ 370              		.loc 1 107 9 is_stmt 1 view .LVU128
+ 107:yaskawa.c     ****         if(request[i] == '0') {
+ 371              		.loc 1 107 11 is_stmt 0 view .LVU129
+ 372 0046 302B     		cmp	r3, #48
+ 373 0048 EBD0     		beq	.L16
+ 110:yaskawa.c     ****         } else if(request[i] == '1') {
+ 374              		.loc 1 110 16 is_stmt 1 view .LVU130
+ 375              		.loc 1 110 18 is_stmt 0 view .LVU131
+ 376 004a 312B     		cmp	r3, #49
+ 377 004c F5D1     		bne	.L8
+ 111:yaskawa.c     ****             manchester_encoded[j++] = '1';
+ 378              		.loc 1 111 13 is_stmt 1 view .LVU132
+ 379              		.loc 1 111 33 is_stmt 0 view .LVU133
+ 380 004e 4B1C     		adds	r3, r1, #1
+ 381              	.LVL12:
+ 382              		.loc 1 111 37 view .LVU134
+ 383 0050 30A8     		add	r0, sp, #192
+ 384 0052 0844     		add	r0, r0, r1
+ 385 0054 3124     		movs	r4, #49
+ 386 0056 00F8BC4C 		strb	r4, [r0, #-188]
+ 112:yaskawa.c     ****             manchester_encoded[j++] = '0';
+ 387              		.loc 1 112 13 is_stmt 1 view .LVU135
+ 388              	.LVL13:
+ 389              		.loc 1 112 37 is_stmt 0 view .LVU136
+ 390 005a 30A8     		add	r0, sp, #192
+ARM GAS  /tmp/ccZDFzwq.s 			page 10
+
+
+ 391 005c 0344     		add	r3, r3, r0
+ 392 005e 0231     		adds	r1, r1, #2
+ 393              	.LVL14:
+ 394              		.loc 1 112 37 view .LVU137
+ 395 0060 3020     		movs	r0, #48
+ 396 0062 03F8BC0C 		strb	r0, [r3, #-188]
+ 397 0066 E8E7     		b	.L8
+ 398              	.LVL15:
+ 399              	.L15:
+ 400              		.loc 1 112 37 view .LVU138
+ 401              	.LBE7:
+ 113:yaskawa.c     ****         }
+ 114:yaskawa.c     ****     }
+ 115:yaskawa.c     ****     manchester_encoded[j] = '\0';
+ 402              		.loc 1 115 5 is_stmt 1 view .LVU139
+ 403              		.loc 1 115 27 is_stmt 0 view .LVU140
+ 404 0068 30AB     		add	r3, sp, #192
+ 405 006a 1944     		add	r1, r1, r3
+ 406              	.LVL16:
+ 407              		.loc 1 115 27 view .LVU141
+ 408 006c 0022     		movs	r2, #0
+ 409              	.LVL17:
+ 410              		.loc 1 115 27 view .LVU142
+ 411 006e 01F8BC2C 		strb	r2, [r1, #-188]
+ 116:yaskawa.c     **** 
+ 117:yaskawa.c     ****     // 构建DMA传输缓冲区
+ 118:yaskawa.c     ****     yaskawa_handle.tx_buffer_pos = 0;
+ 412              		.loc 1 118 5 is_stmt 1 view .LVU143
+ 413              		.loc 1 118 34 is_stmt 0 view .LVU144
+ 414 0072 1A4B     		ldr	r3, .L19+4
+ 415 0074 C3F81025 		str	r2, [r3, #1296]
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 416              		.loc 1 119 5 is_stmt 1 view .LVU145
+ 417              	.LBB8:
+ 418              		.loc 1 119 9 view .LVU146
+ 419              	.LVL18:
+ 420              		.loc 1 119 5 is_stmt 0 view .LVU147
+ 421 0078 0AE0     		b	.L10
+ 422              	.LVL19:
+ 423              	.L18:
+ 120:yaskawa.c     ****         if(manchester_encoded[i] == '0') {
+ 121:yaskawa.c     ****             yaskawa_handle.txbuf[yaskawa_handle.tx_buffer_pos++] = tim_high;
+ 424              		.loc 1 121 13 is_stmt 1 view .LVU148
+ 425              		.loc 1 121 48 is_stmt 0 view .LVU149
+ 426 007a 184B     		ldr	r3, .L19+4
+ 427 007c D3F81015 		ldr	r1, [r3, #1296]
+ 428              		.loc 1 121 62 view .LVU150
+ 429 0080 481C     		adds	r0, r1, #1
+ 430 0082 C3F81005 		str	r0, [r3, #1296]
+ 431              		.loc 1 121 66 view .LVU151
+ 432 0086 4FF48020 		mov	r0, #262144
+ 433 008a 43F82100 		str	r0, [r3, r1, lsl #2]
+ 434              	.L12:
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 435              		.loc 1 119 43 is_stmt 1 discriminator 2 view .LVU152
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 436              		.loc 1 119 44 is_stmt 0 discriminator 2 view .LVU153
+ARM GAS  /tmp/ccZDFzwq.s 			page 11
+
+
+ 437 008e 0132     		adds	r2, r2, #1
+ 438              	.LVL20:
+ 439              	.L10:
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 440              		.loc 1 119 20 is_stmt 1 discriminator 1 view .LVU154
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 441              		.loc 1 119 38 is_stmt 0 discriminator 1 view .LVU155
+ 442 0090 30AB     		add	r3, sp, #192
+ 443 0092 1344     		add	r3, r3, r2
+ 444 0094 13F8BC3C 		ldrb	r3, [r3, #-188]	@ zero_extendqisi2
+ 119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
+ 445              		.loc 1 119 5 discriminator 1 view .LVU156
+ 446 0098 6BB1     		cbz	r3, .L17
+ 120:yaskawa.c     ****         if(manchester_encoded[i] == '0') {
+ 447              		.loc 1 120 9 is_stmt 1 view .LVU157
+ 120:yaskawa.c     ****         if(manchester_encoded[i] == '0') {
+ 448              		.loc 1 120 11 is_stmt 0 view .LVU158
+ 449 009a 302B     		cmp	r3, #48
+ 450 009c EDD0     		beq	.L18
+ 122:yaskawa.c     ****         } else if(manchester_encoded[i] == '1') {
+ 451              		.loc 1 122 16 is_stmt 1 view .LVU159
+ 452              		.loc 1 122 18 is_stmt 0 view .LVU160
+ 453 009e 312B     		cmp	r3, #49
+ 454 00a0 F5D1     		bne	.L12
+ 123:yaskawa.c     ****             yaskawa_handle.txbuf[yaskawa_handle.tx_buffer_pos++] = tim_low;
+ 455              		.loc 1 123 13 is_stmt 1 view .LVU161
+ 456              		.loc 1 123 48 is_stmt 0 view .LVU162
+ 457 00a2 0E4B     		ldr	r3, .L19+4
+ 458 00a4 D3F81015 		ldr	r1, [r3, #1296]
+ 459              		.loc 1 123 62 view .LVU163
+ 460 00a8 481C     		adds	r0, r1, #1
+ 461 00aa C3F81005 		str	r0, [r3, #1296]
+ 462              		.loc 1 123 66 view .LVU164
+ 463 00ae 0420     		movs	r0, #4
+ 464 00b0 43F82100 		str	r0, [r3, r1, lsl #2]
+ 465 00b4 EBE7     		b	.L12
+ 466              	.L17:
+ 467              	.LBE8:
+ 124:yaskawa.c     ****         }
+ 125:yaskawa.c     ****     }
+ 126:yaskawa.c     **** 
+ 127:yaskawa.c     ****     // 添加结束位
+ 128:yaskawa.c     ****     yaskawa_handle.txbuf[yaskawa_handle.tx_buffer_pos++] = tim_high;
+ 468              		.loc 1 128 5 is_stmt 1 view .LVU165
+ 469              		.loc 1 128 40 is_stmt 0 view .LVU166
+ 470 00b6 094A     		ldr	r2, .L19+4
+ 471              	.LVL21:
+ 472              		.loc 1 128 40 view .LVU167
+ 473 00b8 D2F81035 		ldr	r3, [r2, #1296]
+ 474              		.loc 1 128 54 view .LVU168
+ 475 00bc 581C     		adds	r0, r3, #1
+ 476              		.loc 1 128 58 view .LVU169
+ 477 00be 4FF48021 		mov	r1, #262144
+ 478 00c2 42F82310 		str	r1, [r2, r3, lsl #2]
+ 129:yaskawa.c     ****     yaskawa_handle.txbuf[yaskawa_handle.tx_buffer_pos++] = tim_high;
+ 479              		.loc 1 129 5 is_stmt 1 view .LVU170
+ 480              		.loc 1 129 54 is_stmt 0 view .LVU171
+ARM GAS  /tmp/ccZDFzwq.s 			page 12
+
+
+ 481 00c6 0233     		adds	r3, r3, #2
+ 482 00c8 C2F81035 		str	r3, [r2, #1296]
+ 483              		.loc 1 129 58 view .LVU172
+ 484 00cc 42F82010 		str	r1, [r2, r0, lsl #2]
+ 130:yaskawa.c     **** }
+ 485              		.loc 1 130 1 view .LVU173
+ 486 00d0 30B0     		add	sp, sp, #192
+ 487              	.LCFI5:
+ 488              		.cfi_def_cfa_offset 8
+ 489              		@ sp needed
+ 490 00d2 30BC     		pop	{r4, r5}
+ 491              	.LCFI6:
+ 492              		.cfi_restore 5
+ 493              		.cfi_restore 4
+ 494              		.cfi_def_cfa_offset 0
+ 495 00d4 7047     		bx	lr
+ 496              	.L20:
+ 497 00d6 00BF     		.align	2
+ 498              	.L19:
+ 499 00d8 00000000 		.word	.LC0
+ 500 00dc 00000000 		.word	.LANCHOR0
+ 501              		.cfi_endproc
+ 502              	.LFE241:
+ 504              		.section	.text.yaskawa_init,"ax",%progbits
+ 505              		.align	1
+ 506              		.global	yaskawa_init
+ 507              		.syntax unified
+ 508              		.thumb
+ 509              		.thumb_func
+ 510              		.fpu fpv4-sp-d16
+ 512              	yaskawa_init:
+ 513              	.LFB239:
+  16:yaskawa.c     ****     if (yaskawa_handle.initialized) {
+ 514              		.loc 1 16 1 is_stmt 1 view -0
+ 515              		.cfi_startproc
+ 516              		@ args = 0, pretend = 0, frame = 0
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518 0000 08B5     		push	{r3, lr}
+ 519              	.LCFI7:
+ 520              		.cfi_def_cfa_offset 8
+ 521              		.cfi_offset 3, -8
+ 522              		.cfi_offset 14, -4
+  17:yaskawa.c     ****         return;
+ 523              		.loc 1 17 5 view .LVU175
+  17:yaskawa.c     ****         return;
+ 524              		.loc 1 17 23 is_stmt 0 view .LVU176
+ 525 0002 074B     		ldr	r3, .L25
+ 526 0004 93F80C35 		ldrb	r3, [r3, #1292]	@ zero_extendqisi2
+  17:yaskawa.c     ****         return;
+ 527              		.loc 1 17 8 view .LVU177
+ 528 0008 03B1     		cbz	r3, .L24
+ 529              	.L21:
+  28:yaskawa.c     **** 
+ 530              		.loc 1 28 1 view .LVU178
+ 531 000a 08BD     		pop	{r3, pc}
+ 532              	.L24:
+  22:yaskawa.c     **** 
+ARM GAS  /tmp/ccZDFzwq.s 			page 13
+
+
+ 533              		.loc 1 22 5 is_stmt 1 view .LVU179
+ 534 000c FFF7FEFF 		bl	yaskawa_hw_init
+ 535              	.LVL22:
+  25:yaskawa.c     **** 
+ 536              		.loc 1 25 5 view .LVU180
+ 537 0010 FFF7FEFF 		bl	yaskawa_build_request
+ 538              	.LVL23:
+  27:yaskawa.c     **** }
+ 539              		.loc 1 27 5 view .LVU181
+  27:yaskawa.c     **** }
+ 540              		.loc 1 27 32 is_stmt 0 view .LVU182
+ 541 0014 024B     		ldr	r3, .L25
+ 542 0016 0122     		movs	r2, #1
+ 543 0018 83F80C25 		strb	r2, [r3, #1292]
+ 544 001c F5E7     		b	.L21
+ 545              	.L26:
+ 546 001e 00BF     		.align	2
+ 547              	.L25:
+ 548 0020 00000000 		.word	.LANCHOR0
+ 549              		.cfi_endproc
+ 550              	.LFE239:
+ 552              		.section	.text.yaskawa_start_transmission,"ax",%progbits
+ 553              		.align	1
+ 554              		.global	yaskawa_start_transmission
+ 555              		.syntax unified
+ 556              		.thumb
+ 557              		.thumb_func
+ 558              		.fpu fpv4-sp-d16
+ 560              	yaskawa_start_transmission:
+ 561              	.LFB243:
+ 131:yaskawa.c     **** 
+ 132:yaskawa.c     **** void yaskawa_update(void)
+ 133:yaskawa.c     **** {
+ 134:yaskawa.c     ****     if (!yaskawa_handle.initialized) {
+ 135:yaskawa.c     ****         return;
+ 136:yaskawa.c     ****     }
+ 137:yaskawa.c     **** 
+ 138:yaskawa.c     ****     // 等待上一次操作完成
+ 139:yaskawa.c     ****     while(TIM2->CNT < 3300) {
+ 140:yaskawa.c     ****         // 等待
+ 141:yaskawa.c     ****     }
+ 142:yaskawa.c     **** 
+ 143:yaskawa.c     ****     // 启动发送
+ 144:yaskawa.c     ****     yaskawa_start_transmission();
+ 145:yaskawa.c     **** 
+ 146:yaskawa.c     ****     // 等待发送完成
+ 147:yaskawa.c     ****     //while(!(DMA2->LISR & DMA_FLAG_TCIF1)) {
+ 148:yaskawa.c     ****         // 等待发送完成
+ 149:yaskawa.c     ****     //}
+ 150:yaskawa.c     ****     // 轮询等待DMA发送完成
+ 151:yaskawa.c     ****     HAL_DMA_PollForTransfer(&hdma_tx, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
+ 152:yaskawa.c     **** 
+ 153:yaskawa.c     **** 
+ 154:yaskawa.c     ****     // 启动接收
+ 155:yaskawa.c     ****     yaskawa_start_reception();
+ 156:yaskawa.c     **** 
+ 157:yaskawa.c     ****     // 等待一段时间让接收完成
+ARM GAS  /tmp/ccZDFzwq.s 			page 14
+
+
+ 158:yaskawa.c     ****     HAL_Delay(10);
+ 159:yaskawa.c     **** 
+ 160:yaskawa.c     ****     // 处理接收到的数据
+ 161:yaskawa.c     ****     yaskawa_process_received_data();
+ 162:yaskawa.c     **** }
+ 163:yaskawa.c     **** 
+ 164:yaskawa.c     **** void yaskawa_start_transmission(void)
+ 165:yaskawa.c     **** {
+ 562              		.loc 1 165 1 is_stmt 1 view -0
+ 563              		.cfi_startproc
+ 564              		@ args = 0, pretend = 0, frame = 24
+ 565              		@ frame_needed = 0, uses_anonymous_args = 0
+ 566 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 567              	.LCFI8:
+ 568              		.cfi_def_cfa_offset 20
+ 569              		.cfi_offset 4, -20
+ 570              		.cfi_offset 5, -16
+ 571              		.cfi_offset 6, -12
+ 572              		.cfi_offset 7, -8
+ 573              		.cfi_offset 14, -4
+ 574 0002 87B0     		sub	sp, sp, #28
+ 575              	.LCFI9:
+ 576              		.cfi_def_cfa_offset 48
+ 166:yaskawa.c     ****     // 使能发送
+ 167:yaskawa.c     ****     HAL_GPIO_WritePin(YASKAWA_TXEN_PORT, YASKAWA_TXEN_PIN, GPIO_PIN_SET);
+ 577              		.loc 1 167 5 view .LVU184
+ 578 0004 0122     		movs	r2, #1
+ 579 0006 4FF48071 		mov	r1, #256
+ 580 000a 2348     		ldr	r0, .L29
+ 581 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 582              	.LVL24:
+ 168:yaskawa.c     **** 
+ 169:yaskawa.c     ****     // 配置GPIO为输出模式
+ 170:yaskawa.c     ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 583              		.loc 1 170 5 view .LVU185
+ 584              		.loc 1 170 22 is_stmt 0 view .LVU186
+ 585 0010 0025     		movs	r5, #0
+ 586 0012 0595     		str	r5, [sp, #20]
+ 171:yaskawa.c     ****     GPIO_InitStruct.Pin = YASKAWA_TX_PIN;
+ 587              		.loc 1 171 5 is_stmt 1 view .LVU187
+ 588              		.loc 1 171 25 is_stmt 0 view .LVU188
+ 589 0014 0423     		movs	r3, #4
+ 590 0016 0193     		str	r3, [sp, #4]
+ 172:yaskawa.c     ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 591              		.loc 1 172 5 is_stmt 1 view .LVU189
+ 592              		.loc 1 172 26 is_stmt 0 view .LVU190
+ 593 0018 0123     		movs	r3, #1
+ 594 001a 0293     		str	r3, [sp, #8]
+ 173:yaskawa.c     ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 595              		.loc 1 173 5 is_stmt 1 view .LVU191
+ 596              		.loc 1 173 26 is_stmt 0 view .LVU192
+ 597 001c 0395     		str	r5, [sp, #12]
+ 174:yaskawa.c     ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 598              		.loc 1 174 5 is_stmt 1 view .LVU193
+ 599              		.loc 1 174 27 is_stmt 0 view .LVU194
+ 600 001e 0327     		movs	r7, #3
+ 601 0020 0497     		str	r7, [sp, #16]
+ARM GAS  /tmp/ccZDFzwq.s 			page 15
+
+
+ 175:yaskawa.c     ****     HAL_GPIO_Init(YASKAWA_TX_PORT, &GPIO_InitStruct);
+ 602              		.loc 1 175 5 is_stmt 1 view .LVU195
+ 603 0022 01A9     		add	r1, sp, #4
+ 604 0024 1D48     		ldr	r0, .L29+4
+ 605 0026 FFF7FEFF 		bl	HAL_GPIO_Init
+ 606              	.LVL25:
+ 176:yaskawa.c     **** 
+ 177:yaskawa.c     ****     // 停止定时器
+ 178:yaskawa.c     ****     HAL_TIM_Base_Stop(&htim_tx);
+ 607              		.loc 1 178 5 view .LVU196
+ 608 002a 1D4E     		ldr	r6, .L29+8
+ 609 002c 3046     		mov	r0, r6
+ 610 002e FFF7FEFF 		bl	HAL_TIM_Base_Stop
+ 611              	.LVL26:
+ 179:yaskawa.c     **** 
+ 180:yaskawa.c     ****     // 重新配置DMA
+ 181:yaskawa.c     ****     HAL_DMA_DeInit(&hdma_tx);
+ 612              		.loc 1 181 5 view .LVU197
+ 613 0032 1C4C     		ldr	r4, .L29+12
+ 614 0034 2046     		mov	r0, r4
+ 615 0036 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 616              	.LVL27:
+ 182:yaskawa.c     ****     hdma_tx.Instance = DMA1_Stream0; // 根据实际使用的DMA流设置
+ 617              		.loc 1 182 5 view .LVU198
+ 618              		.loc 1 182 22 is_stmt 0 view .LVU199
+ 619 003a 1B4B     		ldr	r3, .L29+16
+ 620 003c 2360     		str	r3, [r4]
+ 183:yaskawa.c     ****     hdma_tx.Init.Channel = DMA_CHANNEL_0; // 根据实际DMA通道设置
+ 621              		.loc 1 183 5 is_stmt 1 view .LVU200
+ 622              		.loc 1 183 26 is_stmt 0 view .LVU201
+ 623 003e 6560     		str	r5, [r4, #4]
+ 184:yaskawa.c     ****     hdma_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+ 624              		.loc 1 184 5 is_stmt 1 view .LVU202
+ 625              		.loc 1 184 28 is_stmt 0 view .LVU203
+ 626 0040 4023     		movs	r3, #64
+ 627 0042 A360     		str	r3, [r4, #8]
+ 185:yaskawa.c     ****     hdma_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 628              		.loc 1 185 5 is_stmt 1 view .LVU204
+ 629              		.loc 1 185 28 is_stmt 0 view .LVU205
+ 630 0044 E560     		str	r5, [r4, #12]
+ 186:yaskawa.c     ****     hdma_tx.Init.MemInc = DMA_MINC_ENABLE;
+ 631              		.loc 1 186 5 is_stmt 1 view .LVU206
+ 632              		.loc 1 186 25 is_stmt 0 view .LVU207
+ 633 0046 4FF48063 		mov	r3, #1024
+ 634 004a 2361     		str	r3, [r4, #16]
+ 187:yaskawa.c     ****     hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+ 635              		.loc 1 187 5 is_stmt 1 view .LVU208
+ 636              		.loc 1 187 38 is_stmt 0 view .LVU209
+ 637 004c 4FF48053 		mov	r3, #4096
+ 638 0050 6361     		str	r3, [r4, #20]
+ 188:yaskawa.c     ****     hdma_tx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+ 639              		.loc 1 188 5 is_stmt 1 view .LVU210
+ 640              		.loc 1 188 35 is_stmt 0 view .LVU211
+ 641 0052 4FF48043 		mov	r3, #16384
+ 642 0056 A361     		str	r3, [r4, #24]
+ 189:yaskawa.c     ****     hdma_tx.Init.Mode = DMA_NORMAL;
+ 643              		.loc 1 189 5 is_stmt 1 view .LVU212
+ARM GAS  /tmp/ccZDFzwq.s 			page 16
+
+
+ 644              		.loc 1 189 23 is_stmt 0 view .LVU213
+ 645 0058 E561     		str	r5, [r4, #28]
+ 190:yaskawa.c     ****     hdma_tx.Init.Priority = DMA_PRIORITY_HIGH;
+ 646              		.loc 1 190 5 is_stmt 1 view .LVU214
+ 647              		.loc 1 190 27 is_stmt 0 view .LVU215
+ 648 005a 4FF40033 		mov	r3, #131072
+ 649 005e 2362     		str	r3, [r4, #32]
+ 191:yaskawa.c     ****     hdma_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 650              		.loc 1 191 5 is_stmt 1 view .LVU216
+ 651              		.loc 1 191 27 is_stmt 0 view .LVU217
+ 652 0060 6562     		str	r5, [r4, #36]
+ 192:yaskawa.c     ****     hdma_tx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+ 653              		.loc 1 192 5 is_stmt 1 view .LVU218
+ 654              		.loc 1 192 32 is_stmt 0 view .LVU219
+ 655 0062 A762     		str	r7, [r4, #40]
+ 193:yaskawa.c     ****     hdma_tx.Init.MemBurst = DMA_MBURST_SINGLE;
+ 656              		.loc 1 193 5 is_stmt 1 view .LVU220
+ 657              		.loc 1 193 27 is_stmt 0 view .LVU221
+ 658 0064 E562     		str	r5, [r4, #44]
+ 194:yaskawa.c     ****     hdma_tx.Init.PeriphBurst = DMA_PBURST_SINGLE;
+ 659              		.loc 1 194 5 is_stmt 1 view .LVU222
+ 660              		.loc 1 194 30 is_stmt 0 view .LVU223
+ 661 0066 2563     		str	r5, [r4, #48]
+ 195:yaskawa.c     ****     HAL_DMA_Init(&hdma_tx);
+ 662              		.loc 1 195 5 is_stmt 1 view .LVU224
+ 663 0068 2046     		mov	r0, r4
+ 664 006a FFF7FEFF 		bl	HAL_DMA_Init
+ 665              	.LVL28:
+ 196:yaskawa.c     **** 
+ 197:yaskawa.c     ****     // 设置DMA外设地址
+ 198:yaskawa.c     ****     __HAL_LINKDMA(&htim_tx, hdma[TIM_DMA_ID_UPDATE], hdma_tx);
+ 666              		.loc 1 198 5 view .LVU225
+ 667              		.loc 1 198 5 view .LVU226
+ 668 006e 3462     		str	r4, [r6, #32]
+ 669              		.loc 1 198 5 view .LVU227
+ 670 0070 A663     		str	r6, [r4, #56]
+ 671              		.loc 1 198 5 view .LVU228
+ 199:yaskawa.c     **** 
+ 200:yaskawa.c     ****     // 启动DMA传输
+ 201:yaskawa.c     ****     HAL_DMA_Start(&hdma_tx, (uint32_t)yaskawa_handle.txbuf, 
+ 672              		.loc 1 201 5 view .LVU229
+ 673 0072 0E49     		ldr	r1, .L29+20
+ 674 0074 D1F81035 		ldr	r3, [r1, #1296]
+ 675 0078 0D4A     		ldr	r2, .L29+24
+ 676 007a 2046     		mov	r0, r4
+ 677 007c FFF7FEFF 		bl	HAL_DMA_Start
+ 678              	.LVL29:
+ 202:yaskawa.c     ****                   (uint32_t)&YASKAWA_TX_PORT->BSRR, yaskawa_handle.tx_buffer_pos);
+ 203:yaskawa.c     **** 
+ 204:yaskawa.c     ****     // 配置定时器DMA请求
+ 205:yaskawa.c     ****     __HAL_TIM_ENABLE_DMA(&htim_tx, TIM_DMA_UPDATE);
+ 679              		.loc 1 205 5 view .LVU230
+ 680 0080 3368     		ldr	r3, [r6]
+ 681 0082 DA68     		ldr	r2, [r3, #12]
+ 682 0084 42F48072 		orr	r2, r2, #256
+ 683 0088 DA60     		str	r2, [r3, #12]
+ 206:yaskawa.c     ****     __HAL_TIM_SET_COUNTER(&htim_tx, 0);
+ARM GAS  /tmp/ccZDFzwq.s 			page 17
+
+
+ 684              		.loc 1 206 5 view .LVU231
+ 685 008a 5D62     		str	r5, [r3, #36]
+ 207:yaskawa.c     ****     HAL_TIM_Base_Start(&htim_tx);
+ 686              		.loc 1 207 5 view .LVU232
+ 687 008c 3046     		mov	r0, r6
+ 688 008e FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 689              	.LVL30:
+ 208:yaskawa.c     **** }
+ 690              		.loc 1 208 1 is_stmt 0 view .LVU233
+ 691 0092 07B0     		add	sp, sp, #28
+ 692              	.LCFI10:
+ 693              		.cfi_def_cfa_offset 20
+ 694              		@ sp needed
+ 695 0094 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 696              	.L30:
+ 697 0096 00BF     		.align	2
+ 698              	.L29:
+ 699 0098 00180240 		.word	1073879040
+ 700 009c 00000240 		.word	1073872896
+ 701 00a0 00000000 		.word	htim_tx
+ 702 00a4 00000000 		.word	hdma_tx
+ 703 00a8 10600240 		.word	1073897488
+ 704 00ac 00000000 		.word	.LANCHOR0
+ 705 00b0 18000240 		.word	1073872920
+ 706              		.cfi_endproc
+ 707              	.LFE243:
+ 709              		.section	.text.yaskawa_start_reception,"ax",%progbits
+ 710              		.align	1
+ 711              		.global	yaskawa_start_reception
+ 712              		.syntax unified
+ 713              		.thumb
+ 714              		.thumb_func
+ 715              		.fpu fpv4-sp-d16
+ 717              	yaskawa_start_reception:
+ 718              	.LFB244:
+ 209:yaskawa.c     **** 
+ 210:yaskawa.c     **** void yaskawa_start_reception(void)
+ 211:yaskawa.c     **** {
+ 719              		.loc 1 211 1 is_stmt 1 view -0
+ 720              		.cfi_startproc
+ 721              		@ args = 0, pretend = 0, frame = 40
+ 722              		@ frame_needed = 0, uses_anonymous_args = 0
+ 723 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 724              	.LCFI11:
+ 725              		.cfi_def_cfa_offset 20
+ 726              		.cfi_offset 4, -20
+ 727              		.cfi_offset 5, -16
+ 728              		.cfi_offset 6, -12
+ 729              		.cfi_offset 7, -8
+ 730              		.cfi_offset 14, -4
+ 731 0002 8BB0     		sub	sp, sp, #44
+ 732              	.LCFI12:
+ 733              		.cfi_def_cfa_offset 64
+ 212:yaskawa.c     ****     // 禁用发送
+ 213:yaskawa.c     ****     HAL_GPIO_WritePin(YASKAWA_TXEN_PORT, YASKAWA_TXEN_PIN, GPIO_PIN_RESET);
+ 734              		.loc 1 213 5 view .LVU235
+ 735 0004 0022     		movs	r2, #0
+ARM GAS  /tmp/ccZDFzwq.s 			page 18
+
+
+ 736 0006 4FF48071 		mov	r1, #256
+ 737 000a 2B48     		ldr	r0, .L33
+ 738 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 739              	.LVL31:
+ 214:yaskawa.c     **** 
+ 215:yaskawa.c     ****     // 配置GPIO为复用功能模式
+ 216:yaskawa.c     ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 740              		.loc 1 216 5 view .LVU236
+ 217:yaskawa.c     ****     GPIO_InitStruct.Pin = YASKAWA_RX_PIN;
+ 741              		.loc 1 217 5 view .LVU237
+ 742              		.loc 1 217 25 is_stmt 0 view .LVU238
+ 743 0010 0823     		movs	r3, #8
+ 744 0012 0593     		str	r3, [sp, #20]
+ 218:yaskawa.c     ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 745              		.loc 1 218 5 is_stmt 1 view .LVU239
+ 746              		.loc 1 218 26 is_stmt 0 view .LVU240
+ 747 0014 0223     		movs	r3, #2
+ 748 0016 0693     		str	r3, [sp, #24]
+ 219:yaskawa.c     ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 749              		.loc 1 219 5 is_stmt 1 view .LVU241
+ 750              		.loc 1 219 26 is_stmt 0 view .LVU242
+ 751 0018 0025     		movs	r5, #0
+ 752 001a 0795     		str	r5, [sp, #28]
+ 220:yaskawa.c     ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+ 753              		.loc 1 220 5 is_stmt 1 view .LVU243
+ 754              		.loc 1 220 27 is_stmt 0 view .LVU244
+ 755 001c 0326     		movs	r6, #3
+ 756 001e 0896     		str	r6, [sp, #32]
+ 221:yaskawa.c     ****     GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
+ 757              		.loc 1 221 5 is_stmt 1 view .LVU245
+ 758              		.loc 1 221 31 is_stmt 0 view .LVU246
+ 759 0020 0127     		movs	r7, #1
+ 760 0022 0997     		str	r7, [sp, #36]
+ 222:yaskawa.c     ****     HAL_GPIO_Init(YASKAWA_RX_PORT, &GPIO_InitStruct);
+ 761              		.loc 1 222 5 is_stmt 1 view .LVU247
+ 762 0024 05A9     		add	r1, sp, #20
+ 763 0026 2548     		ldr	r0, .L33+4
+ 764 0028 FFF7FEFF 		bl	HAL_GPIO_Init
+ 765              	.LVL32:
+ 223:yaskawa.c     **** 
+ 224:yaskawa.c     ****     // 重新配置接收DMA
+ 225:yaskawa.c     ****     HAL_DMA_DeInit(&hdma_rx);
+ 766              		.loc 1 225 5 view .LVU248
+ 767 002c 244C     		ldr	r4, .L33+8
+ 768 002e 2046     		mov	r0, r4
+ 769 0030 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 770              	.LVL33:
+ 226:yaskawa.c     ****     hdma_rx.Instance = DMA1_Stream1; // 根据实际使用的DMA流设置
+ 771              		.loc 1 226 5 view .LVU249
+ 772              		.loc 1 226 22 is_stmt 0 view .LVU250
+ 773 0034 234B     		ldr	r3, .L33+12
+ 774 0036 2360     		str	r3, [r4]
+ 227:yaskawa.c     ****     hdma_rx.Init.Channel = DMA_CHANNEL_3; // 根据实际DMA通道设置
+ 775              		.loc 1 227 5 is_stmt 1 view .LVU251
+ 776              		.loc 1 227 26 is_stmt 0 view .LVU252
+ 777 0038 4FF0C063 		mov	r3, #100663296
+ 778 003c 6360     		str	r3, [r4, #4]
+ARM GAS  /tmp/ccZDFzwq.s 			page 19
+
+
+ 228:yaskawa.c     ****     hdma_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+ 779              		.loc 1 228 5 is_stmt 1 view .LVU253
+ 780              		.loc 1 228 28 is_stmt 0 view .LVU254
+ 781 003e A560     		str	r5, [r4, #8]
+ 229:yaskawa.c     ****     hdma_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+ 782              		.loc 1 229 5 is_stmt 1 view .LVU255
+ 783              		.loc 1 229 28 is_stmt 0 view .LVU256
+ 784 0040 E560     		str	r5, [r4, #12]
+ 230:yaskawa.c     ****     hdma_rx.Init.MemInc = DMA_MINC_ENABLE;
+ 785              		.loc 1 230 5 is_stmt 1 view .LVU257
+ 786              		.loc 1 230 25 is_stmt 0 view .LVU258
+ 787 0042 4FF48063 		mov	r3, #1024
+ 788 0046 2361     		str	r3, [r4, #16]
+ 231:yaskawa.c     ****     hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+ 789              		.loc 1 231 5 is_stmt 1 view .LVU259
+ 790              		.loc 1 231 38 is_stmt 0 view .LVU260
+ 791 0048 4FF48053 		mov	r3, #4096
+ 792 004c 6361     		str	r3, [r4, #20]
+ 232:yaskawa.c     ****     hdma_rx.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+ 793              		.loc 1 232 5 is_stmt 1 view .LVU261
+ 794              		.loc 1 232 35 is_stmt 0 view .LVU262
+ 795 004e 4FF48043 		mov	r3, #16384
+ 796 0052 A361     		str	r3, [r4, #24]
+ 233:yaskawa.c     ****     hdma_rx.Init.Mode = DMA_NORMAL;
+ 797              		.loc 1 233 5 is_stmt 1 view .LVU263
+ 798              		.loc 1 233 23 is_stmt 0 view .LVU264
+ 799 0054 E561     		str	r5, [r4, #28]
+ 234:yaskawa.c     ****     hdma_rx.Init.Priority = DMA_PRIORITY_HIGH;
+ 800              		.loc 1 234 5 is_stmt 1 view .LVU265
+ 801              		.loc 1 234 27 is_stmt 0 view .LVU266
+ 802 0056 4FF40033 		mov	r3, #131072
+ 803 005a 2362     		str	r3, [r4, #32]
+ 235:yaskawa.c     ****     hdma_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+ 804              		.loc 1 235 5 is_stmt 1 view .LVU267
+ 805              		.loc 1 235 27 is_stmt 0 view .LVU268
+ 806 005c 6562     		str	r5, [r4, #36]
+ 236:yaskawa.c     ****     hdma_rx.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+ 807              		.loc 1 236 5 is_stmt 1 view .LVU269
+ 808              		.loc 1 236 32 is_stmt 0 view .LVU270
+ 809 005e A662     		str	r6, [r4, #40]
+ 237:yaskawa.c     ****     hdma_rx.Init.MemBurst = DMA_MBURST_SINGLE;
+ 810              		.loc 1 237 5 is_stmt 1 view .LVU271
+ 811              		.loc 1 237 27 is_stmt 0 view .LVU272
+ 812 0060 E562     		str	r5, [r4, #44]
+ 238:yaskawa.c     ****     hdma_rx.Init.PeriphBurst = DMA_PBURST_SINGLE;
+ 813              		.loc 1 238 5 is_stmt 1 view .LVU273
+ 814              		.loc 1 238 30 is_stmt 0 view .LVU274
+ 815 0062 2563     		str	r5, [r4, #48]
+ 239:yaskawa.c     ****     HAL_DMA_Init(&hdma_rx);
+ 816              		.loc 1 239 5 is_stmt 1 view .LVU275
+ 817 0064 2046     		mov	r0, r4
+ 818 0066 FFF7FEFF 		bl	HAL_DMA_Init
+ 819              	.LVL34:
+ 240:yaskawa.c     **** 
+ 241:yaskawa.c     ****     // 设置DMA外设地址
+ 242:yaskawa.c     ****     __HAL_LINKDMA(&htim_rx, hdma[TIM_DMA_ID_CC4], hdma_rx);
+ 820              		.loc 1 242 5 view .LVU276
+ARM GAS  /tmp/ccZDFzwq.s 			page 20
+
+
+ 821              		.loc 1 242 5 view .LVU277
+ 822 006a 174E     		ldr	r6, .L33+16
+ 823 006c 3463     		str	r4, [r6, #48]
+ 824              		.loc 1 242 5 view .LVU278
+ 825 006e A663     		str	r6, [r4, #56]
+ 826              		.loc 1 242 5 view .LVU279
+ 243:yaskawa.c     **** 
+ 244:yaskawa.c     ****     // 启动接收DMA
+ 245:yaskawa.c     ****     HAL_DMA_Start(&hdma_rx, (uint32_t)&TIM2->CCR4, 
+ 827              		.loc 1 245 5 view .LVU280
+ 828 0070 4FF49673 		mov	r3, #300
+ 829 0074 154A     		ldr	r2, .L33+20
+ 830 0076 1649     		ldr	r1, .L33+24
+ 831 0078 2046     		mov	r0, r4
+ 832 007a FFF7FEFF 		bl	HAL_DMA_Start
+ 833              	.LVL35:
+ 246:yaskawa.c     ****                   (uint32_t)yaskawa_handle.timer_data, YASKAWA_TIM_DATA_SIZE);
+ 247:yaskawa.c     **** 
+ 248:yaskawa.c     ****     // 配置定时器
+ 249:yaskawa.c     ****     HAL_TIM_Base_Stop(&htim_rx);
+ 834              		.loc 1 249 5 view .LVU281
+ 835 007e 3046     		mov	r0, r6
+ 836 0080 FFF7FEFF 		bl	HAL_TIM_Base_Stop
+ 837              	.LVL36:
+ 250:yaskawa.c     ****     
+ 251:yaskawa.c     ****     // 使用HAL库配置定时器输入捕获
+ 252:yaskawa.c     ****     TIM_IC_InitTypeDef TIM_ICInitStruct = {0};
+ 838              		.loc 1 252 5 view .LVU282
+ 253:yaskawa.c     ****     TIM_ICInitStruct.ICPolarity = TIM_ICPOLARITY_BOTHEDGE;
+ 839              		.loc 1 253 5 view .LVU283
+ 840              		.loc 1 253 33 is_stmt 0 view .LVU284
+ 841 0084 0A23     		movs	r3, #10
+ 842 0086 0193     		str	r3, [sp, #4]
+ 254:yaskawa.c     ****     TIM_ICInitStruct.ICSelection = TIM_ICSELECTION_DIRECTTI;
+ 843              		.loc 1 254 5 is_stmt 1 view .LVU285
+ 844              		.loc 1 254 34 is_stmt 0 view .LVU286
+ 845 0088 0297     		str	r7, [sp, #8]
+ 255:yaskawa.c     ****     TIM_ICInitStruct.ICPrescaler = TIM_ICPSC_DIV1;
+ 846              		.loc 1 255 5 is_stmt 1 view .LVU287
+ 847              		.loc 1 255 34 is_stmt 0 view .LVU288
+ 848 008a 0395     		str	r5, [sp, #12]
+ 256:yaskawa.c     ****     TIM_ICInitStruct.ICFilter = 0;
+ 849              		.loc 1 256 5 is_stmt 1 view .LVU289
+ 850              		.loc 1 256 31 is_stmt 0 view .LVU290
+ 851 008c 0495     		str	r5, [sp, #16]
+ 257:yaskawa.c     ****     HAL_TIM_IC_ConfigChannel(&htim_rx, &TIM_ICInitStruct, TIM_CHANNEL_4);
+ 852              		.loc 1 257 5 is_stmt 1 view .LVU291
+ 853 008e 0C22     		movs	r2, #12
+ 854 0090 01A9     		add	r1, sp, #4
+ 855 0092 3046     		mov	r0, r6
+ 856 0094 FFF7FEFF 		bl	HAL_TIM_IC_ConfigChannel
+ 857              	.LVL37:
+ 258:yaskawa.c     ****     
+ 259:yaskawa.c     ****     // 配置定时器DMA请求
+ 260:yaskawa.c     ****     __HAL_TIM_ENABLE_DMA(&htim_rx, TIM_DMA_CC4);
+ 858              		.loc 1 260 5 view .LVU292
+ 859 0098 3368     		ldr	r3, [r6]
+ARM GAS  /tmp/ccZDFzwq.s 			page 21
+
+
+ 860 009a DA68     		ldr	r2, [r3, #12]
+ 861 009c 42F48052 		orr	r2, r2, #4096
+ 862 00a0 DA60     		str	r2, [r3, #12]
+ 261:yaskawa.c     ****     __HAL_TIM_SET_COUNTER(&htim_rx, 0);
+ 863              		.loc 1 261 5 view .LVU293
+ 864 00a2 5D62     		str	r5, [r3, #36]
+ 262:yaskawa.c     ****     __HAL_TIM_SET_COMPARE(&htim_rx, TIM_CHANNEL_4, 0);
+ 865              		.loc 1 262 5 view .LVU294
+ 866 00a4 1D64     		str	r5, [r3, #64]
+ 263:yaskawa.c     ****     HAL_TIM_Base_Start(&htim_rx);
+ 867              		.loc 1 263 5 view .LVU295
+ 868 00a6 3046     		mov	r0, r6
+ 869 00a8 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 870              	.LVL38:
+ 264:yaskawa.c     ****     HAL_TIM_IC_Start(&htim_rx, TIM_CHANNEL_4);
+ 871              		.loc 1 264 5 view .LVU296
+ 872 00ac 0C21     		movs	r1, #12
+ 873 00ae 3046     		mov	r0, r6
+ 874 00b0 FFF7FEFF 		bl	HAL_TIM_IC_Start
+ 875              	.LVL39:
+ 265:yaskawa.c     **** }
+ 876              		.loc 1 265 1 is_stmt 0 view .LVU297
+ 877 00b4 0BB0     		add	sp, sp, #44
+ 878              	.LCFI13:
+ 879              		.cfi_def_cfa_offset 20
+ 880              		@ sp needed
+ 881 00b6 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 882              	.L34:
+ 883              		.align	2
+ 884              	.L33:
+ 885 00b8 00180240 		.word	1073879040
+ 886 00bc 00000240 		.word	1073872896
+ 887 00c0 00000000 		.word	hdma_rx
+ 888 00c4 28600240 		.word	1073897512
+ 889 00c8 00000000 		.word	htim_rx
+ 890 00cc 96020000 		.word	.LANCHOR0+662
+ 891 00d0 40000040 		.word	1073741888
+ 892              		.cfi_endproc
+ 893              	.LFE244:
+ 895              		.section	.text.yaskawa_crc16_init,"ax",%progbits
+ 896              		.align	1
+ 897              		.global	yaskawa_crc16_init
+ 898              		.syntax unified
+ 899              		.thumb
+ 900              		.thumb_func
+ 901              		.fpu fpv4-sp-d16
+ 903              	yaskawa_crc16_init:
+ 904              	.LFB246:
+ 266:yaskawa.c     **** 
+ 267:yaskawa.c     **** void yaskawa_process_received_data(void)
+ 268:yaskawa.c     **** {
+ 269:yaskawa.c     ****     int count = YASKAWA_TIM_DATA_SIZE - DMA1_Stream7->NDTR;
+ 270:yaskawa.c     **** 
+ 271:yaskawa.c     ****     if (count < 80) {
+ 272:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 273:yaskawa.c     ****         return;
+ 274:yaskawa.c     ****     }
+ARM GAS  /tmp/ccZDFzwq.s 			page 22
+
+
+ 275:yaskawa.c     **** 
+ 276:yaskawa.c     ****     // 清空回复缓冲区
+ 277:yaskawa.c     ****     memset((void*)yaskawa_handle.reply_data, 0, YASKAWA_REPLY_SIZE);
+ 278:yaskawa.c     **** 
+ 279:yaskawa.c     ****     // Manchester解码
+ 280:yaskawa.c     ****     int read_counter = 0;
+ 281:yaskawa.c     ****     int bit_counter = 0;
+ 282:yaskawa.c     ****     int pol = 0;
+ 283:yaskawa.c     **** 
+ 284:yaskawa.c     ****     // 寻找同步模式
+ 285:yaskawa.c     ****     for(int i = 1; i < count - 1; i++) {
+ 286:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 287:yaskawa.c     ****             bit_counter++;
+ 288:yaskawa.c     ****         } else if(bit_counter == 10) {
+ 289:yaskawa.c     ****             read_counter = i + 1;
+ 290:yaskawa.c     ****             pol = 0;
+ 291:yaskawa.c     ****             break;
+ 292:yaskawa.c     ****         } else {
+ 293:yaskawa.c     ****             bit_counter = 0;
+ 294:yaskawa.c     ****         }
+ 295:yaskawa.c     ****     }
+ 296:yaskawa.c     **** 
+ 297:yaskawa.c     ****     if (read_counter == 0) {
+ 298:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 299:yaskawa.c     ****         return;
+ 300:yaskawa.c     ****     }
+ 301:yaskawa.c     **** 
+ 302:yaskawa.c     ****     // 解码数据位
+ 303:yaskawa.c     ****     int write_counter = 0;
+ 304:yaskawa.c     ****     int consecutive_ones = 0;
+ 305:yaskawa.c     **** 
+ 306:yaskawa.c     ****     for(int i = read_counter; i < count - 1 && write_counter < YASKAWA_DATA_BUFFER_SIZE - 1; i++) {
+ 307:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 308:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 309:yaskawa.c     ****             if(i >= count - 1) break;
+ 310:yaskawa.c     **** 
+ 311:yaskawa.c     ****             if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIM
+ 312:yaskawa.c     ****                 // 短-短: 无效
+ 313:yaskawa.c     ****                 yaskawa_handle.error_count++;
+ 314:yaskawa.c     ****                 return;
+ 315:yaskawa.c     ****             } else {
+ 316:yaskawa.c     ****                 // 短-长: 数据位
+ 317:yaskawa.c     ****                 pol = 1 - pol;
+ 318:yaskawa.c     ****             }
+ 319:yaskawa.c     ****         } else {
+ 320:yaskawa.c     ****             // 长脉冲: 极性变化
+ 321:yaskawa.c     ****             pol = 1 - pol;
+ 322:yaskawa.c     ****         }
+ 323:yaskawa.c     **** 
+ 324:yaskawa.c     ****         if(pol == 1) {
+ 325:yaskawa.c     ****             consecutive_ones++;
+ 326:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter] = '1';
+ 327:yaskawa.c     ****             if(write_counter < YASKAWA_REPLY_SIZE * 8) {
+ 328:yaskawa.c     ****                 yaskawa_handle.reply_data[write_counter / 8] |= 1 << (7 - (write_counter % 8));
+ 329:yaskawa.c     ****             }
+ 330:yaskawa.c     ****             write_counter++;
+ 331:yaskawa.c     ****         } else if(consecutive_ones == 5) {
+ARM GAS  /tmp/ccZDFzwq.s 			page 23
+
+
+ 332:yaskawa.c     ****             // 位填充: 忽略这个0
+ 333:yaskawa.c     ****             consecutive_ones = 0;
+ 334:yaskawa.c     ****         } else if(consecutive_ones == 6) {
+ 335:yaskawa.c     ****             // HDLC标志: 结束
+ 336:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter++] = 'H';
+ 337:yaskawa.c     ****             break;
+ 338:yaskawa.c     ****         } else {
+ 339:yaskawa.c     ****             consecutive_ones = 0;
+ 340:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter++] = '0';
+ 341:yaskawa.c     ****         }
+ 342:yaskawa.c     ****     }
+ 343:yaskawa.c     **** 
+ 344:yaskawa.c     ****     yaskawa_handle.manchester_data[write_counter] = '\0';
+ 345:yaskawa.c     **** 
+ 346:yaskawa.c     ****     // CRC校验
+ 347:yaskawa.c     ****     if (write_counter >= YASKAWA_REPLY_SIZE * 8) {
+ 348:yaskawa.c     ****         yaskawa_crc16_t received_crc = (yaskawa_handle.reply_data[13] & 0xFF) | 
+ 349:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
+ 350:yaskawa.c     ****         yaskawa_crc16_t calculated_crc = yaskawa_crc16_init();
+ 351:yaskawa.c     ****         calculated_crc = yaskawa_crc16_update(calculated_crc, yaskawa_handle.reply_data, 12);
+ 352:yaskawa.c     ****         calculated_crc = yaskawa_crc16_finalize(calculated_crc);
+ 353:yaskawa.c     **** 
+ 354:yaskawa.c     ****         if (received_crc == calculated_crc) {
+ 355:yaskawa.c     ****             yaskawa_handle.crc_ok_count++;
+ 356:yaskawa.c     **** 
+ 357:yaskawa.c     ****             // 提取位置数据 (假设在前15位，偏移64位)
+ 358:yaskawa.c     ****             uint32_t pos_raw = 0;
+ 359:yaskawa.c     ****             for(int i = 0; i < 15; i++) {
+ 360:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 361:yaskawa.c     ****                     pos_raw |= (1 << i);
+ 362:yaskawa.c     ****                 }
+ 363:yaskawa.c     ****             }
+ 364:yaskawa.c     **** 
+ 365:yaskawa.c     ****             // 转换为弧度 (-π 到 π)
+ 366:yaskawa.c     ****             yaskawa_handle.position = (float)pos_raw / (float)(1 << 15) * 2.0f * M_PI - M_PI;
+ 367:yaskawa.c     ****         } else {
+ 368:yaskawa.c     ****             yaskawa_handle.crc_error_count++;
+ 369:yaskawa.c     ****         }
+ 370:yaskawa.c     ****     }
+ 371:yaskawa.c     **** }
+ 372:yaskawa.c     **** 
+ 373:yaskawa.c     **** // CRC16实现 (简化版)
+ 374:yaskawa.c     **** yaskawa_crc16_t yaskawa_crc16_init(void)
+ 375:yaskawa.c     **** {
+ 905              		.loc 1 375 1 is_stmt 1 view -0
+ 906              		.cfi_startproc
+ 907              		@ args = 0, pretend = 0, frame = 0
+ 908              		@ frame_needed = 0, uses_anonymous_args = 0
+ 909              		@ link register save eliminated.
+ 376:yaskawa.c     ****     return 0xFFFF;
+ 910              		.loc 1 376 5 view .LVU299
+ 377:yaskawa.c     **** }
+ 911              		.loc 1 377 1 is_stmt 0 view .LVU300
+ 912 0000 4FF6FF70 		movw	r0, #65535
+ 913 0004 7047     		bx	lr
+ 914              		.cfi_endproc
+ 915              	.LFE246:
+ARM GAS  /tmp/ccZDFzwq.s 			page 24
+
+
+ 917              		.section	.text.yaskawa_crc16_update,"ax",%progbits
+ 918              		.align	1
+ 919              		.global	yaskawa_crc16_update
+ 920              		.syntax unified
+ 921              		.thumb
+ 922              		.thumb_func
+ 923              		.fpu fpv4-sp-d16
+ 925              	yaskawa_crc16_update:
+ 926              	.LVL40:
+ 927              	.LFB247:
+ 378:yaskawa.c     **** 
+ 379:yaskawa.c     **** yaskawa_crc16_t yaskawa_crc16_update(yaskawa_crc16_t crc, const uint8_t *data, uint16_t len)
+ 380:yaskawa.c     **** {
+ 928              		.loc 1 380 1 is_stmt 1 view -0
+ 929              		.cfi_startproc
+ 930              		@ args = 0, pretend = 0, frame = 0
+ 931              		@ frame_needed = 0, uses_anonymous_args = 0
+ 932              		@ link register save eliminated.
+ 933              		.loc 1 380 1 is_stmt 0 view .LVU302
+ 934 0000 30B4     		push	{r4, r5}
+ 935              	.LCFI14:
+ 936              		.cfi_def_cfa_offset 8
+ 937              		.cfi_offset 4, -8
+ 938              		.cfi_offset 5, -4
+ 381:yaskawa.c     ****     for (uint16_t i = 0; i < len; i++) {
+ 939              		.loc 1 381 5 is_stmt 1 view .LVU303
+ 940              	.LBB9:
+ 941              		.loc 1 381 10 view .LVU304
+ 942              	.LVL41:
+ 943              		.loc 1 381 19 is_stmt 0 view .LVU305
+ 944 0002 0025     		movs	r5, #0
+ 945              		.loc 1 381 5 view .LVU306
+ 946 0004 0DE0     		b	.L37
+ 947              	.LVL42:
+ 948              	.L39:
+ 949              	.LBB10:
+ 382:yaskawa.c     ****         crc ^= data[i];
+ 383:yaskawa.c     ****         for (int j = 0; j < 8; j++) {
+ 384:yaskawa.c     ****             if (crc & 1) {
+ 385:yaskawa.c     ****                 crc = (crc >> 1) ^ 0xA001;
+ 386:yaskawa.c     ****             } else {
+ 387:yaskawa.c     ****                 crc = crc >> 1;
+ 950              		.loc 1 387 17 is_stmt 1 view .LVU307
+ 951              		.loc 1 387 21 is_stmt 0 view .LVU308
+ 952 0006 4008     		lsrs	r0, r0, #1
+ 953              	.LVL43:
+ 954              	.L40:
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 955              		.loc 1 383 32 is_stmt 1 discriminator 2 view .LVU309
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 956              		.loc 1 383 33 is_stmt 0 discriminator 2 view .LVU310
+ 957 0008 0133     		adds	r3, r3, #1
+ 958              	.LVL44:
+ 959              	.L38:
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 960              		.loc 1 383 25 is_stmt 1 discriminator 1 view .LVU311
+ 383:yaskawa.c     ****             if (crc & 1) {
+ARM GAS  /tmp/ccZDFzwq.s 			page 25
+
+
+ 961              		.loc 1 383 9 is_stmt 0 discriminator 1 view .LVU312
+ 962 000a 072B     		cmp	r3, #7
+ 963 000c 07DC     		bgt	.L44
+ 384:yaskawa.c     ****                 crc = (crc >> 1) ^ 0xA001;
+ 964              		.loc 1 384 13 is_stmt 1 view .LVU313
+ 384:yaskawa.c     ****                 crc = (crc >> 1) ^ 0xA001;
+ 965              		.loc 1 384 16 is_stmt 0 view .LVU314
+ 966 000e 10F0010F 		tst	r0, #1
+ 967 0012 F8D0     		beq	.L39
+ 385:yaskawa.c     ****             } else {
+ 968              		.loc 1 385 17 is_stmt 1 view .LVU315
+ 385:yaskawa.c     ****             } else {
+ 969              		.loc 1 385 21 is_stmt 0 view .LVU316
+ 970 0014 4AF20104 		movw	r4, #40961
+ 971 0018 84EA5000 		eor	r0, r4, r0, lsr #1
+ 972              	.LVL45:
+ 385:yaskawa.c     ****             } else {
+ 973              		.loc 1 385 21 view .LVU317
+ 974 001c F4E7     		b	.L40
+ 975              	.L44:
+ 385:yaskawa.c     ****             } else {
+ 976              		.loc 1 385 21 view .LVU318
+ 977              	.LBE10:
+ 381:yaskawa.c     ****         crc ^= data[i];
+ 978              		.loc 1 381 35 is_stmt 1 discriminator 2 view .LVU319
+ 381:yaskawa.c     ****         crc ^= data[i];
+ 979              		.loc 1 381 36 is_stmt 0 discriminator 2 view .LVU320
+ 980 001e 0135     		adds	r5, r5, #1
+ 981              	.LVL46:
+ 381:yaskawa.c     ****         crc ^= data[i];
+ 982              		.loc 1 381 36 discriminator 2 view .LVU321
+ 983 0020 ADB2     		uxth	r5, r5
+ 984              	.LVL47:
+ 985              	.L37:
+ 381:yaskawa.c     ****         crc ^= data[i];
+ 986              		.loc 1 381 26 is_stmt 1 discriminator 1 view .LVU322
+ 381:yaskawa.c     ****         crc ^= data[i];
+ 987              		.loc 1 381 5 is_stmt 0 discriminator 1 view .LVU323
+ 988 0022 9542     		cmp	r5, r2
+ 989 0024 03D2     		bcs	.L45
+ 382:yaskawa.c     ****         for (int j = 0; j < 8; j++) {
+ 990              		.loc 1 382 9 is_stmt 1 view .LVU324
+ 382:yaskawa.c     ****         for (int j = 0; j < 8; j++) {
+ 991              		.loc 1 382 20 is_stmt 0 view .LVU325
+ 992 0026 4B5D     		ldrb	r3, [r1, r5]	@ zero_extendqisi2
+ 382:yaskawa.c     ****         for (int j = 0; j < 8; j++) {
+ 993              		.loc 1 382 13 view .LVU326
+ 994 0028 5840     		eors	r0, r0, r3
+ 995              	.LVL48:
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 996              		.loc 1 383 9 is_stmt 1 view .LVU327
+ 997              	.LBB11:
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 998              		.loc 1 383 14 view .LVU328
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 999              		.loc 1 383 18 is_stmt 0 view .LVU329
+ 1000 002a 0023     		movs	r3, #0
+ARM GAS  /tmp/ccZDFzwq.s 			page 26
+
+
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 1001              		.loc 1 383 9 view .LVU330
+ 1002 002c EDE7     		b	.L38
+ 1003              	.LVL49:
+ 1004              	.L45:
+ 383:yaskawa.c     ****             if (crc & 1) {
+ 1005              		.loc 1 383 9 view .LVU331
+ 1006              	.LBE11:
+ 1007              	.LBE9:
+ 388:yaskawa.c     ****             }
+ 389:yaskawa.c     ****         }
+ 390:yaskawa.c     ****     }
+ 391:yaskawa.c     ****     return crc;
+ 392:yaskawa.c     **** }
+ 1008              		.loc 1 392 1 view .LVU332
+ 1009 002e 30BC     		pop	{r4, r5}
+ 1010              	.LCFI15:
+ 1011              		.cfi_restore 5
+ 1012              		.cfi_restore 4
+ 1013              		.cfi_def_cfa_offset 0
+ 1014              	.LVL50:
+ 1015              		.loc 1 392 1 view .LVU333
+ 1016 0030 7047     		bx	lr
+ 1017              		.cfi_endproc
+ 1018              	.LFE247:
+ 1020              		.section	.text.yaskawa_crc16_finalize,"ax",%progbits
+ 1021              		.align	1
+ 1022              		.global	yaskawa_crc16_finalize
+ 1023              		.syntax unified
+ 1024              		.thumb
+ 1025              		.thumb_func
+ 1026              		.fpu fpv4-sp-d16
+ 1028              	yaskawa_crc16_finalize:
+ 1029              	.LVL51:
+ 1030              	.LFB248:
+ 393:yaskawa.c     **** 
+ 394:yaskawa.c     **** yaskawa_crc16_t yaskawa_crc16_finalize(yaskawa_crc16_t crc)
+ 395:yaskawa.c     **** {
+ 1031              		.loc 1 395 1 is_stmt 1 view -0
+ 1032              		.cfi_startproc
+ 1033              		@ args = 0, pretend = 0, frame = 0
+ 1034              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1035              		@ link register save eliminated.
+ 396:yaskawa.c     ****     return crc;
+ 1036              		.loc 1 396 5 view .LVU335
+ 397:yaskawa.c     **** }
+ 1037              		.loc 1 397 1 is_stmt 0 view .LVU336
+ 1038 0000 7047     		bx	lr
+ 1039              		.cfi_endproc
+ 1040              	.LFE248:
+ 1042              		.global	__aeabi_f2d
+ 1043              		.global	__aeabi_dmul
+ 1044              		.global	__aeabi_dsub
+ 1045              		.global	__aeabi_d2f
+ 1046              		.section	.text.yaskawa_process_received_data,"ax",%progbits
+ 1047              		.align	1
+ 1048              		.global	yaskawa_process_received_data
+ARM GAS  /tmp/ccZDFzwq.s 			page 27
+
+
+ 1049              		.syntax unified
+ 1050              		.thumb
+ 1051              		.thumb_func
+ 1052              		.fpu fpv4-sp-d16
+ 1054              	yaskawa_process_received_data:
+ 1055              	.LFB245:
+ 268:yaskawa.c     ****     int count = YASKAWA_TIM_DATA_SIZE - DMA1_Stream7->NDTR;
+ 1056              		.loc 1 268 1 is_stmt 1 view -0
+ 1057              		.cfi_startproc
+ 1058              		@ args = 0, pretend = 0, frame = 0
+ 1059              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1060 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1061              	.LCFI16:
+ 1062              		.cfi_def_cfa_offset 24
+ 1063              		.cfi_offset 3, -24
+ 1064              		.cfi_offset 4, -20
+ 1065              		.cfi_offset 5, -16
+ 1066              		.cfi_offset 6, -12
+ 1067              		.cfi_offset 7, -8
+ 1068              		.cfi_offset 14, -4
+ 269:yaskawa.c     **** 
+ 1069              		.loc 1 269 5 view .LVU338
+ 269:yaskawa.c     **** 
+ 1070              		.loc 1 269 53 is_stmt 0 view .LVU339
+ 1071 0002 834B     		ldr	r3, .L81+8
+ 1072 0004 5E68     		ldr	r6, [r3, #4]
+ 269:yaskawa.c     **** 
+ 1073              		.loc 1 269 39 view .LVU340
+ 1074 0006 C6F59676 		rsb	r6, r6, #300
+ 1075              	.LVL52:
+ 271:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 1076              		.loc 1 271 5 is_stmt 1 view .LVU341
+ 271:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 1077              		.loc 1 271 8 is_stmt 0 view .LVU342
+ 1078 000a 4F2E     		cmp	r6, #79
+ 1079 000c 06DC     		bgt	.L48
+ 272:yaskawa.c     ****         return;
+ 1080              		.loc 1 272 9 is_stmt 1 view .LVU343
+ 272:yaskawa.c     ****         return;
+ 1081              		.loc 1 272 23 is_stmt 0 view .LVU344
+ 1082 000e 814A     		ldr	r2, .L81+12
+ 1083 0010 D2F80035 		ldr	r3, [r2, #1280]
+ 272:yaskawa.c     ****         return;
+ 1084              		.loc 1 272 35 view .LVU345
+ 1085 0014 0133     		adds	r3, r3, #1
+ 1086 0016 C2F80035 		str	r3, [r2, #1280]
+ 273:yaskawa.c     ****     }
+ 1087              		.loc 1 273 9 is_stmt 1 view .LVU346
+ 1088              	.LVL53:
+ 1089              	.L47:
+ 371:yaskawa.c     **** 
+ 1090              		.loc 1 371 1 is_stmt 0 view .LVU347
+ 1091 001a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1092              	.LVL54:
+ 1093              	.L48:
+ 277:yaskawa.c     **** 
+ 1094              		.loc 1 277 5 is_stmt 1 view .LVU348
+ARM GAS  /tmp/ccZDFzwq.s 			page 28
+
+
+ 1095 001c 7D4B     		ldr	r3, .L81+12
+ 1096 001e 0025     		movs	r5, #0
+ 1097 0020 C3F8EE54 		str	r5, [r3, #1262]	@ unaligned
+ 1098 0024 C3F8F254 		str	r5, [r3, #1266]	@ unaligned
+ 1099 0028 C3F8F654 		str	r5, [r3, #1270]	@ unaligned
+ 1100 002c A3F8FA54 		strh	r5, [r3, #1274]	@ movhi
+ 280:yaskawa.c     ****     int bit_counter = 0;
+ 1101              		.loc 1 280 5 view .LVU349
+ 1102              	.LVL55:
+ 281:yaskawa.c     ****     int pol = 0;
+ 1103              		.loc 1 281 5 view .LVU350
+ 282:yaskawa.c     **** 
+ 1104              		.loc 1 282 5 view .LVU351
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1105              		.loc 1 285 5 view .LVU352
+ 1106              	.LBB12:
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1107              		.loc 1 285 9 view .LVU353
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1108              		.loc 1 285 13 is_stmt 0 view .LVU354
+ 1109 0030 0122     		movs	r2, #1
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1110              		.loc 1 285 5 view .LVU355
+ 1111 0032 03E0     		b	.L50
+ 1112              	.LVL56:
+ 1113              	.L51:
+ 288:yaskawa.c     ****             read_counter = i + 1;
+ 1114              		.loc 1 288 16 is_stmt 1 view .LVU356
+ 288:yaskawa.c     ****             read_counter = i + 1;
+ 1115              		.loc 1 288 18 is_stmt 0 view .LVU357
+ 1116 0034 0A2D     		cmp	r5, #10
+ 1117 0036 18D0     		beq	.L53
+ 293:yaskawa.c     ****         }
+ 1118              		.loc 1 293 25 view .LVU358
+ 1119 0038 0025     		movs	r5, #0
+ 1120              	.LVL57:
+ 1121              	.L52:
+ 293:yaskawa.c     ****         }
+ 1122              		.loc 1 293 25 discriminator 1 view .LVU359
+ 1123 003a 1A46     		mov	r2, r3
+ 1124              	.LVL58:
+ 1125              	.L50:
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1126              		.loc 1 285 20 is_stmt 1 discriminator 1 view .LVU360
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1127              		.loc 1 285 30 is_stmt 0 discriminator 1 view .LVU361
+ 1128 003c 741E     		subs	r4, r6, #1
+ 285:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1129              		.loc 1 285 5 discriminator 1 view .LVU362
+ 1130 003e 9442     		cmp	r4, r2
+ 1131 0040 12DD     		ble	.L73
+ 286:yaskawa.c     ****             bit_counter++;
+ 1132              		.loc 1 286 9 is_stmt 1 view .LVU363
+ 286:yaskawa.c     ****             bit_counter++;
+ 1133              		.loc 1 286 40 is_stmt 0 view .LVU364
+ 1134 0042 531C     		adds	r3, r2, #1
+ 286:yaskawa.c     ****             bit_counter++;
+ARM GAS  /tmp/ccZDFzwq.s 			page 29
+
+
+ 1135              		.loc 1 286 37 view .LVU365
+ 1136 0044 7348     		ldr	r0, .L81+12
+ 1137 0046 02F24911 		addw	r1, r2, #329
+ 1138 004a 00EB4101 		add	r1, r0, r1, lsl #1
+ 1139 004e C988     		ldrh	r1, [r1, #6]
+ 1140 0050 89B2     		uxth	r1, r1
+ 286:yaskawa.c     ****             bit_counter++;
+ 1141              		.loc 1 286 72 view .LVU366
+ 1142 0052 02F5A472 		add	r2, r2, #328
+ 1143              	.LVL59:
+ 286:yaskawa.c     ****             bit_counter++;
+ 1144              		.loc 1 286 72 view .LVU367
+ 1145 0056 00EB4202 		add	r2, r0, r2, lsl #1
+ 1146              	.LVL60:
+ 286:yaskawa.c     ****             bit_counter++;
+ 1147              		.loc 1 286 72 view .LVU368
+ 1148 005a D288     		ldrh	r2, [r2, #6]
+ 1149 005c 92B2     		uxth	r2, r2
+ 286:yaskawa.c     ****             bit_counter++;
+ 1150              		.loc 1 286 45 view .LVU369
+ 1151 005e 8A1A     		subs	r2, r1, r2
+ 286:yaskawa.c     ****             bit_counter++;
+ 1152              		.loc 1 286 11 view .LVU370
+ 1153 0060 0E2A     		cmp	r2, #14
+ 1154 0062 E7DC     		bgt	.L51
+ 287:yaskawa.c     ****         } else if(bit_counter == 10) {
+ 1155              		.loc 1 287 13 is_stmt 1 view .LVU371
+ 287:yaskawa.c     ****         } else if(bit_counter == 10) {
+ 1156              		.loc 1 287 24 is_stmt 0 view .LVU372
+ 1157 0064 0135     		adds	r5, r5, #1
+ 1158              	.LVL61:
+ 287:yaskawa.c     ****         } else if(bit_counter == 10) {
+ 1159              		.loc 1 287 24 view .LVU373
+ 1160 0066 E8E7     		b	.L52
+ 1161              	.LVL62:
+ 1162              	.L73:
+ 287:yaskawa.c     ****         } else if(bit_counter == 10) {
+ 1163              		.loc 1 287 24 view .LVU374
+ 1164              	.LBE12:
+ 280:yaskawa.c     ****     int bit_counter = 0;
+ 1165              		.loc 1 280 9 view .LVU375
+ 1166 0068 0023     		movs	r3, #0
+ 1167              	.LVL63:
+ 1168              	.L53:
+ 297:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 1169              		.loc 1 297 5 is_stmt 1 view .LVU376
+ 297:yaskawa.c     ****         yaskawa_handle.error_count++;
+ 1170              		.loc 1 297 8 is_stmt 0 view .LVU377
+ 1171 006a 1BB1     		cbz	r3, .L74
+ 304:yaskawa.c     **** 
+ 1172              		.loc 1 304 9 view .LVU378
+ 1173 006c 0026     		movs	r6, #0
+ 1174              	.LVL64:
+ 303:yaskawa.c     ****     int consecutive_ones = 0;
+ 1175              		.loc 1 303 9 view .LVU379
+ 1176 006e 3046     		mov	r0, r6
+ 1177 0070 3546     		mov	r5, r6
+ARM GAS  /tmp/ccZDFzwq.s 			page 30
+
+
+ 1178              	.LVL65:
+ 303:yaskawa.c     ****     int consecutive_ones = 0;
+ 1179              		.loc 1 303 9 view .LVU380
+ 1180 0072 1DE0     		b	.L55
+ 1181              	.LVL66:
+ 1182              	.L74:
+ 298:yaskawa.c     ****         return;
+ 1183              		.loc 1 298 9 is_stmt 1 view .LVU381
+ 298:yaskawa.c     ****         return;
+ 1184              		.loc 1 298 23 is_stmt 0 view .LVU382
+ 1185 0074 674A     		ldr	r2, .L81+12
+ 1186 0076 D2F80035 		ldr	r3, [r2, #1280]
+ 1187              	.LVL67:
+ 298:yaskawa.c     ****         return;
+ 1188              		.loc 1 298 35 view .LVU383
+ 1189 007a 0133     		adds	r3, r3, #1
+ 1190 007c C2F80035 		str	r3, [r2, #1280]
+ 299:yaskawa.c     ****     }
+ 1191              		.loc 1 299 9 is_stmt 1 view .LVU384
+ 1192 0080 CBE7     		b	.L47
+ 1193              	.LVL68:
+ 1194              	.L77:
+ 1195              	.LBB13:
+ 313:yaskawa.c     ****                 return;
+ 1196              		.loc 1 313 17 view .LVU385
+ 313:yaskawa.c     ****                 return;
+ 1197              		.loc 1 313 31 is_stmt 0 view .LVU386
+ 1198 0082 644A     		ldr	r2, .L81+12
+ 1199 0084 D2F80035 		ldr	r3, [r2, #1280]
+ 313:yaskawa.c     ****                 return;
+ 1200              		.loc 1 313 43 view .LVU387
+ 1201 0088 0133     		adds	r3, r3, #1
+ 1202 008a C2F80035 		str	r3, [r2, #1280]
+ 314:yaskawa.c     ****             } else {
+ 1203              		.loc 1 314 17 is_stmt 1 view .LVU388
+ 1204 008e C4E7     		b	.L47
+ 1205              	.LVL69:
+ 1206              	.L56:
+ 321:yaskawa.c     ****         }
+ 1207              		.loc 1 321 13 view .LVU389
+ 321:yaskawa.c     ****         }
+ 1208              		.loc 1 321 17 is_stmt 0 view .LVU390
+ 1209 0090 C5F10105 		rsb	r5, r5, #1
+ 1210              	.LVL70:
+ 1211              	.L59:
+ 324:yaskawa.c     ****             consecutive_ones++;
+ 1212              		.loc 1 324 9 is_stmt 1 view .LVU391
+ 324:yaskawa.c     ****             consecutive_ones++;
+ 1213              		.loc 1 324 11 is_stmt 0 view .LVU392
+ 1214 0094 012D     		cmp	r5, #1
+ 1215 0096 36D0     		beq	.L75
+ 331:yaskawa.c     ****             // 位填充: 忽略这个0
+ 1216              		.loc 1 331 16 is_stmt 1 view .LVU393
+ 331:yaskawa.c     ****             // 位填充: 忽略这个0
+ 1217              		.loc 1 331 18 is_stmt 0 view .LVU394
+ 1218 0098 052E     		cmp	r6, #5
+ 1219 009a 7ED0     		beq	.L71
+ARM GAS  /tmp/ccZDFzwq.s 			page 31
+
+
+ 334:yaskawa.c     ****             // HDLC标志: 结束
+ 1220              		.loc 1 334 16 is_stmt 1 view .LVU395
+ 334:yaskawa.c     ****             // HDLC标志: 结束
+ 1221              		.loc 1 334 18 is_stmt 0 view .LVU396
+ 1222 009c 062E     		cmp	r6, #6
+ 1223 009e 55D0     		beq	.L76
+ 339:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter++] = '0';
+ 1224              		.loc 1 339 13 is_stmt 1 view .LVU397
+ 1225              	.LVL71:
+ 340:yaskawa.c     ****         }
+ 1226              		.loc 1 340 13 view .LVU398
+ 340:yaskawa.c     ****         }
+ 1227              		.loc 1 340 61 is_stmt 0 view .LVU399
+ 1228 00a0 5C4A     		ldr	r2, .L81+12
+ 1229 00a2 0244     		add	r2, r2, r0
+ 1230 00a4 3021     		movs	r1, #48
+ 1231 00a6 82F80012 		strb	r1, [r2, #512]
+ 340:yaskawa.c     ****         }
+ 1232              		.loc 1 340 57 view .LVU400
+ 1233 00aa 0130     		adds	r0, r0, #1
+ 1234              	.LVL72:
+ 339:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter++] = '0';
+ 1235              		.loc 1 339 30 view .LVU401
+ 1236 00ac 0026     		movs	r6, #0
+ 1237              	.LVL73:
+ 1238              	.L63:
+ 306:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1239              		.loc 1 306 94 is_stmt 1 discriminator 2 view .LVU402
+ 306:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1240              		.loc 1 306 95 is_stmt 0 discriminator 2 view .LVU403
+ 1241 00ae 0133     		adds	r3, r3, #1
+ 1242              	.LVL74:
+ 1243              	.L55:
+ 306:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1244              		.loc 1 306 31 is_stmt 1 discriminator 1 view .LVU404
+ 306:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1245              		.loc 1 306 5 is_stmt 0 discriminator 1 view .LVU405
+ 1246 00b0 9C42     		cmp	r4, r3
+ 1247 00b2 51DD     		ble	.L57
+ 306:yaskawa.c     ****         if(yaskawa_handle.timer_data[i + 1] - yaskawa_handle.timer_data[i] < MANCHESTER_BIT_TIME) {
+ 1248              		.loc 1 306 45 discriminator 3 view .LVU406
+ 1249 00b4 9428     		cmp	r0, #148
+ 1250 00b6 4FDC     		bgt	.L57
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1251              		.loc 1 307 9 is_stmt 1 view .LVU407
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1252              		.loc 1 307 40 is_stmt 0 view .LVU408
+ 1253 00b8 5F1C     		adds	r7, r3, #1
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1254              		.loc 1 307 37 view .LVU409
+ 1255 00ba 5649     		ldr	r1, .L81+12
+ 1256 00bc 03F24912 		addw	r2, r3, #329
+ 1257 00c0 01EB4202 		add	r2, r1, r2, lsl #1
+ 1258 00c4 D288     		ldrh	r2, [r2, #6]
+ 1259 00c6 92B2     		uxth	r2, r2
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1260              		.loc 1 307 72 view .LVU410
+ARM GAS  /tmp/ccZDFzwq.s 			page 32
+
+
+ 1261 00c8 03F5A47C 		add	ip, r3, #328
+ 1262 00cc 01EB4C01 		add	r1, r1, ip, lsl #1
+ 1263 00d0 C988     		ldrh	r1, [r1, #6]
+ 1264 00d2 89B2     		uxth	r1, r1
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1265              		.loc 1 307 45 view .LVU411
+ 1266 00d4 521A     		subs	r2, r2, r1
+ 307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
+ 1267              		.loc 1 307 11 view .LVU412
+ 1268 00d6 0E2A     		cmp	r2, #14
+ 1269 00d8 DADC     		bgt	.L56
+ 308:yaskawa.c     ****             if(i >= count - 1) break;
+ 1270              		.loc 1 308 13 is_stmt 1 view .LVU413
+ 1271              	.LVL75:
+ 309:yaskawa.c     **** 
+ 1272              		.loc 1 309 13 view .LVU414
+ 309:yaskawa.c     **** 
+ 1273              		.loc 1 309 15 is_stmt 0 view .LVU415
+ 1274 00da BC42     		cmp	r4, r7
+ 1275 00dc 3CDD     		ble	.L57
+ 311:yaskawa.c     ****                 // 短-短: 无效
+ 1276              		.loc 1 311 13 is_stmt 1 view .LVU416
+ 311:yaskawa.c     ****                 // 短-短: 无效
+ 1277              		.loc 1 311 41 is_stmt 0 view .LVU417
+ 1278 00de 4D4A     		ldr	r2, .L81+12
+ 1279 00e0 03F5A573 		add	r3, r3, #330
+ 1280 00e4 02EB4303 		add	r3, r2, r3, lsl #1
+ 1281 00e8 DB88     		ldrh	r3, [r3, #6]
+ 1282 00ea 9BB2     		uxth	r3, r3
+ 311:yaskawa.c     ****                 // 短-短: 无效
+ 1283              		.loc 1 311 76 view .LVU418
+ 1284 00ec 07F5A471 		add	r1, r7, #328
+ 1285 00f0 02EB4102 		add	r2, r2, r1, lsl #1
+ 1286 00f4 D288     		ldrh	r2, [r2, #6]
+ 1287 00f6 92B2     		uxth	r2, r2
+ 311:yaskawa.c     ****                 // 短-短: 无效
+ 1288              		.loc 1 311 49 view .LVU419
+ 1289 00f8 9B1A     		subs	r3, r3, r2
+ 311:yaskawa.c     ****                 // 短-短: 无效
+ 1290              		.loc 1 311 15 view .LVU420
+ 1291 00fa 0E2B     		cmp	r3, #14
+ 1292 00fc C1DD     		ble	.L77
+ 317:yaskawa.c     ****             }
+ 1293              		.loc 1 317 17 is_stmt 1 view .LVU421
+ 317:yaskawa.c     ****             }
+ 1294              		.loc 1 317 21 is_stmt 0 view .LVU422
+ 1295 00fe C5F10105 		rsb	r5, r5, #1
+ 1296              	.LVL76:
+ 308:yaskawa.c     ****             if(i >= count - 1) break;
+ 1297              		.loc 1 308 14 view .LVU423
+ 1298 0102 3B46     		mov	r3, r7
+ 1299 0104 C6E7     		b	.L59
+ 1300              	.LVL77:
+ 1301              	.L75:
+ 325:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter] = '1';
+ 1302              		.loc 1 325 13 is_stmt 1 view .LVU424
+ 325:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter] = '1';
+ARM GAS  /tmp/ccZDFzwq.s 			page 33
+
+
+ 1303              		.loc 1 325 29 is_stmt 0 view .LVU425
+ 1304 0106 0136     		adds	r6, r6, #1
+ 1305              	.LVL78:
+ 326:yaskawa.c     ****             if(write_counter < YASKAWA_REPLY_SIZE * 8) {
+ 1306              		.loc 1 326 13 is_stmt 1 view .LVU426
+ 326:yaskawa.c     ****             if(write_counter < YASKAWA_REPLY_SIZE * 8) {
+ 1307              		.loc 1 326 59 is_stmt 0 view .LVU427
+ 1308 0108 424A     		ldr	r2, .L81+12
+ 1309 010a 0244     		add	r2, r2, r0
+ 1310 010c 3121     		movs	r1, #49
+ 1311 010e 82F80012 		strb	r1, [r2, #512]
+ 327:yaskawa.c     ****                 yaskawa_handle.reply_data[write_counter / 8] |= 1 << (7 - (write_counter % 8));
+ 1312              		.loc 1 327 13 is_stmt 1 view .LVU428
+ 327:yaskawa.c     ****                 yaskawa_handle.reply_data[write_counter / 8] |= 1 << (7 - (write_counter % 8));
+ 1313              		.loc 1 327 15 is_stmt 0 view .LVU429
+ 1314 0112 6F28     		cmp	r0, #111
+ 1315 0114 15DC     		bgt	.L61
+ 328:yaskawa.c     ****             }
+ 1316              		.loc 1 328 17 is_stmt 1 view .LVU430
+ 328:yaskawa.c     ****             }
+ 1317              		.loc 1 328 57 is_stmt 0 view .LVU431
+ 1318 0116 8446     		mov	ip, r0
+ 1319 0118 0028     		cmp	r0, #0
+ 1320 011a 14DB     		blt	.L78
+ 1321              	.L62:
+ 328:yaskawa.c     ****             }
+ 1322              		.loc 1 328 90 view .LVU432
+ 1323 011c 4742     		rsbs	r7, r0, #0
+ 1324 011e 00F00702 		and	r2, r0, #7
+ 1325 0122 07F00707 		and	r7, r7, #7
+ 1326 0126 58BF     		it	pl
+ 1327 0128 7A42     		rsbpl	r2, r7, #0
+ 328:yaskawa.c     ****             }
+ 1328              		.loc 1 328 73 view .LVU433
+ 1329 012a C2F10702 		rsb	r2, r2, #7
+ 328:yaskawa.c     ****             }
+ 1330              		.loc 1 328 67 view .LVU434
+ 1331 012e 0127     		movs	r7, #1
+ 1332 0130 9740     		lsls	r7, r7, r2
+ 328:yaskawa.c     ****             }
+ 1333              		.loc 1 328 62 view .LVU435
+ 1334 0132 3849     		ldr	r1, .L81+12
+ 1335 0134 01EBEC01 		add	r1, r1, ip, asr #3
+ 1336 0138 91F8EE24 		ldrb	r2, [r1, #1262]	@ zero_extendqisi2
+ 1337 013c 3A43     		orrs	r2, r2, r7
+ 1338 013e 81F8EE24 		strb	r2, [r1, #1262]
+ 1339              	.L61:
+ 330:yaskawa.c     ****         } else if(consecutive_ones == 5) {
+ 1340              		.loc 1 330 13 is_stmt 1 view .LVU436
+ 330:yaskawa.c     ****         } else if(consecutive_ones == 5) {
+ 1341              		.loc 1 330 26 is_stmt 0 view .LVU437
+ 1342 0142 0130     		adds	r0, r0, #1
+ 1343              	.LVL79:
+ 330:yaskawa.c     ****         } else if(consecutive_ones == 5) {
+ 1344              		.loc 1 330 26 view .LVU438
+ 1345 0144 B3E7     		b	.L63
+ 1346              	.L78:
+ARM GAS  /tmp/ccZDFzwq.s 			page 34
+
+
+ 328:yaskawa.c     ****             }
+ 1347              		.loc 1 328 57 view .LVU439
+ 1348 0146 00F1070C 		add	ip, r0, #7
+ 1349 014a E7E7     		b	.L62
+ 1350              	.L76:
+ 336:yaskawa.c     ****             break;
+ 1351              		.loc 1 336 13 is_stmt 1 view .LVU440
+ 1352              	.LVL80:
+ 336:yaskawa.c     ****             break;
+ 1353              		.loc 1 336 61 is_stmt 0 view .LVU441
+ 1354 014c 314B     		ldr	r3, .L81+12
+ 1355              	.LVL81:
+ 336:yaskawa.c     ****             break;
+ 1356              		.loc 1 336 61 view .LVU442
+ 1357 014e 0344     		add	r3, r3, r0
+ 1358 0150 4822     		movs	r2, #72
+ 1359 0152 83F80022 		strb	r2, [r3, #512]
+ 337:yaskawa.c     ****         } else {
+ 1360              		.loc 1 337 13 is_stmt 1 view .LVU443
+ 336:yaskawa.c     ****             break;
+ 1361              		.loc 1 336 57 is_stmt 0 view .LVU444
+ 1362 0156 0130     		adds	r0, r0, #1
+ 1363              	.LVL82:
+ 1364              	.L57:
+ 336:yaskawa.c     ****             break;
+ 1365              		.loc 1 336 57 view .LVU445
+ 1366              	.LBE13:
+ 344:yaskawa.c     **** 
+ 1367              		.loc 1 344 5 is_stmt 1 view .LVU446
+ 344:yaskawa.c     **** 
+ 1368              		.loc 1 344 51 is_stmt 0 view .LVU447
+ 1369 0158 2E4B     		ldr	r3, .L81+12
+ 1370 015a 0344     		add	r3, r3, r0
+ 1371 015c 0022     		movs	r2, #0
+ 1372 015e 83F80022 		strb	r2, [r3, #512]
+ 347:yaskawa.c     ****         yaskawa_crc16_t received_crc = (yaskawa_handle.reply_data[13] & 0xFF) | 
+ 1373              		.loc 1 347 5 is_stmt 1 view .LVU448
+ 347:yaskawa.c     ****         yaskawa_crc16_t received_crc = (yaskawa_handle.reply_data[13] & 0xFF) | 
+ 1374              		.loc 1 347 8 is_stmt 0 view .LVU449
+ 1375 0162 6F28     		cmp	r0, #111
+ 1376 0164 7FF759AF 		ble	.L47
+ 1377              	.LBB14:
+ 348:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
+ 1378              		.loc 1 348 9 is_stmt 1 view .LVU450
+ 348:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
+ 1379              		.loc 1 348 66 is_stmt 0 view .LVU451
+ 1380 0168 2A4D     		ldr	r5, .L81+12
+ 1381              	.LVL83:
+ 348:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
+ 1382              		.loc 1 348 66 view .LVU452
+ 1383 016a 95F8FB44 		ldrb	r4, [r5, #1275]	@ zero_extendqisi2
+ 1384              	.LVL84:
+ 349:yaskawa.c     ****         yaskawa_crc16_t calculated_crc = yaskawa_crc16_init();
+ 1385              		.loc 1 349 65 view .LVU453
+ 1386 016e 95F8FA34 		ldrb	r3, [r5, #1274]	@ zero_extendqisi2
+ 348:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
+ 1387              		.loc 1 348 25 view .LVU454
+ARM GAS  /tmp/ccZDFzwq.s 			page 35
+
+
+ 1388 0172 44EA0324 		orr	r4, r4, r3, lsl #8
+ 1389              	.LVL85:
+ 350:yaskawa.c     ****         calculated_crc = yaskawa_crc16_update(calculated_crc, yaskawa_handle.reply_data, 12);
+ 1390              		.loc 1 350 9 is_stmt 1 view .LVU455
+ 350:yaskawa.c     ****         calculated_crc = yaskawa_crc16_update(calculated_crc, yaskawa_handle.reply_data, 12);
+ 1391              		.loc 1 350 42 is_stmt 0 view .LVU456
+ 1392 0176 FFF7FEFF 		bl	yaskawa_crc16_init
+ 1393              	.LVL86:
+ 351:yaskawa.c     ****         calculated_crc = yaskawa_crc16_finalize(calculated_crc);
+ 1394              		.loc 1 351 9 is_stmt 1 view .LVU457
+ 351:yaskawa.c     ****         calculated_crc = yaskawa_crc16_finalize(calculated_crc);
+ 1395              		.loc 1 351 26 is_stmt 0 view .LVU458
+ 1396 017a 0C22     		movs	r2, #12
+ 1397 017c 05F2EE41 		addw	r1, r5, #1262
+ 1398 0180 FFF7FEFF 		bl	yaskawa_crc16_update
+ 1399              	.LVL87:
+ 352:yaskawa.c     **** 
+ 1400              		.loc 1 352 9 is_stmt 1 view .LVU459
+ 352:yaskawa.c     **** 
+ 1401              		.loc 1 352 26 is_stmt 0 view .LVU460
+ 1402 0184 FFF7FEFF 		bl	yaskawa_crc16_finalize
+ 1403              	.LVL88:
+ 354:yaskawa.c     ****             yaskawa_handle.crc_ok_count++;
+ 1404              		.loc 1 354 9 is_stmt 1 view .LVU461
+ 354:yaskawa.c     ****             yaskawa_handle.crc_ok_count++;
+ 1405              		.loc 1 354 12 is_stmt 0 view .LVU462
+ 1406 0188 8442     		cmp	r4, r0
+ 1407 018a 08D0     		beq	.L79
+ 368:yaskawa.c     ****         }
+ 1408              		.loc 1 368 13 is_stmt 1 view .LVU463
+ 368:yaskawa.c     ****         }
+ 1409              		.loc 1 368 27 is_stmt 0 view .LVU464
+ 1410 018c 214A     		ldr	r2, .L81+12
+ 1411 018e D2F80835 		ldr	r3, [r2, #1288]
+ 368:yaskawa.c     ****         }
+ 1412              		.loc 1 368 43 view .LVU465
+ 1413 0192 0133     		adds	r3, r3, #1
+ 1414 0194 C2F80835 		str	r3, [r2, #1288]
+ 1415 0198 3FE7     		b	.L47
+ 1416              	.LVL89:
+ 1417              	.L71:
+ 368:yaskawa.c     ****         }
+ 1418              		.loc 1 368 43 view .LVU466
+ 1419              	.LBE14:
+ 1420              	.LBB18:
+ 333:yaskawa.c     ****         } else if(consecutive_ones == 6) {
+ 1421              		.loc 1 333 30 view .LVU467
+ 1422 019a 0026     		movs	r6, #0
+ 1423              	.LVL90:
+ 333:yaskawa.c     ****         } else if(consecutive_ones == 6) {
+ 1424              		.loc 1 333 30 view .LVU468
+ 1425 019c 87E7     		b	.L63
+ 1426              	.LVL91:
+ 1427              	.L79:
+ 333:yaskawa.c     ****         } else if(consecutive_ones == 6) {
+ 1428              		.loc 1 333 30 view .LVU469
+ 1429              	.LBE18:
+ARM GAS  /tmp/ccZDFzwq.s 			page 36
+
+
+ 1430              	.LBB19:
+ 1431              	.LBB15:
+ 355:yaskawa.c     **** 
+ 1432              		.loc 1 355 13 is_stmt 1 view .LVU470
+ 355:yaskawa.c     **** 
+ 1433              		.loc 1 355 27 is_stmt 0 view .LVU471
+ 1434 019e D5F80435 		ldr	r3, [r5, #1284]
+ 355:yaskawa.c     **** 
+ 1435              		.loc 1 355 40 view .LVU472
+ 1436 01a2 0133     		adds	r3, r3, #1
+ 1437 01a4 C5F80435 		str	r3, [r5, #1284]
+ 358:yaskawa.c     ****             for(int i = 0; i < 15; i++) {
+ 1438              		.loc 1 358 13 is_stmt 1 view .LVU473
+ 1439              	.LVL92:
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1440              		.loc 1 359 13 view .LVU474
+ 1441              	.LBB16:
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1442              		.loc 1 359 17 view .LVU475
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1443              		.loc 1 359 21 is_stmt 0 view .LVU476
+ 1444 01a8 0023     		movs	r3, #0
+ 1445              	.LBE16:
+ 358:yaskawa.c     ****             for(int i = 0; i < 15; i++) {
+ 1446              		.loc 1 358 22 view .LVU477
+ 1447 01aa 1846     		mov	r0, r3
+ 1448              	.LVL93:
+ 1449              	.LBB17:
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1450              		.loc 1 359 13 view .LVU478
+ 1451 01ac 00E0     		b	.L67
+ 1452              	.LVL94:
+ 1453              	.L68:
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1454              		.loc 1 359 36 is_stmt 1 discriminator 2 view .LVU479
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1455              		.loc 1 359 37 is_stmt 0 discriminator 2 view .LVU480
+ 1456 01ae 0133     		adds	r3, r3, #1
+ 1457              	.LVL95:
+ 1458              	.L67:
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1459              		.loc 1 359 28 is_stmt 1 discriminator 1 view .LVU481
+ 359:yaskawa.c     ****                 if(yaskawa_handle.manchester_data[i + 64] == '1') {
+ 1460              		.loc 1 359 13 is_stmt 0 discriminator 1 view .LVU482
+ 1461 01b0 0E2B     		cmp	r3, #14
+ 1462 01b2 0CDC     		bgt	.L80
+ 360:yaskawa.c     ****                     pos_raw |= (1 << i);
+ 1463              		.loc 1 360 17 is_stmt 1 view .LVU483
+ 360:yaskawa.c     ****                     pos_raw |= (1 << i);
+ 1464              		.loc 1 360 53 is_stmt 0 view .LVU484
+ 1465 01b4 03F14001 		add	r1, r3, #64
+ 360:yaskawa.c     ****                     pos_raw |= (1 << i);
+ 1466              		.loc 1 360 50 view .LVU485
+ 1467 01b8 164A     		ldr	r2, .L81+12
+ 1468 01ba 0A44     		add	r2, r2, r1
+ 1469 01bc 92F80022 		ldrb	r2, [r2, #512]	@ zero_extendqisi2
+ 1470 01c0 D2B2     		uxtb	r2, r2
+ARM GAS  /tmp/ccZDFzwq.s 			page 37
+
+
+ 360:yaskawa.c     ****                     pos_raw |= (1 << i);
+ 1471              		.loc 1 360 19 view .LVU486
+ 1472 01c2 312A     		cmp	r2, #49
+ 1473 01c4 F3D1     		bne	.L68
+ 361:yaskawa.c     ****                 }
+ 1474              		.loc 1 361 21 is_stmt 1 view .LVU487
+ 361:yaskawa.c     ****                 }
+ 1475              		.loc 1 361 35 is_stmt 0 view .LVU488
+ 1476 01c6 0122     		movs	r2, #1
+ 1477 01c8 9A40     		lsls	r2, r2, r3
+ 361:yaskawa.c     ****                 }
+ 1478              		.loc 1 361 29 view .LVU489
+ 1479 01ca 1043     		orrs	r0, r0, r2
+ 1480              	.LVL96:
+ 361:yaskawa.c     ****                 }
+ 1481              		.loc 1 361 29 view .LVU490
+ 1482 01cc EFE7     		b	.L68
+ 1483              	.L80:
+ 361:yaskawa.c     ****                 }
+ 1484              		.loc 1 361 29 view .LVU491
+ 1485              	.LBE17:
+ 366:yaskawa.c     ****         } else {
+ 1486              		.loc 1 366 13 is_stmt 1 view .LVU492
+ 366:yaskawa.c     ****         } else {
+ 1487              		.loc 1 366 39 is_stmt 0 view .LVU493
+ 1488 01ce 07EE900A 		vmov	s15, r0	@ int
+ 1489 01d2 F8EE677A 		vcvt.f32.u32	s15, s15
+ 366:yaskawa.c     ****         } else {
+ 1490              		.loc 1 366 54 view .LVU494
+ 1491 01d6 9FED107A 		vldr.32	s14, .L81+16
+ 1492 01da 67EE877A 		vmul.f32	s15, s15, s14
+ 366:yaskawa.c     ****         } else {
+ 1493              		.loc 1 366 73 view .LVU495
+ 1494 01de 77EEA77A 		vadd.f32	s15, s15, s15
+ 1495 01e2 17EE900A 		vmov	r0, s15
+ 1496              	.LVL97:
+ 366:yaskawa.c     ****         } else {
+ 1497              		.loc 1 366 73 view .LVU496
+ 1498 01e6 FFF7FEFF 		bl	__aeabi_f2d
+ 1499              	.LVL98:
+ 366:yaskawa.c     ****         } else {
+ 1500              		.loc 1 366 80 view .LVU497
+ 1501 01ea 07A3     		adr	r3, .L81
+ 1502 01ec D3E90023 		ldrd	r2, [r3]
+ 1503 01f0 FFF7FEFF 		bl	__aeabi_dmul
+ 1504              	.LVL99:
+ 366:yaskawa.c     ****         } else {
+ 1505              		.loc 1 366 87 view .LVU498
+ 1506 01f4 04A3     		adr	r3, .L81
+ 1507 01f6 D3E90023 		ldrd	r2, [r3]
+ 1508 01fa FFF7FEFF 		bl	__aeabi_dsub
+ 1509              	.LVL100:
+ 1510 01fe FFF7FEFF 		bl	__aeabi_d2f
+ 1511              	.LVL101:
+ 366:yaskawa.c     ****         } else {
+ 1512              		.loc 1 366 37 view .LVU499
+ 1513 0202 064B     		ldr	r3, .L81+20
+ARM GAS  /tmp/ccZDFzwq.s 			page 38
+
+
+ 1514 0204 1860     		str	r0, [r3]	@ float
+ 1515              	.LBE15:
+ 1516 0206 08E7     		b	.L47
+ 1517              	.L82:
+ 1518              		.align	3
+ 1519              	.L81:
+ 1520 0208 182D4454 		.word	1413754136
+ 1521 020c FB210940 		.word	1074340347
+ 1522 0210 B8600240 		.word	1073897656
+ 1523 0214 00000000 		.word	.LANCHOR0
+ 1524 0218 00000038 		.word	939524096
+ 1525 021c FC040000 		.word	.LANCHOR0+1276
+ 1526              	.LBE19:
+ 1527              		.cfi_endproc
+ 1528              	.LFE245:
+ 1530              		.section	.text.yaskawa_update,"ax",%progbits
+ 1531              		.align	1
+ 1532              		.global	yaskawa_update
+ 1533              		.syntax unified
+ 1534              		.thumb
+ 1535              		.thumb_func
+ 1536              		.fpu fpv4-sp-d16
+ 1538              	yaskawa_update:
+ 1539              	.LFB242:
+ 133:yaskawa.c     ****     if (!yaskawa_handle.initialized) {
+ 1540              		.loc 1 133 1 is_stmt 1 view -0
+ 1541              		.cfi_startproc
+ 1542              		@ args = 0, pretend = 0, frame = 0
+ 1543              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1544 0000 08B5     		push	{r3, lr}
+ 1545              	.LCFI17:
+ 1546              		.cfi_def_cfa_offset 8
+ 1547              		.cfi_offset 3, -8
+ 1548              		.cfi_offset 14, -4
+ 134:yaskawa.c     ****         return;
+ 1549              		.loc 1 134 5 view .LVU501
+ 134:yaskawa.c     ****         return;
+ 1550              		.loc 1 134 24 is_stmt 0 view .LVU502
+ 1551 0002 0D4B     		ldr	r3, .L87
+ 1552 0004 93F80C35 		ldrb	r3, [r3, #1292]	@ zero_extendqisi2
+ 134:yaskawa.c     ****         return;
+ 1553              		.loc 1 134 8 view .LVU503
+ 1554 0008 ABB1     		cbz	r3, .L83
+ 1555              	.L85:
+ 141:yaskawa.c     **** 
+ 1556              		.loc 1 141 5 is_stmt 1 discriminator 1 view .LVU504
+ 139:yaskawa.c     ****         // 等待
+ 1557              		.loc 1 139 10 discriminator 1 view .LVU505
+ 139:yaskawa.c     ****         // 等待
+ 1558              		.loc 1 139 15 is_stmt 0 discriminator 1 view .LVU506
+ 1559 000a 4FF08043 		mov	r3, #1073741824
+ 1560 000e 5A6A     		ldr	r2, [r3, #36]
+ 139:yaskawa.c     ****         // 等待
+ 1561              		.loc 1 139 10 discriminator 1 view .LVU507
+ 1562 0010 40F6E343 		movw	r3, #3299
+ 1563 0014 9A42     		cmp	r2, r3
+ 1564 0016 F8D9     		bls	.L85
+ARM GAS  /tmp/ccZDFzwq.s 			page 39
+
+
+ 144:yaskawa.c     **** 
+ 1565              		.loc 1 144 5 is_stmt 1 view .LVU508
+ 1566 0018 FFF7FEFF 		bl	yaskawa_start_transmission
+ 1567              	.LVL102:
+ 151:yaskawa.c     **** 
+ 1568              		.loc 1 151 5 view .LVU509
+ 1569 001c 4FF0FF32 		mov	r2, #-1
+ 1570 0020 0021     		movs	r1, #0
+ 1571 0022 0648     		ldr	r0, .L87+4
+ 1572 0024 FFF7FEFF 		bl	HAL_DMA_PollForTransfer
+ 1573              	.LVL103:
+ 155:yaskawa.c     **** 
+ 1574              		.loc 1 155 5 view .LVU510
+ 1575 0028 FFF7FEFF 		bl	yaskawa_start_reception
+ 1576              	.LVL104:
+ 158:yaskawa.c     **** 
+ 1577              		.loc 1 158 5 view .LVU511
+ 1578 002c 0A20     		movs	r0, #10
+ 1579 002e FFF7FEFF 		bl	HAL_Delay
+ 1580              	.LVL105:
+ 161:yaskawa.c     **** }
+ 1581              		.loc 1 161 5 view .LVU512
+ 1582 0032 FFF7FEFF 		bl	yaskawa_process_received_data
+ 1583              	.LVL106:
+ 1584              	.L83:
+ 162:yaskawa.c     **** 
+ 1585              		.loc 1 162 1 is_stmt 0 view .LVU513
+ 1586 0036 08BD     		pop	{r3, pc}
+ 1587              	.L88:
+ 1588              		.align	2
+ 1589              	.L87:
+ 1590 0038 00000000 		.word	.LANCHOR0
+ 1591 003c 00000000 		.word	hdma_tx
+ 1592              		.cfi_endproc
+ 1593              	.LFE242:
+ 1595              		.section	.text.yaskawa_get_position,"ax",%progbits
+ 1596              		.align	1
+ 1597              		.global	yaskawa_get_position
+ 1598              		.syntax unified
+ 1599              		.thumb
+ 1600              		.thumb_func
+ 1601              		.fpu fpv4-sp-d16
+ 1603              	yaskawa_get_position:
+ 1604              	.LFB249:
+ 398:yaskawa.c     **** 
+ 399:yaskawa.c     **** // 公开接口函数
+ 400:yaskawa.c     **** float yaskawa_get_position(void)
+ 401:yaskawa.c     **** {
+ 1605              		.loc 1 401 1 is_stmt 1 view -0
+ 1606              		.cfi_startproc
+ 1607              		@ args = 0, pretend = 0, frame = 0
+ 1608              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1609              		@ link register save eliminated.
+ 402:yaskawa.c     ****     return yaskawa_handle.position;
+ 1610              		.loc 1 402 5 view .LVU515
+ 403:yaskawa.c     **** }
+ 1611              		.loc 1 403 1 is_stmt 0 view .LVU516
+ARM GAS  /tmp/ccZDFzwq.s 			page 40
+
+
+ 1612 0000 014B     		ldr	r3, .L90
+ 1613 0002 93ED000A 		vldr.32	s0, [r3]
+ 1614 0006 7047     		bx	lr
+ 1615              	.L91:
+ 1616              		.align	2
+ 1617              	.L90:
+ 1618 0008 FC040000 		.word	.LANCHOR0+1276
+ 1619              		.cfi_endproc
+ 1620              	.LFE249:
+ 1622              		.section	.text.yaskawa_get_error_count,"ax",%progbits
+ 1623              		.align	1
+ 1624              		.global	yaskawa_get_error_count
+ 1625              		.syntax unified
+ 1626              		.thumb
+ 1627              		.thumb_func
+ 1628              		.fpu fpv4-sp-d16
+ 1630              	yaskawa_get_error_count:
+ 1631              	.LFB250:
+ 404:yaskawa.c     **** 
+ 405:yaskawa.c     **** uint32_t yaskawa_get_error_count(void)
+ 406:yaskawa.c     **** {
+ 1632              		.loc 1 406 1 is_stmt 1 view -0
+ 1633              		.cfi_startproc
+ 1634              		@ args = 0, pretend = 0, frame = 0
+ 1635              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1636              		@ link register save eliminated.
+ 407:yaskawa.c     ****     return yaskawa_handle.error_count;
+ 1637              		.loc 1 407 5 view .LVU518
+ 408:yaskawa.c     **** }
+ 1638              		.loc 1 408 1 is_stmt 0 view .LVU519
+ 1639 0000 014B     		ldr	r3, .L93
+ 1640 0002 D3F80005 		ldr	r0, [r3, #1280]
+ 1641 0006 7047     		bx	lr
+ 1642              	.L94:
+ 1643              		.align	2
+ 1644              	.L93:
+ 1645 0008 00000000 		.word	.LANCHOR0
+ 1646              		.cfi_endproc
+ 1647              	.LFE250:
+ 1649              		.section	.text.yaskawa_get_crc_ok,"ax",%progbits
+ 1650              		.align	1
+ 1651              		.global	yaskawa_get_crc_ok
+ 1652              		.syntax unified
+ 1653              		.thumb
+ 1654              		.thumb_func
+ 1655              		.fpu fpv4-sp-d16
+ 1657              	yaskawa_get_crc_ok:
+ 1658              	.LFB251:
+ 409:yaskawa.c     **** 
+ 410:yaskawa.c     **** uint32_t yaskawa_get_crc_ok(void)
+ 411:yaskawa.c     **** {
+ 1659              		.loc 1 411 1 is_stmt 1 view -0
+ 1660              		.cfi_startproc
+ 1661              		@ args = 0, pretend = 0, frame = 0
+ 1662              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1663              		@ link register save eliminated.
+ 412:yaskawa.c     ****     return yaskawa_handle.crc_ok_count;
+ARM GAS  /tmp/ccZDFzwq.s 			page 41
+
+
+ 1664              		.loc 1 412 5 view .LVU521
+ 413:yaskawa.c     **** }
+ 1665              		.loc 1 413 1 is_stmt 0 view .LVU522
+ 1666 0000 014B     		ldr	r3, .L96
+ 1667 0002 D3F80405 		ldr	r0, [r3, #1284]
+ 1668 0006 7047     		bx	lr
+ 1669              	.L97:
+ 1670              		.align	2
+ 1671              	.L96:
+ 1672 0008 00000000 		.word	.LANCHOR0
+ 1673              		.cfi_endproc
+ 1674              	.LFE251:
+ 1676              		.section	.text.yaskawa_get_crc_error,"ax",%progbits
+ 1677              		.align	1
+ 1678              		.global	yaskawa_get_crc_error
+ 1679              		.syntax unified
+ 1680              		.thumb
+ 1681              		.thumb_func
+ 1682              		.fpu fpv4-sp-d16
+ 1684              	yaskawa_get_crc_error:
+ 1685              	.LFB252:
+ 414:yaskawa.c     **** 
+ 415:yaskawa.c     **** uint32_t yaskawa_get_crc_error(void)
+ 416:yaskawa.c     **** {
+ 1686              		.loc 1 416 1 is_stmt 1 view -0
+ 1687              		.cfi_startproc
+ 1688              		@ args = 0, pretend = 0, frame = 0
+ 1689              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1690              		@ link register save eliminated.
+ 417:yaskawa.c     ****     return yaskawa_handle.crc_error_count;
+ 1691              		.loc 1 417 5 view .LVU524
+ 418:yaskawa.c     **** }
+ 1692              		.loc 1 418 1 is_stmt 0 view .LVU525
+ 1693 0000 014B     		ldr	r3, .L99
+ 1694 0002 D3F80805 		ldr	r0, [r3, #1288]
+ 1695 0006 7047     		bx	lr
+ 1696              	.L100:
+ 1697              		.align	2
+ 1698              	.L99:
+ 1699 0008 00000000 		.word	.LANCHOR0
+ 1700              		.cfi_endproc
+ 1701              	.LFE252:
+ 1703              		.comm	htim_rx,72,4
+ 1704              		.comm	htim_tx,72,4
+ 1705              		.comm	hdma_rx,96,4
+ 1706              		.comm	hdma_tx,96,4
+ 1707              		.section	.bss.yaskawa_handle,"aw",%nobits
+ 1708              		.align	2
+ 1709              		.set	.LANCHOR0,. + 0
+ 1712              	yaskawa_handle:
+ 1713 0000 00000000 		.space	1300
+ 1713      00000000 
+ 1713      00000000 
+ 1713      00000000 
+ 1713      00000000 
+ 1714              		.text
+ 1715              	.Letext0:
+ARM GAS  /tmp/ccZDFzwq.s 			page 42
+
+
+ 1716              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 1717              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 1718              		.file 4 "CMSIS_5/CMSIS/Core/Include/core_cm4.h"
+ 1719              		.file 5 "cmsis-device-f4/Include/system_stm32f4xx.h"
+ 1720              		.file 6 "cmsis-device-f4/Include/stm32f407xx.h"
+ 1721              		.file 7 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_def.h"
+ 1722              		.file 8 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_gpio.h"
+ 1723              		.file 9 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma.h"
+ 1724              		.file 10 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_tim.h"
+ 1725              		.file 11 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h"
+ 1726              		.file 12 "yaskawa.h"
+ 1727              		.file 13 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/lock.h"
+ 1728              		.file 14 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_types.h"
+ 1729              		.file 15 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/lib/gcc/arm-none-eabi/9.2.1/include/stdde
+ 1730              		.file 16 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/reent.h"
+ 1731              		.file 17 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/math.h"
+ARM GAS  /tmp/ccZDFzwq.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 yaskawa.c
+     /tmp/ccZDFzwq.s:18     .text.yaskawa_hw_init:0000000000000000 $t
+     /tmp/ccZDFzwq.s:26     .text.yaskawa_hw_init:0000000000000000 yaskawa_hw_init
+     /tmp/ccZDFzwq.s:267    .text.yaskawa_hw_init:00000000000000fc $d
+                            *COM*:0000000000000048 htim_tx
+                            *COM*:0000000000000048 htim_rx
+                            *COM*:0000000000000060 hdma_tx
+                            *COM*:0000000000000060 hdma_rx
+     /tmp/ccZDFzwq.s:279    .rodata.yaskawa_build_request.str1.4:0000000000000000 $d
+     /tmp/ccZDFzwq.s:284    .text.yaskawa_build_request:0000000000000000 $t
+     /tmp/ccZDFzwq.s:291    .text.yaskawa_build_request:0000000000000000 yaskawa_build_request
+     /tmp/ccZDFzwq.s:499    .text.yaskawa_build_request:00000000000000d8 $d
+     /tmp/ccZDFzwq.s:505    .text.yaskawa_init:0000000000000000 $t
+     /tmp/ccZDFzwq.s:512    .text.yaskawa_init:0000000000000000 yaskawa_init
+     /tmp/ccZDFzwq.s:548    .text.yaskawa_init:0000000000000020 $d
+     /tmp/ccZDFzwq.s:553    .text.yaskawa_start_transmission:0000000000000000 $t
+     /tmp/ccZDFzwq.s:560    .text.yaskawa_start_transmission:0000000000000000 yaskawa_start_transmission
+     /tmp/ccZDFzwq.s:699    .text.yaskawa_start_transmission:0000000000000098 $d
+     /tmp/ccZDFzwq.s:710    .text.yaskawa_start_reception:0000000000000000 $t
+     /tmp/ccZDFzwq.s:717    .text.yaskawa_start_reception:0000000000000000 yaskawa_start_reception
+     /tmp/ccZDFzwq.s:885    .text.yaskawa_start_reception:00000000000000b8 $d
+     /tmp/ccZDFzwq.s:896    .text.yaskawa_crc16_init:0000000000000000 $t
+     /tmp/ccZDFzwq.s:903    .text.yaskawa_crc16_init:0000000000000000 yaskawa_crc16_init
+     /tmp/ccZDFzwq.s:918    .text.yaskawa_crc16_update:0000000000000000 $t
+     /tmp/ccZDFzwq.s:925    .text.yaskawa_crc16_update:0000000000000000 yaskawa_crc16_update
+     /tmp/ccZDFzwq.s:1021   .text.yaskawa_crc16_finalize:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1028   .text.yaskawa_crc16_finalize:0000000000000000 yaskawa_crc16_finalize
+     /tmp/ccZDFzwq.s:1047   .text.yaskawa_process_received_data:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1054   .text.yaskawa_process_received_data:0000000000000000 yaskawa_process_received_data
+     /tmp/ccZDFzwq.s:1520   .text.yaskawa_process_received_data:0000000000000208 $d
+     /tmp/ccZDFzwq.s:1531   .text.yaskawa_update:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1538   .text.yaskawa_update:0000000000000000 yaskawa_update
+     /tmp/ccZDFzwq.s:1590   .text.yaskawa_update:0000000000000038 $d
+     /tmp/ccZDFzwq.s:1596   .text.yaskawa_get_position:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1603   .text.yaskawa_get_position:0000000000000000 yaskawa_get_position
+     /tmp/ccZDFzwq.s:1618   .text.yaskawa_get_position:0000000000000008 $d
+     /tmp/ccZDFzwq.s:1623   .text.yaskawa_get_error_count:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1630   .text.yaskawa_get_error_count:0000000000000000 yaskawa_get_error_count
+     /tmp/ccZDFzwq.s:1645   .text.yaskawa_get_error_count:0000000000000008 $d
+     /tmp/ccZDFzwq.s:1650   .text.yaskawa_get_crc_ok:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1657   .text.yaskawa_get_crc_ok:0000000000000000 yaskawa_get_crc_ok
+     /tmp/ccZDFzwq.s:1672   .text.yaskawa_get_crc_ok:0000000000000008 $d
+     /tmp/ccZDFzwq.s:1677   .text.yaskawa_get_crc_error:0000000000000000 $t
+     /tmp/ccZDFzwq.s:1684   .text.yaskawa_get_crc_error:0000000000000000 yaskawa_get_crc_error
+     /tmp/ccZDFzwq.s:1699   .text.yaskawa_get_crc_error:0000000000000008 $d
+     /tmp/ccZDFzwq.s:1708   .bss.yaskawa_handle:0000000000000000 $d
+     /tmp/ccZDFzwq.s:1712   .bss.yaskawa_handle:0000000000000000 yaskawa_handle
+
+UNDEFINED SYMBOLS
+HAL_TIM_Base_Init
+HAL_TIM_IC_ConfigChannel
+HAL_DMA_Init
+HAL_GPIO_WritePin
+HAL_GPIO_Init
+HAL_TIM_Base_Stop
+HAL_DMA_DeInit
+ARM GAS  /tmp/ccZDFzwq.s 			page 44
+
+
+HAL_DMA_Start
+HAL_TIM_Base_Start
+HAL_TIM_IC_Start
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_dsub
+__aeabi_d2f
+HAL_DMA_PollForTransfer
+HAL_Delay

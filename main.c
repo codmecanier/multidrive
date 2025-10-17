@@ -8,6 +8,7 @@
 void SystemClock_Config(void);
 void MX_GPIO_Init(void);
 void MX_UART4_Init(void);
+void Error_Handler(void);
 
 UART_HandleTypeDef huart4;
 
@@ -72,7 +73,9 @@ void SystemClock_Config(void)
     RCC_OscInitStruct.PLL.PLLN = 336; // 1MHz * 336 = 336MHz
     RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2; // 336MHz / 2 = 168MHz
     RCC_OscInitStruct.PLL.PLLQ = 7;  // 336MHz / 7 = 48MHz (USB)
-    HAL_RCC_OscConfig(&RCC_OscInitStruct);
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
 
     // 配置系统时钟
     RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -81,7 +84,9 @@ void SystemClock_Config(void)
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;   // 168MHz
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;    // 42MHz
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;    // 84MHz
-    HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
+        Error_Handler();
+    }
 }
 
 void MX_UART4_Init(void)
@@ -94,7 +99,9 @@ void MX_UART4_Init(void)
     huart4.Init.Mode = UART_MODE_TX_RX;
     huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
     huart4.Init.OverSampling = UART_OVERSAMPLING_16;
-    HAL_UART_Init(&huart4);
+    if (HAL_UART_Init(&huart4) != HAL_OK) {
+        Error_Handler();
+    }
 }
 
 void MX_GPIO_Init(void)
@@ -133,6 +140,15 @@ void MX_GPIO_Init(void)
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, GPIO_PIN_RESET);
 }
 
+void Error_Handler(void)
+{
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1) {
+        // 错误处理
+    }
+}
+
 // 重定向printf到UART
 int _write(int file, char *ptr, int len)
 {
@@ -148,3 +164,11 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
         __HAL_RCC_GPIOA_CLK_ENABLE();
     }
 }
+
+#ifdef USE_FULL_ASSERT
+void assert_failed(uint8_t *file, uint32_t line)
+{
+    /* User can add his own implementation to report the file name and line number,
+       tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+}
+#endif /* USE_FULL_ASSERT */

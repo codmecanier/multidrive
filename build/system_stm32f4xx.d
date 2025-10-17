@@ -1,4 +1,5 @@
-build/system_stm32f4xx.o: system_stm32f4xx.c \
+build/system_stm32f4xx.o: \
+ cmsis-device-f4/Source/Templates/system_stm32f4xx.c \
  cmsis-device-f4/Include/stm32f4xx.h \
  cmsis-device-f4/Include/stm32f407xx.h \
  CMSIS_5/CMSIS/Core/Include/core_cm4.h \

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccTvnoaR.s 			page 1
+ARM GAS  /tmp/cc5sygGF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
   28:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   [..]
   29:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     This driver implements a high level communication layer for read and write from/to
   30:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     this memory. The needed STM32 hardware resources (SDIO and GPIO) are performed by
-ARM GAS  /tmp/ccTvnoaR.s 			page 2
+ARM GAS  /tmp/cc5sygGF.s 			page 2
 
 
   31:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     the user in HAL_SD_MspInit() function (MSP layer).
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
   85:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         make sure that the SDIO_CK frequency doesn't exceed 400KHz.
   86:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
   87:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         This phase of initialization is done through SDIO_Init() and
-ARM GAS  /tmp/ccTvnoaR.s 			page 3
+ARM GAS  /tmp/cc5sygGF.s 			page 3
 
 
   88:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         SDIO_PowerState_ON() SDIO low level APIs.
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  142:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (+) You can write to SD card in polling mode by using function HAL_SD_WriteBlocks().
  143:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         This function support only 512-bytes block length (the block size should be
  144:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         chosen as 512 bytes).
-ARM GAS  /tmp/ccTvnoaR.s 			page 4
+ARM GAS  /tmp/cc5sygGF.s 			page 4
 
 
  145:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         You can choose either one block read operation or multiple block read operation
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  199:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (+) __HAL_SD_DMA_DISABLE: Disable the SDIO DMA transfer
  200:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (+) __HAL_SD_ENABLE_IT: Enable the SD device interrupt
  201:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (+) __HAL_SD_DISABLE_IT: Disable the SD device interrupt
-ARM GAS  /tmp/ccTvnoaR.s 			page 5
+ARM GAS  /tmp/cc5sygGF.s 			page 5
 
 
  202:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (+) __HAL_SD_GET_FLAG:Check whether the specified SD flag is set or not
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  256:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
  257:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  258:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** /* Includes ------------------------------------------------------------------*/
-ARM GAS  /tmp/ccTvnoaR.s 			page 6
+ARM GAS  /tmp/cc5sygGF.s 			page 6
 
 
  259:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #include "stm32f4xx_hal.h"
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  313:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  314:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** /** @addtogroup SD_Exported_Functions_Group1
  315:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****  *  @brief   Initialization and de-initialization functions
-ARM GAS  /tmp/ccTvnoaR.s 			page 7
+ARM GAS  /tmp/cc5sygGF.s 			page 7
 
 
  316:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****  *
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  370:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else
  371:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Init the low level hardware : GPIO, CLOCK, CORTEX...etc */
  372:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     HAL_SD_MspInit(hsd);
-ARM GAS  /tmp/ccTvnoaR.s 			page 8
+ARM GAS  /tmp/cc5sygGF.s 			page 8
 
 
  373:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #endif /* USE_HAL_SD_REGISTER_CALLBACKS */
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  427:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  428:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Required power up waiting time before starting the SD initialization  sequence */
  429:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   HAL_Delay(2);
-ARM GAS  /tmp/ccTvnoaR.s 			page 9
+ARM GAS  /tmp/cc5sygGF.s 			page 9
 
 
  430:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  484:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if defined (USE_HAL_SD_REGISTER_CALLBACKS) && (USE_HAL_SD_REGISTER_CALLBACKS == 1U)
  485:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(hsd->MspDeInitCallback == NULL)
  486:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 10
+ARM GAS  /tmp/cc5sygGF.s 			page 10
 
 
  487:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->MspDeInitCallback = HAL_SD_MspDeInit;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  541:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** @verbatim
  542:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   ==============================================================================
  543:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****                         ##### IO operation functions #####
-ARM GAS  /tmp/ccTvnoaR.s 			page 11
+ARM GAS  /tmp/cc5sygGF.s 			page 11
 
 
  544:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   ==============================================================================
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  598:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  599:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  600:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Configure the SD DPSM (Data Path State Machine) */
-ARM GAS  /tmp/ccTvnoaR.s 			page 12
+ARM GAS  /tmp/cc5sygGF.s 			page 12
 
 
  601:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DataTimeOut   = SDMMC_DATATIMEOUT;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  655:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           tempbuff++;
  656:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           dataremaining--;
  657:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           *tempbuff = (uint8_t)((data >> 24U) & 0xFFU);
-ARM GAS  /tmp/ccTvnoaR.s 			page 13
+ARM GAS  /tmp/cc5sygGF.s 			page 13
 
 
  658:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           tempbuff++;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  712:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->State = HAL_SD_STATE_READY;
  713:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->Context = SD_CONTEXT_NONE;
  714:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
-ARM GAS  /tmp/ccTvnoaR.s 			page 14
+ARM GAS  /tmp/cc5sygGF.s 			page 14
 
 
  715:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  769:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
  770:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** }
  771:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 15
+ARM GAS  /tmp/cc5sygGF.s 			page 15
 
 
  772:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** /**
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  826:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     (void)SDIO_ConfigData(hsd->Instance, &config);
  827:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  828:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Write Blocks in Polling mode */
-ARM GAS  /tmp/ccTvnoaR.s 			page 16
+ARM GAS  /tmp/cc5sygGF.s 			page 16
 
 
  829:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if(NumberOfBlocks > 1U)
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  883:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       {
  884:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         /* Clear all the static flags */
  885:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         __HAL_SD_CLEAR_FLAG(hsd, SDIO_STATIC_FLAGS);
-ARM GAS  /tmp/ccTvnoaR.s 			page 17
+ARM GAS  /tmp/cc5sygGF.s 			page 17
 
 
  886:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         hsd->ErrorCode |= errorstate;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  940:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->State = HAL_SD_STATE_READY;
  941:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->Context = SD_CONTEXT_NONE;
  942:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
-ARM GAS  /tmp/ccTvnoaR.s 			page 18
+ARM GAS  /tmp/cc5sygGF.s 			page 18
 
 
  943:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  997:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  998:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->State = HAL_SD_STATE_BUSY;
  999:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 19
+ARM GAS  /tmp/cc5sygGF.s 			page 19
 
 
 1000:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Initialize data control register */
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1054:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
 1055:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     return HAL_BUSY;
 1056:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
-ARM GAS  /tmp/ccTvnoaR.s 			page 20
+ARM GAS  /tmp/cc5sygGF.s 			page 20
 
 
 1057:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** }
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1111:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       add *= 512U;
 1112:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
 1113:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 21
+ARM GAS  /tmp/cc5sygGF.s 			page 21
 
 
 1114:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Write Blocks in Polling mode */
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1168:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
 1169:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** HAL_StatusTypeDef HAL_SD_ReadBlocks_DMA(SD_HandleTypeDef *hsd, uint8_t *pData, uint32_t BlockAdd, u
 1170:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** {
-ARM GAS  /tmp/ccTvnoaR.s 			page 22
+ARM GAS  /tmp/cc5sygGF.s 			page 22
 
 
 1171:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   SDIO_DataInitTypeDef config;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1225:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 1226:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       /* Enable SD DMA transfer */
 1227:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       __HAL_SD_DMA_ENABLE(hsd);
-ARM GAS  /tmp/ccTvnoaR.s 			page 23
+ARM GAS  /tmp/cc5sygGF.s 			page 23
 
 
 1228:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1282:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @note   You could also check the DMA transfer process through the SD Tx
 1283:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   *         interrupt event.
 1284:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @param  hsd: Pointer to SD handle
-ARM GAS  /tmp/ccTvnoaR.s 			page 24
+ARM GAS  /tmp/cc5sygGF.s 			page 24
 
 
 1285:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @param  pData: Pointer to the buffer that will contain the data to transmit
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1339:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if(NumberOfBlocks > 1U)
 1340:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 1341:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->Context = (SD_CONTEXT_WRITE_MULTIPLE_BLOCK | SD_CONTEXT_DMA);
-ARM GAS  /tmp/ccTvnoaR.s 			page 25
+ARM GAS  /tmp/cc5sygGF.s 			page 25
 
 
 1342:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1396:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
 1397:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
 1398:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   else
-ARM GAS  /tmp/ccTvnoaR.s 			page 26
+ARM GAS  /tmp/cc5sygGF.s 			page 26
 
 
 1399:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1453:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
 1454:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
 1455:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 27
+ARM GAS  /tmp/cc5sygGF.s 			page 27
 
 
 1456:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Get start and end block for high capacity cards */
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1510:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** /**
 1511:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @brief  This function handles SD card interrupt request.
 1512:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @param  hsd: Pointer to SD handle
-ARM GAS  /tmp/ccTvnoaR.s 			page 28
+ARM GAS  /tmp/cc5sygGF.s 			page 28
 
 
 1513:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @retval None
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1567:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else
 1568:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         HAL_SD_RxCpltCallback(hsd);
 1569:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #endif /* USE_HAL_SD_REGISTER_CALLBACKS */
-ARM GAS  /tmp/ccTvnoaR.s 			page 29
+ARM GAS  /tmp/cc5sygGF.s 			page 29
 
 
 1570:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       }
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1624:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   else if(__HAL_SD_GET_FLAG(hsd, SDIO_FLAG_DCRCFAIL | SDIO_FLAG_DTIMEOUT | SDIO_FLAG_RXOVERR | SDIO
 1625:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #endif /* SDIO_STA_STBITERR */
 1626:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 30
+ARM GAS  /tmp/cc5sygGF.s 			page 30
 
 
 1627:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Set Error code */
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1681:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 1682:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       /* Abort the SD DMA channel */
 1683:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       if(((context & SD_CONTEXT_WRITE_SINGLE_BLOCK) != 0U) || ((context & SD_CONTEXT_WRITE_MULTIPLE
-ARM GAS  /tmp/ccTvnoaR.s 			page 31
+ARM GAS  /tmp/cc5sygGF.s 			page 31
 
 
 1684:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       {
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1738:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** * @param  hsd : Pointer to a SD_HandleTypeDef structure that contains
 1739:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   *              the configuration information.
 1740:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** * @retval SD Error Code
-ARM GAS  /tmp/ccTvnoaR.s 			page 32
+ARM GAS  /tmp/cc5sygGF.s 			page 32
 
 
 1741:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** */
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1795:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @retval None
 1796:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
 1797:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** __weak void HAL_SD_AbortCallback(SD_HandleTypeDef *hsd)
-ARM GAS  /tmp/ccTvnoaR.s 			page 33
+ARM GAS  /tmp/cc5sygGF.s 			page 33
 
 
 1798:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** {
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1852:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       break;
 1853:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     case HAL_SD_MSP_INIT_CB_ID :
 1854:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->MspInitCallback = pCallback;
-ARM GAS  /tmp/ccTvnoaR.s 			page 34
+ARM GAS  /tmp/cc5sygGF.s 			page 34
 
 
 1855:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       break;
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1909:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   *          @arg @ref HAL_SD_MSP_DEINIT_CB_ID SD MspDeInit Callback ID
 1910:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @retval status
 1911:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
-ARM GAS  /tmp/ccTvnoaR.s 			page 35
+ARM GAS  /tmp/cc5sygGF.s 			page 35
 
 
 1912:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** HAL_StatusTypeDef HAL_SD_UnRegisterCallback(SD_HandleTypeDef *hsd, HAL_SD_CallbackIDTypeDef Callbac
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1966:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
 1967:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   else
 1968:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 36
+ARM GAS  /tmp/cc5sygGF.s 			page 36
 
 
 1969:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Update the error code */
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2023:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2024:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCID->ManufactDate = (uint16_t)((hsd->CID[3] & 0x000FFF00U) >> 8U);
 2025:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 37
+ARM GAS  /tmp/cc5sygGF.s 			page 37
 
 
 2026:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCID->CID_CRC = (uint8_t)((hsd->CID[3] & 0x000000FEU) >> 1U);
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2080:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2081:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     pCSD->DeviceSizeMul = (uint8_t)((hsd->CSD[2] & 0x00038000U) >> 15U);
 2082:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 38
+ARM GAS  /tmp/cc5sygGF.s 			page 38
 
 
 2083:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->SdCard.BlockNbr  = (pCSD->DeviceSize + 1U) ;
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2137:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCSD->FileFormat = (uint8_t)((hsd->CSD[3] & 0x00000C00U) >> 10U);
 2138:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2139:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCSD->ECC= (uint8_t)((hsd->CSD[3] & 0x00000300U) >> 8U);
-ARM GAS  /tmp/ccTvnoaR.s 			page 39
+ARM GAS  /tmp/cc5sygGF.s 			page 39
 
 
 2140:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2194:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Set Block Size for Card */
 2195:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   errorstate = SDMMC_CmdBlockLength(hsd->Instance, BLOCKSIZE);
 2196:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(errorstate != HAL_SD_ERROR_NONE)
-ARM GAS  /tmp/ccTvnoaR.s 			page 40
+ARM GAS  /tmp/cc5sygGF.s 			page 40
 
 
 2197:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2251:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2252:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(hsd->SdCard.CardType != CARD_SECURED)
 2253:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 41
+ARM GAS  /tmp/cc5sygGF.s 			page 41
 
 
 2254:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if(WideMode == SDIO_BUS_WIDE_8B)
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2308:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     status = HAL_ERROR;
 2309:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
 2310:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 42
+ARM GAS  /tmp/cc5sygGF.s 			page 42
 
 
 2311:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Change State */
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2365:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if (((context & SD_CONTEXT_WRITE_SINGLE_BLOCK) != 0U) || ((context & SD_CONTEXT_WRITE_MULTIPLE_
 2366:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 2367:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       if(HAL_DMA_Abort(hsd->hdmatx) != HAL_OK)
-ARM GAS  /tmp/ccTvnoaR.s 			page 43
+ARM GAS  /tmp/cc5sygGF.s 			page 43
 
 
 2368:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       {
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2422:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Disable the SD DMA request */
 2423:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->Instance->DCTRL &= (uint32_t)~((uint32_t)SDIO_DCTRL_DMAEN);
 2424:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 44
+ARM GAS  /tmp/cc5sygGF.s 			page 44
 
 
 2425:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     /* Abort the SD DMA Tx channel */
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2479:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @}
 2480:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
 2481:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 45
+ARM GAS  /tmp/cc5sygGF.s 			page 45
 
 
 2482:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** /**
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2506:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @param  hdma: DMA handle
 2507:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @retval None
 2508:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
-ARM GAS  /tmp/ccTvnoaR.s 			page 46
+ARM GAS  /tmp/cc5sygGF.s 			page 46
 
 
 2509:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** static void SD_DMAReceiveCplt(DMA_HandleTypeDef *hdma)
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2563:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 2564:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       /* Clear All flags */
 2565:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       __HAL_SD_CLEAR_FLAG(hsd, SDIO_STATIC_FLAGS);
-ARM GAS  /tmp/ccTvnoaR.s 			page 47
+ARM GAS  /tmp/cc5sygGF.s 			page 47
 
 
 2566:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2620:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
 2621:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if (USE_HAL_SD_REGISTER_CALLBACKS == 1)
 2622:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->ErrorCallback(hsd);
-ARM GAS  /tmp/ccTvnoaR.s 			page 48
+ARM GAS  /tmp/cc5sygGF.s 			page 48
 
 
 2623:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2677:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint16_t sd_rca = 1U;
 2678:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2679:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Check the power State */
-ARM GAS  /tmp/ccTvnoaR.s 			page 49
+ARM GAS  /tmp/cc5sygGF.s 			page 49
 
 
 2680:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(SDIO_GetPowerState(hsd->Instance) == 0U)
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2734:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2735:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Get the Card Class */
 2736:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   hsd->SdCard.Class = (SDIO_GetResponse(hsd->Instance, SDIO_RESP2) >> 20U);
-ARM GAS  /tmp/ccTvnoaR.s 			page 50
+ARM GAS  /tmp/cc5sygGF.s 			page 50
 
 
 2737:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2769:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t errorstate;
   83              		.loc 1 2769 3 view .LVU11
 2770:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 51
+ARM GAS  /tmp/cc5sygGF.s 			page 51
 
 
 2771:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* CMD0: GO_IDLE_STATE */
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2812:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 2813:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return errorstate;
 2814:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
-ARM GAS  /tmp/ccTvnoaR.s 			page 52
+ARM GAS  /tmp/cc5sygGF.s 			page 52
 
 
 2815:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  114 001c FFF7FEFF 		bl	SDMMC_CmdOperCond
  115              	.LVL11:
 2780:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 53
+ARM GAS  /tmp/cc5sygGF.s 			page 53
 
 
  116              		.loc 1 2780 3 is_stmt 1 view .LVU21
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  154              		.loc 1 2787 14 view .LVU37
  155 0040 0546     		mov	r5, r0
  156 0042 E7E7     		b	.L2
-ARM GAS  /tmp/ccTvnoaR.s 			page 54
+ARM GAS  /tmp/cc5sygGF.s 			page 54
 
 
  157              	.L6:
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  196              		.loc 1 2810 18 view .LVU52
  197 006c FFF7FEFF 		bl	SDMMC_CmdAppCommand
  198              	.LVL21:
-ARM GAS  /tmp/ccTvnoaR.s 			page 55
+ARM GAS  /tmp/cc5sygGF.s 			page 55
 
 
 2811:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2832:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  237              		.loc 1 2832 5 view .LVU69
  238 0090 4FF6FE73 		movw	r3, #65534
-ARM GAS  /tmp/ccTvnoaR.s 			page 56
+ARM GAS  /tmp/cc5sygGF.s 			page 56
 
 
  239 0094 9A42     		cmp	r2, r3
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  284              		.thumb_func
  285              		.fpu fpv4-sp-d16
  287              	SD_PowerOFF:
-ARM GAS  /tmp/ccTvnoaR.s 			page 57
+ARM GAS  /tmp/cc5sygGF.s 			page 57
 
 
  288              	.LVL32:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2871:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t errorstate;
 2872:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t tickstart = HAL_GetTick();
 2873:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t count;
-ARM GAS  /tmp/ccTvnoaR.s 			page 58
+ARM GAS  /tmp/cc5sygGF.s 			page 58
 
 
 2874:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t *pData = pSDstatus;
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2928:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
 2929:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_SD_ERROR_TIMEOUT;
 2930:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
-ARM GAS  /tmp/ccTvnoaR.s 			page 59
+ARM GAS  /tmp/cc5sygGF.s 			page 59
 
 
 2931:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2985:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
 2986:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 2987:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   /* Send Status command */
-ARM GAS  /tmp/ccTvnoaR.s 			page 60
+ARM GAS  /tmp/cc5sygGF.s 			page 60
 
 
 2988:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   errorstate = SDMMC_CmdSendStatus(hsd->Instance, (uint32_t)(hsd->SdCard.RelCardAdd << 16U));
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3042:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
 3043:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
 3044:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
-ARM GAS  /tmp/ccTvnoaR.s 			page 61
+ARM GAS  /tmp/cc5sygGF.s 			page 61
 
 
 3045:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** }
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3099:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   * @retval error state
 3100:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   */
 3101:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** static uint32_t SD_FindSCR(SD_HandleTypeDef *hsd, uint32_t *pSCR)
-ARM GAS  /tmp/ccTvnoaR.s 			page 62
+ARM GAS  /tmp/cc5sygGF.s 			page 62
 
 
 3102:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** {
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3156:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
 3157:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if defined(SDIO_STA_STBITERR)
 3158:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(__HAL_SD_GET_FLAG(hsd, SDIO_FLAG_DTIMEOUT) || (__HAL_SD_GET_FLAG(hsd, SDIO_FLAG_STBITERR)))
-ARM GAS  /tmp/ccTvnoaR.s 			page 63
+ARM GAS  /tmp/cc5sygGF.s 			page 63
 
 
 3159:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else /* SDIO_STA_STBITERR not defined */
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  331              		.cfi_offset 4, -20
  332              		.cfi_offset 5, -16
  333              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccTvnoaR.s 			page 64
+ARM GAS  /tmp/cc5sygGF.s 			page 64
 
 
  334              		.cfi_offset 7, -8
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  371              		.loc 1 3220 7 is_stmt 1 discriminator 3 view .LVU106
  372              	.LVL41:
 3221:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       dataremaining--;
-ARM GAS  /tmp/ccTvnoaR.s 			page 65
+ARM GAS  /tmp/cc5sygGF.s 			page 65
 
 
  373              		.loc 1 3221 7 discriminator 3 view .LVU107
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3232:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
 3233:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** }
  413              		.loc 1 3233 1 view .LVU128
-ARM GAS  /tmp/ccTvnoaR.s 			page 66
+ARM GAS  /tmp/cc5sygGF.s 			page 66
 
 
  414 0034 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3249:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if (dataremaining > 0U)
  455              		.loc 1 3249 3 is_stmt 1 view .LVU138
  456              		.loc 1 3249 6 is_stmt 0 view .LVU139
-ARM GAS  /tmp/ccTvnoaR.s 			page 67
+ARM GAS  /tmp/cc5sygGF.s 			page 67
 
 
  457 0008 DEB1     		cbz	r6, .L31
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  496              		.loc 1 3264 7 is_stmt 1 discriminator 3 view .LVU159
  497              		.loc 1 3264 10 is_stmt 0 discriminator 3 view .LVU160
  498 002c 0434     		adds	r4, r4, #4
-ARM GAS  /tmp/ccTvnoaR.s 			page 68
+ARM GAS  /tmp/cc5sygGF.s 			page 68
 
 
  499              	.LVL55:
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  542              		.fpu fpv4-sp-d16
  544              	SD_SendSDStatus:
  545              	.LVL60:
-ARM GAS  /tmp/ccTvnoaR.s 			page 69
+ARM GAS  /tmp/cc5sygGF.s 			page 69
 
 
  546              	.LFB274:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2883:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(errorstate != HAL_SD_ERROR_NONE)
  587              		.loc 1 2883 3 is_stmt 1 view .LVU188
 2883:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(errorstate != HAL_SD_ERROR_NONE)
-ARM GAS  /tmp/ccTvnoaR.s 			page 70
+ARM GAS  /tmp/cc5sygGF.s 			page 70
 
 
  588              		.loc 1 2883 16 is_stmt 0 view .LVU189
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  626              	.L40:
 2899:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   config.DataLength    = 64U;
  627              		.loc 1 2899 3 is_stmt 1 view .LVU206
-ARM GAS  /tmp/ccTvnoaR.s 			page 71
+ARM GAS  /tmp/cc5sygGF.s 			page 71
 
 
 2899:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   config.DataLength    = 64U;
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2909:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  665              		.loc 1 2909 5 is_stmt 0 view .LVU224
  666 006a 0346     		mov	r3, r0
-ARM GAS  /tmp/ccTvnoaR.s 			page 72
+ARM GAS  /tmp/cc5sygGF.s 			page 72
 
 
  667 006c 80B1     		cbz	r0, .L41
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  705 008e 35D0     		beq	.L49
  706              	.L41:
 2916:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 73
+ARM GAS  /tmp/cc5sygGF.s 			page 73
 
 
  707              		.loc 1 2916 8 is_stmt 1 view .LVU241
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  745 00c4 23D1     		bne	.L57
  746              	.L46:
 2954:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 74
+ARM GAS  /tmp/cc5sygGF.s 			page 74
 
 
  747              		.loc 1 2954 9 is_stmt 1 view .LVU258
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  786              	.L37:
 2969:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  787              		.loc 1 2969 1 view .LVU274
-ARM GAS  /tmp/ccTvnoaR.s 			page 75
+ARM GAS  /tmp/cc5sygGF.s 			page 75
 
 
  788 00f6 1846     		mov	r0, r3
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  838              		.cfi_offset 4, -20
  839              		.cfi_offset 5, -16
  840              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccTvnoaR.s 			page 76
+ARM GAS  /tmp/cc5sygGF.s 			page 76
 
 
  841              		.cfi_offset 7, -8
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  880 0020 2846     		mov	r0, r5
  881 0022 09B0     		add	sp, sp, #36
  882              	.LCFI15:
-ARM GAS  /tmp/ccTvnoaR.s 			page 77
+ARM GAS  /tmp/cc5sygGF.s 			page 77
 
 
  883              		.cfi_remember_state
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  922              		.loc 1 3128 3 is_stmt 1 view .LVU310
 3128:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   config.DPSM          = SDIO_DPSM_ENABLE;
  923              		.loc 1 3128 24 is_stmt 0 view .LVU311
-ARM GAS  /tmp/ccTvnoaR.s 			page 78
+ARM GAS  /tmp/cc5sygGF.s 			page 78
 
 
  924 0048 0023     		movs	r3, #0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  962              		.loc 1 3151 9 is_stmt 0 view .LVU327
  963 006e FFF7FEFF 		bl	HAL_GetTick
  964              	.LVL99:
-ARM GAS  /tmp/ccTvnoaR.s 			page 79
+ARM GAS  /tmp/cc5sygGF.s 			page 79
 
 
 3151:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3167:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  1003              		.loc 1 3167 8 is_stmt 1 view .LVU344
 3167:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 80
+ARM GAS  /tmp/cc5sygGF.s 			page 80
 
 
  1004              		.loc 1 3167 11 is_stmt 0 view .LVU345
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1041              		.loc 1 3188 86 view .LVU362
  1042 00d6 1302     		lsls	r3, r2, #8
  1043 00d8 03F47F03 		and	r3, r3, #16711680
-ARM GAS  /tmp/ccTvnoaR.s 			page 81
+ARM GAS  /tmp/cc5sygGF.s 			page 81
 
 
 3188:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****             ((tempscr[0] & SDMMC_16TO23BITS) >> 8) | ((tempscr[0] & SDMMC_24TO31BITS) >> 24));
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3177:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
  1082              		.loc 1 3177 5 view .LVU379
 3177:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
-ARM GAS  /tmp/ccTvnoaR.s 			page 82
+ARM GAS  /tmp/cc5sygGF.s 			page 82
 
 
  1083              		.loc 1 3177 12 is_stmt 0 view .LVU380
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1129              		.loc 1 3010 7 view .LVU390
  1130 000e FFF7FEFF 		bl	SDIO_GetResponse
  1131              	.LVL111:
-ARM GAS  /tmp/ccTvnoaR.s 			page 83
+ARM GAS  /tmp/cc5sygGF.s 			page 83
 
 
 3010:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3034:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  1170              		.loc 1 3034 5 is_stmt 1 view .LVU407
  1171 003e 01E0     		b	.L76
-ARM GAS  /tmp/ccTvnoaR.s 			page 84
+ARM GAS  /tmp/cc5sygGF.s 			page 84
 
 
  1172              	.LVL117:
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3054:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t errorstate;
  1221              		.loc 1 3054 12 is_stmt 0 view .LVU415
  1222 0006 0021     		movs	r1, #0
-ARM GAS  /tmp/ccTvnoaR.s 			page 85
+ARM GAS  /tmp/cc5sygGF.s 			page 85
 
 
  1223 0008 0091     		str	r1, [sp]
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 3074:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  1261              		.loc 1 3074 7 is_stmt 0 view .LVU432
  1262 0034 30B9     		cbnz	r0, .L81
-ARM GAS  /tmp/ccTvnoaR.s 			page 86
+ARM GAS  /tmp/cc5sygGF.s 			page 86
 
 
 3080:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if(errorstate != HAL_SD_ERROR_NONE)
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1310              		@ frame_needed = 0, uses_anonymous_args = 0
 2979:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t errorstate;
  1311              		.loc 1 2979 1 is_stmt 0 view .LVU442
-ARM GAS  /tmp/ccTvnoaR.s 			page 87
+ARM GAS  /tmp/cc5sygGF.s 			page 87
 
 
  1312 0000 70B5     		push	{r4, r5, r6, lr}
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1353 001e FFF7FEFF 		bl	SDIO_GetResponse
  1354              	.LVL138:
 2995:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 88
+ARM GAS  /tmp/cc5sygGF.s 			page 88
 
 
  1355              		.loc 1 2995 16 view .LVU456
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  527:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  1406              		.loc 1 527 3 view .LVU464
  532:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 89
+ARM GAS  /tmp/cc5sygGF.s 			page 89
 
 
  1407              		.loc 1 532 1 is_stmt 0 view .LVU465
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1452 0018 A063     		str	r0, [r4, #56]
  498:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  1453              		.loc 1 498 3 is_stmt 1 view .LVU477
-ARM GAS  /tmp/ccTvnoaR.s 			page 90
+ARM GAS  /tmp/cc5sygGF.s 			page 90
 
 
  498:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1503              		.cfi_def_cfa_offset 64
  1504 0006 0546     		mov	r5, r0
  1505 0008 0C46     		mov	r4, r1
-ARM GAS  /tmp/ccTvnoaR.s 			page 91
+ARM GAS  /tmp/cc5sygGF.s 			page 91
 
 
  1506 000a 1646     		mov	r6, r2
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  590:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  1542              		.loc 1 590 5 is_stmt 1 view .LVU503
  590:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 92
+ARM GAS  /tmp/cc5sygGF.s 			page 92
 
 
  1543              		.loc 1 590 16 is_stmt 0 view .LVU504
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  605:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DPSM          = SDIO_DPSM_ENABLE;
  1580              		.loc 1 605 5 is_stmt 1 view .LVU522
  605:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DPSM          = SDIO_DPSM_ENABLE;
-ARM GAS  /tmp/ccTvnoaR.s 			page 93
+ARM GAS  /tmp/cc5sygGF.s 			page 93
 
 
  1581              		.loc 1 605 26 is_stmt 0 view .LVU523
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  637:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else /* SDIO_STA_STBITERR not defined */
  1619              		.loc 1 637 10 is_stmt 0 view .LVU540
  1620 0086 38E0     		b	.L109
-ARM GAS  /tmp/ccTvnoaR.s 			page 94
+ARM GAS  /tmp/cc5sygGF.s 			page 94
 
 
  1621              	.LVL154:
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1660              		.loc 1 628 7 view .LVU555
  628:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->State = HAL_SD_STATE_READY;
  1661              		.loc 1 628 22 is_stmt 0 view .LVU556
-ARM GAS  /tmp/ccTvnoaR.s 			page 95
+ARM GAS  /tmp/cc5sygGF.s 			page 95
 
 
  1662 00b2 AB6B     		ldr	r3, [r5, #56]
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1698              		.loc 1 653 11 discriminator 3 view .LVU574
  654:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           tempbuff++;
  1699              		.loc 1 654 11 discriminator 3 view .LVU575
-ARM GAS  /tmp/ccTvnoaR.s 			page 96
+ARM GAS  /tmp/cc5sygGF.s 			page 96
 
 
  654:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           tempbuff++;
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1736              		.loc 1 663 25 view .LVU593
  1737 00ec A0EB0900 		sub	r0, r0, r9
  663:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       {
-ARM GAS  /tmp/ccTvnoaR.s 			page 97
+ARM GAS  /tmp/cc5sygGF.s 			page 97
 
 
  1738              		.loc 1 663 9 view .LVU594
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  669:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         return HAL_TIMEOUT;
  1778              		.loc 1 669 22 is_stmt 0 view .LVU609
  1779 012a 0023     		movs	r3, #0
-ARM GAS  /tmp/ccTvnoaR.s 			page 98
+ARM GAS  /tmp/cc5sygGF.s 			page 98
 
 
  1780 012c 2B63     		str	r3, [r5, #48]
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1817              		.loc 1 707 12 view .LVU626
  1818 015a 12F0020F 		tst	r2, #2
  1819 015e 4CD1     		bne	.L129
-ARM GAS  /tmp/ccTvnoaR.s 			page 99
+ARM GAS  /tmp/cc5sygGF.s 			page 99
 
 
  716:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1855              		.loc 1 740 7 view .LVU645
  740:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       tempbuff++;
  1856              		.loc 1 740 19 is_stmt 0 view .LVU646
-ARM GAS  /tmp/ccTvnoaR.s 			page 100
+ARM GAS  /tmp/cc5sygGF.s 			page 100
 
 
  1857 0184 C0F30743 		ubfx	r3, r0, #16, #8
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  1894              		.loc 1 751 9 view .LVU663
  751:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         hsd->State= HAL_SD_STATE_READY;
  1895              		.loc 1 751 24 is_stmt 0 view .LVU664
-ARM GAS  /tmp/ccTvnoaR.s 			page 101
+ARM GAS  /tmp/cc5sygGF.s 			page 101
 
 
  1896 01ac AB6B     		ldr	r3, [r5, #56]
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  687:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           return HAL_ERROR;
  1934              		.loc 1 687 24 is_stmt 0 view .LVU681
  1935 01dc 0023     		movs	r3, #0
-ARM GAS  /tmp/ccTvnoaR.s 			page 102
+ARM GAS  /tmp/cc5sygGF.s 			page 102
 
 
  1936 01de 2B63     		str	r3, [r5, #48]
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  713:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
  1974              		.loc 1 713 7 is_stmt 1 view .LVU698
  713:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
-ARM GAS  /tmp/ccTvnoaR.s 			page 103
+ARM GAS  /tmp/cc5sygGF.s 			page 103
 
 
  1975              		.loc 1 713 20 is_stmt 0 view .LVU699
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2013              	.LVL179:
  2014              	.L103:
  767:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     return HAL_ERROR;
-ARM GAS  /tmp/ccTvnoaR.s 			page 104
+ARM GAS  /tmp/cc5sygGF.s 			page 104
 
 
  2015              		.loc 1 767 5 is_stmt 1 view .LVU716
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2064              		.cfi_offset 8, -20
  2065              		.cfi_offset 9, -16
  2066              		.cfi_offset 10, -12
-ARM GAS  /tmp/ccTvnoaR.s 			page 105
+ARM GAS  /tmp/cc5sygGF.s 			page 105
 
 
  2067              		.cfi_offset 11, -8
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  803:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  2105              		.loc 1 803 45 view .LVU740
  2106 0030 EA6D     		ldr	r2, [r5, #92]
-ARM GAS  /tmp/ccTvnoaR.s 			page 106
+ARM GAS  /tmp/cc5sygGF.s 			page 106
 
 
  803:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2143 0058 0693     		str	r3, [sp, #24]
  823:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.TransferMode  = SDIO_TRANSFER_MODE_BLOCK;
  2144              		.loc 1 823 5 is_stmt 1 view .LVU759
-ARM GAS  /tmp/ccTvnoaR.s 			page 107
+ARM GAS  /tmp/cc5sygGF.s 			page 107
 
 
  823:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.TransferMode  = SDIO_TRANSFER_MODE_BLOCK;
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2183 0082 ABB9     		cbnz	r3, .L156
  854:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if defined(SDIO_STA_STBITERR)
  2184              		.loc 1 854 5 is_stmt 1 view .LVU776
-ARM GAS  /tmp/ccTvnoaR.s 			page 108
+ARM GAS  /tmp/cc5sygGF.s 			page 108
 
 
  854:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if defined(SDIO_STA_STBITERR)
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2224              	.LVL193:
  841:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  2225              		.loc 1 841 20 view .LVU792
-ARM GAS  /tmp/ccTvnoaR.s 			page 109
+ARM GAS  /tmp/cc5sygGF.s 			page 109
 
 
  2226 00ae E7E7     		b	.L140
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2263              		.loc 1 869 16 discriminator 3 view .LVU809
  2264 00ce 43EA0223 		orr	r3, r3, r2, lsl #8
  870:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****           dataremaining--;
-ARM GAS  /tmp/ccTvnoaR.s 			page 110
+ARM GAS  /tmp/cc5sygGF.s 			page 110
 
 
  2265              		.loc 1 870 11 is_stmt 1 discriminator 3 view .LVU810
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2301              		.loc 1 864 25 is_stmt 1 discriminator 1 view .LVU828
  864:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         {
  2302              		.loc 1 864 9 is_stmt 0 discriminator 1 view .LVU829
-ARM GAS  /tmp/ccTvnoaR.s 			page 111
+ARM GAS  /tmp/cc5sygGF.s 			page 111
 
 
  2303 00f0 072E     		cmp	r6, #7
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2343              		.loc 1 886 9 view .LVU843
  886:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         hsd->State = HAL_SD_STATE_READY;
  2344              		.loc 1 886 24 is_stmt 0 view .LVU844
-ARM GAS  /tmp/ccTvnoaR.s 			page 112
+ARM GAS  /tmp/cc5sygGF.s 			page 112
 
 
  2345 0128 A86B     		ldr	r0, [r5, #56]
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2383              		.loc 1 914 7 view .LVU860
  2384 0156 12F0080F 		tst	r2, #8
  2385 015a 28D1     		bne	.L149
-ARM GAS  /tmp/ccTvnoaR.s 			page 113
+ARM GAS  /tmp/cc5sygGF.s 			page 113
 
 
  914:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else /* SDIO_STA_STBITERR not defined */
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2423              	.L158:
  899:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         if(errorstate != HAL_SD_ERROR_NONE)
  2424              		.loc 1 899 9 is_stmt 1 view .LVU878
-ARM GAS  /tmp/ccTvnoaR.s 			page 114
+ARM GAS  /tmp/cc5sygGF.s 			page 114
 
 
  899:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         if(errorstate != HAL_SD_ERROR_NONE)
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2463              		.loc 1 922 7 is_stmt 1 view .LVU894
  922:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->Context = SD_CONTEXT_NONE;
  2464              		.loc 1 922 18 is_stmt 0 view .LVU895
-ARM GAS  /tmp/ccTvnoaR.s 			page 115
+ARM GAS  /tmp/cc5sygGF.s 			page 115
 
 
  2465 01ba 0123     		movs	r3, #1
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2502 01e6 85F83430 		strb	r3, [r5, #52]
  954:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
  2503              		.loc 1 954 5 is_stmt 1 view .LVU913
-ARM GAS  /tmp/ccTvnoaR.s 			page 116
+ARM GAS  /tmp/cc5sygGF.s 			page 116
 
 
  954:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2551 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  2552              	.LCFI34:
  2553              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccTvnoaR.s 			page 117
+ARM GAS  /tmp/cc5sygGF.s 			page 117
 
 
  2554              		.cfi_offset 4, -20
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  992:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  2594              		.loc 1 992 7 view .LVU937
  2595 0022 8B42     		cmp	r3, r1
-ARM GAS  /tmp/ccTvnoaR.s 			page 118
+ARM GAS  /tmp/cc5sygGF.s 			page 118
 
 
  2596 0024 3ED8     		bhi	.L173
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1018:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DataLength    = BLOCKSIZE * NumberOfBlocks;
  2634              		.loc 1 1018 5 is_stmt 1 view .LVU954
 1018:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DataLength    = BLOCKSIZE * NumberOfBlocks;
-ARM GAS  /tmp/ccTvnoaR.s 			page 119
+ARM GAS  /tmp/cc5sygGF.s 			page 119
 
 
  2635              		.loc 1 1018 26 is_stmt 0 view .LVU955
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2672 0074 2363     		str	r3, [r4, #48]
 1032:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  2673              		.loc 1 1032 7 is_stmt 1 view .LVU973
-ARM GAS  /tmp/ccTvnoaR.s 			page 120
+ARM GAS  /tmp/cc5sygGF.s 			page 120
 
 
 1032:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2712 009a 43F00063 		orr	r3, r3, #134217728
  2713 009e 8363     		str	r3, [r0, #56]
  985:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
-ARM GAS  /tmp/ccTvnoaR.s 			page 121
+ARM GAS  /tmp/cc5sygGF.s 			page 121
 
 
  2714              		.loc 1 985 5 is_stmt 1 view .LVU990
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2756              	.LVL232:
  2757              	.L170:
  2758              	.LCFI37:
-ARM GAS  /tmp/ccTvnoaR.s 			page 122
+ARM GAS  /tmp/cc5sygGF.s 			page 122
 
 
  2759              		.cfi_restore_state
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1084:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  2807              		.loc 1 1084 3 is_stmt 1 view .LVU1011
 1084:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
-ARM GAS  /tmp/ccTvnoaR.s 			page 123
+ARM GAS  /tmp/cc5sygGF.s 			page 123
 
 
  2808              		.loc 1 1084 9 is_stmt 0 view .LVU1012
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2844              		.loc 1 1100 21 view .LVU1030
  2845 0032 6662     		str	r6, [r4, #36]
 1104:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #else /* SDIO_STA_STBITERR not defined */
-ARM GAS  /tmp/ccTvnoaR.s 			page 124
+ARM GAS  /tmp/cc5sygGF.s 			page 124
 
 
  2846              		.loc 1 1104 5 is_stmt 1 view .LVU1031
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2885 005a E8B1     		cbz	r0, .L183
 1132:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->ErrorCode |= errorstate;
  2886              		.loc 1 1132 7 is_stmt 1 view .LVU1047
-ARM GAS  /tmp/ccTvnoaR.s 			page 125
+ARM GAS  /tmp/cc5sygGF.s 			page 125
 
 
  2887 005c 2368     		ldr	r3, [r4]
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  2925 0080 A36B     		ldr	r3, [r4, #56]
  2926              	.LVL246:
 1090:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       return HAL_ERROR;
-ARM GAS  /tmp/ccTvnoaR.s 			page 126
+ARM GAS  /tmp/cc5sygGF.s 			page 126
 
 
  2927              		.loc 1 1090 22 view .LVU1064
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1144:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DPSM          = SDIO_DPSM_ENABLE;
  2965              		.loc 1 1144 5 is_stmt 1 view .LVU1081
 1144:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     config.DPSM          = SDIO_DPSM_ENABLE;
-ARM GAS  /tmp/ccTvnoaR.s 			page 127
+ARM GAS  /tmp/cc5sygGF.s 			page 127
 
 
  2966              		.loc 1 1144 26 is_stmt 0 view .LVU1082
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3011              		.fpu fpv4-sp-d16
  3013              	HAL_SD_ReadBlocks_DMA:
  3014              	.LVL255:
-ARM GAS  /tmp/ccTvnoaR.s 			page 128
+ARM GAS  /tmp/cc5sygGF.s 			page 128
 
 
  3015              	.LFB248:
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1183:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  3057              		.loc 1 1183 20 view .LVU1105
  3058 001c 8363     		str	r3, [r0, #56]
-ARM GAS  /tmp/ccTvnoaR.s 			page 129
+ARM GAS  /tmp/cc5sygGF.s 			page 129
 
 
 1185:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3096              		.loc 1 1194 8 is_stmt 0 view .LVU1122
  3097 0042 0368     		ldr	r3, [r0]
 1194:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 130
+ARM GAS  /tmp/cc5sygGF.s 			page 130
 
 
  3098              		.loc 1 1194 26 view .LVU1123
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3137 0076 0343     		orrs	r3, r3, r0
  3138 0078 0B60     		str	r3, [r1]
 1216:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
-ARM GAS  /tmp/ccTvnoaR.s 			page 131
+ARM GAS  /tmp/cc5sygGF.s 			page 131
 
 
  3139              		.loc 1 1216 5 view .LVU1139
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3177 00a8 9023     		movs	r3, #144
  3178 00aa 0293     		str	r3, [sp, #8]
 1238:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       config.TransferMode  = SDIO_TRANSFER_MODE_BLOCK;
-ARM GAS  /tmp/ccTvnoaR.s 			page 132
+ARM GAS  /tmp/cc5sygGF.s 			page 132
 
 
  3179              		.loc 1 1238 7 is_stmt 1 view .LVU1156
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3217 00d4 174A     		ldr	r2, .L203+12
  3218 00d6 9A63     		str	r2, [r3, #56]
 1262:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         hsd->State = HAL_SD_STATE_READY;
-ARM GAS  /tmp/ccTvnoaR.s 			page 133
+ARM GAS  /tmp/cc5sygGF.s 			page 133
 
 
  3219              		.loc 1 1262 9 view .LVU1173
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1222:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  3258              		.loc 1 1222 14 is_stmt 0 view .LVU1189
  3259 0108 07E0     		b	.L192
-ARM GAS  /tmp/ccTvnoaR.s 			page 134
+ARM GAS  /tmp/cc5sygGF.s 			page 134
 
 
  3260              	.LVL270:
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3307              		.global	HAL_SD_WriteBlocks_DMA
  3308              		.syntax unified
  3309              		.thumb
-ARM GAS  /tmp/ccTvnoaR.s 			page 135
+ARM GAS  /tmp/cc5sygGF.s 			page 135
 
 
  3310              		.thumb_func
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3353              	.LVL277:
 1304:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  3354              		.loc 1 1304 20 view .LVU1210
-ARM GAS  /tmp/ccTvnoaR.s 			page 136
+ARM GAS  /tmp/cc5sygGF.s 			page 136
 
 
  3355 001c 8363     		str	r3, [r0, #56]
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3392              		.loc 1 1328 36 view .LVU1227
  3393 0048 3848     		ldr	r0, .L218+4
  3394 004a D864     		str	r0, [r3, #76]
-ARM GAS  /tmp/ccTvnoaR.s 			page 137
+ARM GAS  /tmp/cc5sygGF.s 			page 137
 
 
 1331:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3432 006e 9A63     		str	r2, [r3, #56]
 1357:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->State = HAL_SD_STATE_READY;
  3433              		.loc 1 1357 7 view .LVU1245
-ARM GAS  /tmp/ccTvnoaR.s 			page 138
+ARM GAS  /tmp/cc5sygGF.s 			page 138
 
 
 1357:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->State = HAL_SD_STATE_READY;
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1309:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  3472              		.loc 1 1309 14 is_stmt 0 view .LVU1262
  3473 0096 44E0     		b	.L207
-ARM GAS  /tmp/ccTvnoaR.s 			page 139
+ARM GAS  /tmp/cc5sygGF.s 			page 139
 
 
  3474              	.LVL286:
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3514 00c6 B308     		lsrs	r3, r6, #2
  3515 00c8 8032     		adds	r2, r2, #128
  3516 00ca 3946     		mov	r1, r7
-ARM GAS  /tmp/ccTvnoaR.s 			page 140
+ARM GAS  /tmp/cc5sygGF.s 			page 140
 
 
  3517 00cc E06B     		ldr	r0, [r4, #60]
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3556 00fe 4FF0FF33 		mov	r3, #-1
  3557 0102 0093     		str	r3, [sp]
 1388:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       config.DataBlockSize = SDIO_DATABLOCK_SIZE_512B;
-ARM GAS  /tmp/ccTvnoaR.s 			page 141
+ARM GAS  /tmp/cc5sygGF.s 			page 141
 
 
  3558              		.loc 1 1388 7 is_stmt 1 view .LVU1292
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3597              		@ sp needed
  3598 0126 F0BD     		pop	{r4, r5, r6, r7, pc}
  3599              	.LVL295:
-ARM GAS  /tmp/ccTvnoaR.s 			page 142
+ARM GAS  /tmp/cc5sygGF.s 			page 142
 
 
  3600              	.L219:
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3647 000c 0446     		mov	r4, r0
  3648 000e 0F46     		mov	r7, r1
  3649 0010 1646     		mov	r6, r2
-ARM GAS  /tmp/ccTvnoaR.s 			page 143
+ARM GAS  /tmp/cc5sygGF.s 			page 143
 
 
 1421:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3686              		.loc 1 1443 18 is_stmt 0 view .LVU1334
  3687 003c 0123     		movs	r3, #1
  3688 003e 80F83430 		strb	r3, [r0, #52]
-ARM GAS  /tmp/ccTvnoaR.s 			page 144
+ARM GAS  /tmp/cc5sygGF.s 			page 144
 
 
 1444:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3726              		.loc 1 1457 19 is_stmt 0 view .LVU1351
  3727 0066 636C     		ldr	r3, [r4, #68]
 1457:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
-ARM GAS  /tmp/ccTvnoaR.s 			page 145
+ARM GAS  /tmp/cc5sygGF.s 			page 145
 
 
  3728              		.loc 1 1457 7 view .LVU1352
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3766              		.loc 1 1474 9 is_stmt 1 view .LVU1368
 1474:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       }
  3767              		.loc 1 1474 16 is_stmt 0 view .LVU1369
-ARM GAS  /tmp/ccTvnoaR.s 			page 146
+ARM GAS  /tmp/cc5sygGF.s 			page 146
 
 
  3768 0090 2DE0     		b	.L221
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3807              		.loc 1 1491 5 is_stmt 1 view .LVU1384
 1491:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  3808              		.loc 1 1491 7 is_stmt 0 view .LVU1385
-ARM GAS  /tmp/ccTvnoaR.s 			page 147
+ARM GAS  /tmp/cc5sygGF.s 			page 147
 
 
  3809 00b8 98B1     		cbz	r0, .L229
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3847 00e4 84F83430 		strb	r3, [r4, #52]
 1502:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
  3848              		.loc 1 1502 5 is_stmt 1 view .LVU1402
-ARM GAS  /tmp/ccTvnoaR.s 			page 148
+ARM GAS  /tmp/cc5sygGF.s 			page 148
 
 
 1502:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3899              		.fpu fpv4-sp-d16
  3901              	HAL_SD_GetError:
  3902              	.LVL316:
-ARM GAS  /tmp/ccTvnoaR.s 			page 149
+ARM GAS  /tmp/cc5sygGF.s 			page 149
 
 
  3903              	.LFB253:
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  3953              		@ args = 0, pretend = 0, frame = 0
  3954              		@ frame_needed = 0, uses_anonymous_args = 0
  3955              		@ link register save eliminated.
-ARM GAS  /tmp/ccTvnoaR.s 			page 150
+ARM GAS  /tmp/cc5sygGF.s 			page 150
 
 
 1770:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4005              		.loc 1 2511 21 is_stmt 0 view .LVU1426
  4006 0002 846B     		ldr	r4, [r0, #56]
  4007              	.LVL322:
-ARM GAS  /tmp/ccTvnoaR.s 			page 151
+ARM GAS  /tmp/cc5sygGF.s 			page 151
 
 
 2512:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4046 002e 2068     		ldr	r0, [r4]
  4047              	.LVL326:
 2517:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     if(errorstate != HAL_SD_ERROR_NONE)
-ARM GAS  /tmp/ccTvnoaR.s 			page 152
+ARM GAS  /tmp/cc5sygGF.s 			page 152
 
 
  4048              		.loc 1 2517 18 view .LVU1443
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4096              		.syntax unified
  4097              		.thumb
  4098              		.thumb_func
-ARM GAS  /tmp/ccTvnoaR.s 			page 153
+ARM GAS  /tmp/cc5sygGF.s 			page 153
 
 
  4099              		.fpu fpv4-sp-d16
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2018:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4137              		.loc 1 2018 3 is_stmt 1 view .LVU1470
 2018:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 154
+ARM GAS  /tmp/cc5sygGF.s 			page 154
 
 
  4138              		.loc 1 2018 19 is_stmt 0 view .LVU1471
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2028:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4173              		.loc 1 2028 19 is_stmt 0 view .LVU1491
  4174 0050 0123     		movs	r3, #1
-ARM GAS  /tmp/ccTvnoaR.s 			page 155
+ARM GAS  /tmp/cc5sygGF.s 			page 155
 
 
  4175 0052 4B75     		strb	r3, [r1, #21]
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4218              		.loc 1 2045 24 view .LVU1504
  4219 000e 4B70     		strb	r3, [r1, #1]
 2047:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 156
+ARM GAS  /tmp/cc5sygGF.s 			page 156
 
 
  4220              		.loc 1 2047 3 is_stmt 1 view .LVU1505
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4254              		.loc 1 2057 20 view .LVU1525
  4255 003a 0B72     		strb	r3, [r1, #8]
 2059:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 157
+ARM GAS  /tmp/cc5sygGF.s 			page 157
 
 
  4256              		.loc 1 2059 3 is_stmt 1 view .LVU1526
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2069:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  4291              		.loc 1 2069 5 view .LVU1546
  4292 0062 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccTvnoaR.s 			page 158
+ARM GAS  /tmp/cc5sygGF.s 			page 158
 
 
  4293 0064 40F08880 		bne	.L250
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2079:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4328              		.loc 1 2079 51 is_stmt 0 view .LVU1566
  4329 0094 C36E     		ldr	r3, [r0, #108]
-ARM GAS  /tmp/ccTvnoaR.s 			page 159
+ARM GAS  /tmp/cc5sygGF.s 			page 159
 
 
 2079:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4365 00c0 A340     		lsls	r3, r3, r4
 2085:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4366              		.loc 1 2085 27 view .LVU1586
-ARM GAS  /tmp/ccTvnoaR.s 			page 160
+ARM GAS  /tmp/cc5sygGF.s 			page 160
 
 
  4367 00c2 8365     		str	r3, [r0, #88]
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2115:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4402              		.loc 1 2115 48 is_stmt 0 view .LVU1606
  4403 00ea 036F     		ldr	r3, [r0, #112]
-ARM GAS  /tmp/ccTvnoaR.s 			page 161
+ARM GAS  /tmp/cc5sygGF.s 			page 161
 
 
 2115:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4438 0112 0023     		movs	r3, #0
  4439 0114 81F82130 		strb	r3, [r1, #33]
 2127:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 162
+ARM GAS  /tmp/cc5sygGF.s 			page 162
 
 
  4440              		.loc 1 2127 3 is_stmt 1 view .LVU1627
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2137:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4475              		.loc 1 2137 3 is_stmt 1 view .LVU1647
 2137:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 163
+ARM GAS  /tmp/cc5sygGF.s 			page 163
 
 
  4476              		.loc 1 2137 41 is_stmt 0 view .LVU1648
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4515              		.cfi_restore_state
 2090:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  4516              		.loc 1 2090 8 is_stmt 1 view .LVU1664
-ARM GAS  /tmp/ccTvnoaR.s 			page 164
+ARM GAS  /tmp/cc5sygGF.s 			page 164
 
 
 2090:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2103:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->ErrorCode |= HAL_SD_ERROR_UNSUPPORTED_FEATURE;
  4553              		.loc 1 2103 5 is_stmt 1 view .LVU1683
  4554 01a0 0368     		ldr	r3, [r0]
-ARM GAS  /tmp/ccTvnoaR.s 			page 165
+ARM GAS  /tmp/cc5sygGF.s 			page 165
 
 
  4555 01a2 054A     		ldr	r2, .L255
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4602              	.LCFI54:
  4603              		.cfi_def_cfa_offset 80
  4604 0004 0446     		mov	r4, r0
-ARM GAS  /tmp/ccTvnoaR.s 			page 166
+ARM GAS  /tmp/cc5sygGF.s 			page 166
 
 
 2675:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t errorstate;
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4641              		.loc 1 2717 5 is_stmt 1 view .LVU1710
 2717:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4642              		.loc 1 2717 28 is_stmt 0 view .LVU1711
-ARM GAS  /tmp/ccTvnoaR.s 			page 167
+ARM GAS  /tmp/cc5sygGF.s 			page 167
 
 
  4643 0028 BDF81210 		ldrh	r1, [sp, #18]
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4682              		.loc 1 2731 7 is_stmt 1 view .LVU1726
 2731:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
  4683              		.loc 1 2731 22 is_stmt 0 view .LVU1727
-ARM GAS  /tmp/ccTvnoaR.s 			page 168
+ARM GAS  /tmp/cc5sygGF.s 			page 168
 
 
  4684 005a 0C21     		movs	r1, #12
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4724              		.loc 1 2752 3 is_stmt 1 view .LVU1741
 2752:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  4725              		.loc 1 2752 9 is_stmt 0 view .LVU1742
-ARM GAS  /tmp/ccTvnoaR.s 			page 169
+ARM GAS  /tmp/cc5sygGF.s 			page 169
 
 
  4726 008c 2346     		mov	r3, r4
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4766 00be 2068     		ldr	r0, [r4]
  4767 00c0 FFF7FEFF 		bl	SDIO_GetResponse
  4768              	.LVL357:
-ARM GAS  /tmp/ccTvnoaR.s 			page 170
+ARM GAS  /tmp/cc5sygGF.s 			page 170
 
 
 2698:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->CID[2U] = SDIO_GetResponse(hsd->Instance, SDIO_RESP3);
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4810 00f6 10B0     		add	sp, sp, #64
  4811              	.LCFI55:
  4812              		.cfi_remember_state
-ARM GAS  /tmp/ccTvnoaR.s 			page 171
+ARM GAS  /tmp/cc5sygGF.s 			page 171
 
 
  4813              		.cfi_def_cfa_offset 16
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4860              		.loc 1 410 28 is_stmt 0 view .LVU1778
  4861 000a 0595     		str	r5, [sp, #20]
  411:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   Init.BusWide             = SDIO_BUS_WIDE_1B;
-ARM GAS  /tmp/ccTvnoaR.s 			page 172
+ARM GAS  /tmp/cc5sygGF.s 			page 172
 
 
  4862              		.loc 1 411 3 is_stmt 1 view .LVU1779
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4901              		.loc 1 432 3 view .LVU1794
  432:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(errorstate != HAL_SD_ERROR_NONE)
  4902              		.loc 1 432 16 is_stmt 0 view .LVU1795
-ARM GAS  /tmp/ccTvnoaR.s 			page 173
+ARM GAS  /tmp/cc5sygGF.s 			page 173
 
 
  4903 003e 2046     		mov	r0, r4
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4943              		.loc 1 442 5 is_stmt 0 view .LVU1809
  4944 005e 0246     		mov	r2, r0
  4945 0060 30B1     		cbz	r0, .L270
-ARM GAS  /tmp/ccTvnoaR.s 			page 174
+ARM GAS  /tmp/cc5sygGF.s 			page 174
 
 
  444:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->ErrorCode |= errorstate;
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  4984              		.loc 1 455 5 view .LVU1825
  455:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     hsd->State = HAL_SD_STATE_READY;
  4985              		.loc 1 455 20 is_stmt 0 view .LVU1826
-ARM GAS  /tmp/ccTvnoaR.s 			page 175
+ARM GAS  /tmp/cc5sygGF.s 			page 175
 
 
  4986 0086 A36B     		ldr	r3, [r4, #56]
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  345:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   assert_param(IS_SDIO_CLOCK_BYPASS(hsd->Init.ClockBypass));
  5032              		.loc 1 345 3 view .LVU1837
  346:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   assert_param(IS_SDIO_CLOCK_POWER_SAVE(hsd->Init.ClockPowerSave));
-ARM GAS  /tmp/ccTvnoaR.s 			page 176
+ARM GAS  /tmp/cc5sygGF.s 			page 176
 
 
  5033              		.loc 1 346 3 view .LVU1838
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  394:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  5068              		.loc 1 394 1 is_stmt 0 view .LVU1858
  5069 0024 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccTvnoaR.s 			page 177
+ARM GAS  /tmp/cc5sygGF.s 			page 177
 
 
  5070              	.LVL386:
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2156:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t sd_status[16];
  5118              		.loc 1 2156 1 is_stmt 0 view .LVU1867
  5119 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  /tmp/ccTvnoaR.s 			page 178
+ARM GAS  /tmp/cc5sygGF.s 			page 178
 
 
  5120              	.LCFI64:
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5159              		.loc 1 2168 5 is_stmt 1 view .LVU1882
  5160              	.LVL396:
  5161              	.L288:
-ARM GAS  /tmp/ccTvnoaR.s 			page 179
+ARM GAS  /tmp/cc5sygGF.s 			page 179
 
 
 2195:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if(errorstate != HAL_SD_ERROR_NONE)
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5201              	.L287:
  5202              	.LCFI67:
  5203              		.cfi_restore_state
-ARM GAS  /tmp/ccTvnoaR.s 			page 180
+ARM GAS  /tmp/cc5sygGF.s 			page 180
 
 
 2172:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2178:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****                                   ((sd_status[1] & 0xFF0000U) >> 8U) | ((sd_status[1] & 0xFF000000U
  5240              		.loc 1 2178 32 view .LVU1916
  5241 0076 6360     		str	r3, [r4, #4]
-ARM GAS  /tmp/ccTvnoaR.s 			page 181
+ARM GAS  /tmp/cc5sygGF.s 			page 181
 
 
 2181:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5276              		.loc 1 2191 5 is_stmt 1 view .LVU1936
 2191:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
  5277              		.loc 1 2191 28 is_stmt 0 view .LVU1937
-ARM GAS  /tmp/ccTvnoaR.s 			page 182
+ARM GAS  /tmp/cc5sygGF.s 			page 182
 
 
  5278 009e C2F30122 		ubfx	r2, r2, #8, #2
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2219:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCardInfo->RelCardAdd   = (uint32_t)(hsd->SdCard.RelCardAdd);
  5322              		.loc 1 2219 27 view .LVU1950
  5323 000a 8B60     		str	r3, [r1, #8]
-ARM GAS  /tmp/ccTvnoaR.s 			page 183
+ARM GAS  /tmp/cc5sygGF.s 			page 183
 
 
 2220:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   pCardInfo->BlockNbr     = (uint32_t)(hsd->SdCard.BlockNbr);
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5361              		.syntax unified
  5362              		.thumb
  5363              		.thumb_func
-ARM GAS  /tmp/ccTvnoaR.s 			page 184
+ARM GAS  /tmp/cc5sygGF.s 			page 184
 
 
  5364              		.fpu fpv4-sp-d16
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2258:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  5405              		.loc 1 2258 12 is_stmt 0 view .LVU1983
  5406 001a B1F5006F 		cmp	r1, #2048
-ARM GAS  /tmp/ccTvnoaR.s 			page 185
+ARM GAS  /tmp/cc5sygGF.s 			page 185
 
 
  5407 001e 0AD0     		beq	.L305
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5447              	.LVL411:
  5448              	.L295:
 2279:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   }
-ARM GAS  /tmp/ccTvnoaR.s 			page 186
+ARM GAS  /tmp/cc5sygGF.s 			page 186
 
 
  5449              		.loc 1 2279 5 is_stmt 1 view .LVU1998
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2307:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     status = HAL_ERROR;
  5488              		.loc 1 2307 20 is_stmt 0 view .LVU2014
  5489 0078 A36B     		ldr	r3, [r4, #56]
-ARM GAS  /tmp/ccTvnoaR.s 			page 187
+ARM GAS  /tmp/cc5sygGF.s 			page 187
 
 
  5490 007a 0343     		orrs	r3, r3, r0
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5529 0094 E368     		ldr	r3, [r4, #12]
 2294:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     Init.BusWide             = WideMode;
  5530              		.loc 1 2294 30 view .LVU2030
-ARM GAS  /tmp/ccTvnoaR.s 			page 188
+ARM GAS  /tmp/cc5sygGF.s 			page 188
 
 
  5531 0096 0693     		str	r3, [sp, #24]
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5575              	HAL_SD_GetCardState:
  5576              	.LVL422:
  5577              	.LFB263:
-ARM GAS  /tmp/ccTvnoaR.s 			page 189
+ARM GAS  /tmp/cc5sygGF.s 			page 189
 
 
 2323:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   uint32_t cardstate;
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5617              	.LVL425:
 2337:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
  5618              		.loc 1 2337 1 view .LVU2058
-ARM GAS  /tmp/ccTvnoaR.s 			page 190
+ARM GAS  /tmp/cc5sygGF.s 			page 190
 
 
  5619 001a C0F34320 		ubfx	r0, r0, #9, #4
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2560:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     TxErrorCode = hsd->hdmatx->ErrorCode;  
  5664              		.loc 1 2560 5 is_stmt 1 view .LVU2070
 2560:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     TxErrorCode = hsd->hdmatx->ErrorCode;  
-ARM GAS  /tmp/ccTvnoaR.s 			page 191
+ARM GAS  /tmp/cc5sygGF.s 			page 191
 
 
  5665              		.loc 1 2560 22 is_stmt 0 view .LVU2071
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5706 0032 D363     		str	r3, [r2, #60]
 2571:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       CardState = HAL_SD_GetCardState(hsd);
  5707              		.loc 1 2571 7 view .LVU2085
-ARM GAS  /tmp/ccTvnoaR.s 			page 192
+ARM GAS  /tmp/cc5sygGF.s 			page 192
 
 
 2571:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       CardState = HAL_SD_GetCardState(hsd);
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5748 0060 F2E7     		b	.L316
  5749              	.L320:
  5750 0062 00BF     		.align	2
-ARM GAS  /tmp/ccTvnoaR.s 			page 193
+ARM GAS  /tmp/cc5sygGF.s 			page 193
 
 
  5751              	.L319:
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2605:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if((CardState == HAL_SD_CARD_RECEIVING) || (CardState == HAL_SD_CARD_SENDING))
  5796              		.loc 1 2605 3 is_stmt 1 view .LVU2111
 2605:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if((CardState == HAL_SD_CARD_RECEIVING) || (CardState == HAL_SD_CARD_SENDING))
-ARM GAS  /tmp/ccTvnoaR.s 			page 194
+ARM GAS  /tmp/cc5sygGF.s 			page 194
 
 
  5797              		.loc 1 2605 16 is_stmt 0 view .LVU2112
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5838 003e FFF7FEFF 		bl	HAL_SD_ErrorCallback
  5839              	.LVL453:
 2627:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 195
+ARM GAS  /tmp/cc5sygGF.s 			page 195
 
 
  5840              		.loc 1 2627 1 is_stmt 0 view .LVU2126
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2644:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if((CardState == HAL_SD_CARD_RECEIVING) || (CardState == HAL_SD_CARD_SENDING))
  5885              		.loc 1 2644 3 is_stmt 1 view .LVU2138
 2644:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if((CardState == HAL_SD_CARD_RECEIVING) || (CardState == HAL_SD_CARD_SENDING))
-ARM GAS  /tmp/ccTvnoaR.s 			page 196
+ARM GAS  /tmp/cc5sygGF.s 			page 196
 
 
  5886              		.loc 1 2644 16 is_stmt 0 view .LVU2139
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  5927 003e FFF7FEFF 		bl	HAL_SD_ErrorCallback
  5928              	.LVL464:
 2666:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** 
-ARM GAS  /tmp/ccTvnoaR.s 			page 197
+ARM GAS  /tmp/cc5sygGF.s 			page 197
 
 
  5929              		.loc 1 2666 1 is_stmt 0 view .LVU2153
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1526:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
  5975              		.loc 1 1526 11 is_stmt 0 view .LVU2164
  5976 0016 5A6B     		ldr	r2, [r3, #52]
-ARM GAS  /tmp/ccTvnoaR.s 			page 198
+ARM GAS  /tmp/cc5sygGF.s 			page 198
 
 
 1526:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   {
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6016 0056 0023     		movs	r3, #0
  6017 0058 2363     		str	r3, [r4, #48]
 1563:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       {
-ARM GAS  /tmp/ccTvnoaR.s 			page 199
+ARM GAS  /tmp/cc5sygGF.s 			page 199
 
 
  6018              		.loc 1 1563 7 is_stmt 1 view .LVU2180
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6059              	.LVL475:
  6060 0086 DFE7     		b	.L338
  6061              	.L339:
-ARM GAS  /tmp/ccTvnoaR.s 			page 200
+ARM GAS  /tmp/cc5sygGF.s 			page 200
 
 
 1576:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #endif /* USE_HAL_SD_REGISTER_CALLBACKS */
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1584:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****         if(errorstate != HAL_SD_ERROR_NONE)
  6102              		.loc 1 1584 22 is_stmt 0 view .LVU2208
  6103 00ba 2068     		ldr	r0, [r4]
-ARM GAS  /tmp/ccTvnoaR.s 			page 201
+ARM GAS  /tmp/cc5sygGF.s 			page 201
 
 
  6104              	.LVL481:
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 1628:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  6144              		.loc 1 1628 5 is_stmt 1 view .LVU2223
 1628:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
-ARM GAS  /tmp/ccTvnoaR.s 			page 202
+ARM GAS  /tmp/cc5sygGF.s 			page 202
 
 
  6145              		.loc 1 1628 8 is_stmt 0 view .LVU2224
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6183              		.loc 1 1640 7 view .LVU2240
  6184 011e 12F0100F 		tst	r2, #16
  6185 0122 03D0     		beq	.L345
-ARM GAS  /tmp/ccTvnoaR.s 			page 203
+ARM GAS  /tmp/cc5sygGF.s 			page 203
 
 
 1642:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     }
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6225              		.loc 1 1669 7 is_stmt 0 view .LVU2255
  6226 015c 15F0080F 		tst	r5, #8
  6227 0160 19D1     		bne	.L355
-ARM GAS  /tmp/ccTvnoaR.s 			page 204
+ARM GAS  /tmp/cc5sygGF.s 			page 204
 
 
 1680:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6267 0194 6AE7     		b	.L333
  6268              	.L355:
 1672:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       hsd->Context = SD_CONTEXT_NONE;
-ARM GAS  /tmp/ccTvnoaR.s 			page 205
+ARM GAS  /tmp/cc5sygGF.s 			page 205
 
 
  6269              		.loc 1 1672 7 is_stmt 1 view .LVU2271
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6308              		.loc 1 1706 20 is_stmt 0 view .LVU2286
  6309 01c6 0122     		movs	r2, #1
  6310 01c8 84F83420 		strb	r2, [r4, #52]
-ARM GAS  /tmp/ccTvnoaR.s 			page 206
+ARM GAS  /tmp/cc5sygGF.s 			page 206
 
 
 1707:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c **** #if defined (USE_HAL_SD_REGISTER_CALLBACKS) && (USE_HAL_SD_REGISTER_CALLBACKS == 1U)
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6356              		.loc 1 2351 3 is_stmt 1 view .LVU2297
  6357 0006 0268     		ldr	r2, [r0]
  6358 0008 D36B     		ldr	r3, [r2, #60]
-ARM GAS  /tmp/ccTvnoaR.s 			page 207
+ARM GAS  /tmp/cc5sygGF.s 			page 207
 
 
  6359 000a 23F49D73 		bic	r3, r3, #314
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6397              		.loc 1 2389 16 is_stmt 0 view .LVU2313
  6398 0044 0023     		movs	r3, #0
  6399 0046 2363     		str	r3, [r4, #48]
-ARM GAS  /tmp/ccTvnoaR.s 			page 208
+ARM GAS  /tmp/cc5sygGF.s 			page 208
 
 
 2391:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****   if((CardState == HAL_SD_CARD_RECEIVING) || (CardState == HAL_SD_CARD_SENDING))
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6438 0066 A36B     		ldr	r3, [r4, #56]
  6439 0068 43F08043 		orr	r3, r3, #1073741824
  6440 006c A363     		str	r3, [r4, #56]
-ARM GAS  /tmp/ccTvnoaR.s 			page 209
+ARM GAS  /tmp/cc5sygGF.s 			page 209
 
 
  6441 006e E6E7     		b	.L360
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6485              		.fpu fpv4-sp-d16
  6487              	HAL_SD_Abort_IT:
  6488              	.LVL512:
-ARM GAS  /tmp/ccTvnoaR.s 			page 210
+ARM GAS  /tmp/cc5sygGF.s 			page 210
 
 
  6489              	.LFB265:
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6529 002a 12F0300F 		tst	r2, #48
  6530 002e 04D1     		bne	.L377
 2435:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
-ARM GAS  /tmp/ccTvnoaR.s 			page 211
+ARM GAS  /tmp/cc5sygGF.s 			page 211
 
 
  6531              		.loc 1 2435 10 is_stmt 1 view .LVU2355
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6570 0050 036C     		ldr	r3, [r0, #64]
 2437:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****       if(HAL_DMA_Abort_IT(hsd->hdmarx) != HAL_OK)
  6571              		.loc 1 2437 38 view .LVU2371
-ARM GAS  /tmp/ccTvnoaR.s 			page 212
+ARM GAS  /tmp/cc5sygGF.s 			page 212
 
 
  6572 0052 144A     		ldr	r2, .L381+4
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
 2457:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
  6611              		.loc 1 2457 5 is_stmt 1 view .LVU2387
 2457:stm32f4xx-hal-driver/Src/stm32f4xx_hal_sd.c ****     {
-ARM GAS  /tmp/ccTvnoaR.s 			page 213
+ARM GAS  /tmp/cc5sygGF.s 			page 213
 
 
  6612              		.loc 1 2457 45 is_stmt 0 view .LVU2388
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6656              		.text
  6657              	.Letext0:
  6658              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
-ARM GAS  /tmp/ccTvnoaR.s 			page 214
+ARM GAS  /tmp/cc5sygGF.s 			page 214
 
 
  6659              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
@@ -12791,113 +12791,113 @@ ARM GAS  /tmp/ccTvnoaR.s 			page 1
  6666              		.file 10 "stm32f4xx-hal-driver/Inc/stm32f4xx_ll_sdmmc.h"
  6667              		.file 11 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_sd.h"
  6668              		.file 12 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/ccTvnoaR.s 			page 215
+ARM GAS  /tmp/cc5sygGF.s 			page 215
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_sd.c
-     /tmp/ccTvnoaR.s:18     .text.SD_DMATransmitCplt:0000000000000000 $t
-     /tmp/ccTvnoaR.s:25     .text.SD_DMATransmitCplt:0000000000000000 SD_DMATransmitCplt
-     /tmp/ccTvnoaR.s:52     .text.SD_PowerON:0000000000000000 $t
-     /tmp/ccTvnoaR.s:58     .text.SD_PowerON:0000000000000000 SD_PowerON
-     /tmp/ccTvnoaR.s:276    .text.SD_PowerON:00000000000000bc $d
-     /tmp/ccTvnoaR.s:281    .text.SD_PowerOFF:0000000000000000 $t
-     /tmp/ccTvnoaR.s:287    .text.SD_PowerOFF:0000000000000000 SD_PowerOFF
-     /tmp/ccTvnoaR.s:313    .text.SD_Read_IT:0000000000000000 $t
-     /tmp/ccTvnoaR.s:319    .text.SD_Read_IT:0000000000000000 SD_Read_IT
-     /tmp/ccTvnoaR.s:420    .text.SD_Write_IT:0000000000000000 $t
-     /tmp/ccTvnoaR.s:426    .text.SD_Write_IT:0000000000000000 SD_Write_IT
-     /tmp/ccTvnoaR.s:538    .text.SD_SendSDStatus:0000000000000000 $t
-     /tmp/ccTvnoaR.s:544    .text.SD_SendSDStatus:0000000000000000 SD_SendSDStatus
-     /tmp/ccTvnoaR.s:821    .text.SD_FindSCR:0000000000000000 $t
-     /tmp/ccTvnoaR.s:827    .text.SD_FindSCR:0000000000000000 SD_FindSCR
-     /tmp/ccTvnoaR.s:1096   .text.SD_WideBus_Enable:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1102   .text.SD_WideBus_Enable:0000000000000000 SD_WideBus_Enable
-     /tmp/ccTvnoaR.s:1197   .text.SD_WideBus_Disable:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1203   .text.SD_WideBus_Disable:0000000000000000 SD_WideBus_Disable
-     /tmp/ccTvnoaR.s:1298   .text.SD_SendStatus:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1304   .text.SD_SendStatus:0000000000000000 SD_SendStatus
-     /tmp/ccTvnoaR.s:1369   .text.HAL_SD_MspInit:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1376   .text.HAL_SD_MspInit:0000000000000000 HAL_SD_MspInit
-     /tmp/ccTvnoaR.s:1391   .text.HAL_SD_MspDeInit:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1398   .text.HAL_SD_MspDeInit:0000000000000000 HAL_SD_MspDeInit
-     /tmp/ccTvnoaR.s:1413   .text.HAL_SD_DeInit:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1420   .text.HAL_SD_DeInit:0000000000000000 HAL_SD_DeInit
-     /tmp/ccTvnoaR.s:1474   .text.HAL_SD_ReadBlocks:0000000000000000 $t
-     /tmp/ccTvnoaR.s:1481   .text.HAL_SD_ReadBlocks:0000000000000000 HAL_SD_ReadBlocks
-     /tmp/ccTvnoaR.s:2037   .text.HAL_SD_ReadBlocks:000000000000024c $d
-     /tmp/ccTvnoaR.s:2042   .text.HAL_SD_WriteBlocks:0000000000000000 $t
-     /tmp/ccTvnoaR.s:2049   .text.HAL_SD_WriteBlocks:0000000000000000 HAL_SD_WriteBlocks
-     /tmp/ccTvnoaR.s:2531   .text.HAL_SD_WriteBlocks:0000000000000200 $d
-     /tmp/ccTvnoaR.s:2536   .text.HAL_SD_ReadBlocks_IT:0000000000000000 $t
-     /tmp/ccTvnoaR.s:2543   .text.HAL_SD_ReadBlocks_IT:0000000000000000 HAL_SD_ReadBlocks_IT
-     /tmp/ccTvnoaR.s:2766   .text.HAL_SD_ReadBlocks_IT:00000000000000c8 $d
-     /tmp/ccTvnoaR.s:2771   .text.HAL_SD_WriteBlocks_IT:0000000000000000 $t
-     /tmp/ccTvnoaR.s:2778   .text.HAL_SD_WriteBlocks_IT:0000000000000000 HAL_SD_WriteBlocks_IT
-     /tmp/ccTvnoaR.s:3001   .text.HAL_SD_WriteBlocks_IT:00000000000000c0 $d
-     /tmp/ccTvnoaR.s:3006   .text.HAL_SD_ReadBlocks_DMA:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3013   .text.HAL_SD_ReadBlocks_DMA:0000000000000000 HAL_SD_ReadBlocks_DMA
-     /tmp/ccTvnoaR.s:3298   .text.HAL_SD_ReadBlocks_DMA:0000000000000128 $d
-     /tmp/ccTvnoaR.s:3991   .text.SD_DMAReceiveCplt:0000000000000000 SD_DMAReceiveCplt
-     /tmp/ccTvnoaR.s:5638   .text.SD_DMAError:0000000000000000 SD_DMAError
-     /tmp/ccTvnoaR.s:3306   .text.HAL_SD_WriteBlocks_DMA:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3313   .text.HAL_SD_WriteBlocks_DMA:0000000000000000 HAL_SD_WriteBlocks_DMA
-     /tmp/ccTvnoaR.s:3604   .text.HAL_SD_WriteBlocks_DMA:0000000000000128 $d
-     /tmp/ccTvnoaR.s:3612   .text.HAL_SD_Erase:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3619   .text.HAL_SD_Erase:0000000000000000 HAL_SD_Erase
-     /tmp/ccTvnoaR.s:3864   .text.HAL_SD_Erase:00000000000000f4 $d
-     /tmp/ccTvnoaR.s:3869   .text.HAL_SD_GetState:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3876   .text.HAL_SD_GetState:0000000000000000 HAL_SD_GetState
-     /tmp/ccTvnoaR.s:3894   .text.HAL_SD_GetError:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3901   .text.HAL_SD_GetError:0000000000000000 HAL_SD_GetError
-     /tmp/ccTvnoaR.s:3919   .text.HAL_SD_TxCpltCallback:0000000000000000 $t
-ARM GAS  /tmp/ccTvnoaR.s 			page 216
+     /tmp/cc5sygGF.s:18     .text.SD_DMATransmitCplt:0000000000000000 $t
+     /tmp/cc5sygGF.s:25     .text.SD_DMATransmitCplt:0000000000000000 SD_DMATransmitCplt
+     /tmp/cc5sygGF.s:52     .text.SD_PowerON:0000000000000000 $t
+     /tmp/cc5sygGF.s:58     .text.SD_PowerON:0000000000000000 SD_PowerON
+     /tmp/cc5sygGF.s:276    .text.SD_PowerON:00000000000000bc $d
+     /tmp/cc5sygGF.s:281    .text.SD_PowerOFF:0000000000000000 $t
+     /tmp/cc5sygGF.s:287    .text.SD_PowerOFF:0000000000000000 SD_PowerOFF
+     /tmp/cc5sygGF.s:313    .text.SD_Read_IT:0000000000000000 $t
+     /tmp/cc5sygGF.s:319    .text.SD_Read_IT:0000000000000000 SD_Read_IT
+     /tmp/cc5sygGF.s:420    .text.SD_Write_IT:0000000000000000 $t
+     /tmp/cc5sygGF.s:426    .text.SD_Write_IT:0000000000000000 SD_Write_IT
+     /tmp/cc5sygGF.s:538    .text.SD_SendSDStatus:0000000000000000 $t
+     /tmp/cc5sygGF.s:544    .text.SD_SendSDStatus:0000000000000000 SD_SendSDStatus
+     /tmp/cc5sygGF.s:821    .text.SD_FindSCR:0000000000000000 $t
+     /tmp/cc5sygGF.s:827    .text.SD_FindSCR:0000000000000000 SD_FindSCR
+     /tmp/cc5sygGF.s:1096   .text.SD_WideBus_Enable:0000000000000000 $t
+     /tmp/cc5sygGF.s:1102   .text.SD_WideBus_Enable:0000000000000000 SD_WideBus_Enable
+     /tmp/cc5sygGF.s:1197   .text.SD_WideBus_Disable:0000000000000000 $t
+     /tmp/cc5sygGF.s:1203   .text.SD_WideBus_Disable:0000000000000000 SD_WideBus_Disable
+     /tmp/cc5sygGF.s:1298   .text.SD_SendStatus:0000000000000000 $t
+     /tmp/cc5sygGF.s:1304   .text.SD_SendStatus:0000000000000000 SD_SendStatus
+     /tmp/cc5sygGF.s:1369   .text.HAL_SD_MspInit:0000000000000000 $t
+     /tmp/cc5sygGF.s:1376   .text.HAL_SD_MspInit:0000000000000000 HAL_SD_MspInit
+     /tmp/cc5sygGF.s:1391   .text.HAL_SD_MspDeInit:0000000000000000 $t
+     /tmp/cc5sygGF.s:1398   .text.HAL_SD_MspDeInit:0000000000000000 HAL_SD_MspDeInit
+     /tmp/cc5sygGF.s:1413   .text.HAL_SD_DeInit:0000000000000000 $t
+     /tmp/cc5sygGF.s:1420   .text.HAL_SD_DeInit:0000000000000000 HAL_SD_DeInit
+     /tmp/cc5sygGF.s:1474   .text.HAL_SD_ReadBlocks:0000000000000000 $t
+     /tmp/cc5sygGF.s:1481   .text.HAL_SD_ReadBlocks:0000000000000000 HAL_SD_ReadBlocks
+     /tmp/cc5sygGF.s:2037   .text.HAL_SD_ReadBlocks:000000000000024c $d
+     /tmp/cc5sygGF.s:2042   .text.HAL_SD_WriteBlocks:0000000000000000 $t
+     /tmp/cc5sygGF.s:2049   .text.HAL_SD_WriteBlocks:0000000000000000 HAL_SD_WriteBlocks
+     /tmp/cc5sygGF.s:2531   .text.HAL_SD_WriteBlocks:0000000000000200 $d
+     /tmp/cc5sygGF.s:2536   .text.HAL_SD_ReadBlocks_IT:0000000000000000 $t
+     /tmp/cc5sygGF.s:2543   .text.HAL_SD_ReadBlocks_IT:0000000000000000 HAL_SD_ReadBlocks_IT
+     /tmp/cc5sygGF.s:2766   .text.HAL_SD_ReadBlocks_IT:00000000000000c8 $d
+     /tmp/cc5sygGF.s:2771   .text.HAL_SD_WriteBlocks_IT:0000000000000000 $t
+     /tmp/cc5sygGF.s:2778   .text.HAL_SD_WriteBlocks_IT:0000000000000000 HAL_SD_WriteBlocks_IT
+     /tmp/cc5sygGF.s:3001   .text.HAL_SD_WriteBlocks_IT:00000000000000c0 $d
+     /tmp/cc5sygGF.s:3006   .text.HAL_SD_ReadBlocks_DMA:0000000000000000 $t
+     /tmp/cc5sygGF.s:3013   .text.HAL_SD_ReadBlocks_DMA:0000000000000000 HAL_SD_ReadBlocks_DMA
+     /tmp/cc5sygGF.s:3298   .text.HAL_SD_ReadBlocks_DMA:0000000000000128 $d
+     /tmp/cc5sygGF.s:3991   .text.SD_DMAReceiveCplt:0000000000000000 SD_DMAReceiveCplt
+     /tmp/cc5sygGF.s:5638   .text.SD_DMAError:0000000000000000 SD_DMAError
+     /tmp/cc5sygGF.s:3306   .text.HAL_SD_WriteBlocks_DMA:0000000000000000 $t
+     /tmp/cc5sygGF.s:3313   .text.HAL_SD_WriteBlocks_DMA:0000000000000000 HAL_SD_WriteBlocks_DMA
+     /tmp/cc5sygGF.s:3604   .text.HAL_SD_WriteBlocks_DMA:0000000000000128 $d
+     /tmp/cc5sygGF.s:3612   .text.HAL_SD_Erase:0000000000000000 $t
+     /tmp/cc5sygGF.s:3619   .text.HAL_SD_Erase:0000000000000000 HAL_SD_Erase
+     /tmp/cc5sygGF.s:3864   .text.HAL_SD_Erase:00000000000000f4 $d
+     /tmp/cc5sygGF.s:3869   .text.HAL_SD_GetState:0000000000000000 $t
+     /tmp/cc5sygGF.s:3876   .text.HAL_SD_GetState:0000000000000000 HAL_SD_GetState
+     /tmp/cc5sygGF.s:3894   .text.HAL_SD_GetError:0000000000000000 $t
+     /tmp/cc5sygGF.s:3901   .text.HAL_SD_GetError:0000000000000000 HAL_SD_GetError
+     /tmp/cc5sygGF.s:3919   .text.HAL_SD_TxCpltCallback:0000000000000000 $t
+ARM GAS  /tmp/cc5sygGF.s 			page 216
 
 
-     /tmp/ccTvnoaR.s:3926   .text.HAL_SD_TxCpltCallback:0000000000000000 HAL_SD_TxCpltCallback
-     /tmp/ccTvnoaR.s:3941   .text.HAL_SD_RxCpltCallback:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3948   .text.HAL_SD_RxCpltCallback:0000000000000000 HAL_SD_RxCpltCallback
-     /tmp/ccTvnoaR.s:3963   .text.HAL_SD_ErrorCallback:0000000000000000 $t
-     /tmp/ccTvnoaR.s:3970   .text.HAL_SD_ErrorCallback:0000000000000000 HAL_SD_ErrorCallback
-     /tmp/ccTvnoaR.s:3985   .text.SD_DMAReceiveCplt:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4072   .text.HAL_SD_AbortCallback:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4079   .text.HAL_SD_AbortCallback:0000000000000000 HAL_SD_AbortCallback
-     /tmp/ccTvnoaR.s:4094   .text.HAL_SD_GetCardCID:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4101   .text.HAL_SD_GetCardCID:0000000000000000 HAL_SD_GetCardCID
-     /tmp/ccTvnoaR.s:4186   .text.HAL_SD_GetCardCSD:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4193   .text.HAL_SD_GetCardCSD:0000000000000000 HAL_SD_GetCardCSD
-     /tmp/ccTvnoaR.s:4575   .text.HAL_SD_GetCardCSD:00000000000001b8 $d
-     /tmp/ccTvnoaR.s:4580   .text.SD_InitCard:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4586   .text.SD_InitCard:0000000000000000 SD_InitCard
-     /tmp/ccTvnoaR.s:4827   .text.HAL_SD_InitCard:0000000000000000 $t
-     /tmp/ccTvnoaR.s:4834   .text.HAL_SD_InitCard:0000000000000000 HAL_SD_InitCard
-     /tmp/ccTvnoaR.s:5001   .text.HAL_SD_InitCard:0000000000000094 $d
-     /tmp/ccTvnoaR.s:5007   .text.HAL_SD_Init:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5014   .text.HAL_SD_Init:0000000000000000 HAL_SD_Init
-     /tmp/ccTvnoaR.s:5104   .text.HAL_SD_GetCardStatus:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5111   .text.HAL_SD_GetCardStatus:0000000000000000 HAL_SD_GetCardStatus
-     /tmp/ccTvnoaR.s:5289   .text.HAL_SD_GetCardStatus:00000000000000a8 $d
-     /tmp/ccTvnoaR.s:5294   .text.HAL_SD_GetCardInfo:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5301   .text.HAL_SD_GetCardInfo:0000000000000000 HAL_SD_GetCardInfo
-     /tmp/ccTvnoaR.s:5359   .text.HAL_SD_ConfigWideBusOperation:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5366   .text.HAL_SD_ConfigWideBusOperation:0000000000000000 HAL_SD_ConfigWideBusOperation
-     /tmp/ccTvnoaR.s:5563   .text.HAL_SD_ConfigWideBusOperation:00000000000000bc $d
-     /tmp/ccTvnoaR.s:5568   .text.HAL_SD_GetCardState:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5575   .text.HAL_SD_GetCardState:0000000000000000 HAL_SD_GetCardState
-     /tmp/ccTvnoaR.s:5632   .text.SD_DMAError:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5752   .text.SD_DMAError:0000000000000064 $d
-     /tmp/ccTvnoaR.s:5757   .text.SD_DMATxAbort:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5763   .text.SD_DMATxAbort:0000000000000000 SD_DMATxAbort
-     /tmp/ccTvnoaR.s:5846   .text.SD_DMARxAbort:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5852   .text.SD_DMARxAbort:0000000000000000 SD_DMARxAbort
-     /tmp/ccTvnoaR.s:5935   .text.HAL_SD_IRQHandler:0000000000000000 $t
-     /tmp/ccTvnoaR.s:5942   .text.HAL_SD_IRQHandler:0000000000000000 HAL_SD_IRQHandler
-     /tmp/ccTvnoaR.s:6324   .text.HAL_SD_IRQHandler:00000000000001d8 $d
-     /tmp/ccTvnoaR.s:6330   .text.HAL_SD_Abort:0000000000000000 $t
-     /tmp/ccTvnoaR.s:6337   .text.HAL_SD_Abort:0000000000000000 HAL_SD_Abort
-     /tmp/ccTvnoaR.s:6480   .text.HAL_SD_Abort_IT:0000000000000000 $t
-     /tmp/ccTvnoaR.s:6487   .text.HAL_SD_Abort_IT:0000000000000000 HAL_SD_Abort_IT
-     /tmp/ccTvnoaR.s:6651   .text.HAL_SD_Abort_IT:00000000000000a0 $d
+     /tmp/cc5sygGF.s:3926   .text.HAL_SD_TxCpltCallback:0000000000000000 HAL_SD_TxCpltCallback
+     /tmp/cc5sygGF.s:3941   .text.HAL_SD_RxCpltCallback:0000000000000000 $t
+     /tmp/cc5sygGF.s:3948   .text.HAL_SD_RxCpltCallback:0000000000000000 HAL_SD_RxCpltCallback
+     /tmp/cc5sygGF.s:3963   .text.HAL_SD_ErrorCallback:0000000000000000 $t
+     /tmp/cc5sygGF.s:3970   .text.HAL_SD_ErrorCallback:0000000000000000 HAL_SD_ErrorCallback
+     /tmp/cc5sygGF.s:3985   .text.SD_DMAReceiveCplt:0000000000000000 $t
+     /tmp/cc5sygGF.s:4072   .text.HAL_SD_AbortCallback:0000000000000000 $t
+     /tmp/cc5sygGF.s:4079   .text.HAL_SD_AbortCallback:0000000000000000 HAL_SD_AbortCallback
+     /tmp/cc5sygGF.s:4094   .text.HAL_SD_GetCardCID:0000000000000000 $t
+     /tmp/cc5sygGF.s:4101   .text.HAL_SD_GetCardCID:0000000000000000 HAL_SD_GetCardCID
+     /tmp/cc5sygGF.s:4186   .text.HAL_SD_GetCardCSD:0000000000000000 $t
+     /tmp/cc5sygGF.s:4193   .text.HAL_SD_GetCardCSD:0000000000000000 HAL_SD_GetCardCSD
+     /tmp/cc5sygGF.s:4575   .text.HAL_SD_GetCardCSD:00000000000001b8 $d
+     /tmp/cc5sygGF.s:4580   .text.SD_InitCard:0000000000000000 $t
+     /tmp/cc5sygGF.s:4586   .text.SD_InitCard:0000000000000000 SD_InitCard
+     /tmp/cc5sygGF.s:4827   .text.HAL_SD_InitCard:0000000000000000 $t
+     /tmp/cc5sygGF.s:4834   .text.HAL_SD_InitCard:0000000000000000 HAL_SD_InitCard
+     /tmp/cc5sygGF.s:5001   .text.HAL_SD_InitCard:0000000000000094 $d
+     /tmp/cc5sygGF.s:5007   .text.HAL_SD_Init:0000000000000000 $t
+     /tmp/cc5sygGF.s:5014   .text.HAL_SD_Init:0000000000000000 HAL_SD_Init
+     /tmp/cc5sygGF.s:5104   .text.HAL_SD_GetCardStatus:0000000000000000 $t
+     /tmp/cc5sygGF.s:5111   .text.HAL_SD_GetCardStatus:0000000000000000 HAL_SD_GetCardStatus
+     /tmp/cc5sygGF.s:5289   .text.HAL_SD_GetCardStatus:00000000000000a8 $d
+     /tmp/cc5sygGF.s:5294   .text.HAL_SD_GetCardInfo:0000000000000000 $t
+     /tmp/cc5sygGF.s:5301   .text.HAL_SD_GetCardInfo:0000000000000000 HAL_SD_GetCardInfo
+     /tmp/cc5sygGF.s:5359   .text.HAL_SD_ConfigWideBusOperation:0000000000000000 $t
+     /tmp/cc5sygGF.s:5366   .text.HAL_SD_ConfigWideBusOperation:0000000000000000 HAL_SD_ConfigWideBusOperation
+     /tmp/cc5sygGF.s:5563   .text.HAL_SD_ConfigWideBusOperation:00000000000000bc $d
+     /tmp/cc5sygGF.s:5568   .text.HAL_SD_GetCardState:0000000000000000 $t
+     /tmp/cc5sygGF.s:5575   .text.HAL_SD_GetCardState:0000000000000000 HAL_SD_GetCardState
+     /tmp/cc5sygGF.s:5632   .text.SD_DMAError:0000000000000000 $t
+     /tmp/cc5sygGF.s:5752   .text.SD_DMAError:0000000000000064 $d
+     /tmp/cc5sygGF.s:5757   .text.SD_DMATxAbort:0000000000000000 $t
+     /tmp/cc5sygGF.s:5763   .text.SD_DMATxAbort:0000000000000000 SD_DMATxAbort
+     /tmp/cc5sygGF.s:5846   .text.SD_DMARxAbort:0000000000000000 $t
+     /tmp/cc5sygGF.s:5852   .text.SD_DMARxAbort:0000000000000000 SD_DMARxAbort
+     /tmp/cc5sygGF.s:5935   .text.HAL_SD_IRQHandler:0000000000000000 $t
+     /tmp/cc5sygGF.s:5942   .text.HAL_SD_IRQHandler:0000000000000000 HAL_SD_IRQHandler
+     /tmp/cc5sygGF.s:6324   .text.HAL_SD_IRQHandler:00000000000001d8 $d
+     /tmp/cc5sygGF.s:6330   .text.HAL_SD_Abort:0000000000000000 $t
+     /tmp/cc5sygGF.s:6337   .text.HAL_SD_Abort:0000000000000000 HAL_SD_Abort
+     /tmp/cc5sygGF.s:6480   .text.HAL_SD_Abort_IT:0000000000000000 $t
+     /tmp/cc5sygGF.s:6487   .text.HAL_SD_Abort_IT:0000000000000000 HAL_SD_Abort_IT
+     /tmp/cc5sygGF.s:6651   .text.HAL_SD_Abort_IT:00000000000000a0 $d
 
 UNDEFINED SYMBOLS
 SDMMC_CmdGoIdleState
@@ -12911,7 +12911,7 @@ SDIO_WriteFIFO
 HAL_GetTick
 SDMMC_CmdBlockLength
 SDIO_ConfigData
-ARM GAS  /tmp/ccTvnoaR.s 			page 217
+ARM GAS  /tmp/cc5sygGF.s 			page 217
 
 
 SDMMC_CmdStatusRegister

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc15xUnP.s 			page 1
+ARM GAS  /tmp/ccvhpNQW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
   28:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****          (+) Common HAL APIs
   29:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****          (+) Services HAL APIs
   30:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
-ARM GAS  /tmp/cc15xUnP.s 			page 2
+ARM GAS  /tmp/ccvhpNQW.s 			page 2
 
 
   31:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   @endverbatim
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
   85:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** /**
   86:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @}
   87:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  /tmp/cc15xUnP.s 			page 3
+ARM GAS  /tmp/ccvhpNQW.s 			page 3
 
 
   88:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  142:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   *         instruction to be executed in the main program (before to call any other
  143:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   *         HAL function), it performs the following:
  144:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   *           Configure the Flash prefetch, instruction and Data caches.
-ARM GAS  /tmp/cc15xUnP.s 			page 4
+ARM GAS  /tmp/ccvhpNQW.s 			page 4
 
 
  145:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   *           Configures the SysTick to generate an interrupt each 1 millisecond,
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  199:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB1_FORCE_RESET();
  200:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB1_RELEASE_RESET();
  201:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
-ARM GAS  /tmp/cc15xUnP.s 			page 5
+ARM GAS  /tmp/ccvhpNQW.s 			page 5
 
 
  202:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB2_FORCE_RESET();
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  233:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****             the HAL_MspDeInit could be implemented in the user file
  234:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****    */ 
  235:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** }
-ARM GAS  /tmp/cc15xUnP.s 			page 6
+ARM GAS  /tmp/ccvhpNQW.s 			page 6
 
 
   54              		.loc 1 235 1 view .LVU3
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  100              		.loc 1 205 3 view .LVU13
  101 001e 0122     		movs	r2, #1
  102 0020 9A61     		str	r2, [r3, #24]
-ARM GAS  /tmp/cc15xUnP.s 			page 7
+ARM GAS  /tmp/ccvhpNQW.s 			page 7
 
 
  206:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  136              		@ frame_needed = 0, uses_anonymous_args = 0
  137              		.loc 1 254 1 is_stmt 0 view .LVU19
  138 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/cc15xUnP.s 			page 8
+ARM GAS  /tmp/ccvhpNQW.s 			page 8
 
 
  139              	.LCFI1:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  175              		.loc 1 265 16 is_stmt 0 view .LVU30
  176 0032 054B     		ldr	r3, .L13+8
  177 0034 1C60     		str	r4, [r3]
-ARM GAS  /tmp/cc15xUnP.s 			page 9
+ARM GAS  /tmp/ccvhpNQW.s 			page 9
 
 
  270:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  225 000e 42F48062 		orr	r2, r2, #1024
  226 0012 1A60     		str	r2, [r3]
  169:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** #endif /* PREFETCH_ENABLE */
-ARM GAS  /tmp/cc15xUnP.s 			page 10
+ARM GAS  /tmp/ccvhpNQW.s 			page 10
 
 
  227              		.loc 1 169 3 view .LVU39
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  290:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****       (+) Suspend the time base source interrupt
  291:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****       (+) Resume the time base source interrupt
  292:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****       (+) Get the HAL API driver version
-ARM GAS  /tmp/cc15xUnP.s 			page 11
+ARM GAS  /tmp/ccvhpNQW.s 			page 11
 
 
  293:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****       (+) Get the device identifier
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  316:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
  317:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** /**
  318:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @brief Provides a tick value in millisecond.
-ARM GAS  /tmp/cc15xUnP.s 			page 12
+ARM GAS  /tmp/ccvhpNQW.s 			page 12
 
 
  319:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @note This function is declared as __weak to be overwritten in case of other 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  335 0006 00BF     		.align	2
  336              	.L26:
  337 0008 00000000 		.word	.LANCHOR1
-ARM GAS  /tmp/cc15xUnP.s 			page 13
+ARM GAS  /tmp/ccvhpNQW.s 			page 13
 
 
  338              		.cfi_endproc
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  352:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
  353:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****     /* Update uwTickFreq global variable used by HAL_InitTick() */
  354:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****     uwTickFreq = Freq;
-ARM GAS  /tmp/cc15xUnP.s 			page 14
+ARM GAS  /tmp/ccvhpNQW.s 			page 14
 
 
  355:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  408              		.cfi_endproc
  409              	.LFE247:
  411              		.section	.text.HAL_GetTickFreq,"ax",%progbits
-ARM GAS  /tmp/cc15xUnP.s 			page 15
+ARM GAS  /tmp/ccvhpNQW.s 			page 15
 
 
  412              		.align	1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  388:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @retval None
  389:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   */
  390:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** __weak void HAL_Delay(uint32_t Delay)
-ARM GAS  /tmp/cc15xUnP.s 			page 16
+ARM GAS  /tmp/ccvhpNQW.s 			page 16
 
 
  391:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** {
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  487              		.loc 1 401 24 discriminator 1 view .LVU94
  488 001a 401B     		subs	r0, r0, r5
  401:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   {
-ARM GAS  /tmp/cc15xUnP.s 			page 17
+ARM GAS  /tmp/ccvhpNQW.s 			page 17
 
 
  489              		.loc 1 401 8 discriminator 1 view .LVU95
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  528              	.L45:
  529 000c 10E000E0 		.word	-536813552
  530              		.cfi_endproc
-ARM GAS  /tmp/cc15xUnP.s 			page 18
+ARM GAS  /tmp/ccvhpNQW.s 			page 18
 
 
  531              	.LFE250:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  437:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
  438:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** /**
  439:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @brief  Returns the HAL revision
-ARM GAS  /tmp/cc15xUnP.s 			page 19
+ARM GAS  /tmp/ccvhpNQW.s 			page 19
 
 
  440:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @retval version : 0xXYZR (8bits for each decimal, R for RC)
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  614 0008 002004E0 		.word	-536600576
  615              		.cfi_endproc
  616              	.LFE253:
-ARM GAS  /tmp/cc15xUnP.s 			page 20
+ARM GAS  /tmp/ccvhpNQW.s 			page 20
 
 
  618              		.section	.text.HAL_GetDEVID,"ax",%progbits
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  659              		@ args = 0, pretend = 0, frame = 0
  660              		@ frame_needed = 0, uses_anonymous_args = 0
  661              		@ link register save eliminated.
-ARM GAS  /tmp/cc15xUnP.s 			page 21
+ARM GAS  /tmp/ccvhpNQW.s 			page 21
 
 
  471:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  708              		.syntax unified
  709              		.thumb
  710              		.thumb_func
-ARM GAS  /tmp/cc15xUnP.s 			page 22
+ARM GAS  /tmp/ccvhpNQW.s 			page 22
 
 
  711              		.fpu fpv4-sp-d16
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  751 0002 5368     		ldr	r3, [r2, #4]
  752 0004 23F00203 		bic	r3, r3, #2
  753 0008 5360     		str	r3, [r2, #4]
-ARM GAS  /tmp/cc15xUnP.s 			page 23
+ARM GAS  /tmp/ccvhpNQW.s 			page 23
 
 
  499:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** }
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  509:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** 
  510:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** /**
  511:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @brief  Disable the Debug Module during STANDBY mode
-ARM GAS  /tmp/cc15xUnP.s 			page 24
+ARM GAS  /tmp/ccvhpNQW.s 			page 24
 
 
  512:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @retval None
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  841              		.loc 1 528 1 view .LVU138
  842 0006 7047     		bx	lr
  843              	.L79:
-ARM GAS  /tmp/cc15xUnP.s 			page 25
+ARM GAS  /tmp/ccvhpNQW.s 			page 25
 
 
  844              		.align	2
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  542:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @brief  Returns first word of the unique device identifier (UID based on 96 bits)
  543:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   * @retval Device identifier
  544:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  /tmp/cc15xUnP.s 			page 26
+ARM GAS  /tmp/ccvhpNQW.s 			page 26
 
 
  545:stm32f4xx-hal-driver/Src/stm32f4xx_hal.c **** uint32_t HAL_GetUIDw0(void)
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  933              		.section	.text.HAL_GetUIDw2,"ax",%progbits
  934              		.align	1
  935              		.global	HAL_GetUIDw2
-ARM GAS  /tmp/cc15xUnP.s 			page 27
+ARM GAS  /tmp/ccvhpNQW.s 			page 27
 
 
  936              		.syntax unified
@@ -1615,97 +1615,97 @@ ARM GAS  /tmp/cc15xUnP.s 			page 1
  984              		.file 8 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_def.h"
  985              		.file 9 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h"
  986              		.file 10 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /tmp/cc15xUnP.s 			page 28
+ARM GAS  /tmp/ccvhpNQW.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal.c
-     /tmp/cc15xUnP.s:18     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/cc15xUnP.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/cc15xUnP.s:40     .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/cc15xUnP.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/cc15xUnP.s:60     .text.HAL_DeInit:0000000000000000 $t
-     /tmp/cc15xUnP.s:67     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-     /tmp/cc15xUnP.s:115    .text.HAL_DeInit:000000000000002c $d
-     /tmp/cc15xUnP.s:123    .text.HAL_InitTick:0000000000000000 $t
-     /tmp/cc15xUnP.s:130    .text.HAL_InitTick:0000000000000000 HAL_InitTick
-     /tmp/cc15xUnP.s:193    .text.HAL_InitTick:0000000000000040 $d
-     /tmp/cc15xUnP.s:200    .text.HAL_Init:0000000000000000 $t
-     /tmp/cc15xUnP.s:207    .text.HAL_Init:0000000000000000 HAL_Init
-     /tmp/cc15xUnP.s:249    .text.HAL_Init:0000000000000030 $d
-     /tmp/cc15xUnP.s:254    .text.HAL_IncTick:0000000000000000 $t
-     /tmp/cc15xUnP.s:261    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-     /tmp/cc15xUnP.s:281    .text.HAL_IncTick:0000000000000010 $d
+     /tmp/ccvhpNQW.s:18     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccvhpNQW.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccvhpNQW.s:40     .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/ccvhpNQW.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+     /tmp/ccvhpNQW.s:60     .text.HAL_DeInit:0000000000000000 $t
+     /tmp/ccvhpNQW.s:67     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+     /tmp/ccvhpNQW.s:115    .text.HAL_DeInit:000000000000002c $d
+     /tmp/ccvhpNQW.s:123    .text.HAL_InitTick:0000000000000000 $t
+     /tmp/ccvhpNQW.s:130    .text.HAL_InitTick:0000000000000000 HAL_InitTick
+     /tmp/ccvhpNQW.s:193    .text.HAL_InitTick:0000000000000040 $d
+     /tmp/ccvhpNQW.s:200    .text.HAL_Init:0000000000000000 $t
+     /tmp/ccvhpNQW.s:207    .text.HAL_Init:0000000000000000 HAL_Init
+     /tmp/ccvhpNQW.s:249    .text.HAL_Init:0000000000000030 $d
+     /tmp/ccvhpNQW.s:254    .text.HAL_IncTick:0000000000000000 $t
+     /tmp/ccvhpNQW.s:261    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+     /tmp/ccvhpNQW.s:281    .text.HAL_IncTick:0000000000000010 $d
                             *COM*:0000000000000004 uwTick
-     /tmp/cc15xUnP.s:287    .text.HAL_GetTick:0000000000000000 $t
-     /tmp/cc15xUnP.s:294    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-     /tmp/cc15xUnP.s:310    .text.HAL_GetTick:0000000000000008 $d
-     /tmp/cc15xUnP.s:315    .text.HAL_GetTickPrio:0000000000000000 $t
-     /tmp/cc15xUnP.s:322    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
-     /tmp/cc15xUnP.s:337    .text.HAL_GetTickPrio:0000000000000008 $d
-     /tmp/cc15xUnP.s:342    .text.HAL_SetTickFreq:0000000000000000 $t
-     /tmp/cc15xUnP.s:349    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
-     /tmp/cc15xUnP.s:406    .text.HAL_SetTickFreq:0000000000000024 $d
-     /tmp/cc15xUnP.s:412    .text.HAL_GetTickFreq:0000000000000000 $t
-     /tmp/cc15xUnP.s:419    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
-     /tmp/cc15xUnP.s:434    .text.HAL_GetTickFreq:0000000000000008 $d
-     /tmp/cc15xUnP.s:439    .text.HAL_Delay:0000000000000000 $t
-     /tmp/cc15xUnP.s:446    .text.HAL_Delay:0000000000000000 HAL_Delay
-     /tmp/cc15xUnP.s:499    .text.HAL_Delay:0000000000000024 $d
-     /tmp/cc15xUnP.s:504    .text.HAL_SuspendTick:0000000000000000 $t
-     /tmp/cc15xUnP.s:511    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-     /tmp/cc15xUnP.s:529    .text.HAL_SuspendTick:000000000000000c $d
-     /tmp/cc15xUnP.s:534    .text.HAL_ResumeTick:0000000000000000 $t
-     /tmp/cc15xUnP.s:541    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-     /tmp/cc15xUnP.s:559    .text.HAL_ResumeTick:000000000000000c $d
-     /tmp/cc15xUnP.s:564    .text.HAL_GetHalVersion:0000000000000000 $t
-     /tmp/cc15xUnP.s:571    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-     /tmp/cc15xUnP.s:585    .text.HAL_GetHalVersion:0000000000000004 $d
-     /tmp/cc15xUnP.s:590    .text.HAL_GetREVID:0000000000000000 $t
-     /tmp/cc15xUnP.s:597    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-     /tmp/cc15xUnP.s:614    .text.HAL_GetREVID:0000000000000008 $d
-     /tmp/cc15xUnP.s:619    .text.HAL_GetDEVID:0000000000000000 $t
-     /tmp/cc15xUnP.s:626    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-     /tmp/cc15xUnP.s:643    .text.HAL_GetDEVID:000000000000000c $d
-     /tmp/cc15xUnP.s:648    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:655    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-     /tmp/cc15xUnP.s:672    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-     /tmp/cc15xUnP.s:677    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:684    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-     /tmp/cc15xUnP.s:701    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-     /tmp/cc15xUnP.s:706    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:713    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-ARM GAS  /tmp/cc15xUnP.s 			page 29
+     /tmp/ccvhpNQW.s:287    .text.HAL_GetTick:0000000000000000 $t
+     /tmp/ccvhpNQW.s:294    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+     /tmp/ccvhpNQW.s:310    .text.HAL_GetTick:0000000000000008 $d
+     /tmp/ccvhpNQW.s:315    .text.HAL_GetTickPrio:0000000000000000 $t
+     /tmp/ccvhpNQW.s:322    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+     /tmp/ccvhpNQW.s:337    .text.HAL_GetTickPrio:0000000000000008 $d
+     /tmp/ccvhpNQW.s:342    .text.HAL_SetTickFreq:0000000000000000 $t
+     /tmp/ccvhpNQW.s:349    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+     /tmp/ccvhpNQW.s:406    .text.HAL_SetTickFreq:0000000000000024 $d
+     /tmp/ccvhpNQW.s:412    .text.HAL_GetTickFreq:0000000000000000 $t
+     /tmp/ccvhpNQW.s:419    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+     /tmp/ccvhpNQW.s:434    .text.HAL_GetTickFreq:0000000000000008 $d
+     /tmp/ccvhpNQW.s:439    .text.HAL_Delay:0000000000000000 $t
+     /tmp/ccvhpNQW.s:446    .text.HAL_Delay:0000000000000000 HAL_Delay
+     /tmp/ccvhpNQW.s:499    .text.HAL_Delay:0000000000000024 $d
+     /tmp/ccvhpNQW.s:504    .text.HAL_SuspendTick:0000000000000000 $t
+     /tmp/ccvhpNQW.s:511    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+     /tmp/ccvhpNQW.s:529    .text.HAL_SuspendTick:000000000000000c $d
+     /tmp/ccvhpNQW.s:534    .text.HAL_ResumeTick:0000000000000000 $t
+     /tmp/ccvhpNQW.s:541    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+     /tmp/ccvhpNQW.s:559    .text.HAL_ResumeTick:000000000000000c $d
+     /tmp/ccvhpNQW.s:564    .text.HAL_GetHalVersion:0000000000000000 $t
+     /tmp/ccvhpNQW.s:571    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+     /tmp/ccvhpNQW.s:585    .text.HAL_GetHalVersion:0000000000000004 $d
+     /tmp/ccvhpNQW.s:590    .text.HAL_GetREVID:0000000000000000 $t
+     /tmp/ccvhpNQW.s:597    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+     /tmp/ccvhpNQW.s:614    .text.HAL_GetREVID:0000000000000008 $d
+     /tmp/ccvhpNQW.s:619    .text.HAL_GetDEVID:0000000000000000 $t
+     /tmp/ccvhpNQW.s:626    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+     /tmp/ccvhpNQW.s:643    .text.HAL_GetDEVID:000000000000000c $d
+     /tmp/ccvhpNQW.s:648    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:655    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+     /tmp/ccvhpNQW.s:672    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:677    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:684    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+     /tmp/ccvhpNQW.s:701    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:706    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:713    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+ARM GAS  /tmp/ccvhpNQW.s 			page 29
 
 
-     /tmp/cc15xUnP.s:730    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-     /tmp/cc15xUnP.s:735    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:742    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-     /tmp/cc15xUnP.s:759    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-     /tmp/cc15xUnP.s:764    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:771    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-     /tmp/cc15xUnP.s:788    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-     /tmp/cc15xUnP.s:793    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-     /tmp/cc15xUnP.s:800    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-     /tmp/cc15xUnP.s:817    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-     /tmp/cc15xUnP.s:822    .text.HAL_EnableCompensationCell:0000000000000000 $t
-     /tmp/cc15xUnP.s:829    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
-     /tmp/cc15xUnP.s:846    .text.HAL_EnableCompensationCell:0000000000000008 $d
-     /tmp/cc15xUnP.s:851    .text.HAL_DisableCompensationCell:0000000000000000 $t
-     /tmp/cc15xUnP.s:858    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
-     /tmp/cc15xUnP.s:875    .text.HAL_DisableCompensationCell:0000000000000008 $d
-     /tmp/cc15xUnP.s:880    .text.HAL_GetUIDw0:0000000000000000 $t
-     /tmp/cc15xUnP.s:887    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
-     /tmp/cc15xUnP.s:902    .text.HAL_GetUIDw0:0000000000000008 $d
-     /tmp/cc15xUnP.s:907    .text.HAL_GetUIDw1:0000000000000000 $t
-     /tmp/cc15xUnP.s:914    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
-     /tmp/cc15xUnP.s:929    .text.HAL_GetUIDw1:0000000000000008 $d
-     /tmp/cc15xUnP.s:934    .text.HAL_GetUIDw2:0000000000000000 $t
-     /tmp/cc15xUnP.s:941    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
-     /tmp/cc15xUnP.s:956    .text.HAL_GetUIDw2:0000000000000008 $d
-     /tmp/cc15xUnP.s:967    .data.uwTickFreq:0000000000000000 uwTickFreq
-     /tmp/cc15xUnP.s:974    .data.uwTickPrio:0000000000000000 uwTickPrio
-     /tmp/cc15xUnP.s:970    .data.uwTickPrio:0000000000000000 $d
+     /tmp/ccvhpNQW.s:730    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:735    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:742    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+     /tmp/ccvhpNQW.s:759    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:764    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:771    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+     /tmp/ccvhpNQW.s:788    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:793    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccvhpNQW.s:800    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+     /tmp/ccvhpNQW.s:817    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+     /tmp/ccvhpNQW.s:822    .text.HAL_EnableCompensationCell:0000000000000000 $t
+     /tmp/ccvhpNQW.s:829    .text.HAL_EnableCompensationCell:0000000000000000 HAL_EnableCompensationCell
+     /tmp/ccvhpNQW.s:846    .text.HAL_EnableCompensationCell:0000000000000008 $d
+     /tmp/ccvhpNQW.s:851    .text.HAL_DisableCompensationCell:0000000000000000 $t
+     /tmp/ccvhpNQW.s:858    .text.HAL_DisableCompensationCell:0000000000000000 HAL_DisableCompensationCell
+     /tmp/ccvhpNQW.s:875    .text.HAL_DisableCompensationCell:0000000000000008 $d
+     /tmp/ccvhpNQW.s:880    .text.HAL_GetUIDw0:0000000000000000 $t
+     /tmp/ccvhpNQW.s:887    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
+     /tmp/ccvhpNQW.s:902    .text.HAL_GetUIDw0:0000000000000008 $d
+     /tmp/ccvhpNQW.s:907    .text.HAL_GetUIDw1:0000000000000000 $t
+     /tmp/ccvhpNQW.s:914    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
+     /tmp/ccvhpNQW.s:929    .text.HAL_GetUIDw1:0000000000000008 $d
+     /tmp/ccvhpNQW.s:934    .text.HAL_GetUIDw2:0000000000000000 $t
+     /tmp/ccvhpNQW.s:941    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
+     /tmp/ccvhpNQW.s:956    .text.HAL_GetUIDw2:0000000000000008 $d
+     /tmp/ccvhpNQW.s:967    .data.uwTickFreq:0000000000000000 uwTickFreq
+     /tmp/ccvhpNQW.s:974    .data.uwTickPrio:0000000000000000 uwTickPrio
+     /tmp/ccvhpNQW.s:970    .data.uwTickPrio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config

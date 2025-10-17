@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIWCUgW.s 			page 1
+ARM GAS  /tmp/ccyc2f88.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
   28:main.c        ****     // 初始化Yaskawa编码器通信
   29:main.c        ****     yaskawa_init();
   30:main.c        **** 
-ARM GAS  /tmp/ccIWCUgW.s 			page 2
+ARM GAS  /tmp/ccyc2f88.s 			page 2
 
 
   31:main.c        ****     char msg[] = "STM32F407 Yaskawa Encoder Reader Started\r\n";
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
   53 0012 0494     		str	r4, [sp, #16]
   54 0014 0594     		str	r4, [sp, #20]
   55 0016 0694     		str	r4, [sp, #24]
-ARM GAS  /tmp/ccIWCUgW.s 			page 3
+ARM GAS  /tmp/ccyc2f88.s 			page 3
 
 
   56 0018 0794     		str	r4, [sp, #28]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  101 0050 0225     		movs	r5, #2
  102 0052 0E95     		str	r5, [sp, #56]
   70:main.c        ****     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-ARM GAS  /tmp/ccIWCUgW.s 			page 4
+ARM GAS  /tmp/ccyc2f88.s 			page 4
 
 
  103              		.loc 1 70 5 is_stmt 1 view .LVU23
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
   84:main.c        ****     HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
  144              		.loc 1 84 5 is_stmt 1 view .LVU44
  145 0084 0521     		movs	r1, #5
-ARM GAS  /tmp/ccIWCUgW.s 			page 5
+ARM GAS  /tmp/ccyc2f88.s 			page 5
 
 
  146 0086 03A8     		add	r0, sp, #12
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
   92:main.c        ****     huart4.Init.StopBits = UART_STOPBITS_1;
  195              		.loc 1 92 5 is_stmt 1 view .LVU53
  196              		.loc 1 92 26 is_stmt 0 view .LVU54
-ARM GAS  /tmp/ccIWCUgW.s 			page 6
+ARM GAS  /tmp/ccyc2f88.s 			page 6
 
 
  197 0012 C360     		str	r3, [r0, #12]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  244              		.cfi_offset 7, -12
  245              		.cfi_offset 8, -8
  246              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccIWCUgW.s 			page 7
+ARM GAS  /tmp/ccyc2f88.s 			page 7
 
 
  247 0004 88B0     		sub	sp, sp, #32
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  295 003e 03F04003 		and	r3, r3, #64
  296 0042 0293     		str	r3, [sp, #8]
  297              		.loc 1 107 5 view .LVU83
-ARM GAS  /tmp/ccIWCUgW.s 			page 8
+ARM GAS  /tmp/ccyc2f88.s 			page 8
 
 
  298 0044 029B     		ldr	r3, [sp, #8]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  122:main.c        ****     GPIO_InitStruct.Alternate = GPIO_AF8_UART4;
  338              		.loc 1 122 5 is_stmt 1 view .LVU104
  339              		.loc 1 122 31 is_stmt 0 view .LVU105
-ARM GAS  /tmp/ccIWCUgW.s 			page 9
+ARM GAS  /tmp/ccyc2f88.s 			page 9
 
 
  340 0070 0796     		str	r6, [sp, #28]
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  382 00a8 00000240 		.word	1073872896
  383 00ac 00180240 		.word	1073879040
  384              		.cfi_endproc
-ARM GAS  /tmp/ccIWCUgW.s 			page 10
+ARM GAS  /tmp/ccyc2f88.s 			page 10
 
 
  385              	.LFE245:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  428              	.LVL10:
   26:main.c        **** 
  429              		.loc 1 26 5 view .LVU122
-ARM GAS  /tmp/ccIWCUgW.s 			page 11
+ARM GAS  /tmp/ccyc2f88.s 			page 11
 
 
  430 0010 FFF7FEFF 		bl	MX_UART4_Init
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
   41:main.c        ****         uint32_t crc_ok = yaskawa_get_crc_ok();
  473              		.loc 1 41 32 is_stmt 0 discriminator 1 view .LVU134
  474 0052 FFF7FEFF 		bl	yaskawa_get_error_count
-ARM GAS  /tmp/ccIWCUgW.s 			page 12
+ARM GAS  /tmp/ccyc2f88.s 			page 12
 
 
  475              	.LVL18:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  517              	.LVL27:
   53:main.c        ****     }
  518              		.loc 1 53 9 is_stmt 1 discriminator 1 view .LVU147
-ARM GAS  /tmp/ccIWCUgW.s 			page 13
+ARM GAS  /tmp/ccyc2f88.s 			page 13
 
 
  519 0090 6420     		movs	r0, #100
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  567              		.loc 1 141 1 is_stmt 0 view .LVU155
  568 0010 2046     		mov	r0, r4
  569 0012 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccIWCUgW.s 			page 14
+ARM GAS  /tmp/ccyc2f88.s 			page 14
 
 
  570              	.LVL33:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  619 001c 1A6C     		ldr	r2, [r3, #64]
  620 001e 02F40022 		and	r2, r2, #524288
  621 0022 0092     		str	r2, [sp]
-ARM GAS  /tmp/ccIWCUgW.s 			page 15
+ARM GAS  /tmp/ccyc2f88.s 			page 15
 
 
  622              		.loc 1 147 9 view .LVU166
@@ -898,35 +898,35 @@ ARM GAS  /tmp/ccIWCUgW.s 			page 1
  674              		.file 18 "yaskawa.h"
  675              		.file 19 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/stdio.h"
  676              		.file 20 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/string.h"
-ARM GAS  /tmp/ccIWCUgW.s 			page 16
+ARM GAS  /tmp/ccyc2f88.s 			page 16
 
 
  677              		.file 21 "<built-in>"
-ARM GAS  /tmp/ccIWCUgW.s 			page 17
+ARM GAS  /tmp/ccyc2f88.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccIWCUgW.s:18     .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccIWCUgW.s:26     .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccIWCUgW.s:158    .text.SystemClock_Config:0000000000000090 $d
-     /tmp/ccIWCUgW.s:164    .text.MX_UART4_Init:0000000000000000 $t
-     /tmp/ccIWCUgW.s:171    .text.MX_UART4_Init:0000000000000000 MX_UART4_Init
-     /tmp/ccIWCUgW.s:219    .text.MX_UART4_Init:0000000000000024 $d
+     /tmp/ccyc2f88.s:18     .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccyc2f88.s:26     .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccyc2f88.s:158    .text.SystemClock_Config:0000000000000090 $d
+     /tmp/ccyc2f88.s:164    .text.MX_UART4_Init:0000000000000000 $t
+     /tmp/ccyc2f88.s:171    .text.MX_UART4_Init:0000000000000000 MX_UART4_Init
+     /tmp/ccyc2f88.s:219    .text.MX_UART4_Init:0000000000000024 $d
                             *COM*:0000000000000048 huart4
-     /tmp/ccIWCUgW.s:225    .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccIWCUgW.s:232    .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccIWCUgW.s:381    .text.MX_GPIO_Init:00000000000000a4 $d
-     /tmp/ccIWCUgW.s:388    .rodata.main.str1.4:0000000000000000 $d
-     /tmp/ccIWCUgW.s:397    .text.main:0000000000000000 $t
-     /tmp/ccIWCUgW.s:404    .text.main:0000000000000000 main
-     /tmp/ccIWCUgW.s:528    .text.main:0000000000000098 $d
-     /tmp/ccIWCUgW.s:535    .text._write:0000000000000000 $t
-     /tmp/ccIWCUgW.s:542    .text._write:0000000000000000 _write
-     /tmp/ccIWCUgW.s:575    .text._write:0000000000000014 $d
-     /tmp/ccIWCUgW.s:580    .text.HAL_UART_MspInit:0000000000000000 $t
-     /tmp/ccIWCUgW.s:587    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-     /tmp/ccIWCUgW.s:651    .text.HAL_UART_MspInit:0000000000000040 $d
+     /tmp/ccyc2f88.s:225    .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/ccyc2f88.s:232    .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/ccyc2f88.s:381    .text.MX_GPIO_Init:00000000000000a4 $d
+     /tmp/ccyc2f88.s:388    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccyc2f88.s:397    .text.main:0000000000000000 $t
+     /tmp/ccyc2f88.s:404    .text.main:0000000000000000 main
+     /tmp/ccyc2f88.s:528    .text.main:0000000000000098 $d
+     /tmp/ccyc2f88.s:535    .text._write:0000000000000000 $t
+     /tmp/ccyc2f88.s:542    .text._write:0000000000000000 _write
+     /tmp/ccyc2f88.s:575    .text._write:0000000000000014 $d
+     /tmp/ccyc2f88.s:580    .text.HAL_UART_MspInit:0000000000000000 $t
+     /tmp/ccyc2f88.s:587    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+     /tmp/ccyc2f88.s:651    .text.HAL_UART_MspInit:0000000000000040 $d
 
 UNDEFINED SYMBOLS
 memset

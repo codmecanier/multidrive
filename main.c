@@ -252,8 +252,8 @@ int main(void)
     HAL_Init();
 
     // 配置系统时钟
-    //SystemClock_Config();
-    Stm32_Clock_Init(336,8,2,7); //System clock 168MHz
+    SystemClock_Config();
+    //Stm32_Clock_Init(336,8,2,7); //System clock 168MHz
 
     // 初始化GPIO
     MX_GPIO_Init();

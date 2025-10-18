@@ -3,30 +3,30 @@
 #include "sys.h"
 #include "stdio.h"	
 //////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌÐòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßÐí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//ALIENTEK STM32F407¿ª·¢°å
-//´®¿Ú1³õÊ¼»¯		   
-//ÕýµãÔ­×Ó@ALIENTEK
-//¼¼ÊõÂÛÌ³:www.openedv.csom
-//ÐÞ¸ÄÈÕÆÚ:2017/4/6
-//°æ±¾£ºV1.0
-//°æÈ¨ËùÓÐ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ÕýµãÔ­×Ó 2009-2019
+//æœ¬ç¨‹åºåªä¾›å­¦ä¹ ä½¿ç”¨ï¼Œæœªç»ä½œè€…è®¸å¯ï¼Œä¸å¾—ç”¨äºŽå…¶å®ƒä»»ä½•ç”¨é€”
+//ALIENTEK STM32F407å¼€å‘æ¿
+//ä¸²å£1åˆå§‹åŒ–		   
+//æ­£ç‚¹åŽŸå­@ALIENTEK
+//æŠ€æœ¯è®ºå›:www.openedv.csom
+//ä¿®æ”¹æ—¥æœŸ:2017/4/6
+//ç‰ˆæœ¬ï¼šV1.0
+//ç‰ˆæƒæ‰€æœ‰ï¼Œç›—ç‰ˆå¿…ç©¶ã€‚
+//Copyright(C) æ­£ç‚¹åŽŸå­ 2009-2019
 //All rights reserved
 //********************************************************************************
-//V1.0ÐÞ¸ÄËµÃ÷ 
+//V1.0ä¿®æ”¹è¯´æ˜Ž 
 ////////////////////////////////////////////////////////////////////////////////// 	
-#define USART_REC_LEN  			200  	//¶¨Òå×î´ó½ÓÊÕ×Ö½ÚÊý 200
-#define EN_USART1_RX 			1		//Ê¹ÄÜ£¨1£©/½ûÖ¹£¨0£©´®¿Ú1½ÓÊÕ
+#define USART_REC_LEN  			200  	//å®šä¹‰æœ€å¤§æŽ¥æ”¶å­—èŠ‚æ•° 200
+#define EN_USART1_RX 			1		//ä½¿èƒ½ï¼ˆ1ï¼‰/ç¦æ­¢ï¼ˆ0ï¼‰ä¸²å£1æŽ¥æ”¶
 	  	
-extern u8  USART_RX_BUF[USART_REC_LEN]; //½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.Ä©×Ö½ÚÎª»»ÐÐ·û 
-extern u16 USART_RX_STA;         		//½ÓÊÕ×´Ì¬±ê¼Ç	
-extern UART_HandleTypeDef UART1_Handler; //UART¾ä±ú
+extern u8  USART_RX_BUF[USART_REC_LEN]; //æŽ¥æ”¶ç¼“å†²,æœ€å¤§USART_REC_LENä¸ªå­—èŠ‚.æœ«å­—èŠ‚ä¸ºæ¢è¡Œç¬¦ 
+extern u16 USART_RX_STA;         		//æŽ¥æ”¶çŠ¶æ€æ ‡è®°	
+extern UART_HandleTypeDef UART1_Handler; //UARTå¥æŸ„
 
-#define RXBUFFERSIZE   1 //»º´æ´óÐ¡
-extern u8 aRxBuffer[RXBUFFERSIZE];//HAL¿âUSART½ÓÊÕBuffer
+#define RXBUFFERSIZE   1 //ç¼“å­˜å¤§å°
+extern u8 aRxBuffer[RXBUFFERSIZE];//HALåº“USARTæŽ¥æ”¶Buffer
 
-//Èç¹ûÏë´®¿ÚÖÐ¶Ï½ÓÊÕ£¬Çë²»Òª×¢ÊÍÒÔÏÂºê¶¨Òå
+//å¦‚æžœæƒ³ä¸²å£ä¸­æ–­æŽ¥æ”¶ï¼Œè¯·ä¸è¦æ³¨é‡Šä»¥ä¸‹å®å®šä¹‰
 void uart_init(u32 bound);
 
 

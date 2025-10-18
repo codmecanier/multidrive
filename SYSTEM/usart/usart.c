@@ -1,107 +1,107 @@
 #include "usart.h"
 #include "delay.h"
 ////////////////////////////////////////////////////////////////////////////////// 	 
-//Èç¹ûÊ¹ÓÃos,Ôò°üÀ¨ÏÂÃæµÄÍ·ÎÄ¼þ¼´¿É.
+//å¦‚æžœä½¿ç”¨os,åˆ™åŒ…æ‹¬ä¸‹é¢çš„å¤´æ–‡ä»¶å³å¯.
 #if SYSTEM_SUPPORT_OS
-#include "includes.h"					//os Ê¹ÓÃ	  
+#include "includes.h"					//os ä½¿ç”¨	  
 #endif
 //////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌÐòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßÐí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//ALIENTEK STM32F407¿ª·¢°å
-//´®¿Ú1³õÊ¼»¯		   
-//ÕýµãÔ­×Ó@ALIENTEK
-//¼¼ÊõÂÛÌ³:www.openedv.com
-//ÐÞ¸ÄÈÕÆÚ:2017/4/6
-//°æ±¾£ºV1.5
-//°æÈ¨ËùÓÐ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾ 2009-2019
+//æœ¬ç¨‹åºåªä¾›å­¦ä¹ ä½¿ç”¨ï¼Œæœªç»ä½œè€…è®¸å¯ï¼Œä¸å¾—ç”¨äºŽå…¶å®ƒä»»ä½•ç”¨é€”
+//ALIENTEK STM32F407å¼€å‘æ¿
+//ä¸²å£1åˆå§‹åŒ–		   
+//æ­£ç‚¹åŽŸå­@ALIENTEK
+//æŠ€æœ¯è®ºå›:www.openedv.com
+//ä¿®æ”¹æ—¥æœŸ:2017/4/6
+//ç‰ˆæœ¬ï¼šV1.5
+//ç‰ˆæƒæ‰€æœ‰ï¼Œç›—ç‰ˆå¿…ç©¶ã€‚
+//Copyright(C) å¹¿å·žå¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸ 2009-2019
 //All rights reserved
 //********************************************************************************
-//V1.0ÐÞ¸ÄËµÃ÷ 
+//V1.0ä¿®æ”¹è¯´æ˜Ž 
 ////////////////////////////////////////////////////////////////////////////////// 	  
-//¼ÓÈëÒÔÏÂ´úÂë,Ö§³Öprintfº¯Êý,¶ø²»ÐèÒªÑ¡Ôñuse MicroLIB	  
+//åŠ å…¥ä»¥ä¸‹ä»£ç ,æ”¯æŒprintfå‡½æ•°,è€Œä¸éœ€è¦é€‰æ‹©use MicroLIB	  
 //#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)	
 #if 1
 #pragma import(__use_no_semihosting)             
-//±ê×¼¿âÐèÒªµÄÖ§³Öº¯Êý                 
+//æ ‡å‡†åº“éœ€è¦çš„æ”¯æŒå‡½æ•°                 
 struct __FILE 
 { 
 	int handle; 
 }; 
 
 FILE __stdout;       
-//¶¨Òå_sys_exit()ÒÔ±ÜÃâÊ¹ÓÃ°ëÖ÷»úÄ£Ê½    
+//å®šä¹‰_sys_exit()ä»¥é¿å…ä½¿ç”¨åŠä¸»æœºæ¨¡å¼    
 void _sys_exit(int x) 
 { 
 	x = x; 
 } 
-//ÖØ¶¨Òåfputcº¯Êý 
+//é‡å®šä¹‰fputcå‡½æ•° 
 int fputc(int ch, FILE *f)
 { 	
-	while((USART1->SR&0X40)==0);//Ñ­»··¢ËÍ,Ö±µ½·¢ËÍÍê±Ï   
+	while((USART1->SR&0X40)==0);//å¾ªçŽ¯å‘é€,ç›´åˆ°å‘é€å®Œæ¯•   
 	USART1->DR = (u8) ch;      
 	return ch;
 }
 #endif 
 
-#if EN_USART1_RX   //Èç¹ûÊ¹ÄÜÁË½ÓÊÕ
-//´®¿Ú1ÖÐ¶Ï·þÎñ³ÌÐò
-//×¢Òâ,¶ÁÈ¡USARTx->SRÄÜ±ÜÃâÄªÃûÆäÃîµÄ´íÎó   	
-u8 USART_RX_BUF[USART_REC_LEN];     //½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.
-//½ÓÊÕ×´Ì¬
-//bit15£¬	½ÓÊÕÍê³É±êÖ¾
-//bit14£¬	½ÓÊÕµ½0x0d
-//bit13~0£¬	½ÓÊÕµ½µÄÓÐÐ§×Ö½ÚÊýÄ¿
-u16 USART_RX_STA=0;       //½ÓÊÕ×´Ì¬±ê¼Ç	
+#if EN_USART1_RX   //å¦‚æžœä½¿èƒ½äº†æŽ¥æ”¶
+//ä¸²å£1ä¸­æ–­æœåŠ¡ç¨‹åº
+//æ³¨æ„,è¯»å–USARTx->SRèƒ½é¿å…èŽ«åå…¶å¦™çš„é”™è¯¯   	
+u8 USART_RX_BUF[USART_REC_LEN];     //æŽ¥æ”¶ç¼“å†²,æœ€å¤§USART_REC_LENä¸ªå­—èŠ‚.
+//æŽ¥æ”¶çŠ¶æ€
+//bit15ï¼Œ	æŽ¥æ”¶å®Œæˆæ ‡å¿—
+//bit14ï¼Œ	æŽ¥æ”¶åˆ°0x0d
+//bit13~0ï¼Œ	æŽ¥æ”¶åˆ°çš„æœ‰æ•ˆå­—èŠ‚æ•°ç›®
+u16 USART_RX_STA=0;       //æŽ¥æ”¶çŠ¶æ€æ ‡è®°	
 
-u8 aRxBuffer[RXBUFFERSIZE];//HAL¿âÊ¹ÓÃµÄ´®¿Ú½ÓÊÕ»º³å
-UART_HandleTypeDef UART1_Handler; //UART¾ä±ú
+u8 aRxBuffer[RXBUFFERSIZE];//HALåº“ä½¿ç”¨çš„ä¸²å£æŽ¥æ”¶ç¼“å†²
+UART_HandleTypeDef UART1_Handler; //UARTå¥æŸ„
 
-//³õÊ¼»¯IO ´®¿Ú1 
-//bound:²¨ÌØÂÊ
+//åˆå§‹åŒ–IO ä¸²å£1 
+//bound:æ³¢ç‰¹çŽ‡
 void uart_init(u32 bound)
 {	
-	//UART ³õÊ¼»¯ÉèÖÃ
+	//UART åˆå§‹åŒ–è®¾ç½®
 	UART1_Handler.Instance=USART1;					    //USART1
-	UART1_Handler.Init.BaudRate=bound;				    //²¨ÌØÂÊ
-	UART1_Handler.Init.WordLength=UART_WORDLENGTH_8B;   //×Ö³¤Îª8Î»Êý¾Ý¸ñÊ½
-	UART1_Handler.Init.StopBits=UART_STOPBITS_1;	    //Ò»¸öÍ£Ö¹Î»
-	UART1_Handler.Init.Parity=UART_PARITY_NONE;		    //ÎÞÆæÅ¼Ð£ÑéÎ»
-	UART1_Handler.Init.HwFlowCtl=UART_HWCONTROL_NONE;   //ÎÞÓ²¼þÁ÷¿Ø
-	UART1_Handler.Init.Mode=UART_MODE_TX_RX;		    //ÊÕ·¢Ä£Ê½
-	HAL_UART_Init(&UART1_Handler);					    //HAL_UART_Init()»áÊ¹ÄÜUART1
+	UART1_Handler.Init.BaudRate=bound;				    //æ³¢ç‰¹çŽ‡
+	UART1_Handler.Init.WordLength=UART_WORDLENGTH_8B;   //å­—é•¿ä¸º8ä½æ•°æ®æ ¼å¼
+	UART1_Handler.Init.StopBits=UART_STOPBITS_1;	    //ä¸€ä¸ªåœæ­¢ä½
+	UART1_Handler.Init.Parity=UART_PARITY_NONE;		    //æ— å¥‡å¶æ ¡éªŒä½
+	UART1_Handler.Init.HwFlowCtl=UART_HWCONTROL_NONE;   //æ— ç¡¬ä»¶æµæŽ§
+	UART1_Handler.Init.Mode=UART_MODE_TX_RX;		    //æ”¶å‘æ¨¡å¼
+	HAL_UART_Init(&UART1_Handler);					    //HAL_UART_Init()ä¼šä½¿èƒ½UART1
 	
-	HAL_UART_Receive_IT(&UART1_Handler, (u8 *)aRxBuffer, RXBUFFERSIZE);//¸Ãº¯Êý»á¿ªÆô½ÓÊÕÖÐ¶Ï£º±êÖ¾Î»UART_IT_RXNE£¬²¢ÇÒÉèÖÃ½ÓÊÕ»º³åÒÔ¼°½ÓÊÕ»º³å½ÓÊÕ×î´óÊý¾ÝÁ¿
+	HAL_UART_Receive_IT(&UART1_Handler, (u8 *)aRxBuffer, RXBUFFERSIZE);//è¯¥å‡½æ•°ä¼šå¼€å¯æŽ¥æ”¶ä¸­æ–­ï¼šæ ‡å¿—ä½UART_IT_RXNEï¼Œå¹¶ä¸”è®¾ç½®æŽ¥æ”¶ç¼“å†²ä»¥åŠæŽ¥æ”¶ç¼“å†²æŽ¥æ”¶æœ€å¤§æ•°æ®é‡
   
 }
 
-//UARTµ×²ã³õÊ¼»¯£¬Ê±ÖÓÊ¹ÄÜ£¬Òý½ÅÅäÖÃ£¬ÖÐ¶ÏÅäÖÃ
-//´Ëº¯Êý»á±»HAL_UART_Init()µ÷ÓÃ
-//huart:´®¿Ú¾ä±ú
+//UARTåº•å±‚åˆå§‹åŒ–ï¼Œæ—¶é’Ÿä½¿èƒ½ï¼Œå¼•è„šé…ç½®ï¼Œä¸­æ–­é…ç½®
+//æ­¤å‡½æ•°ä¼šè¢«HAL_UART_Init()è°ƒç”¨
+//huart:ä¸²å£å¥æŸ„
 
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 {
-    //GPIO¶Ë¿ÚÉèÖÃ
+    //GPIOç«¯å£è®¾ç½®
 	GPIO_InitTypeDef GPIO_Initure;
 	
-	if(huart->Instance==USART1)//Èç¹ûÊÇ´®¿Ú1£¬½øÐÐ´®¿Ú1 MSP³õÊ¼»¯
+	if(huart->Instance==USART1)//å¦‚æžœæ˜¯ä¸²å£1ï¼Œè¿›è¡Œä¸²å£1 MSPåˆå§‹åŒ–
 	{
-		__HAL_RCC_GPIOA_CLK_ENABLE();			//Ê¹ÄÜGPIOAÊ±ÖÓ
-		__HAL_RCC_USART1_CLK_ENABLE();			//Ê¹ÄÜUSART1Ê±ÖÓ
+		__HAL_RCC_GPIOA_CLK_ENABLE();			//ä½¿èƒ½GPIOAæ—¶é’Ÿ
+		__HAL_RCC_USART1_CLK_ENABLE();			//ä½¿èƒ½USART1æ—¶é’Ÿ
 	
 		GPIO_Initure.Pin=GPIO_PIN_9;			//PA9
-		GPIO_Initure.Mode=GPIO_MODE_AF_PP;		//¸´ÓÃÍÆÍìÊä³ö
-		GPIO_Initure.Pull=GPIO_PULLUP;			//ÉÏÀ­
-		GPIO_Initure.Speed=GPIO_SPEED_FAST;		//¸ßËÙ
-		GPIO_Initure.Alternate=GPIO_AF7_USART1;	//¸´ÓÃÎªUSART1
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//³õÊ¼»¯PA9
+		GPIO_Initure.Mode=GPIO_MODE_AF_PP;		//å¤ç”¨æŽ¨æŒ½è¾“å‡º
+		GPIO_Initure.Pull=GPIO_PULLUP;			//ä¸Šæ‹‰
+		GPIO_Initure.Speed=GPIO_SPEED_FAST;		//é«˜é€Ÿ
+		GPIO_Initure.Alternate=GPIO_AF7_USART1;	//å¤ç”¨ä¸ºUSART1
+		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//åˆå§‹åŒ–PA9
 
 		GPIO_Initure.Pin=GPIO_PIN_10;			//PA10
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//³õÊ¼»¯PA10
+		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//åˆå§‹åŒ–PA10
 		
 #if EN_USART1_RX
-		HAL_NVIC_EnableIRQ(USART1_IRQn);				//Ê¹ÄÜUSART1ÖÐ¶ÏÍ¨µÀ
-		HAL_NVIC_SetPriority(USART1_IRQn,3,3);			//ÇÀÕ¼ÓÅÏÈ¼¶3£¬×ÓÓÅÏÈ¼¶3
+		HAL_NVIC_EnableIRQ(USART1_IRQn);				//ä½¿èƒ½USART1ä¸­æ–­é€šé“
+		HAL_NVIC_SetPriority(USART1_IRQn,3,3);			//æŠ¢å ä¼˜å…ˆçº§3ï¼Œå­ä¼˜å…ˆçº§3
 #endif	
 	}
 
@@ -109,23 +109,23 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart->Instance==USART1)//Èç¹ûÊÇ´®¿Ú1
+	if(huart->Instance==USART1)//å¦‚æžœæ˜¯ä¸²å£1
 	{
-		if((USART_RX_STA&0x8000)==0)//½ÓÊÕÎ´Íê³É
+		if((USART_RX_STA&0x8000)==0)//æŽ¥æ”¶æœªå®Œæˆ
 		{
-			if(USART_RX_STA&0x4000)//½ÓÊÕµ½ÁË0x0d
+			if(USART_RX_STA&0x4000)//æŽ¥æ”¶åˆ°äº†0x0d
 			{
-				if(aRxBuffer[0]!=0x0a)USART_RX_STA=0;//½ÓÊÕ´íÎó,ÖØÐÂ¿ªÊ¼
-				else USART_RX_STA|=0x8000;	//½ÓÊÕÍê³ÉÁË 
+				if(aRxBuffer[0]!=0x0a)USART_RX_STA=0;//æŽ¥æ”¶é”™è¯¯,é‡æ–°å¼€å§‹
+				else USART_RX_STA|=0x8000;	//æŽ¥æ”¶å®Œæˆäº† 
 			}
-			else //»¹Ã»ÊÕµ½0X0D
+			else //è¿˜æ²¡æ”¶åˆ°0X0D
 			{	
 				if(aRxBuffer[0]==0x0d)USART_RX_STA|=0x4000;
 				else
 				{
 					USART_RX_BUF[USART_RX_STA&0X3FFF]=aRxBuffer[0] ;
 					USART_RX_STA++;
-					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//½ÓÊÕÊý¾Ý´íÎó,ÖØÐÂ¿ªÊ¼½ÓÊÕ	  
+					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//æŽ¥æ”¶æ•°æ®é”™è¯¯,é‡æ–°å¼€å§‹æŽ¥æ”¶	  
 				}		 
 			}
 		}
@@ -133,72 +133,72 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	}
 }
  
-//´®¿Ú1ÖÐ¶Ï·þÎñ³ÌÐò
+//ä¸²å£1ä¸­æ–­æœåŠ¡ç¨‹åº
 void USART1_IRQHandler(void)                	
 { 
 	u32 timeout=0;
-#if SYSTEM_SUPPORT_OS	 	//Ê¹ÓÃOS
+#if SYSTEM_SUPPORT_OS	 	//ä½¿ç”¨OS
 	OSIntEnter();    
 #endif
 	
-	HAL_UART_IRQHandler(&UART1_Handler);	//µ÷ÓÃHAL¿âÖÐ¶Ï´¦Àí¹«ÓÃº¯Êý
+	HAL_UART_IRQHandler(&UART1_Handler);	//è°ƒç”¨HALåº“ä¸­æ–­å¤„ç†å…¬ç”¨å‡½æ•°
 	
 	timeout=0;
-    while (HAL_UART_GetState(&UART1_Handler) != HAL_UART_STATE_READY)//µÈ´ý¾ÍÐ÷
+    while (HAL_UART_GetState(&UART1_Handler) != HAL_UART_STATE_READY)//ç­‰å¾…å°±ç»ª
 	{
-	 timeout++;////³¬Ê±´¦Àí
+	 timeout++;////è¶…æ—¶å¤„ç†
      if(timeout>HAL_MAX_DELAY) break;		
 	
 	}
      
 	timeout=0;
-	while(HAL_UART_Receive_IT(&UART1_Handler, (u8 *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)//Ò»´Î´¦ÀíÍê³ÉÖ®ºó£¬ÖØÐÂ¿ªÆôÖÐ¶Ï²¢ÉèÖÃRxXferCountÎª1
+	while(HAL_UART_Receive_IT(&UART1_Handler, (u8 *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)//ä¸€æ¬¡å¤„ç†å®Œæˆä¹‹åŽï¼Œé‡æ–°å¼€å¯ä¸­æ–­å¹¶è®¾ç½®RxXferCountä¸º1
 	{
-	 timeout++; //³¬Ê±´¦Àí
+	 timeout++; //è¶…æ—¶å¤„ç†
 	 if(timeout>HAL_MAX_DELAY) break;	
 	}
-#if SYSTEM_SUPPORT_OS	 	//Ê¹ÓÃOS
+#if SYSTEM_SUPPORT_OS	 	//ä½¿ç”¨OS
 	OSIntExit();  											 
 #endif
 } 
 #endif	
 
 
-/*ÏÂÃæ´úÂëÎÒÃÇÖ±½Ó°ÑÖÐ¶Ï¿ØÖÆÂß¼­Ð´ÔÚÖÐ¶Ï·þÎñº¯ÊýÄÚ²¿¡£
- ËµÃ÷£º²ÉÓÃHAL¿â´¦ÀíÂß¼­£¬Ð§ÂÊ²»¸ß¡£*/
+/*ä¸‹é¢ä»£ç æˆ‘ä»¬ç›´æŽ¥æŠŠä¸­æ–­æŽ§åˆ¶é€»è¾‘å†™åœ¨ä¸­æ–­æœåŠ¡å‡½æ•°å†…éƒ¨ã€‚
+ è¯´æ˜Žï¼šé‡‡ç”¨HALåº“å¤„ç†é€»è¾‘ï¼Œæ•ˆçŽ‡ä¸é«˜ã€‚*/
 /*
 
-//´®¿Ú1ÖÐ¶Ï·þÎñ³ÌÐò
+//ä¸²å£1ä¸­æ–­æœåŠ¡ç¨‹åº
 void USART1_IRQHandler(void)                	
 { 
 	u8 Res;
-#if SYSTEM_SUPPORT_OS	 	//Ê¹ÓÃOS
+#if SYSTEM_SUPPORT_OS	 	//ä½¿ç”¨OS
 	OSIntEnter();    
 #endif
-	if((__HAL_UART_GET_FLAG(&UART1_Handler,UART_FLAG_RXNE)!=RESET))  //½ÓÊÕÖÐ¶Ï(½ÓÊÕµ½µÄÊý¾Ý±ØÐëÊÇ0x0d 0x0a½áÎ²)
+	if((__HAL_UART_GET_FLAG(&UART1_Handler,UART_FLAG_RXNE)!=RESET))  //æŽ¥æ”¶ä¸­æ–­(æŽ¥æ”¶åˆ°çš„æ•°æ®å¿…é¡»æ˜¯0x0d 0x0aç»“å°¾)
 	{
         HAL_UART_Receive(&UART1_Handler,&Res,1,1000); 
-		if((USART_RX_STA&0x8000)==0)//½ÓÊÕÎ´Íê³É
+		if((USART_RX_STA&0x8000)==0)//æŽ¥æ”¶æœªå®Œæˆ
 		{
-			if(USART_RX_STA&0x4000)//½ÓÊÕµ½ÁË0x0d
+			if(USART_RX_STA&0x4000)//æŽ¥æ”¶åˆ°äº†0x0d
 			{
-				if(Res!=0x0a)USART_RX_STA=0;//½ÓÊÕ´íÎó,ÖØÐÂ¿ªÊ¼
-				else USART_RX_STA|=0x8000;	//½ÓÊÕÍê³ÉÁË 
+				if(Res!=0x0a)USART_RX_STA=0;//æŽ¥æ”¶é”™è¯¯,é‡æ–°å¼€å§‹
+				else USART_RX_STA|=0x8000;	//æŽ¥æ”¶å®Œæˆäº† 
 			}
-			else //»¹Ã»ÊÕµ½0X0D
+			else //è¿˜æ²¡æ”¶åˆ°0X0D
 			{	
 				if(Res==0x0d)USART_RX_STA|=0x4000;
 				else
 				{
 					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
 					USART_RX_STA++;
-					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//½ÓÊÕÊý¾Ý´íÎó,ÖØÐÂ¿ªÊ¼½ÓÊÕ	  
+					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//æŽ¥æ”¶æ•°æ®é”™è¯¯,é‡æ–°å¼€å§‹æŽ¥æ”¶	  
 				}		 
 			}
 		}   		 
 	}
 	HAL_UART_IRQHandler(&UART1_Handler);	
-#if SYSTEM_SUPPORT_OS	 	//Ê¹ÓÃOS
+#if SYSTEM_SUPPORT_OS	 	//ä½¿ç”¨OS
 	OSIntExit();  											 
 #endif
 } 

@@ -1,10 +1,10 @@
-build/system_stm32f4xx.o: system_stm32f4xx.c stm32f4xx.h stm32f407xx.h \
- CORE/core_cm4.h CORE/cmsis_version.h CORE/cmsis_compiler.h \
- CORE/cmsis_gcc.h CORE/mpu_armv7.h system_stm32f4xx.h \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+build/system_stm32f4xx.o: system_stm32f4xx.c USER/stm32f4xx.h \
+ USER/stm32f407xx.h CORE/core_cm4.h CORE/cmsis_version.h \
+ CORE/cmsis_compiler.h CORE/cmsis_gcc.h CORE/mpu_armv7.h \
+ USER/system_stm32f4xx.h HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  USER/stm32f4xx_hal_conf.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h stm32f4xx.h \
+ HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
@@ -56,9 +56,9 @@ build/system_stm32f4xx.o: system_stm32f4xx.c stm32f4xx.h stm32f407xx.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h
 
-stm32f4xx.h:
+USER/stm32f4xx.h:
 
-stm32f407xx.h:
+USER/stm32f407xx.h:
 
 CORE/core_cm4.h:
 
@@ -70,7 +70,7 @@ CORE/cmsis_gcc.h:
 
 CORE/mpu_armv7.h:
 
-system_stm32f4xx.h:
+USER/system_stm32f4xx.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -79,8 +79,6 @@ USER/stm32f4xx_hal_conf.h:
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
-
-stm32f4xx.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 

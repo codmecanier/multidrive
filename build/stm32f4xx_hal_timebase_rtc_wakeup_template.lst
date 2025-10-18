@@ -1,0 +1,800 @@
+ARM GAS  /tmp/cc7NTR3K.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f4xx_hal_timebase_rtc_wakeup_template.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_InitTick,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_InitTick
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	HAL_InitTick:
+  27              	.LVL0:
+  28              	.LFB132:
+  29              		.file 1 "HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c"
+   1:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+   2:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   ******************************************************************************
+   3:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @file    stm32f4xx_hal_timebase_rtc_wakeup_template.c 
+   4:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @author  MCD Application Team
+   5:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief   HAL time base based on the hardware RTC_WAKEUP Template.
+   6:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *    
+   7:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *          This file overrides the native HAL time base functions (defined as weak)
+   8:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *          to use the RTC WAKEUP for the time base generation:
+   9:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *           + Intializes the RTC peripheral and configures the wakeup timer to be
+  10:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *             incremented each 1ms
+  11:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *           + The wakeup feature is configured to assert an interrupt each 1ms 
+  12:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *           + HAL_IncTick is called inside the HAL_RTCEx_WakeUpTimerEventCallback
+  13:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *           + HSE (default), LSE or LSI can be selected as RTC clock source
+  14:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****  @verbatim
+  15:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   ==============================================================================
+  16:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                         ##### How to use this driver #####
+  17:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   ==============================================================================
+  18:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     [..]
+  19:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     This file must be copied to the application folder and modified as follows:
+  20:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     (#) Rename it to 'stm32f4xx_hal_timebase_rtc_wakeup.c'
+  21:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     (#) Add this file and the RTC HAL drivers to your project and uncomment
+  22:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****        HAL_RTC_MODULE_ENABLED define in stm32f4xx_hal_conf.h 
+  23:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  24:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     [..]
+  25:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     (@) HAL RTC alarm and HAL RTC wakeup drivers can’t be used with low power modes:
+  26:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         The wake up capability of the RTC may be intrusive in case of prior low power mode
+  27:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         configuration requiring different wake up sources.
+  28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         Application/Example behavior is no more guaranteed 
+  29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     (@) The stm32f4xx_hal_timebase_tim use is recommended for the Applications/Examples
+ARM GAS  /tmp/cc7NTR3K.s 			page 2
+
+
+  30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****           requiring low power modes
+  31:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  32:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   @endverbatim
+  33:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   ******************************************************************************
+  34:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @attention
+  35:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *
+  36:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  37:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * All rights reserved.</center></h2>
+  38:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *
+  39:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  40:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * the "License"; You may not use this file except in compliance with the
+  41:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * License. You may obtain a copy of the License at:
+  42:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  43:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *
+  44:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   ******************************************************************************
+  45:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+  46:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  47:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Includes ------------------------------------------------------------------*/
+  48:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #include "stm32f4xx_hal.h"
+  49:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /** @addtogroup STM32F4xx_HAL_Driver
+  50:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @{
+  51:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+  52:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  53:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /** @defgroup HAL_TimeBase_RTC_WakeUp_Template  HAL TimeBase RTC WakeUp Template
+  54:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @{
+  55:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */ 
+  56:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  57:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private typedef -----------------------------------------------------------*/
+  58:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private define ------------------------------------------------------------*/
+  59:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  60:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Uncomment the line below to select the appropriate RTC Clock source for your application: 
+  61:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   + RTC_CLOCK_SOURCE_HSE: can be selected for applications requiring timing precision.
+  62:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   + RTC_CLOCK_SOURCE_LSE: can be selected for applications with low constraint on timing
+  63:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                           precision.
+  64:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   + RTC_CLOCK_SOURCE_LSI: can be selected for applications with low constraint on timing
+  65:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                           precision.
+  66:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+  67:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #define RTC_CLOCK_SOURCE_HSE
+  68:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* #define RTC_CLOCK_SOURCE_LSE */
+  69:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* #define RTC_CLOCK_SOURCE_LSI */
+  70:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  71:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #ifdef RTC_CLOCK_SOURCE_HSE
+  72:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   #define RTC_ASYNCH_PREDIV       99U
+  73:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   #define RTC_SYNCH_PREDIV        9U
+  74:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   #define RCC_RTCCLKSOURCE_1MHZ   ((uint32_t)((uint32_t)RCC_BDCR_RTCSEL | (uint32_t)((HSE_VALUE/100
+  75:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #else /* RTC_CLOCK_SOURCE_LSE || RTC_CLOCK_SOURCE_LSI */
+  76:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   #define RTC_ASYNCH_PREDIV       0U
+  77:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   #define RTC_SYNCH_PREDIV        31U
+  78:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #endif /* RTC_CLOCK_SOURCE_HSE */
+  79:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  80:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private macro -------------------------------------------------------------*/
+  81:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private variables ---------------------------------------------------------*/
+  82:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** RTC_HandleTypeDef        hRTC_Handle;
+  83:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  84:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private function prototypes -----------------------------------------------*/
+  85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** void RTC_WKUP_IRQHandler(void);
+  86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ARM GAS  /tmp/cc7NTR3K.s 			page 3
+
+
+  87:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /* Private functions ---------------------------------------------------------*/
+  88:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+  89:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+  90:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief  This function configures the RTC_WKUP as a time base source. 
+  91:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *         The time source is configured  to have 1ms time base with a dedicated 
+  92:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *         Tick interrupt priority. 
+  93:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *         Wakeup Time base = ((RTC_ASYNCH_PREDIV + 1) * (RTC_SYNCH_PREDIV + 1)) / RTC_CLOCK 
+  94:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                              = 1ms
+  95:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *         Wakeup Time = WakeupTimebase * WakeUpCounter (0 + 1) 
+  96:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                         = 1 ms
+  97:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @note   This function is called  automatically at the beginning of program after
+  98:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   *         reset by HAL_Init() or at any time when clock is configured, by HAL_RCC_ClockConfig(). 
+  99:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @param  TickPriority Tick interrupt priority.
+ 100:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @retval HAL status
+ 101:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+ 102:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority)
+ 103:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** {
+  30              		.loc 1 103 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 72
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 103 1 is_stmt 0 view .LVU1
+  35 0000 70B5     		push	{r4, r5, r6, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  42 0002 92B0     		sub	sp, sp, #72
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 88
+  45 0004 0446     		mov	r4, r0
+ 104:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __IO uint32_t counter = 0U;
+  46              		.loc 1 104 3 is_stmt 1 view .LVU2
+  47              		.loc 1 104 17 is_stmt 0 view .LVU3
+  48 0006 0023     		movs	r3, #0
+  49 0008 1193     		str	r3, [sp, #68]
+ 105:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 106:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitTypeDef        RCC_OscInitStruct;
+  50              		.loc 1 106 3 is_stmt 1 view .LVU4
+ 107:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_PeriphCLKInitTypeDef  PeriphClkInitStruct;
+  51              		.loc 1 107 3 view .LVU5
+ 108:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 109:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #ifdef RTC_CLOCK_SOURCE_LSE
+ 110:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Configue LSE as RTC clock soucre */
+ 111:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE;
+ 112:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 113:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+ 114:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+ 115:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #elif defined (RTC_CLOCK_SOURCE_LSI)
+ 116:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Configue LSI as RTC clock soucre */
+ 117:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI;
+ 118:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 119:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+ 120:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+ 121:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #elif defined (RTC_CLOCK_SOURCE_HSE)
+ARM GAS  /tmp/cc7NTR3K.s 			page 4
+
+
+ 122:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Configue HSE as RTC clock soucre */
+ 123:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  52              		.loc 1 123 3 view .LVU6
+  53              		.loc 1 123 36 is_stmt 0 view .LVU7
+  54 000a 0122     		movs	r2, #1
+  55 000c 0592     		str	r2, [sp, #20]
+ 124:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  56              		.loc 1 124 3 is_stmt 1 view .LVU8
+  57              		.loc 1 124 34 is_stmt 0 view .LVU9
+  58 000e 0B93     		str	r3, [sp, #44]
+ 125:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  59              		.loc 1 125 3 is_stmt 1 view .LVU10
+  60              		.loc 1 125 30 is_stmt 0 view .LVU11
+  61 0010 4FF48033 		mov	r3, #65536
+  62 0014 0693     		str	r3, [sp, #24]
+ 126:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Ensure that RTC is clocked by 1MHz */
+ 127:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_1MHZ;
+  63              		.loc 1 127 3 is_stmt 1 view .LVU12
+  64              		.loc 1 127 41 is_stmt 0 view .LVU13
+  65 0016 3A4B     		ldr	r3, .L12
+  66 0018 0493     		str	r3, [sp, #16]
+ 128:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #else
+ 129:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #error Please select the RTC Clock source
+ 130:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** #endif /* RTC_CLOCK_SOURCE_LSE */
+ 131:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 132:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   if(HAL_RCC_OscConfig(&RCC_OscInitStruct) == HAL_OK)
+  67              		.loc 1 132 3 is_stmt 1 view .LVU14
+  68              		.loc 1 132 6 is_stmt 0 view .LVU15
+  69 001a 05A8     		add	r0, sp, #20
+  70              	.LVL1:
+  71              		.loc 1 132 6 view .LVU16
+  72 001c FFF7FEFF 		bl	HAL_RCC_OscConfig
+  73              	.LVL2:
+  74              		.loc 1 132 5 view .LVU17
+  75 0020 18B1     		cbz	r0, .L9
+ 133:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   { 
+ 134:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+ 135:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     if(HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) == HAL_OK)
+ 136:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     {
+ 137:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Enable RTC Clock */
+ 138:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RCC_RTC_ENABLE();
+ 139:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* The time base should be 1ms 
+ 140:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****          Time base = ((RTC_ASYNCH_PREDIV + 1) * (RTC_SYNCH_PREDIV + 1)) / RTC_CLOCK 
+ 141:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****          HSE as RTC clock 
+ 142:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****            Time base = ((99 + 1) * (9 + 1)) / 1Mhz
+ 143:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                      = 1ms
+ 144:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****          LSE as RTC clock 
+ 145:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****            Time base = ((31 + 1) * (0 + 1)) / 32.768Khz
+ 146:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                      = ~1ms
+ 147:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****          LSI as RTC clock 
+ 148:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****            Time base = ((31 + 1) * (0 + 1)) / 32Khz
+ 149:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****                      = 1ms
+ 150:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       */
+ 151:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Instance = RTC;
+ 152:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.HourFormat = RTC_HOURFORMAT_24;
+ 153:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.AsynchPrediv = RTC_ASYNCH_PREDIV;
+ 154:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.SynchPrediv = RTC_SYNCH_PREDIV;
+ARM GAS  /tmp/cc7NTR3K.s 			page 5
+
+
+ 155:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPut = RTC_OUTPUT_DISABLE;
+ 156:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+ 157:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+ 158:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_RTC_Init(&hRTC_Handle);
+ 159:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 160:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Disable the write protection for RTC registers */
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WRITEPROTECTION_DISABLE(&hRTC_Handle);
+ 162:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 163:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Disable the Wake-up Timer */
+ 164:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_DISABLE(&hRTC_Handle);
+ 165:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 166:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* In case of interrupt mode is used, the interrupt source must disabled */ 
+ 167:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_DISABLE_IT(&hRTC_Handle,RTC_IT_WUT);
+ 168:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 169:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Wait till RTC WUTWF flag is set  */
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       while(__HAL_RTC_WAKEUPTIMER_GET_FLAG(&hRTC_Handle, RTC_FLAG_WUTWF) == RESET)
+ 171:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       {
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         if(counter++ == (SystemCoreClock /48U)) 
+ 173:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         {
+ 174:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****           return HAL_ERROR;
+ 175:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         }
+ 176:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       }
+ 177:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 178:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Clear PWR wake up Flag */
+ 179:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+ 180:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 181:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Clear RTC Wake Up timer Flag */
+ 182:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hRTC_Handle, RTC_FLAG_WUTF);
+ 183:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 184:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Configure the Wake-up Timer counter */
+ 185:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Instance->WUTR = 0U;
+ 186:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 187:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Clear the Wake-up Timer clock source bits in CR register */
+ 188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Instance->CR &= (uint32_t)~RTC_CR_WUCKSEL;
+ 189:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 190:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Configure the clock source */
+ 191:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Instance->CR |= (uint32_t)RTC_WAKEUPCLOCK_CK_SPRE_16BITS;
+ 192:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 193:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* RTC WakeUpTimer Interrupt Configuration: EXTI configuration */
+ 194:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_EXTI_ENABLE_IT();
+ 195:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 196:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_EXTI_ENABLE_RISING_EDGE();
+ 197:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 198:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Configure the Interrupt in the RTC_CR register */
+ 199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_ENABLE_IT(&hRTC_Handle,RTC_IT_WUT);
+ 200:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 201:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Enable the Wake-up Timer */
+ 202:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WAKEUPTIMER_ENABLE(&hRTC_Handle);
+ 203:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 204:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* Enable the write protection for RTC registers */
+ 205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       __HAL_RTC_WRITEPROTECTION_ENABLE(&hRTC_Handle);
+ 206:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 207:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_NVIC_SetPriority(RTC_WKUP_IRQn, TickPriority, 0U);
+ 208:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_NVIC_EnableIRQ(RTC_WKUP_IRQn); 
+ 209:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       return HAL_OK;
+ 210:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     }
+ 211:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   }
+ARM GAS  /tmp/cc7NTR3K.s 			page 6
+
+
+ 212:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   return HAL_ERROR;
+  76              		.loc 1 212 10 view .LVU18
+  77 0022 0125     		movs	r5, #1
+  78              	.L2:
+ 213:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+  79              		.loc 1 213 1 view .LVU19
+  80 0024 2846     		mov	r0, r5
+  81 0026 12B0     		add	sp, sp, #72
+  82              	.LCFI2:
+  83              		.cfi_remember_state
+  84              		.cfi_def_cfa_offset 16
+  85              		@ sp needed
+  86 0028 70BD     		pop	{r4, r5, r6, pc}
+  87              	.LVL3:
+  88              	.L9:
+  89              	.LCFI3:
+  90              		.cfi_restore_state
+ 134:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     if(HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) == HAL_OK)
+  91              		.loc 1 134 5 is_stmt 1 view .LVU20
+ 134:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     if(HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) == HAL_OK)
+  92              		.loc 1 134 46 is_stmt 0 view .LVU21
+  93 002a 0223     		movs	r3, #2
+  94 002c 0193     		str	r3, [sp, #4]
+ 135:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     {
+  95              		.loc 1 135 5 is_stmt 1 view .LVU22
+ 135:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     {
+  96              		.loc 1 135 8 is_stmt 0 view .LVU23
+  97 002e 01A8     		add	r0, sp, #4
+  98 0030 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+  99              	.LVL4:
+ 135:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     {
+ 100              		.loc 1 135 7 view .LVU24
+ 101 0034 0546     		mov	r5, r0
+ 102 0036 08B1     		cbz	r0, .L10
+ 212:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+ 103              		.loc 1 212 10 view .LVU25
+ 104 0038 0125     		movs	r5, #1
+ 105 003a F3E7     		b	.L2
+ 106              	.L10:
+ 138:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       /* The time base should be 1ms 
+ 107              		.loc 1 138 7 is_stmt 1 view .LVU26
+ 108 003c 314B     		ldr	r3, .L12+4
+ 109 003e 0122     		movs	r2, #1
+ 110 0040 1A60     		str	r2, [r3]
+ 151:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.HourFormat = RTC_HOURFORMAT_24;
+ 111              		.loc 1 151 7 view .LVU27
+ 151:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.HourFormat = RTC_HOURFORMAT_24;
+ 112              		.loc 1 151 28 is_stmt 0 view .LVU28
+ 113 0042 314E     		ldr	r6, .L12+8
+ 114 0044 314B     		ldr	r3, .L12+12
+ 115 0046 3360     		str	r3, [r6]
+ 152:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.AsynchPrediv = RTC_ASYNCH_PREDIV;
+ 116              		.loc 1 152 7 is_stmt 1 view .LVU29
+ 152:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.AsynchPrediv = RTC_ASYNCH_PREDIV;
+ 117              		.loc 1 152 35 is_stmt 0 view .LVU30
+ 118 0048 0023     		movs	r3, #0
+ 119 004a 7360     		str	r3, [r6, #4]
+ARM GAS  /tmp/cc7NTR3K.s 			page 7
+
+
+ 153:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.SynchPrediv = RTC_SYNCH_PREDIV;
+ 120              		.loc 1 153 7 is_stmt 1 view .LVU31
+ 153:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.SynchPrediv = RTC_SYNCH_PREDIV;
+ 121              		.loc 1 153 37 is_stmt 0 view .LVU32
+ 122 004c 6322     		movs	r2, #99
+ 123 004e B260     		str	r2, [r6, #8]
+ 154:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPut = RTC_OUTPUT_DISABLE;
+ 124              		.loc 1 154 7 is_stmt 1 view .LVU33
+ 154:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPut = RTC_OUTPUT_DISABLE;
+ 125              		.loc 1 154 36 is_stmt 0 view .LVU34
+ 126 0050 0922     		movs	r2, #9
+ 127 0052 F260     		str	r2, [r6, #12]
+ 155:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+ 128              		.loc 1 155 7 is_stmt 1 view .LVU35
+ 155:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+ 129              		.loc 1 155 31 is_stmt 0 view .LVU36
+ 130 0054 3361     		str	r3, [r6, #16]
+ 156:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+ 131              		.loc 1 156 7 is_stmt 1 view .LVU37
+ 156:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       hRTC_Handle.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+ 132              		.loc 1 156 39 is_stmt 0 view .LVU38
+ 133 0056 7361     		str	r3, [r6, #20]
+ 157:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_RTC_Init(&hRTC_Handle);
+ 134              		.loc 1 157 7 is_stmt 1 view .LVU39
+ 157:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_RTC_Init(&hRTC_Handle);
+ 135              		.loc 1 157 35 is_stmt 0 view .LVU40
+ 136 0058 B361     		str	r3, [r6, #24]
+ 158:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 137              		.loc 1 158 7 is_stmt 1 view .LVU41
+ 138 005a 3046     		mov	r0, r6
+ 139 005c FFF7FEFF 		bl	HAL_RTC_Init
+ 140              	.LVL5:
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 141              		.loc 1 161 7 view .LVU42
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 142              		.loc 1 161 7 view .LVU43
+ 143 0060 3068     		ldr	r0, [r6]
+ 144 0062 CA23     		movs	r3, #202
+ 145 0064 4362     		str	r3, [r0, #36]
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 146              		.loc 1 161 7 view .LVU44
+ 147 0066 5323     		movs	r3, #83
+ 148 0068 4362     		str	r3, [r0, #36]
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 149              		.loc 1 161 7 view .LVU45
+ 164:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 150              		.loc 1 164 7 view .LVU46
+ 151 006a 8368     		ldr	r3, [r0, #8]
+ 152 006c 23F48063 		bic	r3, r3, #1024
+ 153 0070 8360     		str	r3, [r0, #8]
+ 167:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 154              		.loc 1 167 7 view .LVU47
+ 155 0072 8368     		ldr	r3, [r0, #8]
+ 156 0074 23F48043 		bic	r3, r3, #16384
+ 157 0078 8360     		str	r3, [r0, #8]
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       {
+ 158              		.loc 1 170 7 view .LVU48
+ARM GAS  /tmp/cc7NTR3K.s 			page 8
+
+
+ 159              	.L3:
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       {
+ 160              		.loc 1 170 12 view .LVU49
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       {
+ 161              		.loc 1 170 13 is_stmt 0 view .LVU50
+ 162 007a C368     		ldr	r3, [r0, #12]
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       {
+ 163              		.loc 1 170 12 view .LVU51
+ 164 007c 13F0040F 		tst	r3, #4
+ 165 0080 0CD1     		bne	.L11
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         {
+ 166              		.loc 1 172 9 is_stmt 1 view .LVU52
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         {
+ 167              		.loc 1 172 19 is_stmt 0 view .LVU53
+ 168 0082 119A     		ldr	r2, [sp, #68]
+ 169 0084 531C     		adds	r3, r2, #1
+ 170 0086 1193     		str	r3, [sp, #68]
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         {
+ 171              		.loc 1 172 42 view .LVU54
+ 172 0088 214B     		ldr	r3, .L12+16
+ 173 008a 1B68     		ldr	r3, [r3]
+ 174 008c 2149     		ldr	r1, .L12+20
+ 175 008e A1FB0313 		umull	r1, r3, r1, r3
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         {
+ 176              		.loc 1 172 11 view .LVU55
+ 177 0092 B2EB531F 		cmp	r2, r3, lsr #5
+ 178 0096 F0D1     		bne	.L3
+ 174:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****         }
+ 179              		.loc 1 174 18 view .LVU56
+ 180 0098 0125     		movs	r5, #1
+ 181 009a C3E7     		b	.L2
+ 182              	.L11:
+ 179:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 183              		.loc 1 179 7 is_stmt 1 view .LVU57
+ 184 009c 1E4A     		ldr	r2, .L12+24
+ 185 009e 1368     		ldr	r3, [r2]
+ 186 00a0 43F00403 		orr	r3, r3, #4
+ 187 00a4 1360     		str	r3, [r2]
+ 182:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 188              		.loc 1 182 7 view .LVU58
+ 189 00a6 1848     		ldr	r0, .L12+8
+ 190 00a8 0368     		ldr	r3, [r0]
+ 191 00aa DA68     		ldr	r2, [r3, #12]
+ 192 00ac D2B2     		uxtb	r2, r2
+ 193 00ae 62F49062 		orn	r2, r2, #1152
+ 194 00b2 DA60     		str	r2, [r3, #12]
+ 185:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 195              		.loc 1 185 7 view .LVU59
+ 185:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 196              		.loc 1 185 34 is_stmt 0 view .LVU60
+ 197 00b4 0022     		movs	r2, #0
+ 198 00b6 5A61     		str	r2, [r3, #20]
+ 188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 199              		.loc 1 188 7 is_stmt 1 view .LVU61
+ 188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 200              		.loc 1 188 32 is_stmt 0 view .LVU62
+ 201 00b8 9968     		ldr	r1, [r3, #8]
+ARM GAS  /tmp/cc7NTR3K.s 			page 9
+
+
+ 202 00ba 21F00701 		bic	r1, r1, #7
+ 203 00be 9960     		str	r1, [r3, #8]
+ 191:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 204              		.loc 1 191 7 is_stmt 1 view .LVU63
+ 191:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 205              		.loc 1 191 32 is_stmt 0 view .LVU64
+ 206 00c0 9968     		ldr	r1, [r3, #8]
+ 207 00c2 41F00401 		orr	r1, r1, #4
+ 208 00c6 9960     		str	r1, [r3, #8]
+ 194:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 209              		.loc 1 194 7 is_stmt 1 view .LVU65
+ 210 00c8 144B     		ldr	r3, .L12+28
+ 211 00ca 1968     		ldr	r1, [r3]
+ 212 00cc 41F48001 		orr	r1, r1, #4194304
+ 213 00d0 1960     		str	r1, [r3]
+ 196:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 214              		.loc 1 196 7 view .LVU66
+ 215 00d2 9968     		ldr	r1, [r3, #8]
+ 216 00d4 41F48001 		orr	r1, r1, #4194304
+ 217 00d8 9960     		str	r1, [r3, #8]
+ 199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 218              		.loc 1 199 7 view .LVU67
+ 219 00da 0368     		ldr	r3, [r0]
+ 220 00dc 9968     		ldr	r1, [r3, #8]
+ 221 00de 41F48041 		orr	r1, r1, #16384
+ 222 00e2 9960     		str	r1, [r3, #8]
+ 202:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 223              		.loc 1 202 7 view .LVU68
+ 224 00e4 9968     		ldr	r1, [r3, #8]
+ 225 00e6 41F48061 		orr	r1, r1, #1024
+ 226 00ea 9960     		str	r1, [r3, #8]
+ 205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 227              		.loc 1 205 7 view .LVU69
+ 205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 228              		.loc 1 205 7 view .LVU70
+ 229 00ec FF21     		movs	r1, #255
+ 230 00ee 5962     		str	r1, [r3, #36]
+ 205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 231              		.loc 1 205 7 view .LVU71
+ 207:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       HAL_NVIC_EnableIRQ(RTC_WKUP_IRQn); 
+ 232              		.loc 1 207 7 view .LVU72
+ 233 00f0 2146     		mov	r1, r4
+ 234 00f2 0320     		movs	r0, #3
+ 235 00f4 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 236              	.LVL6:
+ 208:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****       return HAL_OK;
+ 237              		.loc 1 208 7 view .LVU73
+ 238 00f8 0320     		movs	r0, #3
+ 239 00fa FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 240              	.LVL7:
+ 209:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     }
+ 241              		.loc 1 209 7 view .LVU74
+ 209:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****     }
+ 242              		.loc 1 209 14 is_stmt 0 view .LVU75
+ 243 00fe 91E7     		b	.L2
+ 244              	.L13:
+ 245              		.align	2
+ARM GAS  /tmp/cc7NTR3K.s 			page 10
+
+
+ 246              	.L12:
+ 247 0100 00030800 		.word	525056
+ 248 0104 3C0E4742 		.word	1111952956
+ 249 0108 00000000 		.word	hRTC_Handle
+ 250 010c 00280040 		.word	1073752064
+ 251 0110 00000000 		.word	SystemCoreClock
+ 252 0114 ABAAAAAA 		.word	-1431655765
+ 253 0118 00700040 		.word	1073770496
+ 254 011c 003C0140 		.word	1073822720
+ 255              		.cfi_endproc
+ 256              	.LFE132:
+ 258              		.section	.text.HAL_SuspendTick,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	HAL_SuspendTick
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.fpu fpv4-sp-d16
+ 266              	HAL_SuspendTick:
+ 267              	.LFB133:
+ 214:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 215:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+ 216:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief  Suspend Tick increment.
+ 217:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @note   Disable the tick increment by disabling RTC_WKUP interrupt.
+ 218:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @retval None
+ 219:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+ 220:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** void HAL_SuspendTick(void)
+ 221:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** {
+ 268              		.loc 1 221 1 is_stmt 1 view -0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 0
+ 271              		@ frame_needed = 0, uses_anonymous_args = 0
+ 272              		@ link register save eliminated.
+ 222:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Disable the write protection for RTC registers */
+ 223:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WRITEPROTECTION_DISABLE(&hRTC_Handle);
+ 273              		.loc 1 223 3 view .LVU77
+ 274              		.loc 1 223 3 view .LVU78
+ 275 0000 064B     		ldr	r3, .L15
+ 276 0002 1B68     		ldr	r3, [r3]
+ 277 0004 CA22     		movs	r2, #202
+ 278 0006 5A62     		str	r2, [r3, #36]
+ 279              		.loc 1 223 3 view .LVU79
+ 280 0008 5322     		movs	r2, #83
+ 281 000a 5A62     		str	r2, [r3, #36]
+ 282              		.loc 1 223 3 view .LVU80
+ 224:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Disable WAKE UP TIMER Interrupt */
+ 225:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WAKEUPTIMER_DISABLE_IT(&hRTC_Handle, RTC_IT_WUT);
+ 283              		.loc 1 225 3 view .LVU81
+ 284 000c 9A68     		ldr	r2, [r3, #8]
+ 285 000e 22F48042 		bic	r2, r2, #16384
+ 286 0012 9A60     		str	r2, [r3, #8]
+ 226:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Enable the write protection for RTC registers */
+ 227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WRITEPROTECTION_ENABLE(&hRTC_Handle);
+ 287              		.loc 1 227 3 view .LVU82
+ 288              		.loc 1 227 3 view .LVU83
+ 289 0014 FF22     		movs	r2, #255
+ 290 0016 5A62     		str	r2, [r3, #36]
+ARM GAS  /tmp/cc7NTR3K.s 			page 11
+
+
+ 291              		.loc 1 227 3 view .LVU84
+ 228:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+ 292              		.loc 1 228 1 is_stmt 0 view .LVU85
+ 293 0018 7047     		bx	lr
+ 294              	.L16:
+ 295 001a 00BF     		.align	2
+ 296              	.L15:
+ 297 001c 00000000 		.word	hRTC_Handle
+ 298              		.cfi_endproc
+ 299              	.LFE133:
+ 301              		.section	.text.HAL_ResumeTick,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	HAL_ResumeTick
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 307              		.fpu fpv4-sp-d16
+ 309              	HAL_ResumeTick:
+ 310              	.LFB134:
+ 229:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 230:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+ 231:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief  Resume Tick increment.
+ 232:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @note   Enable the tick increment by Enabling RTC_WKUP interrupt.
+ 233:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @retval None
+ 234:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+ 235:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** void HAL_ResumeTick(void)
+ 236:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** {
+ 311              		.loc 1 236 1 is_stmt 1 view -0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 237:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Disable the write protection for RTC registers */
+ 238:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WRITEPROTECTION_DISABLE(&hRTC_Handle);
+ 316              		.loc 1 238 3 view .LVU87
+ 317              		.loc 1 238 3 view .LVU88
+ 318 0000 064B     		ldr	r3, .L18
+ 319 0002 1B68     		ldr	r3, [r3]
+ 320 0004 CA22     		movs	r2, #202
+ 321 0006 5A62     		str	r2, [r3, #36]
+ 322              		.loc 1 238 3 view .LVU89
+ 323 0008 5322     		movs	r2, #83
+ 324 000a 5A62     		str	r2, [r3, #36]
+ 325              		.loc 1 238 3 view .LVU90
+ 239:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Enable  WAKE UP TIMER  interrupt */
+ 240:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WAKEUPTIMER_ENABLE_IT(&hRTC_Handle, RTC_IT_WUT);
+ 326              		.loc 1 240 3 view .LVU91
+ 327 000c 9A68     		ldr	r2, [r3, #8]
+ 328 000e 42F48042 		orr	r2, r2, #16384
+ 329 0012 9A60     		str	r2, [r3, #8]
+ 241:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   /* Enable the write protection for RTC registers */
+ 242:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   __HAL_RTC_WRITEPROTECTION_ENABLE(&hRTC_Handle);
+ 330              		.loc 1 242 3 view .LVU92
+ 331              		.loc 1 242 3 view .LVU93
+ 332 0014 FF22     		movs	r2, #255
+ 333 0016 5A62     		str	r2, [r3, #36]
+ 334              		.loc 1 242 3 view .LVU94
+ARM GAS  /tmp/cc7NTR3K.s 			page 12
+
+
+ 243:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+ 335              		.loc 1 243 1 is_stmt 0 view .LVU95
+ 336 0018 7047     		bx	lr
+ 337              	.L19:
+ 338 001a 00BF     		.align	2
+ 339              	.L18:
+ 340 001c 00000000 		.word	hRTC_Handle
+ 341              		.cfi_endproc
+ 342              	.LFE134:
+ 344              		.section	.text.HAL_RTCEx_WakeUpTimerEventCallback,"ax",%progbits
+ 345              		.align	1
+ 346              		.global	HAL_RTCEx_WakeUpTimerEventCallback
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ 350              		.fpu fpv4-sp-d16
+ 352              	HAL_RTCEx_WakeUpTimerEventCallback:
+ 353              	.LVL8:
+ 354              	.LFB135:
+ 244:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 245:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+ 246:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief  Wake Up Timer Event Callback in non blocking mode
+ 247:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @note   This function is called  when RTC_WKUP interrupt took place, inside
+ 248:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * RTC_WKUP_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ 249:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * a global variable "uwTick" used as application time base.
+ 250:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @param  hrtc  RTC handle
+ 251:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @retval None
+ 252:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+ 253:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
+ 254:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** {
+ 355              		.loc 1 254 1 is_stmt 1 view -0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359              		.loc 1 254 1 is_stmt 0 view .LVU97
+ 360 0000 08B5     		push	{r3, lr}
+ 361              	.LCFI4:
+ 362              		.cfi_def_cfa_offset 8
+ 363              		.cfi_offset 3, -8
+ 364              		.cfi_offset 14, -4
+ 255:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   HAL_IncTick();
+ 365              		.loc 1 255 3 is_stmt 1 view .LVU98
+ 366 0002 FFF7FEFF 		bl	HAL_IncTick
+ 367              	.LVL9:
+ 256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+ 368              		.loc 1 256 1 is_stmt 0 view .LVU99
+ 369 0006 08BD     		pop	{r3, pc}
+ 370              		.cfi_endproc
+ 371              	.LFE135:
+ 373              		.section	.text.RTC_WKUP_IRQHandler,"ax",%progbits
+ 374              		.align	1
+ 375              		.global	RTC_WKUP_IRQHandler
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.fpu fpv4-sp-d16
+ 381              	RTC_WKUP_IRQHandler:
+ARM GAS  /tmp/cc7NTR3K.s 			page 13
+
+
+ 382              	.LFB136:
+ 257:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** 
+ 258:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** /**
+ 259:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @brief  This function handles  WAKE UP TIMER  interrupt request.
+ 260:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   * @retval None
+ 261:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   */
+ 262:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** void RTC_WKUP_IRQHandler(void)
+ 263:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** {
+ 383              		.loc 1 263 1 is_stmt 1 view -0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 0
+ 386              		@ frame_needed = 0, uses_anonymous_args = 0
+ 387 0000 08B5     		push	{r3, lr}
+ 388              	.LCFI5:
+ 389              		.cfi_def_cfa_offset 8
+ 390              		.cfi_offset 3, -8
+ 391              		.cfi_offset 14, -4
+ 264:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c ****   HAL_RTCEx_WakeUpTimerIRQHandler(&hRTC_Handle);
+ 392              		.loc 1 264 3 view .LVU101
+ 393 0002 0248     		ldr	r0, .L24
+ 394 0004 FFF7FEFF 		bl	HAL_RTCEx_WakeUpTimerIRQHandler
+ 395              	.LVL10:
+ 265:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c **** }
+ 396              		.loc 1 265 1 is_stmt 0 view .LVU102
+ 397 0008 08BD     		pop	{r3, pc}
+ 398              	.L25:
+ 399 000a 00BF     		.align	2
+ 400              	.L24:
+ 401 000c 00000000 		.word	hRTC_Handle
+ 402              		.cfi_endproc
+ 403              	.LFE136:
+ 405              		.comm	hRTC_Handle,32,4
+ 406              		.text
+ 407              	.Letext0:
+ 408              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 409              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 410              		.file 4 "CORE/core_cm4.h"
+ 411              		.file 5 "./system_stm32f4xx.h"
+ 412              		.file 6 "./stm32f407xx.h"
+ 413              		.file 7 "./stm32f4xx.h"
+ 414              		.file 8 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 415              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 416              		.file 10 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 417              		.file 11 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
+ 418              		.file 12 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h"
+ 419              		.file 13 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 420              		.file 14 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/cc7NTR3K.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f4xx_hal_timebase_rtc_wakeup_template.c
+     /tmp/cc7NTR3K.s:18     .text.HAL_InitTick:0000000000000000 $t
+     /tmp/cc7NTR3K.s:26     .text.HAL_InitTick:0000000000000000 HAL_InitTick
+     /tmp/cc7NTR3K.s:247    .text.HAL_InitTick:0000000000000100 $d
+                            *COM*:0000000000000020 hRTC_Handle
+     /tmp/cc7NTR3K.s:259    .text.HAL_SuspendTick:0000000000000000 $t
+     /tmp/cc7NTR3K.s:266    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+     /tmp/cc7NTR3K.s:297    .text.HAL_SuspendTick:000000000000001c $d
+     /tmp/cc7NTR3K.s:302    .text.HAL_ResumeTick:0000000000000000 $t
+     /tmp/cc7NTR3K.s:309    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+     /tmp/cc7NTR3K.s:340    .text.HAL_ResumeTick:000000000000001c $d
+     /tmp/cc7NTR3K.s:345    .text.HAL_RTCEx_WakeUpTimerEventCallback:0000000000000000 $t
+     /tmp/cc7NTR3K.s:352    .text.HAL_RTCEx_WakeUpTimerEventCallback:0000000000000000 HAL_RTCEx_WakeUpTimerEventCallback
+     /tmp/cc7NTR3K.s:374    .text.RTC_WKUP_IRQHandler:0000000000000000 $t
+     /tmp/cc7NTR3K.s:381    .text.RTC_WKUP_IRQHandler:0000000000000000 RTC_WKUP_IRQHandler
+     /tmp/cc7NTR3K.s:401    .text.RTC_WKUP_IRQHandler:000000000000000c $d
+
+UNDEFINED SYMBOLS
+HAL_RCC_OscConfig
+HAL_RCCEx_PeriphCLKConfig
+HAL_RTC_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+SystemCoreClock
+HAL_IncTick
+HAL_RTCEx_WakeUpTimerIRQHandler

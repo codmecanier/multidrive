@@ -1,1 +1,2 @@
-build/stm32f4xx_ll_rcc.o: stm32f4xx-hal-driver/Src/stm32f4xx_ll_rcc.c
+build/stm32f4xx_ll_rcc.o: \
+ HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c

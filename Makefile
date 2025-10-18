@@ -37,19 +37,20 @@ BUILD_DIR = build
 ######################################
 
 # Add this line to automatically include all .c files in the HAL source directory
-C_HAL_SOURCES = $(wildcard stm32f4xx-hal-driver/Src/*.c) $(wildcard cmsis-device-f4/Source/Templates/*.c)
+C_HAL_SOURCES = $(wildcard HALLIB/STM32F4xx_HAL_Driver/Src/*.c) $(wildcard cmsis-device-f4/Source/Templates/*.c)
 # 或者一行排除多个文件
-C_HAL_SOURCES := $(filter-out stm32f4xx-hal-driver/Src/stm32f4xx_hal_timebase_%, $(C_HAL_SOURCES))
+C_HAL_SOURCES := $(filter-out HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_%, $(C_HAL_SOURCES))
 
 # C sources
 C_SOURCES =  \
 main.c \
 yaskawa.c \
+system_stm32f4xx.c \
 $(C_HAL_SOURCES)
 
 # ASM sources
 ASM_SOURCES =  \
-cmsis-device-f4/Source/Templates/gcc/startup_stm32f407xx.s
+startup_stm32f407xx.s
 
 #######################################
 # binaries
@@ -102,9 +103,8 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -I. \
--Istm32f4xx-hal-driver/Inc \
--Icmsis-device-f4/Include \
--ICMSIS_5/CMSIS/Core/Include \
+-IHALLIB/STM32F4xx_HAL_Driver/Inc \
+-ICORE \
 
 
 # compile gcc flags

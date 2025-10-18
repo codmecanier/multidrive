@@ -1,1 +1,2 @@
-build/stm32f4xx_ll_pwr.o: stm32f4xx-hal-driver/Src/stm32f4xx_ll_pwr.c
+build/stm32f4xx_ll_pwr.o: \
+ HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_pwr.c

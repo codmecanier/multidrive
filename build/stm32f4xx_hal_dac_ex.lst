@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cciKyRiY.s 			page 1
+ARM GAS  /tmp/ccQjHmIQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,1303 +17,901 @@ ARM GAS  /tmp/cciKyRiY.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.HAL_DACEx_DualStart,"ax",%progbits
+  17              		.section	.text.HAL_DACEx_DualGetValue,"ax",%progbits
   18              		.align	1
-  19              		.global	HAL_DACEx_DualStart
+  19              		.global	HAL_DACEx_DualGetValue
   20              		.arch armv7e-m
   21              		.syntax unified
   22              		.thumb
   23              		.thumb_func
   24              		.fpu fpv4-sp-d16
-  26              	HAL_DACEx_DualStart:
+  26              	HAL_DACEx_DualGetValue:
   27              	.LVL0:
-  28              	.LFB239:
-  29              		.file 1 "stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c"
-   1:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
-   2:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
-   3:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @file    stm32f4xx_hal_dac_ex.c
-   4:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @author  MCD Application Team
-   5:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief   Extended DAC HAL module driver.
-   6:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This file provides firmware functions to manage the extended
-   7:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          functionalities of the DAC peripheral.
-   8:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-   9:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-  10:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
-  11:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @attention
-  12:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-  13:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * Copyright (c) 2016 STMicroelectronics.
-  14:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * All rights reserved.
-  15:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-  16:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * This software is licensed under terms that can be found in the LICENSE file
-  17:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * in the root directory of this software component.
-  18:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
-  19:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-  20:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
-  21:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   @verbatim
-  22:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
-  23:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****                       ##### How to use this driver #####
-  24:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
-  25:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     [..]
-  26:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****      *** Signal generation operation ***
-  27:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****      ===================================
-  28:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****      [..]
-  29:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_TriangleWaveGenerate() to generate Triangle signal.
-ARM GAS  /tmp/cciKyRiY.s 			page 2
+  28              	.LFB132:
+  29              		.file 1 "HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c"
+   1:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+   2:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
+   3:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @file    stm32f4xx_hal_dac_ex.c
+   4:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @author  MCD Application Team
+   5:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief   DAC HAL module driver.
+   6:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         This file provides firmware functions to manage the following 
+   7:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         functionalities of DAC extension peripheral:
+   8:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *           + Extended features functions
+   9:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *     
+  10:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *
+  11:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   @verbatim      
+  12:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
+  13:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****                       ##### How to use this driver #####
+  14:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
+  15:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     [..]          
+  16:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) When Dual mode is enabled (i.e DAC Channel1 and Channel2 are used simultaneously) :
+  17:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****           Use HAL_DACEx_DualGetValue() to get digital data to be converted and use
+  18:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****           HAL_DACEx_DualSetValue() to set digital value to converted simultaneously in Channel 1 an
+  19:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_TriangleWaveGenerate() to generate Triangle signal.
+  20:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_NoiseWaveGenerate() to generate Noise signal.
+  21:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****    
+  22:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****  @endverbatim    
+  23:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
+  24:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @attention
+  25:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *
+  26:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  27:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * All rights reserved.</center></h2>
+  28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *
+  29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+ARM GAS  /tmp/ccQjHmIQ.s 			page 2
 
 
-  30:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_NoiseWaveGenerate() to generate Noise signal.
-  31:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  32:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****  @endverbatim
-  33:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
-  34:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  35:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  36:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  37:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Includes ------------------------------------------------------------------*/
-  38:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #include "stm32f4xx_hal.h"
-  39:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  40:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @addtogroup STM32F4xx_HAL_Driver
-  41:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
-  42:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  43:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  44:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #ifdef HAL_DAC_MODULE_ENABLED
-  45:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  46:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC)
-  47:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  48:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx DACEx
-  49:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief DAC Extended HAL module driver
-  50:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
-  51:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  52:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  53:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private typedef -----------------------------------------------------------*/
-  54:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private define ------------------------------------------------------------*/
-  55:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  56:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private macro -------------------------------------------------------------*/
-  57:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private variables ---------------------------------------------------------*/
-  58:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private function prototypes -----------------------------------------------*/
-  59:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Exported functions --------------------------------------------------------*/
-  60:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  61:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Exported_Functions DACEx Exported Functions
-  62:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
-  63:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  64:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  65:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Exported_Functions_Group2 IO operation functions
-  66:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *  @brief    Extended IO operation functions
-  67:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
-  68:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** @verbatim
-  69:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
-  70:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****                  ##### Extended features functions #####
-  71:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
-  72:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     [..]  This section provides functions allowing to:
-  73:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Start conversion.
-  74:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Stop conversion.
-  75:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Start conversion and enable DMA transfer.
-  76:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Stop conversion and disable DMA transfer.
-  77:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Get result of conversion.
-  78:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Get result of dual mode conversion.
-  79:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  80:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** @endverbatim
-  81:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
-  82:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  83:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  84:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC_CHANNEL2_SUPPORT)
-  85:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
-  86:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enables DAC and starts conversion of both channels.
-ARM GAS  /tmp/cciKyRiY.s 			page 3
+  30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * the "License"; You may not use this file except in compliance with the
+  31:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * License. You may obtain a copy of the License at:
+  32:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  33:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *
+  34:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ******************************************************************************
+  35:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */ 
+  36:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  37:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  38:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Includes ------------------------------------------------------------------*/
+  39:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #include "stm32f4xx_hal.h"
+  40:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  41:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /** @addtogroup STM32F4xx_HAL_Driver
+  42:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
+  43:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+  44:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  45:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx DACEx
+  46:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief DAC driver modules
+  47:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
+  48:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */ 
+  49:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  50:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #ifdef HAL_DAC_MODULE_ENABLED
+  51:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  52:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(STM32F405xx) || defined(STM32F415xx) || defined(STM32F407xx) || defined(STM32F417xx) ||
+  53:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||
+  54:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F446xx) ||
+  55:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     defined(STM32F469xx) || defined(STM32F479xx) || defined(STM32F413xx) || defined(STM32F423xx)
+  56:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private typedef -----------------------------------------------------------*/
+  57:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private define ------------------------------------------------------------*/
+  58:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private macro -------------------------------------------------------------*/
+  59:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private variables ---------------------------------------------------------*/
+  60:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private function prototypes -----------------------------------------------*/
+  61:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private functions ---------------------------------------------------------*/
+  62:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /* Exported functions --------------------------------------------------------*/
+  63:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Exported_Functions DAC Exported Functions
+  64:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
+  65:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+  66:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  67:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Exported_Functions_Group1 Extended features functions
+  68:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****  *  @brief    Extended features functions 
+  69:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****  *
+  70:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** @verbatim   
+  71:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
+  72:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****                  ##### Extended features functions #####
+  73:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================  
+  74:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     [..]  This section provides functions allowing to:
+  75:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Start conversion.
+  76:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Stop conversion.
+  77:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Start conversion and enable DMA transfer.
+  78:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Stop conversion and disable DMA transfer.
+  79:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Get result of conversion.
+  80:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Get result of dual mode conversion.
+  81:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****                      
+  82:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** @endverbatim
+  83:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
+  84:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+  85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+  86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ARM GAS  /tmp/ccQjHmIQ.s 			page 3
 
 
-  87:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
-  88:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
-  89:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
-  90:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
-  91:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_DualStart(DAC_HandleTypeDef *hdac)
-  92:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
-  30              		.loc 1 92 1 view -0
+  87:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Returns the last data output value of the selected DAC channel.
+  88:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+  89:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+  90:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval The selected DAC channel data output value.
+  91:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+  92:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** uint32_t HAL_DACEx_DualGetValue(DAC_HandleTypeDef* hdac)
+  93:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+  30              		.loc 1 93 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
-  93:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t tmp_swtrig = 0UL;
-  35              		.loc 1 93 3 view .LVU1
-  94:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  95:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
-  96:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (hdac == NULL)
+  94:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t tmp = 0U;
+  35              		.loc 1 94 3 view .LVU1
+  95:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+  96:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp |= hdac->Instance->DOR1;
   36              		.loc 1 96 3 view .LVU2
-  37              		.loc 1 96 6 is_stmt 0 view .LVU3
-  38 0000 70B3     		cbz	r0, .L5
-  39 0002 0346     		mov	r3, r0
-  97:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
-  98:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     return HAL_ERROR;
-  99:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 100:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 101:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 102:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process locked */
- 103:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_LOCK(hdac);
-  40              		.loc 1 103 3 is_stmt 1 view .LVU4
-  41              		.loc 1 103 3 view .LVU5
-  42 0004 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
-  43 0006 012A     		cmp	r2, #1
-  44 0008 2CD0     		beq	.L6
-  92:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t tmp_swtrig = 0UL;
-  45              		.loc 1 92 1 is_stmt 0 discriminator 2 view .LVU6
-  46 000a 10B4     		push	{r4}
-  47              	.LCFI0:
-  48              		.cfi_def_cfa_offset 4
-  49              		.cfi_offset 4, -4
-  50              		.loc 1 103 3 is_stmt 1 discriminator 2 view .LVU7
-  51 000c 0122     		movs	r2, #1
-  52 000e 4271     		strb	r2, [r0, #5]
-  53              		.loc 1 103 3 discriminator 2 view .LVU8
- 104:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 105:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 106:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_BUSY;
-  54              		.loc 1 106 3 discriminator 2 view .LVU9
-  55              		.loc 1 106 15 is_stmt 0 discriminator 2 view .LVU10
-  56 0010 0222     		movs	r2, #2
-  57 0012 0271     		strb	r2, [r0, #4]
- 107:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 108:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the Peripheral */
- 109:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_DAC_ENABLE(hdac, DAC_CHANNEL_1);
-  58              		.loc 1 109 3 is_stmt 1 discriminator 2 view .LVU11
-  59 0014 0168     		ldr	r1, [r0]
-  60 0016 0A68     		ldr	r2, [r1]
-  61 0018 42F00102 		orr	r2, r2, #1
-  62 001c 0A60     		str	r2, [r1]
-ARM GAS  /tmp/cciKyRiY.s 			page 4
+  37              		.loc 1 96 14 is_stmt 0 view .LVU3
+  38 0000 0368     		ldr	r3, [r0]
+  39              		.loc 1 96 24 view .LVU4
+  40 0002 DA6A     		ldr	r2, [r3, #44]
+  41              	.LVL1:
+  97:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+  98:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp |= hdac->Instance->DOR2 << 16U;
+  42              		.loc 1 98 3 is_stmt 1 view .LVU5
+  43              		.loc 1 98 24 is_stmt 0 view .LVU6
+  44 0004 186B     		ldr	r0, [r3, #48]
+  45              	.LVL2:
+  99:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 100:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Returns the DAC channel data output register value */
+ 101:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   return tmp;
+  46              		.loc 1 101 3 is_stmt 1 view .LVU7
+ 102:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+  47              		.loc 1 102 1 is_stmt 0 view .LVU8
+  48 0006 42EA0040 		orr	r0, r2, r0, lsl #16
+  49              	.LVL3:
+  50              		.loc 1 102 1 view .LVU9
+  51 000a 7047     		bx	lr
+  52              		.cfi_endproc
+  53              	.LFE132:
+  55              		.section	.text.HAL_DACEx_TriangleWaveGenerate,"ax",%progbits
+  56              		.align	1
+  57              		.global	HAL_DACEx_TriangleWaveGenerate
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  61              		.fpu fpv4-sp-d16
+  63              	HAL_DACEx_TriangleWaveGenerate:
+  64              	.LVL4:
+  65              	.LFB133:
+ 103:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 104:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 105:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enables or disables the selected DAC channel wave generation.
+ 106:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 107:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+ 108:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Channel The selected DAC channel. 
+ 109:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
+ARM GAS  /tmp/ccQjHmIQ.s 			page 4
 
 
- 110:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_DAC_ENABLE(hdac, DAC_CHANNEL_2);
-  63              		.loc 1 110 3 discriminator 2 view .LVU12
-  64 001e 0168     		ldr	r1, [r0]
-  65 0020 0A68     		ldr	r2, [r1]
-  66 0022 42F48032 		orr	r2, r2, #65536
-  67 0026 0A60     		str	r2, [r1]
- 111:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 112:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check if software trigger enabled */
- 113:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if ((hdac->Instance->CR & (DAC_CR_TEN1 | DAC_CR_TSEL1)) == DAC_TRIGGER_SOFTWARE)
-  68              		.loc 1 113 3 discriminator 2 view .LVU13
-  69              		.loc 1 113 12 is_stmt 0 discriminator 2 view .LVU14
-  70 0028 0268     		ldr	r2, [r0]
-  71              		.loc 1 113 22 discriminator 2 view .LVU15
-  72 002a 1168     		ldr	r1, [r2]
-  73              		.loc 1 113 27 discriminator 2 view .LVU16
-  74 002c 01F03C01 		and	r1, r1, #60
-  75              		.loc 1 113 6 discriminator 2 view .LVU17
-  76 0030 3C29     		cmp	r1, #60
-  77 0032 10D0     		beq	.L7
-  93:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-  78              		.loc 1 93 12 view .LVU18
-  79 0034 0024     		movs	r4, #0
-  80              	.L3:
-  81              	.LVL1:
- 114:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 115:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     tmp_swtrig |= DAC_SWTRIGR_SWTRIG1;
- 116:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 117:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if ((hdac->Instance->CR & (DAC_CR_TEN2 | DAC_CR_TSEL2)) == (DAC_TRIGGER_SOFTWARE << (DAC_CHANNEL_
-  82              		.loc 1 117 3 is_stmt 1 view .LVU19
-  83              		.loc 1 117 22 is_stmt 0 view .LVU20
-  84 0036 1068     		ldr	r0, [r2]
-  85              	.LVL2:
-  86              		.loc 1 117 27 view .LVU21
-  87 0038 00F47010 		and	r0, r0, #3932160
-  88              		.loc 1 117 6 view .LVU22
-  89 003c B0F5701F 		cmp	r0, #3932160
-  90 0040 0BD0     		beq	.L12
-  91              	.L4:
- 118:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 119:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     tmp_swtrig |= DAC_SWTRIGR_SWTRIG2;
- 120:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 121:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the selected DAC software conversion*/
- 122:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   SET_BIT(hdac->Instance->SWTRIGR, tmp_swtrig);
-  92              		.loc 1 122 3 is_stmt 1 view .LVU23
-  93 0042 5168     		ldr	r1, [r2, #4]
-  94 0044 2143     		orrs	r1, r1, r4
-  95 0046 5160     		str	r1, [r2, #4]
- 123:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 124:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 125:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
-  96              		.loc 1 125 3 view .LVU24
-  97              		.loc 1 125 15 is_stmt 0 view .LVU25
-  98 0048 0122     		movs	r2, #1
-  99 004a 1A71     		strb	r2, [r3, #4]
- 126:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 127:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
- 128:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
-ARM GAS  /tmp/cciKyRiY.s 			page 5
+ 110:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_CHANNEL_1 / DAC_CHANNEL_2
+ 111:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Amplitude Select max triangle amplitude. 
+ 112:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
+ 113:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_1: Select max triangle amplitude of 1
+ 114:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_3: Select max triangle amplitude of 3
+ 115:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_7: Select max triangle amplitude of 7
+ 116:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_15: Select max triangle amplitude of 15
+ 117:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_31: Select max triangle amplitude of 31
+ 118:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_63: Select max triangle amplitude of 63
+ 119:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_127: Select max triangle amplitude of 127
+ 120:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_255: Select max triangle amplitude of 255
+ 121:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_511: Select max triangle amplitude of 511
+ 122:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_1023: Select max triangle amplitude of 1023
+ 123:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_2047: Select max triangle amplitude of 2047
+ 124:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_4095: Select max triangle amplitude of 4095              
+ 125:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
+ 126:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 127:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_TriangleWaveGenerate(DAC_HandleTypeDef* hdac, uint32_t Channel, uint32_
+ 128:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {  
+  66              		.loc 1 128 1 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+ 129:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
+ 130:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_CHANNEL(Channel));
+  71              		.loc 1 130 3 view .LVU11
+ 131:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(Amplitude));
+  72              		.loc 1 131 3 view .LVU12
+ 132:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 133:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process locked */
+ 134:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_LOCK(hdac);
+  73              		.loc 1 134 3 view .LVU13
+  74              		.loc 1 134 3 view .LVU14
+  75 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+  76 0002 012B     		cmp	r3, #1
+  77 0004 17D0     		beq	.L4
+ 128:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
+  78              		.loc 1 128 1 is_stmt 0 discriminator 2 view .LVU15
+  79 0006 70B4     		push	{r4, r5, r6}
+  80              	.LCFI0:
+  81              		.cfi_def_cfa_offset 12
+  82              		.cfi_offset 4, -12
+  83              		.cfi_offset 5, -8
+  84              		.cfi_offset 6, -4
+  85              		.loc 1 134 3 is_stmt 1 discriminator 2 view .LVU16
+  86 0008 0125     		movs	r5, #1
+  87 000a 4571     		strb	r5, [r0, #5]
+  88              		.loc 1 134 3 discriminator 2 view .LVU17
+ 135:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 136:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
+ 137:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_BUSY;
+  89              		.loc 1 137 3 discriminator 2 view .LVU18
+  90              		.loc 1 137 15 is_stmt 0 discriminator 2 view .LVU19
+  91 000c 0223     		movs	r3, #2
+  92 000e 0371     		strb	r3, [r0, #4]
+ 138:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ARM GAS  /tmp/ccQjHmIQ.s 			page 5
 
 
- 100              		.loc 1 128 3 is_stmt 1 view .LVU26
- 101              		.loc 1 128 3 view .LVU27
- 102 004c 0020     		movs	r0, #0
- 103 004e 5871     		strb	r0, [r3, #5]
- 104              		.loc 1 128 3 view .LVU28
- 129:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 130:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
- 131:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
- 105              		.loc 1 131 3 view .LVU29
- 132:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 106              		.loc 1 132 1 is_stmt 0 view .LVU30
- 107 0050 5DF8044B 		ldr	r4, [sp], #4
- 108              	.LCFI1:
- 109              		.cfi_remember_state
- 110              		.cfi_restore 4
- 111              		.cfi_def_cfa_offset 0
- 112              	.LVL3:
- 113              		.loc 1 132 1 view .LVU31
- 114 0054 7047     		bx	lr
- 115              	.LVL4:
- 116              	.L7:
- 117              	.LCFI2:
- 118              		.cfi_restore_state
- 115:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 119              		.loc 1 115 16 view .LVU32
- 120 0056 0124     		movs	r4, #1
- 121 0058 EDE7     		b	.L3
- 122              	.LVL5:
- 123              	.L12:
- 119:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 124              		.loc 1 119 5 is_stmt 1 view .LVU33
- 119:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 125              		.loc 1 119 16 is_stmt 0 view .LVU34
- 126 005a 44F00204 		orr	r4, r4, #2
- 127              	.LVL6:
- 119:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 128              		.loc 1 119 16 view .LVU35
- 129 005e F0E7     		b	.L4
- 130              	.LVL7:
- 131              	.L5:
- 132              	.LCFI3:
- 133              		.cfi_def_cfa_offset 0
- 134              		.cfi_restore 4
-  98:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 135              		.loc 1 98 12 view .LVU36
- 136 0060 0120     		movs	r0, #1
- 137              	.LVL8:
-  98:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 138              		.loc 1 98 12 view .LVU37
- 139 0062 7047     		bx	lr
- 140              	.LVL9:
- 141              	.L6:
- 103:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 142              		.loc 1 103 3 view .LVU38
- 143 0064 0220     		movs	r0, #2
- 144              	.LVL10:
- 145              		.loc 1 132 1 view .LVU39
-ARM GAS  /tmp/cciKyRiY.s 			page 6
+ 139:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the selected wave generation for the selected DAC channel */
+ 140:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   MODIFY_REG(hdac->Instance->CR, (DAC_CR_WAVE1 | DAC_CR_MAMP1) << Channel, (DAC_CR_WAVE1_1 | Amplit
+  93              		.loc 1 140 3 is_stmt 1 discriminator 2 view .LVU20
+  94 0010 0668     		ldr	r6, [r0]
+  95 0012 3368     		ldr	r3, [r6]
+  96 0014 4FF47C64 		mov	r4, #4032
+  97 0018 8C40     		lsls	r4, r4, r1
+  98 001a 23EA0403 		bic	r3, r3, r4
+  99 001e 42F08002 		orr	r2, r2, #128
+ 100              	.LVL5:
+ 101              		.loc 1 140 3 is_stmt 0 discriminator 2 view .LVU21
+ 102 0022 02FA01F1 		lsl	r1, r2, r1
+ 103              	.LVL6:
+ 104              		.loc 1 140 3 discriminator 2 view .LVU22
+ 105 0026 1943     		orrs	r1, r1, r3
+ 106 0028 3160     		str	r1, [r6]
+ 141:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 142:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
+ 143:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
+ 107              		.loc 1 143 3 is_stmt 1 discriminator 2 view .LVU23
+ 108              		.loc 1 143 15 is_stmt 0 discriminator 2 view .LVU24
+ 109 002a 0571     		strb	r5, [r0, #4]
+ 144:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 145:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
+ 146:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
+ 110              		.loc 1 146 3 is_stmt 1 discriminator 2 view .LVU25
+ 111              		.loc 1 146 3 discriminator 2 view .LVU26
+ 112 002c 0023     		movs	r3, #0
+ 113 002e 4371     		strb	r3, [r0, #5]
+ 114              		.loc 1 146 3 discriminator 2 view .LVU27
+ 147:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 148:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
+ 149:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
+ 115              		.loc 1 149 3 discriminator 2 view .LVU28
+ 116              		.loc 1 149 10 is_stmt 0 discriminator 2 view .LVU29
+ 117 0030 1846     		mov	r0, r3
+ 118              	.LVL7:
+ 150:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 119              		.loc 1 150 1 discriminator 2 view .LVU30
+ 120 0032 70BC     		pop	{r4, r5, r6}
+ 121              	.LCFI1:
+ 122              		.cfi_restore 6
+ 123              		.cfi_restore 5
+ 124              		.cfi_restore 4
+ 125              		.cfi_def_cfa_offset 0
+ 126 0034 7047     		bx	lr
+ 127              	.LVL8:
+ 128              	.L4:
+ 134:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 129              		.loc 1 134 3 view .LVU31
+ 130 0036 0220     		movs	r0, #2
+ 131              	.LVL9:
+ 132              		.loc 1 150 1 view .LVU32
+ 133 0038 7047     		bx	lr
+ 134              		.cfi_endproc
+ 135              	.LFE133:
+ 137              		.section	.text.HAL_DACEx_NoiseWaveGenerate,"ax",%progbits
+ARM GAS  /tmp/ccQjHmIQ.s 			page 6
 
 
- 146 0066 7047     		bx	lr
- 147              		.cfi_endproc
- 148              	.LFE239:
- 150              		.section	.text.HAL_DACEx_DualStop,"ax",%progbits
- 151              		.align	1
- 152              		.global	HAL_DACEx_DualStop
- 153              		.syntax unified
- 154              		.thumb
- 155              		.thumb_func
- 156              		.fpu fpv4-sp-d16
- 158              	HAL_DACEx_DualStop:
- 159              	.LVL11:
- 160              	.LFB240:
- 133:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 134:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 135:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Disables DAC and stop conversion of both channels.
- 136:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 137:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 138:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
- 139:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 140:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_DualStop(DAC_HandleTypeDef *hdac)
- 141:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 161              		.loc 1 141 1 is_stmt 1 view -0
- 162              		.cfi_startproc
- 163              		@ args = 0, pretend = 0, frame = 0
- 164              		@ frame_needed = 0, uses_anonymous_args = 0
- 165              		@ link register save eliminated.
- 142:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 143:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (hdac == NULL)
- 166              		.loc 1 143 3 view .LVU41
- 167              		.loc 1 143 6 is_stmt 0 view .LVU42
- 168 0000 68B1     		cbz	r0, .L15
- 144:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 145:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     return HAL_ERROR;
- 146:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 147:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 148:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 149:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Disable the Peripheral */
- 150:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_DAC_DISABLE(hdac, DAC_CHANNEL_1);
- 169              		.loc 1 150 3 is_stmt 1 view .LVU43
- 170 0002 0168     		ldr	r1, [r0]
- 171 0004 0A68     		ldr	r2, [r1]
- 172 0006 22F00102 		bic	r2, r2, #1
- 173 000a 0A60     		str	r2, [r1]
- 151:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_DAC_DISABLE(hdac, DAC_CHANNEL_2);
- 174              		.loc 1 151 3 view .LVU44
- 175 000c 0168     		ldr	r1, [r0]
- 176 000e 0A68     		ldr	r2, [r1]
- 177 0010 22F48032 		bic	r2, r2, #65536
- 178 0014 0A60     		str	r2, [r1]
- 152:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 153:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 154:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
- 179              		.loc 1 154 3 view .LVU45
- 180              		.loc 1 154 15 is_stmt 0 view .LVU46
- 181 0016 0122     		movs	r2, #1
- 182 0018 0271     		strb	r2, [r0, #4]
-ARM GAS  /tmp/cciKyRiY.s 			page 7
+ 138              		.align	1
+ 139              		.global	HAL_DACEx_NoiseWaveGenerate
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.fpu fpv4-sp-d16
+ 145              	HAL_DACEx_NoiseWaveGenerate:
+ 146              	.LVL10:
+ 147              	.LFB134:
+ 151:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 152:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 153:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enables or disables the selected DAC channel wave generation.
+ 154:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 155:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC. 
+ 156:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Channel The selected DAC channel. 
+ 157:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
+ 158:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_CHANNEL_1 / DAC_CHANNEL_2
+ 159:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Amplitude Unmask DAC channel LFSR for noise wave generation. 
+ 160:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values: 
+ 161:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BIT0: Unmask DAC channel LFSR bit0 for noise wave generation
+ 162:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS1_0: Unmask DAC channel LFSR bit[1:0] for noise wave generat
+ 163:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS2_0: Unmask DAC channel LFSR bit[2:0] for noise wave generat
+ 164:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS3_0: Unmask DAC channel LFSR bit[3:0] for noise wave generat
+ 165:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS4_0: Unmask DAC channel LFSR bit[4:0] for noise wave generat
+ 166:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS5_0: Unmask DAC channel LFSR bit[5:0] for noise wave generat
+ 167:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS6_0: Unmask DAC channel LFSR bit[6:0] for noise wave generat
+ 168:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS7_0: Unmask DAC channel LFSR bit[7:0] for noise wave generat
+ 169:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS8_0: Unmask DAC channel LFSR bit[8:0] for noise wave generat
+ 170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS9_0: Unmask DAC channel LFSR bit[9:0] for noise wave generat
+ 171:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS10_0: Unmask DAC channel LFSR bit[10:0] for noise wave gener
+ 172:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS11_0: Unmask DAC channel LFSR bit[11:0] for noise wave gener
+ 173:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
+ 174:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 175:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_NoiseWaveGenerate(DAC_HandleTypeDef* hdac, uint32_t Channel, uint32_t A
+ 176:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {  
+ 148              		.loc 1 176 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
+ 177:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
+ 178:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_CHANNEL(Channel));
+ 153              		.loc 1 178 3 view .LVU34
+ 179:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(Amplitude));
+ 154              		.loc 1 179 3 view .LVU35
+ 180:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 181:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process locked */
+ 182:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_LOCK(hdac);
+ 155              		.loc 1 182 3 view .LVU36
+ 156              		.loc 1 182 3 view .LVU37
+ 157 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 158 0002 012B     		cmp	r3, #1
+ 159 0004 17D0     		beq	.L11
+ 176:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
+ 160              		.loc 1 176 1 is_stmt 0 discriminator 2 view .LVU38
+ 161 0006 70B4     		push	{r4, r5, r6}
+ 162              	.LCFI2:
+ARM GAS  /tmp/ccQjHmIQ.s 			page 7
 
 
- 155:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 156:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
- 157:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
- 183              		.loc 1 157 3 is_stmt 1 view .LVU47
- 184              		.loc 1 157 10 is_stmt 0 view .LVU48
- 185 001a 0020     		movs	r0, #0
- 186              	.LVL12:
- 187              		.loc 1 157 10 view .LVU49
- 188 001c 7047     		bx	lr
- 189              	.LVL13:
- 190              	.L15:
- 145:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 191              		.loc 1 145 12 view .LVU50
- 192 001e 0120     		movs	r0, #1
- 193              	.LVL14:
- 158:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 194              		.loc 1 158 1 view .LVU51
- 195 0020 7047     		bx	lr
- 196              		.cfi_endproc
- 197              	.LFE240:
- 199              		.section	.text.HAL_DACEx_TriangleWaveGenerate,"ax",%progbits
- 200              		.align	1
- 201              		.global	HAL_DACEx_TriangleWaveGenerate
- 202              		.syntax unified
- 203              		.thumb
- 204              		.thumb_func
- 205              		.fpu fpv4-sp-d16
- 207              	HAL_DACEx_TriangleWaveGenerate:
- 208              	.LVL15:
- 209              	.LFB241:
- 159:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* DAC_CHANNEL2_SUPPORT */
- 160:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 161:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 162:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enable or disable the selected DAC channel wave generation.
- 163:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 164:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 165:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Channel The selected DAC channel.
- 166:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
- 167:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_CHANNEL_1: DAC Channel1 selected
- 168:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_CHANNEL_2: DAC Channel2 selected
- 169:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Amplitude Select max triangle amplitude.
- 170:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
- 171:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_1: Select max triangle amplitude of 1
- 172:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_3: Select max triangle amplitude of 3
- 173:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_7: Select max triangle amplitude of 7
- 174:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_15: Select max triangle amplitude of 15
- 175:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_31: Select max triangle amplitude of 31
- 176:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_63: Select max triangle amplitude of 63
- 177:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_127: Select max triangle amplitude of 127
- 178:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_255: Select max triangle amplitude of 255
- 179:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_511: Select max triangle amplitude of 511
- 180:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_1023: Select max triangle amplitude of 1023
- 181:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_2047: Select max triangle amplitude of 2047
- 182:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_TRIANGLEAMPLITUDE_4095: Select max triangle amplitude of 4095
- 183:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
- 184:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 185:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_TriangleWaveGenerate(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_
-ARM GAS  /tmp/cciKyRiY.s 			page 8
+ 163              		.cfi_def_cfa_offset 12
+ 164              		.cfi_offset 4, -12
+ 165              		.cfi_offset 5, -8
+ 166              		.cfi_offset 6, -4
+ 167              		.loc 1 182 3 is_stmt 1 discriminator 2 view .LVU39
+ 168 0008 0125     		movs	r5, #1
+ 169 000a 4571     		strb	r5, [r0, #5]
+ 170              		.loc 1 182 3 discriminator 2 view .LVU40
+ 183:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 184:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
+ 185:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_BUSY;
+ 171              		.loc 1 185 3 discriminator 2 view .LVU41
+ 172              		.loc 1 185 15 is_stmt 0 discriminator 2 view .LVU42
+ 173 000c 0223     		movs	r3, #2
+ 174 000e 0371     		strb	r3, [r0, #4]
+ 186:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 187:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the selected wave generation for the selected DAC channel */
+ 188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   MODIFY_REG(hdac->Instance->CR, (DAC_CR_WAVE1 | DAC_CR_MAMP1) << Channel, (DAC_CR_WAVE1_0 | Amplit
+ 175              		.loc 1 188 3 is_stmt 1 discriminator 2 view .LVU43
+ 176 0010 0668     		ldr	r6, [r0]
+ 177 0012 3368     		ldr	r3, [r6]
+ 178 0014 4FF47C64 		mov	r4, #4032
+ 179 0018 8C40     		lsls	r4, r4, r1
+ 180 001a 23EA0403 		bic	r3, r3, r4
+ 181 001e 42F04002 		orr	r2, r2, #64
+ 182              	.LVL11:
+ 183              		.loc 1 188 3 is_stmt 0 discriminator 2 view .LVU44
+ 184 0022 02FA01F1 		lsl	r1, r2, r1
+ 185              	.LVL12:
+ 186              		.loc 1 188 3 discriminator 2 view .LVU45
+ 187 0026 1943     		orrs	r1, r1, r3
+ 188 0028 3160     		str	r1, [r6]
+ 189:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 190:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
+ 191:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
+ 189              		.loc 1 191 3 is_stmt 1 discriminator 2 view .LVU46
+ 190              		.loc 1 191 15 is_stmt 0 discriminator 2 view .LVU47
+ 191 002a 0571     		strb	r5, [r0, #4]
+ 192:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 193:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
+ 194:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
+ 192              		.loc 1 194 3 is_stmt 1 discriminator 2 view .LVU48
+ 193              		.loc 1 194 3 discriminator 2 view .LVU49
+ 194 002c 0023     		movs	r3, #0
+ 195 002e 4371     		strb	r3, [r0, #5]
+ 196              		.loc 1 194 3 discriminator 2 view .LVU50
+ 195:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 196:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
+ 197:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
+ 197              		.loc 1 197 3 discriminator 2 view .LVU51
+ 198              		.loc 1 197 10 is_stmt 0 discriminator 2 view .LVU52
+ 199 0030 1846     		mov	r0, r3
+ 200              	.LVL13:
+ 198:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 201              		.loc 1 198 1 discriminator 2 view .LVU53
+ 202 0032 70BC     		pop	{r4, r5, r6}
+ 203              	.LCFI3:
+ARM GAS  /tmp/ccQjHmIQ.s 			page 8
 
 
- 186:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 210              		.loc 1 186 1 is_stmt 1 view -0
- 211              		.cfi_startproc
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214              		@ link register save eliminated.
- 187:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 188:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (hdac == NULL)
- 215              		.loc 1 188 3 view .LVU53
- 216              		.loc 1 188 6 is_stmt 0 view .LVU54
- 217 0000 D8B1     		cbz	r0, .L18
- 218 0002 0346     		mov	r3, r0
- 189:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 190:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     return HAL_ERROR;
- 191:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 192:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 193:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
- 194:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_CHANNEL(Channel));
- 219              		.loc 1 194 3 is_stmt 1 view .LVU55
- 195:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(Amplitude));
- 220              		.loc 1 195 3 view .LVU56
- 196:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 197:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process locked */
- 198:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_LOCK(hdac);
- 221              		.loc 1 198 3 view .LVU57
- 222              		.loc 1 198 3 view .LVU58
- 223 0004 4079     		ldrb	r0, [r0, #5]	@ zero_extendqisi2
- 224              	.LVL16:
- 225              		.loc 1 198 3 is_stmt 0 view .LVU59
- 226 0006 0128     		cmp	r0, #1
- 227 0008 19D0     		beq	.L19
- 186:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 228              		.loc 1 186 1 discriminator 2 view .LVU60
- 229 000a 70B4     		push	{r4, r5, r6}
- 230              	.LCFI4:
- 231              		.cfi_def_cfa_offset 12
- 232              		.cfi_offset 4, -12
- 233              		.cfi_offset 5, -8
- 234              		.cfi_offset 6, -4
- 235              		.loc 1 198 3 is_stmt 1 discriminator 2 view .LVU61
- 236 000c 0125     		movs	r5, #1
- 237 000e 5D71     		strb	r5, [r3, #5]
- 238              		.loc 1 198 3 discriminator 2 view .LVU62
- 199:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 200:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 201:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_BUSY;
- 239              		.loc 1 201 3 discriminator 2 view .LVU63
- 240              		.loc 1 201 15 is_stmt 0 discriminator 2 view .LVU64
- 241 0010 0220     		movs	r0, #2
- 242 0012 1871     		strb	r0, [r3, #4]
- 202:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 203:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the triangle wave generation for the selected DAC channel */
- 204:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   MODIFY_REG(hdac->Instance->CR, ((DAC_CR_WAVE1) | (DAC_CR_MAMP1)) << (Channel & 0x10UL),
- 243              		.loc 1 204 3 is_stmt 1 discriminator 2 view .LVU65
- 244 0014 1E68     		ldr	r6, [r3]
- 245 0016 3068     		ldr	r0, [r6]
- 246 0018 01F01001 		and	r1, r1, #16
-ARM GAS  /tmp/cciKyRiY.s 			page 9
+ 204              		.cfi_restore 6
+ 205              		.cfi_restore 5
+ 206              		.cfi_restore 4
+ 207              		.cfi_def_cfa_offset 0
+ 208 0034 7047     		bx	lr
+ 209              	.LVL14:
+ 210              	.L11:
+ 182:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 211              		.loc 1 182 3 view .LVU54
+ 212 0036 0220     		movs	r0, #2
+ 213              	.LVL15:
+ 214              		.loc 1 198 1 view .LVU55
+ 215 0038 7047     		bx	lr
+ 216              		.cfi_endproc
+ 217              	.LFE134:
+ 219              		.section	.text.HAL_DACEx_DualSetValue,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	HAL_DACEx_DualSetValue
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.fpu fpv4-sp-d16
+ 227              	HAL_DACEx_DualSetValue:
+ 228              	.LVL16:
+ 229              	.LFB135:
+ 199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 200:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 201:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Set the specified data holding register value for dual DAC channel.
+ 202:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 203:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *               the configuration information for the specified DAC.
+ 204:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Alignment Specifies the data alignment for dual channel DAC.
+ 205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
+ 206:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_8B_R: 8bit right data alignment selected
+ 207:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_L: 12bit left data alignment selected
+ 208:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_R: 12bit right data alignment selected
+ 209:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Data1 Data for DAC Channel2 to be loaded in the selected data holding register.
+ 210:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Data2 Data for DAC Channel1 to be loaded in the selected data  holding register.
+ 211:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @note   In dual mode, a unique register access is required to write in both
+ 212:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *          DAC channels at the same time.
+ 213:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
+ 214:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 215:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_DualSetValue(DAC_HandleTypeDef* hdac, uint32_t Alignment, uint32_t Data
+ 216:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {  
+ 230              		.loc 1 216 1 is_stmt 1 view -0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+ 217:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t data = 0U, tmp = 0U;
+ 235              		.loc 1 217 3 view .LVU57
+ 218:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 219:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
+ 220:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_ALIGN(Alignment));
+ 236              		.loc 1 220 3 view .LVU58
+ 221:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_DATA(Data1));
+ 237              		.loc 1 221 3 view .LVU59
+ 222:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_DATA(Data2));
+ARM GAS  /tmp/ccQjHmIQ.s 			page 9
 
 
- 247              	.LVL17:
- 248              		.loc 1 204 3 is_stmt 0 discriminator 2 view .LVU66
- 249 001c 4FF47C64 		mov	r4, #4032
- 250 0020 8C40     		lsls	r4, r4, r1
- 251 0022 20EA0400 		bic	r0, r0, r4
- 252 0026 42F08002 		orr	r2, r2, #128
- 253              	.LVL18:
- 254              		.loc 1 204 3 discriminator 2 view .LVU67
- 255 002a 8A40     		lsls	r2, r2, r1
- 256 002c 0243     		orrs	r2, r2, r0
- 257 002e 3260     		str	r2, [r6]
- 205:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****              (DAC_CR_WAVE1_1 | Amplitude) << (Channel & 0x10UL));
- 206:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 207:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 208:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
- 258              		.loc 1 208 3 is_stmt 1 discriminator 2 view .LVU68
- 259              		.loc 1 208 15 is_stmt 0 discriminator 2 view .LVU69
- 260 0030 1D71     		strb	r5, [r3, #4]
- 209:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 210:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
- 211:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
- 261              		.loc 1 211 3 is_stmt 1 discriminator 2 view .LVU70
- 262              		.loc 1 211 3 discriminator 2 view .LVU71
- 263 0032 0020     		movs	r0, #0
- 264 0034 5871     		strb	r0, [r3, #5]
- 265              		.loc 1 211 3 discriminator 2 view .LVU72
- 212:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 213:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
- 214:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
- 266              		.loc 1 214 3 discriminator 2 view .LVU73
- 215:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 267              		.loc 1 215 1 is_stmt 0 discriminator 2 view .LVU74
- 268 0036 70BC     		pop	{r4, r5, r6}
- 269              	.LCFI5:
- 270              		.cfi_restore 6
- 271              		.cfi_restore 5
- 272              		.cfi_restore 4
- 273              		.cfi_def_cfa_offset 0
- 274 0038 7047     		bx	lr
- 275              	.LVL19:
- 276              	.L18:
- 190:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 277              		.loc 1 190 12 view .LVU75
- 278 003a 0120     		movs	r0, #1
- 279              	.LVL20:
- 190:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 280              		.loc 1 190 12 view .LVU76
- 281 003c 7047     		bx	lr
- 282              	.LVL21:
- 283              	.L19:
- 198:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 284              		.loc 1 198 3 view .LVU77
- 285 003e 0220     		movs	r0, #2
- 286              		.loc 1 215 1 view .LVU78
- 287 0040 7047     		bx	lr
- 288              		.cfi_endproc
- 289              	.LFE241:
-ARM GAS  /tmp/cciKyRiY.s 			page 10
+ 238              		.loc 1 222 3 view .LVU60
+ 223:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 224:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Calculate and set dual DAC data holding register value */
+ 225:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   if (Alignment == DAC_ALIGN_8B_R)
+ 239              		.loc 1 225 3 view .LVU61
+ 240              		.loc 1 225 6 is_stmt 0 view .LVU62
+ 241 0000 0829     		cmp	r1, #8
+ 242 0002 06D0     		beq	.L19
+ 226:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   {
+ 227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     data = ((uint32_t)Data2 << 8U) | Data1; 
+ 228:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   }
+ 229:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   else
+ 230:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   {
+ 231:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     data = ((uint32_t)Data2 << 16U) | Data1;
+ 243              		.loc 1 231 5 is_stmt 1 view .LVU63
+ 244              		.loc 1 231 10 is_stmt 0 view .LVU64
+ 245 0004 42EA0342 		orr	r2, r2, r3, lsl #16
+ 246              	.LVL17:
+ 247              	.L18:
+ 232:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   }
+ 233:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 234:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp = (uint32_t)hdac->Instance;
+ 248              		.loc 1 234 3 is_stmt 1 view .LVU65
+ 249              		.loc 1 234 23 is_stmt 0 view .LVU66
+ 250 0008 0368     		ldr	r3, [r0]
+ 251              	.LVL18:
+ 235:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp += DAC_DHR12RD_ALIGNMENT(Alignment);
+ 252              		.loc 1 235 3 is_stmt 1 view .LVU67
+ 253              		.loc 1 235 7 is_stmt 0 view .LVU68
+ 254 000a 1944     		add	r1, r1, r3
+ 255              	.LVL19:
+ 236:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 237:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Set the dual DAC selected data holding register */
+ 238:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *(__IO uint32_t *)tmp = data;
+ 256              		.loc 1 238 3 is_stmt 1 view .LVU69
+ 257              		.loc 1 238 25 is_stmt 0 view .LVU70
+ 258 000c 0A62     		str	r2, [r1, #32]
+ 239:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 240:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
+ 241:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
+ 259              		.loc 1 241 3 is_stmt 1 view .LVU71
+ 242:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 260              		.loc 1 242 1 is_stmt 0 view .LVU72
+ 261 000e 0020     		movs	r0, #0
+ 262              	.LVL20:
+ 263              		.loc 1 242 1 view .LVU73
+ 264 0010 7047     		bx	lr
+ 265              	.LVL21:
+ 266              	.L19:
+ 227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   }
+ 267              		.loc 1 227 5 is_stmt 1 view .LVU74
+ 227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   }
+ 268              		.loc 1 227 10 is_stmt 0 view .LVU75
+ 269 0012 42EA0322 		orr	r2, r2, r3, lsl #8
+ 270              	.LVL22:
+ 227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   }
+ 271              		.loc 1 227 10 view .LVU76
+ARM GAS  /tmp/ccQjHmIQ.s 			page 10
 
 
- 291              		.section	.text.HAL_DACEx_NoiseWaveGenerate,"ax",%progbits
- 292              		.align	1
- 293              		.global	HAL_DACEx_NoiseWaveGenerate
- 294              		.syntax unified
- 295              		.thumb
- 296              		.thumb_func
- 297              		.fpu fpv4-sp-d16
- 299              	HAL_DACEx_NoiseWaveGenerate:
- 300              	.LVL22:
- 301              	.LFB242:
- 216:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 217:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 218:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enable or disable the selected DAC channel wave generation.
- 219:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 220:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 221:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Channel The selected DAC channel.
- 222:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
- 223:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_CHANNEL_1: DAC Channel1 selected
- 224:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_CHANNEL_2: DAC Channel2 selected
- 225:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Amplitude Unmask DAC channel LFSR for noise wave generation.
- 226:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
- 227:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BIT0: Unmask DAC channel LFSR bit0 for noise wave generation
- 228:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS1_0: Unmask DAC channel LFSR bit[1:0] for noise wave generat
- 229:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS2_0: Unmask DAC channel LFSR bit[2:0] for noise wave generat
- 230:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS3_0: Unmask DAC channel LFSR bit[3:0] for noise wave generat
- 231:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS4_0: Unmask DAC channel LFSR bit[4:0] for noise wave generat
- 232:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS5_0: Unmask DAC channel LFSR bit[5:0] for noise wave generat
- 233:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS6_0: Unmask DAC channel LFSR bit[6:0] for noise wave generat
- 234:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS7_0: Unmask DAC channel LFSR bit[7:0] for noise wave generat
- 235:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS8_0: Unmask DAC channel LFSR bit[8:0] for noise wave generat
- 236:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS9_0: Unmask DAC channel LFSR bit[9:0] for noise wave generat
- 237:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS10_0: Unmask DAC channel LFSR bit[10:0] for noise wave gener
- 238:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            @arg DAC_LFSRUNMASK_BITS11_0: Unmask DAC channel LFSR bit[11:0] for noise wave gener
- 239:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
- 240:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 241:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_NoiseWaveGenerate(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t A
- 242:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 302              		.loc 1 242 1 is_stmt 1 view -0
- 303              		.cfi_startproc
- 304              		@ args = 0, pretend = 0, frame = 0
- 305              		@ frame_needed = 0, uses_anonymous_args = 0
- 306              		@ link register save eliminated.
- 243:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 244:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (hdac == NULL)
- 307              		.loc 1 244 3 view .LVU80
- 308              		.loc 1 244 6 is_stmt 0 view .LVU81
- 309 0000 D8B1     		cbz	r0, .L26
- 310 0002 0346     		mov	r3, r0
- 245:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 246:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     return HAL_ERROR;
- 247:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 248:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 249:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
- 250:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_CHANNEL(Channel));
- 311              		.loc 1 250 3 is_stmt 1 view .LVU82
- 251:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(Amplitude));
- 312              		.loc 1 251 3 view .LVU83
-ARM GAS  /tmp/cciKyRiY.s 			page 11
+ 272 0016 F7E7     		b	.L18
+ 273              		.cfi_endproc
+ 274              	.LFE135:
+ 276              		.section	.text.HAL_DACEx_ConvCpltCallbackCh2,"ax",%progbits
+ 277              		.align	1
+ 278              		.weak	HAL_DACEx_ConvCpltCallbackCh2
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 282              		.fpu fpv4-sp-d16
+ 284              	HAL_DACEx_ConvCpltCallbackCh2:
+ 285              	.LVL23:
+ 286              	.LFB136:
+ 243:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 244:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 245:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @}
+ 246:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 247:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 248:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 249:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Conversion complete callback in non blocking mode for Channel2 
+ 250:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 251:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+ 252:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 253:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 254:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ConvCpltCallbackCh2(DAC_HandleTypeDef* hdac)
+ 255:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 287              		.loc 1 255 1 is_stmt 1 view -0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 257:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
+ 292              		.loc 1 257 3 view .LVU78
+ 258:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
+ 259:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DAC_ConvCpltCallback could be implemented in the user file
+ 260:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****    */
+ 261:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 293              		.loc 1 261 1 is_stmt 0 view .LVU79
+ 294 0000 7047     		bx	lr
+ 295              		.cfi_endproc
+ 296              	.LFE136:
+ 298              		.section	.text.HAL_DACEx_ConvHalfCpltCallbackCh2,"ax",%progbits
+ 299              		.align	1
+ 300              		.weak	HAL_DACEx_ConvHalfCpltCallbackCh2
+ 301              		.syntax unified
+ 302              		.thumb
+ 303              		.thumb_func
+ 304              		.fpu fpv4-sp-d16
+ 306              	HAL_DACEx_ConvHalfCpltCallbackCh2:
+ 307              	.LVL24:
+ 308              	.LFB137:
+ 262:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 263:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 264:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Conversion half DMA transfer callback in non blocking mode for Channel2 
+ 265:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 266:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+ARM GAS  /tmp/ccQjHmIQ.s 			page 11
 
 
- 252:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 253:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process locked */
- 254:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_LOCK(hdac);
- 313              		.loc 1 254 3 view .LVU84
- 314              		.loc 1 254 3 view .LVU85
- 315 0004 4079     		ldrb	r0, [r0, #5]	@ zero_extendqisi2
- 316              	.LVL23:
- 317              		.loc 1 254 3 is_stmt 0 view .LVU86
- 318 0006 0128     		cmp	r0, #1
- 319 0008 19D0     		beq	.L27
- 242:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 320              		.loc 1 242 1 discriminator 2 view .LVU87
- 321 000a 70B4     		push	{r4, r5, r6}
- 322              	.LCFI6:
- 323              		.cfi_def_cfa_offset 12
- 324              		.cfi_offset 4, -12
- 325              		.cfi_offset 5, -8
- 326              		.cfi_offset 6, -4
- 327              		.loc 1 254 3 is_stmt 1 discriminator 2 view .LVU88
- 328 000c 0125     		movs	r5, #1
- 329 000e 5D71     		strb	r5, [r3, #5]
- 330              		.loc 1 254 3 discriminator 2 view .LVU89
- 255:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 256:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 257:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_BUSY;
- 331              		.loc 1 257 3 discriminator 2 view .LVU90
- 332              		.loc 1 257 15 is_stmt 0 discriminator 2 view .LVU91
- 333 0010 0220     		movs	r0, #2
- 334 0012 1871     		strb	r0, [r3, #4]
- 258:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 259:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Enable the noise wave generation for the selected DAC channel */
- 260:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   MODIFY_REG(hdac->Instance->CR, ((DAC_CR_WAVE1) | (DAC_CR_MAMP1)) << (Channel & 0x10UL),
- 335              		.loc 1 260 3 is_stmt 1 discriminator 2 view .LVU92
- 336 0014 1E68     		ldr	r6, [r3]
- 337 0016 3068     		ldr	r0, [r6]
- 338 0018 01F01001 		and	r1, r1, #16
- 339              	.LVL24:
- 340              		.loc 1 260 3 is_stmt 0 discriminator 2 view .LVU93
- 341 001c 4FF47C64 		mov	r4, #4032
- 342 0020 8C40     		lsls	r4, r4, r1
- 343 0022 20EA0400 		bic	r0, r0, r4
- 344 0026 42F04002 		orr	r2, r2, #64
- 345              	.LVL25:
- 346              		.loc 1 260 3 discriminator 2 view .LVU94
- 347 002a 8A40     		lsls	r2, r2, r1
- 348 002c 0243     		orrs	r2, r2, r0
- 349 002e 3260     		str	r2, [r6]
- 261:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****              (DAC_CR_WAVE1_0 | Amplitude) << (Channel & 0x10UL));
- 262:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 263:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Change DAC state */
- 264:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
- 350              		.loc 1 264 3 is_stmt 1 discriminator 2 view .LVU95
- 351              		.loc 1 264 15 is_stmt 0 discriminator 2 view .LVU96
- 352 0030 1D71     		strb	r5, [r3, #4]
- 265:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 266:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
- 267:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
-ARM GAS  /tmp/cciKyRiY.s 			page 12
+ 267:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 268:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 269:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ConvHalfCpltCallbackCh2(DAC_HandleTypeDef* hdac)
+ 270:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 309              		.loc 1 270 1 is_stmt 1 view -0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 271:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 272:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
+ 314              		.loc 1 272 3 view .LVU81
+ 273:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
+ 274:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DAC_ConvHalfCpltCallbackCh2 could be implemented in the user file
+ 275:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****    */
+ 276:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 315              		.loc 1 276 1 is_stmt 0 view .LVU82
+ 316 0000 7047     		bx	lr
+ 317              		.cfi_endproc
+ 318              	.LFE137:
+ 320              		.section	.text.HAL_DACEx_ErrorCallbackCh2,"ax",%progbits
+ 321              		.align	1
+ 322              		.weak	HAL_DACEx_ErrorCallbackCh2
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	HAL_DACEx_ErrorCallbackCh2:
+ 329              	.LVL25:
+ 330              	.LFB138:
+ 277:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 278:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 279:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Error DAC callback for Channel2.
+ 280:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 281:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+ 282:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 283:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 284:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ErrorCallbackCh2(DAC_HandleTypeDef *hdac)
+ 285:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 331              		.loc 1 285 1 is_stmt 1 view -0
+ 332              		.cfi_startproc
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335              		@ link register save eliminated.
+ 286:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 287:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
+ 336              		.loc 1 287 3 view .LVU84
+ 288:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
+ 289:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DAC_ErrorCallback could be implemented in the user file
+ 290:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****    */
+ 291:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 337              		.loc 1 291 1 is_stmt 0 view .LVU85
+ 338 0000 7047     		bx	lr
+ 339              		.cfi_endproc
+ 340              	.LFE138:
+ 342              		.section	.text.HAL_DACEx_DMAUnderrunCallbackCh2,"ax",%progbits
+ 343              		.align	1
+ARM GAS  /tmp/ccQjHmIQ.s 			page 12
 
 
- 353              		.loc 1 267 3 is_stmt 1 discriminator 2 view .LVU97
- 354              		.loc 1 267 3 discriminator 2 view .LVU98
- 355 0032 0020     		movs	r0, #0
- 356 0034 5871     		strb	r0, [r3, #5]
- 357              		.loc 1 267 3 discriminator 2 view .LVU99
- 268:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 269:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
- 270:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
- 358              		.loc 1 270 3 discriminator 2 view .LVU100
- 271:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 359              		.loc 1 271 1 is_stmt 0 discriminator 2 view .LVU101
- 360 0036 70BC     		pop	{r4, r5, r6}
- 361              	.LCFI7:
- 362              		.cfi_restore 6
- 363              		.cfi_restore 5
- 364              		.cfi_restore 4
- 365              		.cfi_def_cfa_offset 0
- 366 0038 7047     		bx	lr
- 367              	.LVL26:
- 368              	.L26:
- 246:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 369              		.loc 1 246 12 view .LVU102
- 370 003a 0120     		movs	r0, #1
- 371              	.LVL27:
- 246:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 372              		.loc 1 246 12 view .LVU103
- 373 003c 7047     		bx	lr
- 374              	.LVL28:
- 375              	.L27:
- 254:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 376              		.loc 1 254 3 view .LVU104
- 377 003e 0220     		movs	r0, #2
- 378              		.loc 1 271 1 view .LVU105
- 379 0040 7047     		bx	lr
- 380              		.cfi_endproc
- 381              	.LFE242:
- 383              		.section	.text.HAL_DACEx_DualSetValue,"ax",%progbits
- 384              		.align	1
- 385              		.global	HAL_DACEx_DualSetValue
- 386              		.syntax unified
- 387              		.thumb
- 388              		.thumb_func
- 389              		.fpu fpv4-sp-d16
- 391              	HAL_DACEx_DualSetValue:
- 392              	.LVL29:
- 393              	.LFB243:
- 272:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 273:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC_CHANNEL2_SUPPORT)
- 274:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 275:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Set the specified data holding register value for dual DAC channel.
- 276:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 277:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *               the configuration information for the specified DAC.
- 278:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Alignment Specifies the data alignment for dual channel DAC.
- 279:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          This parameter can be one of the following values:
- 280:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_8B_R: 8bit right data alignment selected
- 281:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_L: 12bit left data alignment selected
- 282:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_R: 12bit right data alignment selected
-ARM GAS  /tmp/cciKyRiY.s 			page 13
+ 344              		.weak	HAL_DACEx_DMAUnderrunCallbackCh2
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 348              		.fpu fpv4-sp-d16
+ 350              	HAL_DACEx_DMAUnderrunCallbackCh2:
+ 351              	.LVL26:
+ 352              	.LFB139:
+ 292:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 293:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 294:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA underrun DAC callback for channel2.
+ 295:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
+ 296:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
+ 297:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 298:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 299:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_DMAUnderrunCallbackCh2(DAC_HandleTypeDef *hdac)
+ 300:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 353              		.loc 1 300 1 is_stmt 1 view -0
+ 354              		.cfi_startproc
+ 355              		@ args = 0, pretend = 0, frame = 0
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 357              		@ link register save eliminated.
+ 301:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 302:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
+ 358              		.loc 1 302 3 view .LVU87
+ 303:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
+ 304:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DAC_DMAUnderrunCallbackCh2 could be implemented in the user file
+ 305:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****    */
+ 306:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 359              		.loc 1 306 1 is_stmt 0 view .LVU88
+ 360 0000 7047     		bx	lr
+ 361              		.cfi_endproc
+ 362              	.LFE139:
+ 364              		.section	.text.DAC_DMAConvCpltCh2,"ax",%progbits
+ 365              		.align	1
+ 366              		.global	DAC_DMAConvCpltCh2
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 370              		.fpu fpv4-sp-d16
+ 372              	DAC_DMAConvCpltCh2:
+ 373              	.LVL27:
+ 374              	.LFB140:
+ 307:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 308:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 309:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA conversion complete callback. 
+ 310:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
+ 311:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
+ 312:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 313:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 314:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAConvCpltCh2(DMA_HandleTypeDef *hdma)   
+ 315:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 375              		.loc 1 315 1 is_stmt 1 view -0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              		.loc 1 315 1 is_stmt 0 view .LVU90
+ARM GAS  /tmp/ccQjHmIQ.s 			page 13
 
 
- 283:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Data1 Data for DAC Channel1 to be loaded in the selected data holding register.
- 284:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Data2 Data for DAC Channel2 to be loaded in the selected data  holding register.
- 285:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @note   In dual mode, a unique register access is required to write in both
- 286:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *          DAC channels at the same time.
- 287:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
- 288:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 289:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_DualSetValue(DAC_HandleTypeDef *hdac, uint32_t Alignment, uint32_t Data
- 290:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 394              		.loc 1 290 1 is_stmt 1 view -0
- 395              		.cfi_startproc
- 396              		@ args = 0, pretend = 0, frame = 0
- 397              		@ frame_needed = 0, uses_anonymous_args = 0
- 398              		@ link register save eliminated.
- 291:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t data;
- 399              		.loc 1 291 3 view .LVU107
- 292:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t tmp;
- 400              		.loc 1 292 3 view .LVU108
- 293:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 294:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the DAC peripheral handle */
- 295:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (hdac == NULL)
- 401              		.loc 1 295 3 view .LVU109
- 402              		.loc 1 295 6 is_stmt 0 view .LVU110
- 403 0000 78B1     		cbz	r0, .L36
- 290:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t data;
- 404              		.loc 1 290 1 view .LVU111
- 405 0002 10B4     		push	{r4}
- 406              	.LCFI8:
- 407              		.cfi_def_cfa_offset 4
- 408              		.cfi_offset 4, -4
- 409 0004 0446     		mov	r4, r0
- 296:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 297:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     return HAL_ERROR;
- 298:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 299:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 300:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Check the parameters */
- 301:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_ALIGN(Alignment));
- 410              		.loc 1 301 3 is_stmt 1 view .LVU112
- 302:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_DATA(Data1));
- 411              		.loc 1 302 3 view .LVU113
- 303:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_DATA(Data2));
- 412              		.loc 1 303 3 view .LVU114
- 304:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 305:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Calculate and set dual DAC data holding register value */
- 306:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   if (Alignment == DAC_ALIGN_8B_R)
- 413              		.loc 1 306 3 view .LVU115
- 414              		.loc 1 306 6 is_stmt 0 view .LVU116
- 415 0006 0829     		cmp	r1, #8
- 416 0008 08D0     		beq	.L41
- 307:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 308:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     data = ((uint32_t)Data2 << 8U) | Data1;
- 309:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 310:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   else
- 311:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   {
- 312:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     data = ((uint32_t)Data2 << 16U) | Data1;
- 417              		.loc 1 312 5 is_stmt 1 view .LVU117
- 418              		.loc 1 312 10 is_stmt 0 view .LVU118
- 419 000a 42EA0342 		orr	r2, r2, r3, lsl #16
-ARM GAS  /tmp/cciKyRiY.s 			page 14
+ 380 0000 10B5     		push	{r4, lr}
+ 381              	.LCFI4:
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 4, -8
+ 384              		.cfi_offset 14, -4
+ 316:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   DAC_HandleTypeDef* hdac = ( DAC_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
+ 385              		.loc 1 316 3 is_stmt 1 view .LVU91
+ 386              		.loc 1 316 22 is_stmt 0 view .LVU92
+ 387 0002 846B     		ldr	r4, [r0, #56]
+ 388              	.LVL28:
+ 317:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 318:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
+ 319:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ConvCpltCallbackCh2(hdac);
+ 320:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #else
+ 321:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   HAL_DACEx_ConvCpltCallbackCh2(hdac); 
+ 389              		.loc 1 321 3 is_stmt 1 view .LVU93
+ 390 0004 2046     		mov	r0, r4
+ 391              	.LVL29:
+ 392              		.loc 1 321 3 is_stmt 0 view .LVU94
+ 393 0006 FFF7FEFF 		bl	HAL_DACEx_ConvCpltCallbackCh2
+ 394              	.LVL30:
+ 322:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
+ 323:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   
+ 324:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State= HAL_DAC_STATE_READY;
+ 395              		.loc 1 324 3 is_stmt 1 view .LVU95
+ 396              		.loc 1 324 14 is_stmt 0 view .LVU96
+ 397 000a 0123     		movs	r3, #1
+ 398 000c 2371     		strb	r3, [r4, #4]
+ 325:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 399              		.loc 1 325 1 view .LVU97
+ 400 000e 10BD     		pop	{r4, pc}
+ 401              		.loc 1 325 1 view .LVU98
+ 402              		.cfi_endproc
+ 403              	.LFE140:
+ 405              		.section	.text.DAC_DMAHalfConvCpltCh2,"ax",%progbits
+ 406              		.align	1
+ 407              		.global	DAC_DMAHalfConvCpltCh2
+ 408              		.syntax unified
+ 409              		.thumb
+ 410              		.thumb_func
+ 411              		.fpu fpv4-sp-d16
+ 413              	DAC_DMAHalfConvCpltCh2:
+ 414              	.LVL31:
+ 415              	.LFB141:
+ 326:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 327:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 328:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA half transfer complete callback. 
+ 329:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
+ 330:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
+ 331:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 332:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 333:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAHalfConvCpltCh2(DMA_HandleTypeDef *hdma)   
+ 334:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 416              		.loc 1 334 1 is_stmt 1 view -0
+ 417              		.cfi_startproc
+ 418              		@ args = 0, pretend = 0, frame = 0
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccQjHmIQ.s 			page 14
 
 
- 420              	.LVL30:
- 421              	.L35:
- 313:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 314:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 315:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp = (uint32_t)hdac->Instance;
- 422              		.loc 1 315 3 is_stmt 1 view .LVU119
- 423              		.loc 1 315 23 is_stmt 0 view .LVU120
- 424 000e 2368     		ldr	r3, [r4]
- 425              	.LVL31:
- 316:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp += DAC_DHR12RD_ALIGNMENT(Alignment);
- 426              		.loc 1 316 3 is_stmt 1 view .LVU121
- 427              		.loc 1 316 7 is_stmt 0 view .LVU122
- 428 0010 1944     		add	r1, r1, r3
- 429              	.LVL32:
- 317:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 318:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Set the dual DAC selected data holding register */
- 319:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *(__IO uint32_t *)tmp = data;
- 430              		.loc 1 319 3 is_stmt 1 view .LVU123
- 431              		.loc 1 319 25 is_stmt 0 view .LVU124
- 432 0012 0A62     		str	r2, [r1, #32]
- 320:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 321:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Return function status */
- 322:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return HAL_OK;
- 433              		.loc 1 322 3 is_stmt 1 view .LVU125
- 434              		.loc 1 322 10 is_stmt 0 view .LVU126
- 435 0014 0020     		movs	r0, #0
- 436              	.LVL33:
- 323:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 437              		.loc 1 323 1 view .LVU127
- 438 0016 5DF8044B 		ldr	r4, [sp], #4
- 439              	.LCFI9:
- 440              		.cfi_remember_state
- 441              		.cfi_restore 4
- 442              		.cfi_def_cfa_offset 0
- 443              	.LVL34:
- 444              		.loc 1 323 1 view .LVU128
- 445 001a 7047     		bx	lr
- 446              	.LVL35:
- 447              	.L41:
- 448              	.LCFI10:
- 449              		.cfi_restore_state
- 308:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 450              		.loc 1 308 5 is_stmt 1 view .LVU129
- 308:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 451              		.loc 1 308 10 is_stmt 0 view .LVU130
- 452 001c 42EA0322 		orr	r2, r2, r3, lsl #8
- 453              	.LVL36:
- 308:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 454              		.loc 1 308 10 view .LVU131
- 455 0020 F5E7     		b	.L35
- 456              	.LVL37:
- 457              	.L36:
- 458              	.LCFI11:
- 459              		.cfi_def_cfa_offset 0
- 460              		.cfi_restore 4
- 297:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
- 461              		.loc 1 297 12 view .LVU132
-ARM GAS  /tmp/cciKyRiY.s 			page 15
+ 420              		.loc 1 334 1 is_stmt 0 view .LVU100
+ 421 0000 08B5     		push	{r3, lr}
+ 422              	.LCFI5:
+ 423              		.cfi_def_cfa_offset 8
+ 424              		.cfi_offset 3, -8
+ 425              		.cfi_offset 14, -4
+ 335:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     DAC_HandleTypeDef* hdac = ( DAC_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
+ 426              		.loc 1 335 5 is_stmt 1 view .LVU101
+ 427              	.LVL32:
+ 336:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     /* Conversion complete callback */
+ 337:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
+ 338:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ConvHalfCpltCallbackCh2(hdac);
+ 339:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #else
+ 340:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     HAL_DACEx_ConvHalfCpltCallbackCh2(hdac); 
+ 428              		.loc 1 340 5 view .LVU102
+ 429 0002 806B     		ldr	r0, [r0, #56]
+ 430              	.LVL33:
+ 431              		.loc 1 340 5 is_stmt 0 view .LVU103
+ 432 0004 FFF7FEFF 		bl	HAL_DACEx_ConvHalfCpltCallbackCh2
+ 433              	.LVL34:
+ 341:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
+ 342:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 434              		.loc 1 342 1 view .LVU104
+ 435 0008 08BD     		pop	{r3, pc}
+ 436              		.cfi_endproc
+ 437              	.LFE141:
+ 439              		.section	.text.DAC_DMAErrorCh2,"ax",%progbits
+ 440              		.align	1
+ 441              		.global	DAC_DMAErrorCh2
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 445              		.fpu fpv4-sp-d16
+ 447              	DAC_DMAErrorCh2:
+ 448              	.LVL35:
+ 449              	.LFB142:
+ 343:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** 
+ 344:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** /**
+ 345:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA error callback 
+ 346:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
+ 347:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
+ 348:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
+ 349:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   */
+ 350:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAErrorCh2(DMA_HandleTypeDef *hdma)   
+ 351:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** {
+ 450              		.loc 1 351 1 is_stmt 1 view -0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454              		.loc 1 351 1 is_stmt 0 view .LVU106
+ 455 0000 10B5     		push	{r4, lr}
+ 456              	.LCFI6:
+ 457              		.cfi_def_cfa_offset 8
+ 458              		.cfi_offset 4, -8
+ 459              		.cfi_offset 14, -4
+ 352:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   DAC_HandleTypeDef* hdac = ( DAC_HandleTypeDef* )((DMA_HandleTypeDef* )hdma)->Parent;
+ 460              		.loc 1 352 3 is_stmt 1 view .LVU107
+ARM GAS  /tmp/ccQjHmIQ.s 			page 15
 
 
- 462 0022 0120     		movs	r0, #1
- 463              	.LVL38:
- 464              		.loc 1 323 1 view .LVU133
- 465 0024 7047     		bx	lr
- 466              		.cfi_endproc
- 467              	.LFE243:
- 469              		.section	.text.HAL_DACEx_ConvCpltCallbackCh2,"ax",%progbits
- 470              		.align	1
- 471              		.weak	HAL_DACEx_ConvCpltCallbackCh2
- 472              		.syntax unified
- 473              		.thumb
- 474              		.thumb_func
- 475              		.fpu fpv4-sp-d16
- 477              	HAL_DACEx_ConvCpltCallbackCh2:
- 478              	.LVL39:
- 479              	.LFB244:
- 324:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 325:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 326:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Conversion complete callback in non-blocking mode for Channel2.
- 327:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 328:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 329:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 330:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 331:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ConvCpltCallbackCh2(DAC_HandleTypeDef *hdac)
- 332:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 480              		.loc 1 332 1 is_stmt 1 view -0
- 481              		.cfi_startproc
- 482              		@ args = 0, pretend = 0, frame = 0
- 483              		@ frame_needed = 0, uses_anonymous_args = 0
- 484              		@ link register save eliminated.
- 333:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
- 334:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
- 485              		.loc 1 334 3 view .LVU135
- 335:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 336:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
- 337:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DACEx_ConvCpltCallbackCh2 could be implemented in the user file
- 338:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****    */
- 339:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 486              		.loc 1 339 1 is_stmt 0 view .LVU136
- 487 0000 7047     		bx	lr
- 488              		.cfi_endproc
- 489              	.LFE244:
- 491              		.section	.text.HAL_DACEx_ConvHalfCpltCallbackCh2,"ax",%progbits
- 492              		.align	1
- 493              		.weak	HAL_DACEx_ConvHalfCpltCallbackCh2
- 494              		.syntax unified
- 495              		.thumb
- 496              		.thumb_func
- 497              		.fpu fpv4-sp-d16
- 499              	HAL_DACEx_ConvHalfCpltCallbackCh2:
- 500              	.LVL40:
- 501              	.LFB245:
- 340:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 341:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 342:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Conversion half DMA transfer callback in non-blocking mode for Channel2.
- 343:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 344:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
-ARM GAS  /tmp/cciKyRiY.s 			page 16
-
-
- 345:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 346:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 347:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ConvHalfCpltCallbackCh2(DAC_HandleTypeDef *hdac)
- 348:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 502              		.loc 1 348 1 is_stmt 1 view -0
- 503              		.cfi_startproc
- 504              		@ args = 0, pretend = 0, frame = 0
- 505              		@ frame_needed = 0, uses_anonymous_args = 0
- 506              		@ link register save eliminated.
- 349:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
- 350:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
- 507              		.loc 1 350 3 view .LVU138
- 351:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 352:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
- 353:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DACEx_ConvHalfCpltCallbackCh2 could be implemented in the user file
- 354:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****    */
- 355:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 508              		.loc 1 355 1 is_stmt 0 view .LVU139
- 509 0000 7047     		bx	lr
- 510              		.cfi_endproc
- 511              	.LFE245:
- 513              		.section	.text.HAL_DACEx_ErrorCallbackCh2,"ax",%progbits
- 514              		.align	1
- 515              		.weak	HAL_DACEx_ErrorCallbackCh2
- 516              		.syntax unified
- 517              		.thumb
- 518              		.thumb_func
- 519              		.fpu fpv4-sp-d16
- 521              	HAL_DACEx_ErrorCallbackCh2:
- 522              	.LVL41:
- 523              	.LFB246:
- 356:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 357:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 358:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Error DAC callback for Channel2.
- 359:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 360:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 361:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 362:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 363:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_ErrorCallbackCh2(DAC_HandleTypeDef *hdac)
- 364:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 524              		.loc 1 364 1 is_stmt 1 view -0
- 525              		.cfi_startproc
- 526              		@ args = 0, pretend = 0, frame = 0
- 527              		@ frame_needed = 0, uses_anonymous_args = 0
- 528              		@ link register save eliminated.
- 365:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
- 366:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
- 529              		.loc 1 366 3 view .LVU141
- 367:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 368:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
- 369:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DACEx_ErrorCallbackCh2 could be implemented in the user file
- 370:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****    */
- 371:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 530              		.loc 1 371 1 is_stmt 0 view .LVU142
- 531 0000 7047     		bx	lr
- 532              		.cfi_endproc
- 533              	.LFE246:
-ARM GAS  /tmp/cciKyRiY.s 			page 17
-
-
- 535              		.section	.text.HAL_DACEx_DMAUnderrunCallbackCh2,"ax",%progbits
- 536              		.align	1
- 537              		.weak	HAL_DACEx_DMAUnderrunCallbackCh2
- 538              		.syntax unified
- 539              		.thumb
- 540              		.thumb_func
- 541              		.fpu fpv4-sp-d16
- 543              	HAL_DACEx_DMAUnderrunCallbackCh2:
- 544              	.LVL42:
- 545              	.LFB247:
- 372:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 373:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 374:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA underrun DAC callback for Channel2.
- 375:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 376:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 377:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 378:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 379:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** __weak void HAL_DACEx_DMAUnderrunCallbackCh2(DAC_HandleTypeDef *hdac)
- 380:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 546              		.loc 1 380 1 is_stmt 1 view -0
- 547              		.cfi_startproc
- 548              		@ args = 0, pretend = 0, frame = 0
- 549              		@ frame_needed = 0, uses_anonymous_args = 0
- 550              		@ link register save eliminated.
- 381:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Prevent unused argument(s) compilation warning */
- 382:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   UNUSED(hdac);
- 551              		.loc 1 382 3 view .LVU144
- 383:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 384:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
- 385:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****             the HAL_DACEx_DMAUnderrunCallbackCh2 could be implemented in the user file
- 386:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****    */
- 387:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 552              		.loc 1 387 1 is_stmt 0 view .LVU145
- 553 0000 7047     		bx	lr
- 554              		.cfi_endproc
- 555              	.LFE247:
- 557              		.section	.text.HAL_DACEx_DualGetValue,"ax",%progbits
- 558              		.align	1
- 559              		.global	HAL_DACEx_DualGetValue
- 560              		.syntax unified
- 561              		.thumb
- 562              		.thumb_func
- 563              		.fpu fpv4-sp-d16
- 565              	HAL_DACEx_DualGetValue:
- 566              	.LVL43:
- 567              	.LFB248:
- 388:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* DAC_CHANNEL2_SUPPORT */
- 389:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 390:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 391:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 392:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @}
- 393:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 394:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 395:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Exported_Functions_Group3 Peripheral Control functions
- 396:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *  @brief    Extended Peripheral Control functions
- 397:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
- 398:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** @verbatim
-ARM GAS  /tmp/cciKyRiY.s 			page 18
-
-
- 399:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
- 400:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****              ##### Peripheral Control functions #####
- 401:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
- 402:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****     [..]  This section provides functions allowing to:
- 403:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Set the specified data holding register value for DAC channel.
- 404:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 405:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** @endverbatim
- 406:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
- 407:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 408:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 409:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC_CHANNEL2_SUPPORT)
- 410:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 411:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Return the last data output value of the selected DAC channel.
- 412:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
- 413:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
- 414:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval The selected DAC channel data output value.
- 415:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 416:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** uint32_t HAL_DACEx_DualGetValue(const DAC_HandleTypeDef *hdac)
- 417:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 568              		.loc 1 417 1 is_stmt 1 view -0
- 569              		.cfi_startproc
- 570              		@ args = 0, pretend = 0, frame = 0
- 571              		@ frame_needed = 0, uses_anonymous_args = 0
- 572              		@ link register save eliminated.
- 418:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   uint32_t tmp = 0UL;
- 573              		.loc 1 418 3 view .LVU147
- 419:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 420:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp |= hdac->Instance->DOR1;
- 574              		.loc 1 420 3 view .LVU148
- 575              		.loc 1 420 14 is_stmt 0 view .LVU149
- 576 0000 0368     		ldr	r3, [r0]
- 577              		.loc 1 420 24 view .LVU150
- 578 0002 DA6A     		ldr	r2, [r3, #44]
- 579              	.LVL44:
- 421:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 422:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   tmp |= hdac->Instance->DOR2 << 16UL;
- 580              		.loc 1 422 3 is_stmt 1 view .LVU151
- 581              		.loc 1 422 24 is_stmt 0 view .LVU152
- 582 0004 186B     		ldr	r0, [r3, #48]
- 583              	.LVL45:
- 423:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 424:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Returns the DAC channel data output register value */
- 425:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   return tmp;
- 584              		.loc 1 425 3 is_stmt 1 view .LVU153
- 426:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 585              		.loc 1 426 1 is_stmt 0 view .LVU154
- 586 0006 42EA0040 		orr	r0, r2, r0, lsl #16
- 587              	.LVL46:
- 588              		.loc 1 426 1 view .LVU155
- 589 000a 7047     		bx	lr
- 590              		.cfi_endproc
- 591              	.LFE248:
- 593              		.section	.text.DAC_DMAConvCpltCh2,"ax",%progbits
- 594              		.align	1
- 595              		.global	DAC_DMAConvCpltCh2
- 596              		.syntax unified
- 597              		.thumb
-ARM GAS  /tmp/cciKyRiY.s 			page 19
-
-
- 598              		.thumb_func
- 599              		.fpu fpv4-sp-d16
- 601              	DAC_DMAConvCpltCh2:
- 602              	.LVL47:
- 603              	.LFB249:
- 427:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* DAC_CHANNEL2_SUPPORT */
- 428:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 429:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 430:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @}
- 431:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 432:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 433:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @}
- 434:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 435:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 436:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /* Private functions ---------------------------------------------------------*/
- 437:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /** @defgroup DACEx_Private_Functions DACEx private functions
- 438:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *  @brief    Extended private functions
- 439:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @{
- 440:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 441:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 442:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC_CHANNEL2_SUPPORT)
- 443:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 444:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA conversion complete callback.
- 445:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
- 446:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
- 447:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 448:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 449:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAConvCpltCh2(DMA_HandleTypeDef *hdma)
- 450:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 604              		.loc 1 450 1 is_stmt 1 view -0
- 605              		.cfi_startproc
- 606              		@ args = 0, pretend = 0, frame = 0
- 607              		@ frame_needed = 0, uses_anonymous_args = 0
- 608              		.loc 1 450 1 is_stmt 0 view .LVU157
- 609 0000 10B5     		push	{r4, lr}
- 610              	.LCFI12:
- 611              		.cfi_def_cfa_offset 8
- 612              		.cfi_offset 4, -8
- 613              		.cfi_offset 14, -4
- 451:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   DAC_HandleTypeDef *hdac = (DAC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
- 614              		.loc 1 451 3 is_stmt 1 view .LVU158
- 615              		.loc 1 451 22 is_stmt 0 view .LVU159
- 616 0002 846B     		ldr	r4, [r0, #56]
- 617              	.LVL48:
- 452:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 453:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
- 454:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ConvCpltCallbackCh2(hdac);
- 455:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #else
- 456:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   HAL_DACEx_ConvCpltCallbackCh2(hdac);
- 618              		.loc 1 456 3 is_stmt 1 view .LVU160
- 619 0004 2046     		mov	r0, r4
- 620              	.LVL49:
- 621              		.loc 1 456 3 is_stmt 0 view .LVU161
- 622 0006 FFF7FEFF 		bl	HAL_DACEx_ConvCpltCallbackCh2
- 623              	.LVL50:
- 457:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
- 458:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-ARM GAS  /tmp/cciKyRiY.s 			page 20
-
-
- 459:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
- 624              		.loc 1 459 3 is_stmt 1 view .LVU162
- 625              		.loc 1 459 15 is_stmt 0 view .LVU163
- 626 000a 0123     		movs	r3, #1
- 627 000c 2371     		strb	r3, [r4, #4]
- 460:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 628              		.loc 1 460 1 view .LVU164
- 629 000e 10BD     		pop	{r4, pc}
- 630              		.loc 1 460 1 view .LVU165
- 631              		.cfi_endproc
- 632              	.LFE249:
- 634              		.section	.text.DAC_DMAHalfConvCpltCh2,"ax",%progbits
- 635              		.align	1
- 636              		.global	DAC_DMAHalfConvCpltCh2
- 637              		.syntax unified
- 638              		.thumb
- 639              		.thumb_func
- 640              		.fpu fpv4-sp-d16
- 642              	DAC_DMAHalfConvCpltCh2:
- 643              	.LVL51:
- 644              	.LFB250:
- 461:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 462:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 463:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA half transfer complete callback.
- 464:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
- 465:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
- 466:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 467:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 468:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAHalfConvCpltCh2(DMA_HandleTypeDef *hdma)
- 469:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 645              		.loc 1 469 1 is_stmt 1 view -0
- 646              		.cfi_startproc
- 647              		@ args = 0, pretend = 0, frame = 0
- 648              		@ frame_needed = 0, uses_anonymous_args = 0
- 649              		.loc 1 469 1 is_stmt 0 view .LVU167
- 650 0000 08B5     		push	{r3, lr}
- 651              	.LCFI13:
- 652              		.cfi_def_cfa_offset 8
- 653              		.cfi_offset 3, -8
- 654              		.cfi_offset 14, -4
- 470:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   DAC_HandleTypeDef *hdac = (DAC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
- 655              		.loc 1 470 3 is_stmt 1 view .LVU168
- 656              	.LVL52:
- 471:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Conversion complete callback */
- 472:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
- 473:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ConvHalfCpltCallbackCh2(hdac);
- 474:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #else
- 475:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   HAL_DACEx_ConvHalfCpltCallbackCh2(hdac);
- 657              		.loc 1 475 3 view .LVU169
- 658 0002 806B     		ldr	r0, [r0, #56]
- 659              	.LVL53:
- 660              		.loc 1 475 3 is_stmt 0 view .LVU170
- 661 0004 FFF7FEFF 		bl	HAL_DACEx_ConvHalfCpltCallbackCh2
- 662              	.LVL54:
- 476:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
- 477:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 663              		.loc 1 477 1 view .LVU171
-ARM GAS  /tmp/cciKyRiY.s 			page 21
-
-
- 664 0008 08BD     		pop	{r3, pc}
- 665              		.cfi_endproc
- 666              	.LFE250:
- 668              		.section	.text.DAC_DMAErrorCh2,"ax",%progbits
- 669              		.align	1
- 670              		.global	DAC_DMAErrorCh2
- 671              		.syntax unified
- 672              		.thumb
- 673              		.thumb_func
- 674              		.fpu fpv4-sp-d16
- 676              	DAC_DMAErrorCh2:
- 677              	.LVL55:
- 678              	.LFB251:
- 478:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 479:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
- 480:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  DMA error callback.
- 481:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
- 482:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *                the configuration information for the specified DMA module.
- 483:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
- 484:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
- 485:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** void DAC_DMAErrorCh2(DMA_HandleTypeDef *hdma)
- 486:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
- 679              		.loc 1 486 1 is_stmt 1 view -0
- 680              		.cfi_startproc
- 681              		@ args = 0, pretend = 0, frame = 0
- 682              		@ frame_needed = 0, uses_anonymous_args = 0
- 683              		.loc 1 486 1 is_stmt 0 view .LVU173
- 684 0000 10B5     		push	{r4, lr}
- 685              	.LCFI14:
- 686              		.cfi_def_cfa_offset 8
- 687              		.cfi_offset 4, -8
- 688              		.cfi_offset 14, -4
- 487:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   DAC_HandleTypeDef *hdac = (DAC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
- 689              		.loc 1 487 3 is_stmt 1 view .LVU174
- 690              		.loc 1 487 22 is_stmt 0 view .LVU175
- 691 0002 846B     		ldr	r4, [r0, #56]
- 692              	.LVL56:
- 488:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 489:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Set DAC error code to DMA error */
- 490:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ErrorCode |= HAL_DAC_ERROR_DMA;
- 693              		.loc 1 490 3 is_stmt 1 view .LVU176
- 694              		.loc 1 490 19 is_stmt 0 view .LVU177
- 695 0004 2369     		ldr	r3, [r4, #16]
- 696 0006 43F00403 		orr	r3, r3, #4
- 697 000a 2361     		str	r3, [r4, #16]
- 491:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 492:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
- 493:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ErrorCallbackCh2(hdac);
- 494:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #else
- 495:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   HAL_DACEx_ErrorCallbackCh2(hdac);
- 698              		.loc 1 495 3 is_stmt 1 view .LVU178
- 699 000c 2046     		mov	r0, r4
- 700              	.LVL57:
- 701              		.loc 1 495 3 is_stmt 0 view .LVU179
- 702 000e FFF7FEFF 		bl	HAL_DACEx_ErrorCallbackCh2
- 703              	.LVL58:
- 496:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
-ARM GAS  /tmp/cciKyRiY.s 			page 22
-
-
- 497:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
- 498:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
- 704              		.loc 1 498 3 is_stmt 1 view .LVU180
- 705              		.loc 1 498 15 is_stmt 0 view .LVU181
- 706 0012 0123     		movs	r3, #1
- 707 0014 2371     		strb	r3, [r4, #4]
- 499:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
- 708              		.loc 1 499 1 view .LVU182
- 709 0016 10BD     		pop	{r4, pc}
- 710              		.loc 1 499 1 view .LVU183
- 711              		.cfi_endproc
- 712              	.LFE251:
- 714              		.text
- 715              	.Letext0:
- 716              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
- 717              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
- 718              		.file 4 "CMSIS_5/CMSIS/Core/Include/core_cm4.h"
- 719              		.file 5 "cmsis-device-f4/Include/system_stm32f4xx.h"
- 720              		.file 6 "cmsis-device-f4/Include/stm32f407xx.h"
- 721              		.file 7 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_def.h"
- 722              		.file 8 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma.h"
- 723              		.file 9 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac.h"
- 724              		.file 10 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/cciKyRiY.s 			page 23
+ 461              		.loc 1 352 22 is_stmt 0 view .LVU108
+ 462 0002 846B     		ldr	r4, [r0, #56]
+ 463              	.LVL36:
+ 353:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     
+ 354:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Set DAC error code to DMA error */
+ 355:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ErrorCode |= HAL_DAC_ERROR_DMA;
+ 464              		.loc 1 355 3 is_stmt 1 view .LVU109
+ 465              		.loc 1 355 19 is_stmt 0 view .LVU110
+ 466 0004 2369     		ldr	r3, [r4, #16]
+ 467 0006 43F00403 		orr	r3, r3, #4
+ 468 000a 2361     		str	r3, [r4, #16]
+ 356:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     
+ 357:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #if (USE_HAL_DAC_REGISTER_CALLBACKS == 1)
+ 358:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->ErrorCallbackCh2(hdac);
+ 359:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #else
+ 360:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   HAL_DACEx_ErrorCallbackCh2(hdac); 
+ 469              		.loc 1 360 3 is_stmt 1 view .LVU111
+ 470 000c 2046     		mov	r0, r4
+ 471              	.LVL37:
+ 472              		.loc 1 360 3 is_stmt 0 view .LVU112
+ 473 000e FFF7FEFF 		bl	HAL_DACEx_ErrorCallbackCh2
+ 474              	.LVL38:
+ 361:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
+ 362:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****     
+ 363:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State= HAL_DAC_STATE_READY;
+ 475              		.loc 1 363 3 is_stmt 1 view .LVU113
+ 476              		.loc 1 363 14 is_stmt 0 view .LVU114
+ 477 0012 0123     		movs	r3, #1
+ 478 0014 2371     		strb	r3, [r4, #4]
+ 364:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c **** }
+ 479              		.loc 1 364 1 view .LVU115
+ 480 0016 10BD     		pop	{r4, pc}
+ 481              		.loc 1 364 1 view .LVU116
+ 482              		.cfi_endproc
+ 483              	.LFE142:
+ 485              		.text
+ 486              	.Letext0:
+ 487              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 488              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 489              		.file 4 "CORE/core_cm4.h"
+ 490              		.file 5 "./system_stm32f4xx.h"
+ 491              		.file 6 "./stm32f407xx.h"
+ 492              		.file 7 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 493              		.file 8 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 494              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h"
+ARM GAS  /tmp/ccQjHmIQ.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_dac_ex.c
-     /tmp/cciKyRiY.s:18     .text.HAL_DACEx_DualStart:0000000000000000 $t
-     /tmp/cciKyRiY.s:26     .text.HAL_DACEx_DualStart:0000000000000000 HAL_DACEx_DualStart
-     /tmp/cciKyRiY.s:151    .text.HAL_DACEx_DualStop:0000000000000000 $t
-     /tmp/cciKyRiY.s:158    .text.HAL_DACEx_DualStop:0000000000000000 HAL_DACEx_DualStop
-     /tmp/cciKyRiY.s:200    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 $t
-     /tmp/cciKyRiY.s:207    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 HAL_DACEx_TriangleWaveGenerate
-     /tmp/cciKyRiY.s:292    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 $t
-     /tmp/cciKyRiY.s:299    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 HAL_DACEx_NoiseWaveGenerate
-     /tmp/cciKyRiY.s:384    .text.HAL_DACEx_DualSetValue:0000000000000000 $t
-     /tmp/cciKyRiY.s:391    .text.HAL_DACEx_DualSetValue:0000000000000000 HAL_DACEx_DualSetValue
-     /tmp/cciKyRiY.s:470    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:477    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvCpltCallbackCh2
-     /tmp/cciKyRiY.s:492    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:499    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvHalfCpltCallbackCh2
-     /tmp/cciKyRiY.s:514    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:521    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 HAL_DACEx_ErrorCallbackCh2
-     /tmp/cciKyRiY.s:536    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:543    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 HAL_DACEx_DMAUnderrunCallbackCh2
-     /tmp/cciKyRiY.s:558    .text.HAL_DACEx_DualGetValue:0000000000000000 $t
-     /tmp/cciKyRiY.s:565    .text.HAL_DACEx_DualGetValue:0000000000000000 HAL_DACEx_DualGetValue
-     /tmp/cciKyRiY.s:594    .text.DAC_DMAConvCpltCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:601    .text.DAC_DMAConvCpltCh2:0000000000000000 DAC_DMAConvCpltCh2
-     /tmp/cciKyRiY.s:635    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:642    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 DAC_DMAHalfConvCpltCh2
-     /tmp/cciKyRiY.s:669    .text.DAC_DMAErrorCh2:0000000000000000 $t
-     /tmp/cciKyRiY.s:676    .text.DAC_DMAErrorCh2:0000000000000000 DAC_DMAErrorCh2
+     /tmp/ccQjHmIQ.s:18     .text.HAL_DACEx_DualGetValue:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:26     .text.HAL_DACEx_DualGetValue:0000000000000000 HAL_DACEx_DualGetValue
+     /tmp/ccQjHmIQ.s:56     .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:63     .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 HAL_DACEx_TriangleWaveGenerate
+     /tmp/ccQjHmIQ.s:138    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:145    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 HAL_DACEx_NoiseWaveGenerate
+     /tmp/ccQjHmIQ.s:220    .text.HAL_DACEx_DualSetValue:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:227    .text.HAL_DACEx_DualSetValue:0000000000000000 HAL_DACEx_DualSetValue
+     /tmp/ccQjHmIQ.s:277    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:284    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvCpltCallbackCh2
+     /tmp/ccQjHmIQ.s:299    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:306    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvHalfCpltCallbackCh2
+     /tmp/ccQjHmIQ.s:321    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:328    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 HAL_DACEx_ErrorCallbackCh2
+     /tmp/ccQjHmIQ.s:343    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:350    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 HAL_DACEx_DMAUnderrunCallbackCh2
+     /tmp/ccQjHmIQ.s:365    .text.DAC_DMAConvCpltCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:372    .text.DAC_DMAConvCpltCh2:0000000000000000 DAC_DMAConvCpltCh2
+     /tmp/ccQjHmIQ.s:406    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:413    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 DAC_DMAHalfConvCpltCh2
+     /tmp/ccQjHmIQ.s:440    .text.DAC_DMAErrorCh2:0000000000000000 $t
+     /tmp/ccQjHmIQ.s:447    .text.DAC_DMAErrorCh2:0000000000000000 DAC_DMAErrorCh2
 
 NO UNDEFINED SYMBOLS

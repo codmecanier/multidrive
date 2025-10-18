@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc2nh1zL.s 			page 1
+ARM GAS  /tmp/cciKyRiY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
   27:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****      ===================================
   28:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****      [..]
   29:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_TriangleWaveGenerate() to generate Triangle signal.
-ARM GAS  /tmp/cc2nh1zL.s 			page 2
+ARM GAS  /tmp/cciKyRiY.s 			page 2
 
 
   30:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****       (+) Use HAL_DACEx_NoiseWaveGenerate() to generate Noise signal.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
   84:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #if defined(DAC_CHANNEL2_SUPPORT)
   85:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** /**
   86:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Enables DAC and starts conversion of both channels.
-ARM GAS  /tmp/cc2nh1zL.s 			page 3
+ARM GAS  /tmp/cciKyRiY.s 			page 3
 
 
   87:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
   60 0016 0A68     		ldr	r2, [r1]
   61 0018 42F00102 		orr	r2, r2, #1
   62 001c 0A60     		str	r2, [r1]
-ARM GAS  /tmp/cc2nh1zL.s 			page 4
+ARM GAS  /tmp/cciKyRiY.s 			page 4
 
 
  110:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_DAC_ENABLE(hdac, DAC_CHANNEL_2);
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  126:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
  127:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
  128:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
-ARM GAS  /tmp/cc2nh1zL.s 			page 5
+ARM GAS  /tmp/cciKyRiY.s 			page 5
 
 
  100              		.loc 1 128 3 is_stmt 1 view .LVU26
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  143 0064 0220     		movs	r0, #2
  144              	.LVL10:
  145              		.loc 1 132 1 view .LVU39
-ARM GAS  /tmp/cc2nh1zL.s 			page 6
+ARM GAS  /tmp/cciKyRiY.s 			page 6
 
 
  146 0066 7047     		bx	lr
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  180              		.loc 1 154 15 is_stmt 0 view .LVU46
  181 0016 0122     		movs	r2, #1
  182 0018 0271     		strb	r2, [r0, #4]
-ARM GAS  /tmp/cc2nh1zL.s 			page 7
+ARM GAS  /tmp/cciKyRiY.s 			page 7
 
 
  155:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  183:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval HAL status
  184:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   */
  185:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** HAL_StatusTypeDef HAL_DACEx_TriangleWaveGenerate(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_
-ARM GAS  /tmp/cc2nh1zL.s 			page 8
+ARM GAS  /tmp/cciKyRiY.s 			page 8
 
 
  186:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  244 0014 1E68     		ldr	r6, [r3]
  245 0016 3068     		ldr	r0, [r6]
  246 0018 01F01001 		and	r1, r1, #16
-ARM GAS  /tmp/cc2nh1zL.s 			page 9
+ARM GAS  /tmp/cciKyRiY.s 			page 9
 
 
  247              	.LVL17:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  287 0040 7047     		bx	lr
  288              		.cfi_endproc
  289              	.LFE241:
-ARM GAS  /tmp/cc2nh1zL.s 			page 10
+ARM GAS  /tmp/cciKyRiY.s 			page 10
 
 
  291              		.section	.text.HAL_DACEx_NoiseWaveGenerate,"ax",%progbits
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  311              		.loc 1 250 3 is_stmt 1 view .LVU82
  251:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(Amplitude));
  312              		.loc 1 251 3 view .LVU83
-ARM GAS  /tmp/cc2nh1zL.s 			page 11
+ARM GAS  /tmp/cciKyRiY.s 			page 11
 
 
  252:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  265:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
  266:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   /* Process unlocked */
  267:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   __HAL_UNLOCK(hdac);
-ARM GAS  /tmp/cc2nh1zL.s 			page 12
+ARM GAS  /tmp/cciKyRiY.s 			page 12
 
 
  353              		.loc 1 267 3 is_stmt 1 discriminator 2 view .LVU97
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  280:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_8B_R: 8bit right data alignment selected
  281:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_L: 12bit left data alignment selected
  282:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *            DAC_ALIGN_12B_R: 12bit right data alignment selected
-ARM GAS  /tmp/cc2nh1zL.s 			page 13
+ARM GAS  /tmp/cciKyRiY.s 			page 13
 
 
  283:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  Data1 Data for DAC Channel1 to be loaded in the selected data holding register.
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  417              		.loc 1 312 5 is_stmt 1 view .LVU117
  418              		.loc 1 312 10 is_stmt 0 view .LVU118
  419 000a 42EA0342 		orr	r2, r2, r3, lsl #16
-ARM GAS  /tmp/cc2nh1zL.s 			page 14
+ARM GAS  /tmp/cciKyRiY.s 			page 14
 
 
  420              	.LVL30:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  460              		.cfi_restore 4
  297:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   }
  461              		.loc 1 297 12 view .LVU132
-ARM GAS  /tmp/cc2nh1zL.s 			page 15
+ARM GAS  /tmp/cciKyRiY.s 			page 15
 
 
  462 0022 0120     		movs	r0, #1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  342:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @brief  Conversion half DMA transfer callback in non-blocking mode for Channel2.
  343:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @param  hdac pointer to a DAC_HandleTypeDef structure that contains
  344:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *         the configuration information for the specified DAC.
-ARM GAS  /tmp/cc2nh1zL.s 			page 16
+ARM GAS  /tmp/cciKyRiY.s 			page 16
 
 
  345:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   * @retval None
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  531 0000 7047     		bx	lr
  532              		.cfi_endproc
  533              	.LFE246:
-ARM GAS  /tmp/cc2nh1zL.s 			page 17
+ARM GAS  /tmp/cciKyRiY.s 			page 17
 
 
  535              		.section	.text.HAL_DACEx_DMAUnderrunCallbackCh2,"ax",%progbits
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  396:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *  @brief    Extended Peripheral Control functions
  397:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   *
  398:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** @verbatim
-ARM GAS  /tmp/cc2nh1zL.s 			page 18
+ARM GAS  /tmp/cciKyRiY.s 			page 18
 
 
  399:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   ==============================================================================
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  595              		.global	DAC_DMAConvCpltCh2
  596              		.syntax unified
  597              		.thumb
-ARM GAS  /tmp/cc2nh1zL.s 			page 19
+ARM GAS  /tmp/cciKyRiY.s 			page 19
 
 
  598              		.thumb_func
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  623              	.LVL50:
  457:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
  458:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
-ARM GAS  /tmp/cc2nh1zL.s 			page 20
+ARM GAS  /tmp/cciKyRiY.s 			page 20
 
 
  459:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c ****   hdac->State = HAL_DAC_STATE_READY;
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  476:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
  477:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** }
  663              		.loc 1 477 1 view .LVU171
-ARM GAS  /tmp/cc2nh1zL.s 			page 21
+ARM GAS  /tmp/cciKyRiY.s 			page 21
 
 
  664 0008 08BD     		pop	{r3, pc}
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  702 000e FFF7FEFF 		bl	HAL_DACEx_ErrorCallbackCh2
  703              	.LVL58:
  496:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** #endif /* USE_HAL_DAC_REGISTER_CALLBACKS */
-ARM GAS  /tmp/cc2nh1zL.s 			page 22
+ARM GAS  /tmp/cciKyRiY.s 			page 22
 
 
  497:stm32f4xx-hal-driver/Src/stm32f4xx_hal_dac_ex.c **** 
@@ -1284,36 +1284,36 @@ ARM GAS  /tmp/cc2nh1zL.s 			page 1
  722              		.file 8 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dma.h"
  723              		.file 9 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal_dac.h"
  724              		.file 10 "stm32f4xx-hal-driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/cc2nh1zL.s 			page 23
+ARM GAS  /tmp/cciKyRiY.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_dac_ex.c
-     /tmp/cc2nh1zL.s:18     .text.HAL_DACEx_DualStart:0000000000000000 $t
-     /tmp/cc2nh1zL.s:26     .text.HAL_DACEx_DualStart:0000000000000000 HAL_DACEx_DualStart
-     /tmp/cc2nh1zL.s:151    .text.HAL_DACEx_DualStop:0000000000000000 $t
-     /tmp/cc2nh1zL.s:158    .text.HAL_DACEx_DualStop:0000000000000000 HAL_DACEx_DualStop
-     /tmp/cc2nh1zL.s:200    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 $t
-     /tmp/cc2nh1zL.s:207    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 HAL_DACEx_TriangleWaveGenerate
-     /tmp/cc2nh1zL.s:292    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 $t
-     /tmp/cc2nh1zL.s:299    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 HAL_DACEx_NoiseWaveGenerate
-     /tmp/cc2nh1zL.s:384    .text.HAL_DACEx_DualSetValue:0000000000000000 $t
-     /tmp/cc2nh1zL.s:391    .text.HAL_DACEx_DualSetValue:0000000000000000 HAL_DACEx_DualSetValue
-     /tmp/cc2nh1zL.s:470    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:477    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvCpltCallbackCh2
-     /tmp/cc2nh1zL.s:492    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:499    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvHalfCpltCallbackCh2
-     /tmp/cc2nh1zL.s:514    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:521    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 HAL_DACEx_ErrorCallbackCh2
-     /tmp/cc2nh1zL.s:536    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:543    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 HAL_DACEx_DMAUnderrunCallbackCh2
-     /tmp/cc2nh1zL.s:558    .text.HAL_DACEx_DualGetValue:0000000000000000 $t
-     /tmp/cc2nh1zL.s:565    .text.HAL_DACEx_DualGetValue:0000000000000000 HAL_DACEx_DualGetValue
-     /tmp/cc2nh1zL.s:594    .text.DAC_DMAConvCpltCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:601    .text.DAC_DMAConvCpltCh2:0000000000000000 DAC_DMAConvCpltCh2
-     /tmp/cc2nh1zL.s:635    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:642    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 DAC_DMAHalfConvCpltCh2
-     /tmp/cc2nh1zL.s:669    .text.DAC_DMAErrorCh2:0000000000000000 $t
-     /tmp/cc2nh1zL.s:676    .text.DAC_DMAErrorCh2:0000000000000000 DAC_DMAErrorCh2
+     /tmp/cciKyRiY.s:18     .text.HAL_DACEx_DualStart:0000000000000000 $t
+     /tmp/cciKyRiY.s:26     .text.HAL_DACEx_DualStart:0000000000000000 HAL_DACEx_DualStart
+     /tmp/cciKyRiY.s:151    .text.HAL_DACEx_DualStop:0000000000000000 $t
+     /tmp/cciKyRiY.s:158    .text.HAL_DACEx_DualStop:0000000000000000 HAL_DACEx_DualStop
+     /tmp/cciKyRiY.s:200    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 $t
+     /tmp/cciKyRiY.s:207    .text.HAL_DACEx_TriangleWaveGenerate:0000000000000000 HAL_DACEx_TriangleWaveGenerate
+     /tmp/cciKyRiY.s:292    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 $t
+     /tmp/cciKyRiY.s:299    .text.HAL_DACEx_NoiseWaveGenerate:0000000000000000 HAL_DACEx_NoiseWaveGenerate
+     /tmp/cciKyRiY.s:384    .text.HAL_DACEx_DualSetValue:0000000000000000 $t
+     /tmp/cciKyRiY.s:391    .text.HAL_DACEx_DualSetValue:0000000000000000 HAL_DACEx_DualSetValue
+     /tmp/cciKyRiY.s:470    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:477    .text.HAL_DACEx_ConvCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvCpltCallbackCh2
+     /tmp/cciKyRiY.s:492    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:499    .text.HAL_DACEx_ConvHalfCpltCallbackCh2:0000000000000000 HAL_DACEx_ConvHalfCpltCallbackCh2
+     /tmp/cciKyRiY.s:514    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:521    .text.HAL_DACEx_ErrorCallbackCh2:0000000000000000 HAL_DACEx_ErrorCallbackCh2
+     /tmp/cciKyRiY.s:536    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:543    .text.HAL_DACEx_DMAUnderrunCallbackCh2:0000000000000000 HAL_DACEx_DMAUnderrunCallbackCh2
+     /tmp/cciKyRiY.s:558    .text.HAL_DACEx_DualGetValue:0000000000000000 $t
+     /tmp/cciKyRiY.s:565    .text.HAL_DACEx_DualGetValue:0000000000000000 HAL_DACEx_DualGetValue
+     /tmp/cciKyRiY.s:594    .text.DAC_DMAConvCpltCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:601    .text.DAC_DMAConvCpltCh2:0000000000000000 DAC_DMAConvCpltCh2
+     /tmp/cciKyRiY.s:635    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:642    .text.DAC_DMAHalfConvCpltCh2:0000000000000000 DAC_DMAHalfConvCpltCh2
+     /tmp/cciKyRiY.s:669    .text.DAC_DMAErrorCh2:0000000000000000 $t
+     /tmp/cciKyRiY.s:676    .text.DAC_DMAErrorCh2:0000000000000000 DAC_DMAErrorCh2
 
 NO UNDEFINED SYMBOLS

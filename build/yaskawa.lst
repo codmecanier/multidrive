@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccL4BD4b.s 			page 1
+ARM GAS  /tmp/ccqfDkfh.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
   28:yaskawa.c     **** }
   29:yaskawa.c     **** 
   30:yaskawa.c     **** void yaskawa_hw_init(void)
-ARM GAS  /tmp/ccL4BD4b.s 			page 2
+ARM GAS  /tmp/ccqfDkfh.s 			page 2
 
 
   31:yaskawa.c     **** {
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
   75 002c 0192     		str	r2, [sp, #4]
   76              		.loc 1 38 5 view .LVU14
   77 002e 019A     		ldr	r2, [sp, #4]
-ARM GAS  /tmp/ccL4BD4b.s 			page 3
+ARM GAS  /tmp/ccqfDkfh.s 			page 3
 
 
   78              	.LBE3:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  124              		.loc 1 46 25 is_stmt 0 view .LVU35
  125 0062 1423     		movs	r3, #20
  126 0064 C360     		str	r3, [r0, #12]
-ARM GAS  /tmp/ccL4BD4b.s 			page 4
+ARM GAS  /tmp/ccqfDkfh.s 			page 4
 
 
   47:yaskawa.c     ****     htim_tx.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  165 008c 0123     		movs	r3, #1
  166 008e 0593     		str	r3, [sp, #20]
   63:yaskawa.c     ****     sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-ARM GAS  /tmp/ccL4BD4b.s 			page 5
+ARM GAS  /tmp/ccqfDkfh.s 			page 5
 
 
  167              		.loc 1 63 5 is_stmt 1 view .LVU57
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  209 00c2 C461     		str	r4, [r0, #28]
   76:yaskawa.c     ****     hdma_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
  210              		.loc 1 76 5 is_stmt 1 view .LVU78
-ARM GAS  /tmp/ccL4BD4b.s 			page 6
+ARM GAS  /tmp/ccqfDkfh.s 			page 6
 
 
  211              		.loc 1 76 27 is_stmt 0 view .LVU79
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
   90:yaskawa.c     ****     hdma_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
  252              		.loc 1 90 5 is_stmt 1 view .LVU101
  253              		.loc 1 90 27 is_stmt 0 view .LVU102
-ARM GAS  /tmp/ccL4BD4b.s 			page 7
+ARM GAS  /tmp/ccqfDkfh.s 			page 7
 
 
  254 00f2 4462     		str	r4, [r0, #36]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  299              	.LCFI3:
  300              		.cfi_def_cfa_offset 8
  301              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccL4BD4b.s 			page 8
+ARM GAS  /tmp/ccqfDkfh.s 			page 8
 
 
  302              		.cfi_offset 5, -4
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  342 0024 30A8     		add	r0, sp, #192
  343 0026 0844     		add	r0, r0, r1
  344 0028 3024     		movs	r4, #48
-ARM GAS  /tmp/ccL4BD4b.s 			page 9
+ARM GAS  /tmp/ccqfDkfh.s 			page 9
 
 
  345 002a 00F8BC4C 		strb	r4, [r0, #-188]
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  388              	.LVL13:
  389              		.loc 1 112 37 is_stmt 0 view .LVU136
  390 005a 30A8     		add	r0, sp, #192
-ARM GAS  /tmp/ccL4BD4b.s 			page 10
+ARM GAS  /tmp/ccqfDkfh.s 			page 10
 
 
  391 005c 0344     		add	r3, r3, r0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  435              		.loc 1 119 43 is_stmt 1 discriminator 2 view .LVU152
  119:yaskawa.c     ****     for(int i = 0; manchester_encoded[i]; i++) {
  436              		.loc 1 119 44 is_stmt 0 discriminator 2 view .LVU153
-ARM GAS  /tmp/ccL4BD4b.s 			page 11
+ARM GAS  /tmp/ccqfDkfh.s 			page 11
 
 
  437 008e 0132     		adds	r2, r2, #1
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  129:yaskawa.c     ****     yaskawa_handle.txbuf[yaskawa_handle.tx_buffer_pos++] = tim_high;
  479              		.loc 1 129 5 is_stmt 1 view .LVU170
  480              		.loc 1 129 54 is_stmt 0 view .LVU171
-ARM GAS  /tmp/ccL4BD4b.s 			page 12
+ARM GAS  /tmp/ccqfDkfh.s 			page 12
 
 
  481 00c6 0233     		adds	r3, r3, #2
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  531 000a 08BD     		pop	{r3, pc}
  532              	.L24:
   22:yaskawa.c     **** 
-ARM GAS  /tmp/ccL4BD4b.s 			page 13
+ARM GAS  /tmp/ccqfDkfh.s 			page 13
 
 
  533              		.loc 1 22 5 is_stmt 1 view .LVU179
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  155:yaskawa.c     ****     yaskawa_start_reception();
  156:yaskawa.c     **** 
  157:yaskawa.c     ****     // 等待一段时间让接收完成
-ARM GAS  /tmp/ccL4BD4b.s 			page 14
+ARM GAS  /tmp/ccqfDkfh.s 			page 14
 
 
  158:yaskawa.c     ****     HAL_Delay(10);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  599              		.loc 1 174 27 is_stmt 0 view .LVU194
  600 001e 0327     		movs	r7, #3
  601 0020 0497     		str	r7, [sp, #16]
-ARM GAS  /tmp/ccL4BD4b.s 			page 15
+ARM GAS  /tmp/ccqfDkfh.s 			page 15
 
 
  175:yaskawa.c     ****     HAL_GPIO_Init(YASKAWA_TX_PORT, &GPIO_InitStruct);
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  642 0056 A361     		str	r3, [r4, #24]
  189:yaskawa.c     ****     hdma_tx.Init.Mode = DMA_NORMAL;
  643              		.loc 1 189 5 is_stmt 1 view .LVU212
-ARM GAS  /tmp/ccL4BD4b.s 			page 16
+ARM GAS  /tmp/ccqfDkfh.s 			page 16
 
 
  644              		.loc 1 189 23 is_stmt 0 view .LVU213
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  682 0084 42F48072 		orr	r2, r2, #256
  683 0088 DA60     		str	r2, [r3, #12]
  206:yaskawa.c     ****     __HAL_TIM_SET_COUNTER(&htim_tx, 0);
-ARM GAS  /tmp/ccL4BD4b.s 			page 17
+ARM GAS  /tmp/ccqfDkfh.s 			page 17
 
 
  684              		.loc 1 206 5 view .LVU231
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  213:yaskawa.c     ****     HAL_GPIO_WritePin(YASKAWA_TXEN_PORT, YASKAWA_TXEN_PIN, GPIO_PIN_RESET);
  734              		.loc 1 213 5 view .LVU235
  735 0004 0022     		movs	r2, #0
-ARM GAS  /tmp/ccL4BD4b.s 			page 18
+ARM GAS  /tmp/ccqfDkfh.s 			page 18
 
 
  736 0006 4FF48071 		mov	r1, #256
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  776              		.loc 1 227 26 is_stmt 0 view .LVU252
  777 0038 4FF0C063 		mov	r3, #100663296
  778 003c 6360     		str	r3, [r4, #4]
-ARM GAS  /tmp/ccL4BD4b.s 			page 19
+ARM GAS  /tmp/ccqfDkfh.s 			page 19
 
 
  228:yaskawa.c     ****     hdma_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  241:yaskawa.c     ****     // 设置DMA外设地址
  242:yaskawa.c     ****     __HAL_LINKDMA(&htim_rx, hdma[TIM_DMA_ID_CC4], hdma_rx);
  820              		.loc 1 242 5 view .LVU276
-ARM GAS  /tmp/ccL4BD4b.s 			page 20
+ARM GAS  /tmp/ccqfDkfh.s 			page 20
 
 
  821              		.loc 1 242 5 view .LVU277
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  260:yaskawa.c     ****     __HAL_TIM_ENABLE_DMA(&htim_rx, TIM_DMA_CC4);
  858              		.loc 1 260 5 view .LVU292
  859 0098 3368     		ldr	r3, [r6]
-ARM GAS  /tmp/ccL4BD4b.s 			page 21
+ARM GAS  /tmp/ccqfDkfh.s 			page 21
 
 
  860 009a DA68     		ldr	r2, [r3, #12]
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  272:yaskawa.c     ****         yaskawa_handle.error_count++;
  273:yaskawa.c     ****         return;
  274:yaskawa.c     ****     }
-ARM GAS  /tmp/ccL4BD4b.s 			page 22
+ARM GAS  /tmp/ccqfDkfh.s 			page 22
 
 
  275:yaskawa.c     **** 
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  329:yaskawa.c     ****             }
  330:yaskawa.c     ****             write_counter++;
  331:yaskawa.c     ****         } else if(consecutive_ones == 5) {
-ARM GAS  /tmp/ccL4BD4b.s 			page 23
+ARM GAS  /tmp/ccqfDkfh.s 			page 23
 
 
  332:yaskawa.c     ****             // 位填充: 忽略这个0
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  913 0004 7047     		bx	lr
  914              		.cfi_endproc
  915              	.LFE246:
-ARM GAS  /tmp/ccL4BD4b.s 			page 24
+ARM GAS  /tmp/ccqfDkfh.s 			page 24
 
 
  917              		.section	.text.yaskawa_crc16_update,"ax",%progbits
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  383:yaskawa.c     ****             if (crc & 1) {
  960              		.loc 1 383 25 is_stmt 1 discriminator 1 view .LVU311
  383:yaskawa.c     ****             if (crc & 1) {
-ARM GAS  /tmp/ccL4BD4b.s 			page 25
+ARM GAS  /tmp/ccqfDkfh.s 			page 25
 
 
  961              		.loc 1 383 9 is_stmt 0 discriminator 1 view .LVU312
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  383:yaskawa.c     ****             if (crc & 1) {
  999              		.loc 1 383 18 is_stmt 0 view .LVU329
  1000 002a 0023     		movs	r3, #0
-ARM GAS  /tmp/ccL4BD4b.s 			page 26
+ARM GAS  /tmp/ccqfDkfh.s 			page 26
 
 
  383:yaskawa.c     ****             if (crc & 1) {
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1046              		.section	.text.yaskawa_process_received_data,"ax",%progbits
  1047              		.align	1
  1048              		.global	yaskawa_process_received_data
-ARM GAS  /tmp/ccL4BD4b.s 			page 27
+ARM GAS  /tmp/ccqfDkfh.s 			page 27
 
 
  1049              		.syntax unified
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1093              	.L48:
  277:yaskawa.c     **** 
  1094              		.loc 1 277 5 is_stmt 1 view .LVU348
-ARM GAS  /tmp/ccL4BD4b.s 			page 28
+ARM GAS  /tmp/ccqfDkfh.s 			page 28
 
 
  1095 001c 7D4B     		ldr	r3, .L81+12
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1133              		.loc 1 286 40 is_stmt 0 view .LVU364
  1134 0042 531C     		adds	r3, r2, #1
  286:yaskawa.c     ****             bit_counter++;
-ARM GAS  /tmp/ccL4BD4b.s 			page 29
+ARM GAS  /tmp/ccqfDkfh.s 			page 29
 
 
  1135              		.loc 1 286 37 view .LVU365
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1175              		.loc 1 303 9 view .LVU379
  1176 006e 3046     		mov	r0, r6
  1177 0070 3546     		mov	r5, r6
-ARM GAS  /tmp/ccL4BD4b.s 			page 30
+ARM GAS  /tmp/ccqfDkfh.s 			page 30
 
 
  1178              	.LVL65:
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1217              		.loc 1 331 18 is_stmt 0 view .LVU394
  1218 0098 052E     		cmp	r6, #5
  1219 009a 7ED0     		beq	.L71
-ARM GAS  /tmp/ccL4BD4b.s 			page 31
+ARM GAS  /tmp/ccqfDkfh.s 			page 31
 
 
  334:yaskawa.c     ****             // HDLC标志: 结束
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1259 00c6 92B2     		uxth	r2, r2
  307:yaskawa.c     ****             i++; // 跳过短脉冲对中的第二个
  1260              		.loc 1 307 72 view .LVU410
-ARM GAS  /tmp/ccL4BD4b.s 			page 32
+ARM GAS  /tmp/ccqfDkfh.s 			page 32
 
 
  1261 00c8 03F5A47C 		add	ip, r3, #328
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  325:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter] = '1';
  1302              		.loc 1 325 13 is_stmt 1 view .LVU424
  325:yaskawa.c     ****             yaskawa_handle.manchester_data[write_counter] = '1';
-ARM GAS  /tmp/ccL4BD4b.s 			page 33
+ARM GAS  /tmp/ccqfDkfh.s 			page 33
 
 
  1303              		.loc 1 325 29 is_stmt 0 view .LVU425
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1344              		.loc 1 330 26 view .LVU438
  1345 0144 B3E7     		b	.L63
  1346              	.L78:
-ARM GAS  /tmp/ccL4BD4b.s 			page 34
+ARM GAS  /tmp/ccqfDkfh.s 			page 34
 
 
  328:yaskawa.c     ****             }
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1386 016e 95F8FA34 		ldrb	r3, [r5, #1274]	@ zero_extendqisi2
  348:yaskawa.c     ****                                       (yaskawa_handle.reply_data[12] << 8);
  1387              		.loc 1 348 25 view .LVU454
-ARM GAS  /tmp/ccL4BD4b.s 			page 35
+ARM GAS  /tmp/ccqfDkfh.s 			page 35
 
 
  1388 0172 44EA0324 		orr	r4, r4, r3, lsl #8
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  333:yaskawa.c     ****         } else if(consecutive_ones == 6) {
  1428              		.loc 1 333 30 view .LVU469
  1429              	.LBE18:
-ARM GAS  /tmp/ccL4BD4b.s 			page 36
+ARM GAS  /tmp/ccqfDkfh.s 			page 36
 
 
  1430              	.LBB19:
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1468 01ba 0A44     		add	r2, r2, r1
  1469 01bc 92F80022 		ldrb	r2, [r2, #512]	@ zero_extendqisi2
  1470 01c0 D2B2     		uxtb	r2, r2
-ARM GAS  /tmp/ccL4BD4b.s 			page 37
+ARM GAS  /tmp/ccqfDkfh.s 			page 37
 
 
  360:yaskawa.c     ****                     pos_raw |= (1 << i);
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  366:yaskawa.c     ****         } else {
  1512              		.loc 1 366 37 view .LVU499
  1513 0202 064B     		ldr	r3, .L81+20
-ARM GAS  /tmp/ccL4BD4b.s 			page 38
+ARM GAS  /tmp/ccqfDkfh.s 			page 38
 
 
  1514 0204 1860     		str	r0, [r3]	@ float
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1562 0010 40F6E343 		movw	r3, #3299
  1563 0014 9A42     		cmp	r2, r3
  1564 0016 F8D9     		bls	.L85
-ARM GAS  /tmp/ccL4BD4b.s 			page 39
+ARM GAS  /tmp/ccqfDkfh.s 			page 39
 
 
  144:yaskawa.c     **** 
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1610              		.loc 1 402 5 view .LVU515
  403:yaskawa.c     **** }
  1611              		.loc 1 403 1 is_stmt 0 view .LVU516
-ARM GAS  /tmp/ccL4BD4b.s 			page 40
+ARM GAS  /tmp/ccqfDkfh.s 			page 40
 
 
  1612 0000 014B     		ldr	r3, .L90
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1662              		@ frame_needed = 0, uses_anonymous_args = 0
  1663              		@ link register save eliminated.
  412:yaskawa.c     ****     return yaskawa_handle.crc_ok_count;
-ARM GAS  /tmp/ccL4BD4b.s 			page 41
+ARM GAS  /tmp/ccqfDkfh.s 			page 41
 
 
  1664              		.loc 1 412 5 view .LVU521
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1713      00000000 
  1714              		.text
  1715              	.Letext0:
-ARM GAS  /tmp/ccL4BD4b.s 			page 42
+ARM GAS  /tmp/ccqfDkfh.s 			page 42
 
 
  1716              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
@@ -2477,57 +2477,57 @@ ARM GAS  /tmp/ccL4BD4b.s 			page 1
  1729              		.file 15 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/lib/gcc/arm-none-eabi/9.2.1/include/stdde
  1730              		.file 16 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/reent.h"
  1731              		.file 17 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/math.h"
-ARM GAS  /tmp/ccL4BD4b.s 			page 43
+ARM GAS  /tmp/ccqfDkfh.s 			page 43
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 yaskawa.c
-     /tmp/ccL4BD4b.s:18     .text.yaskawa_hw_init:0000000000000000 $t
-     /tmp/ccL4BD4b.s:26     .text.yaskawa_hw_init:0000000000000000 yaskawa_hw_init
-     /tmp/ccL4BD4b.s:267    .text.yaskawa_hw_init:00000000000000fc $d
+     /tmp/ccqfDkfh.s:18     .text.yaskawa_hw_init:0000000000000000 $t
+     /tmp/ccqfDkfh.s:26     .text.yaskawa_hw_init:0000000000000000 yaskawa_hw_init
+     /tmp/ccqfDkfh.s:267    .text.yaskawa_hw_init:00000000000000fc $d
                             *COM*:0000000000000048 htim_tx
                             *COM*:0000000000000048 htim_rx
                             *COM*:0000000000000060 hdma_tx
                             *COM*:0000000000000060 hdma_rx
-     /tmp/ccL4BD4b.s:279    .rodata.yaskawa_build_request.str1.4:0000000000000000 $d
-     /tmp/ccL4BD4b.s:284    .text.yaskawa_build_request:0000000000000000 $t
-     /tmp/ccL4BD4b.s:291    .text.yaskawa_build_request:0000000000000000 yaskawa_build_request
-     /tmp/ccL4BD4b.s:499    .text.yaskawa_build_request:00000000000000d8 $d
-     /tmp/ccL4BD4b.s:505    .text.yaskawa_init:0000000000000000 $t
-     /tmp/ccL4BD4b.s:512    .text.yaskawa_init:0000000000000000 yaskawa_init
-     /tmp/ccL4BD4b.s:548    .text.yaskawa_init:0000000000000020 $d
-     /tmp/ccL4BD4b.s:553    .text.yaskawa_start_transmission:0000000000000000 $t
-     /tmp/ccL4BD4b.s:560    .text.yaskawa_start_transmission:0000000000000000 yaskawa_start_transmission
-     /tmp/ccL4BD4b.s:699    .text.yaskawa_start_transmission:0000000000000098 $d
-     /tmp/ccL4BD4b.s:710    .text.yaskawa_start_reception:0000000000000000 $t
-     /tmp/ccL4BD4b.s:717    .text.yaskawa_start_reception:0000000000000000 yaskawa_start_reception
-     /tmp/ccL4BD4b.s:885    .text.yaskawa_start_reception:00000000000000b8 $d
-     /tmp/ccL4BD4b.s:896    .text.yaskawa_crc16_init:0000000000000000 $t
-     /tmp/ccL4BD4b.s:903    .text.yaskawa_crc16_init:0000000000000000 yaskawa_crc16_init
-     /tmp/ccL4BD4b.s:918    .text.yaskawa_crc16_update:0000000000000000 $t
-     /tmp/ccL4BD4b.s:925    .text.yaskawa_crc16_update:0000000000000000 yaskawa_crc16_update
-     /tmp/ccL4BD4b.s:1021   .text.yaskawa_crc16_finalize:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1028   .text.yaskawa_crc16_finalize:0000000000000000 yaskawa_crc16_finalize
-     /tmp/ccL4BD4b.s:1047   .text.yaskawa_process_received_data:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1054   .text.yaskawa_process_received_data:0000000000000000 yaskawa_process_received_data
-     /tmp/ccL4BD4b.s:1520   .text.yaskawa_process_received_data:0000000000000208 $d
-     /tmp/ccL4BD4b.s:1531   .text.yaskawa_update:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1538   .text.yaskawa_update:0000000000000000 yaskawa_update
-     /tmp/ccL4BD4b.s:1590   .text.yaskawa_update:0000000000000038 $d
-     /tmp/ccL4BD4b.s:1596   .text.yaskawa_get_position:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1603   .text.yaskawa_get_position:0000000000000000 yaskawa_get_position
-     /tmp/ccL4BD4b.s:1618   .text.yaskawa_get_position:0000000000000008 $d
-     /tmp/ccL4BD4b.s:1623   .text.yaskawa_get_error_count:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1630   .text.yaskawa_get_error_count:0000000000000000 yaskawa_get_error_count
-     /tmp/ccL4BD4b.s:1645   .text.yaskawa_get_error_count:0000000000000008 $d
-     /tmp/ccL4BD4b.s:1650   .text.yaskawa_get_crc_ok:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1657   .text.yaskawa_get_crc_ok:0000000000000000 yaskawa_get_crc_ok
-     /tmp/ccL4BD4b.s:1672   .text.yaskawa_get_crc_ok:0000000000000008 $d
-     /tmp/ccL4BD4b.s:1677   .text.yaskawa_get_crc_error:0000000000000000 $t
-     /tmp/ccL4BD4b.s:1684   .text.yaskawa_get_crc_error:0000000000000000 yaskawa_get_crc_error
-     /tmp/ccL4BD4b.s:1699   .text.yaskawa_get_crc_error:0000000000000008 $d
-     /tmp/ccL4BD4b.s:1708   .bss.yaskawa_handle:0000000000000000 $d
-     /tmp/ccL4BD4b.s:1712   .bss.yaskawa_handle:0000000000000000 yaskawa_handle
+     /tmp/ccqfDkfh.s:279    .rodata.yaskawa_build_request.str1.4:0000000000000000 $d
+     /tmp/ccqfDkfh.s:284    .text.yaskawa_build_request:0000000000000000 $t
+     /tmp/ccqfDkfh.s:291    .text.yaskawa_build_request:0000000000000000 yaskawa_build_request
+     /tmp/ccqfDkfh.s:499    .text.yaskawa_build_request:00000000000000d8 $d
+     /tmp/ccqfDkfh.s:505    .text.yaskawa_init:0000000000000000 $t
+     /tmp/ccqfDkfh.s:512    .text.yaskawa_init:0000000000000000 yaskawa_init
+     /tmp/ccqfDkfh.s:548    .text.yaskawa_init:0000000000000020 $d
+     /tmp/ccqfDkfh.s:553    .text.yaskawa_start_transmission:0000000000000000 $t
+     /tmp/ccqfDkfh.s:560    .text.yaskawa_start_transmission:0000000000000000 yaskawa_start_transmission
+     /tmp/ccqfDkfh.s:699    .text.yaskawa_start_transmission:0000000000000098 $d
+     /tmp/ccqfDkfh.s:710    .text.yaskawa_start_reception:0000000000000000 $t
+     /tmp/ccqfDkfh.s:717    .text.yaskawa_start_reception:0000000000000000 yaskawa_start_reception
+     /tmp/ccqfDkfh.s:885    .text.yaskawa_start_reception:00000000000000b8 $d
+     /tmp/ccqfDkfh.s:896    .text.yaskawa_crc16_init:0000000000000000 $t
+     /tmp/ccqfDkfh.s:903    .text.yaskawa_crc16_init:0000000000000000 yaskawa_crc16_init
+     /tmp/ccqfDkfh.s:918    .text.yaskawa_crc16_update:0000000000000000 $t
+     /tmp/ccqfDkfh.s:925    .text.yaskawa_crc16_update:0000000000000000 yaskawa_crc16_update
+     /tmp/ccqfDkfh.s:1021   .text.yaskawa_crc16_finalize:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1028   .text.yaskawa_crc16_finalize:0000000000000000 yaskawa_crc16_finalize
+     /tmp/ccqfDkfh.s:1047   .text.yaskawa_process_received_data:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1054   .text.yaskawa_process_received_data:0000000000000000 yaskawa_process_received_data
+     /tmp/ccqfDkfh.s:1520   .text.yaskawa_process_received_data:0000000000000208 $d
+     /tmp/ccqfDkfh.s:1531   .text.yaskawa_update:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1538   .text.yaskawa_update:0000000000000000 yaskawa_update
+     /tmp/ccqfDkfh.s:1590   .text.yaskawa_update:0000000000000038 $d
+     /tmp/ccqfDkfh.s:1596   .text.yaskawa_get_position:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1603   .text.yaskawa_get_position:0000000000000000 yaskawa_get_position
+     /tmp/ccqfDkfh.s:1618   .text.yaskawa_get_position:0000000000000008 $d
+     /tmp/ccqfDkfh.s:1623   .text.yaskawa_get_error_count:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1630   .text.yaskawa_get_error_count:0000000000000000 yaskawa_get_error_count
+     /tmp/ccqfDkfh.s:1645   .text.yaskawa_get_error_count:0000000000000008 $d
+     /tmp/ccqfDkfh.s:1650   .text.yaskawa_get_crc_ok:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1657   .text.yaskawa_get_crc_ok:0000000000000000 yaskawa_get_crc_ok
+     /tmp/ccqfDkfh.s:1672   .text.yaskawa_get_crc_ok:0000000000000008 $d
+     /tmp/ccqfDkfh.s:1677   .text.yaskawa_get_crc_error:0000000000000000 $t
+     /tmp/ccqfDkfh.s:1684   .text.yaskawa_get_crc_error:0000000000000000 yaskawa_get_crc_error
+     /tmp/ccqfDkfh.s:1699   .text.yaskawa_get_crc_error:0000000000000008 $d
+     /tmp/ccqfDkfh.s:1708   .bss.yaskawa_handle:0000000000000000 $d
+     /tmp/ccqfDkfh.s:1712   .bss.yaskawa_handle:0000000000000000 yaskawa_handle
 
 UNDEFINED SYMBOLS
 HAL_TIM_Base_Init
@@ -2537,7 +2537,7 @@ HAL_GPIO_WritePin
 HAL_GPIO_Init
 HAL_TIM_Base_Stop
 HAL_DMA_DeInit
-ARM GAS  /tmp/ccL4BD4b.s 			page 44
+ARM GAS  /tmp/ccqfDkfh.s 			page 44
 
 
 HAL_DMA_Start

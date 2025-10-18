@@ -1,0 +1,401 @@
+ARM GAS  /tmp/ccsJfh03.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"syscalls.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._write,"ax",%progbits
+  18              		.align	1
+  19              		.global	_write
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_write:
+  27              	.LVL0:
+  28              	.LFB135:
+  29              		.file 1 "SYSTEM/usart/syscalls.c"
+   1:SYSTEM/usart/syscalls.c **** #include <sys/stat.h>
+   2:SYSTEM/usart/syscalls.c **** #include <stdlib.h>
+   3:SYSTEM/usart/syscalls.c **** #include <errno.h>
+   4:SYSTEM/usart/syscalls.c **** #include <stdio.h>
+   5:SYSTEM/usart/syscalls.c **** #include "usart.h"
+   6:SYSTEM/usart/syscalls.c **** 
+   7:SYSTEM/usart/syscalls.c **** // 系统调用重定向
+   8:SYSTEM/usart/syscalls.c **** int _write(int file, char *ptr, int len)
+   9:SYSTEM/usart/syscalls.c **** {
+  30              		.loc 1 9 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 9 1 is_stmt 0 view .LVU1
+  36 0000 30B4     		push	{r4, r5}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 4, -8
+  40              		.cfi_offset 5, -4
+  41 0002 1046     		mov	r0, r2
+  42              	.LVL1:
+  10:SYSTEM/usart/syscalls.c ****     int i;
+  43              		.loc 1 10 5 is_stmt 1 view .LVU2
+  11:SYSTEM/usart/syscalls.c ****     for (i = 0; i < len; i++)
+  44              		.loc 1 11 5 view .LVU3
+  45              		.loc 1 11 12 is_stmt 0 view .LVU4
+  46 0004 0024     		movs	r4, #0
+  47              		.loc 1 11 5 view .LVU5
+ARM GAS  /tmp/ccsJfh03.s 			page 2
+
+
+  48 0006 08E0     		b	.L2
+  49              	.LVL2:
+  50              	.L3:
+  12:SYSTEM/usart/syscalls.c ****     {
+  13:SYSTEM/usart/syscalls.c ****         while((USART1->SR & 0X40) == 0); // 等待 TXE
+  51              		.loc 1 13 40 is_stmt 1 discriminator 1 view .LVU6
+  52              		.loc 1 13 14 discriminator 1 view .LVU7
+  53              		.loc 1 13 22 is_stmt 0 discriminator 1 view .LVU8
+  54 0008 064B     		ldr	r3, .L5
+  55 000a 1B68     		ldr	r3, [r3]
+  56              		.loc 1 13 14 discriminator 1 view .LVU9
+  57 000c 13F0400F 		tst	r3, #64
+  58 0010 FAD0     		beq	.L3
+  14:SYSTEM/usart/syscalls.c ****         USART1->DR = (uint8_t)ptr[i];
+  59              		.loc 1 14 9 is_stmt 1 discriminator 2 view .LVU10
+  60              		.loc 1 14 34 is_stmt 0 discriminator 2 view .LVU11
+  61 0012 0D5D     		ldrb	r5, [r1, r4]	@ zero_extendqisi2
+  62              		.loc 1 14 20 discriminator 2 view .LVU12
+  63 0014 034B     		ldr	r3, .L5
+  64 0016 5D60     		str	r5, [r3, #4]
+  11:SYSTEM/usart/syscalls.c ****     for (i = 0; i < len; i++)
+  65              		.loc 1 11 26 is_stmt 1 discriminator 2 view .LVU13
+  11:SYSTEM/usart/syscalls.c ****     for (i = 0; i < len; i++)
+  66              		.loc 1 11 27 is_stmt 0 discriminator 2 view .LVU14
+  67 0018 0134     		adds	r4, r4, #1
+  68              	.LVL3:
+  69              	.L2:
+  11:SYSTEM/usart/syscalls.c ****     for (i = 0; i < len; i++)
+  70              		.loc 1 11 17 is_stmt 1 discriminator 1 view .LVU15
+  11:SYSTEM/usart/syscalls.c ****     for (i = 0; i < len; i++)
+  71              		.loc 1 11 5 is_stmt 0 discriminator 1 view .LVU16
+  72 001a 8442     		cmp	r4, r0
+  73 001c F4DB     		blt	.L3
+  15:SYSTEM/usart/syscalls.c ****     }
+  16:SYSTEM/usart/syscalls.c ****     return len;
+  17:SYSTEM/usart/syscalls.c **** }
+  74              		.loc 1 17 1 view .LVU17
+  75 001e 30BC     		pop	{r4, r5}
+  76              	.LCFI1:
+  77              		.cfi_restore 5
+  78              		.cfi_restore 4
+  79              		.cfi_def_cfa_offset 0
+  80              	.LVL4:
+  81              		.loc 1 17 1 view .LVU18
+  82 0020 7047     		bx	lr
+  83              	.L6:
+  84 0022 00BF     		.align	2
+  85              	.L5:
+  86 0024 00100140 		.word	1073811456
+  87              		.cfi_endproc
+  88              	.LFE135:
+  90              		.section	.text._read,"ax",%progbits
+  91              		.align	1
+  92              		.global	_read
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+ARM GAS  /tmp/ccsJfh03.s 			page 3
+
+
+  96              		.fpu fpv4-sp-d16
+  98              	_read:
+  99              	.LVL5:
+ 100              	.LFB136:
+  18:SYSTEM/usart/syscalls.c **** 
+  19:SYSTEM/usart/syscalls.c **** int _read(int file, char *ptr, int len)
+  20:SYSTEM/usart/syscalls.c **** {
+ 101              		.loc 1 20 1 is_stmt 1 view -0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		@ link register save eliminated.
+  21:SYSTEM/usart/syscalls.c ****     // 如果需要从串口读取，可以在这里实现
+  22:SYSTEM/usart/syscalls.c ****     return 0;
+ 106              		.loc 1 22 5 view .LVU20
+  23:SYSTEM/usart/syscalls.c **** }
+ 107              		.loc 1 23 1 is_stmt 0 view .LVU21
+ 108 0000 0020     		movs	r0, #0
+ 109              	.LVL6:
+ 110              		.loc 1 23 1 view .LVU22
+ 111 0002 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE136:
+ 115              		.section	.text._close,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	_close
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	_close:
+ 124              	.LVL7:
+ 125              	.LFB137:
+  24:SYSTEM/usart/syscalls.c **** 
+  25:SYSTEM/usart/syscalls.c **** int _close(int file)
+  26:SYSTEM/usart/syscalls.c **** {
+ 126              		.loc 1 26 1 is_stmt 1 view -0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+  27:SYSTEM/usart/syscalls.c ****     return -1;
+ 131              		.loc 1 27 5 view .LVU24
+  28:SYSTEM/usart/syscalls.c **** }
+ 132              		.loc 1 28 1 is_stmt 0 view .LVU25
+ 133 0000 4FF0FF30 		mov	r0, #-1
+ 134              	.LVL8:
+ 135              		.loc 1 28 1 view .LVU26
+ 136 0004 7047     		bx	lr
+ 137              		.cfi_endproc
+ 138              	.LFE137:
+ 140              		.section	.text._lseek,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	_lseek
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ARM GAS  /tmp/ccsJfh03.s 			page 4
+
+
+ 146              		.fpu fpv4-sp-d16
+ 148              	_lseek:
+ 149              	.LVL9:
+ 150              	.LFB138:
+  29:SYSTEM/usart/syscalls.c **** 
+  30:SYSTEM/usart/syscalls.c **** int _lseek(int file, int ptr, int dir)
+  31:SYSTEM/usart/syscalls.c **** {
+ 151              		.loc 1 31 1 is_stmt 1 view -0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+  32:SYSTEM/usart/syscalls.c ****     return 0;
+ 156              		.loc 1 32 5 view .LVU28
+  33:SYSTEM/usart/syscalls.c **** }
+ 157              		.loc 1 33 1 is_stmt 0 view .LVU29
+ 158 0000 0020     		movs	r0, #0
+ 159              	.LVL10:
+ 160              		.loc 1 33 1 view .LVU30
+ 161 0002 7047     		bx	lr
+ 162              		.cfi_endproc
+ 163              	.LFE138:
+ 165              		.section	.text._fstat,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	_fstat
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	_fstat:
+ 174              	.LVL11:
+ 175              	.LFB139:
+  34:SYSTEM/usart/syscalls.c **** 
+  35:SYSTEM/usart/syscalls.c **** int _fstat(int file, struct stat *st)
+  36:SYSTEM/usart/syscalls.c **** {
+ 176              		.loc 1 36 1 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              		@ link register save eliminated.
+  37:SYSTEM/usart/syscalls.c ****     st->st_mode = S_IFCHR;
+ 181              		.loc 1 37 5 view .LVU32
+ 182              		.loc 1 37 17 is_stmt 0 view .LVU33
+ 183 0000 4FF40053 		mov	r3, #8192
+ 184 0004 4B60     		str	r3, [r1, #4]
+  38:SYSTEM/usart/syscalls.c ****     return 0;
+ 185              		.loc 1 38 5 is_stmt 1 view .LVU34
+  39:SYSTEM/usart/syscalls.c **** }
+ 186              		.loc 1 39 1 is_stmt 0 view .LVU35
+ 187 0006 0020     		movs	r0, #0
+ 188              	.LVL12:
+ 189              		.loc 1 39 1 view .LVU36
+ 190 0008 7047     		bx	lr
+ 191              		.cfi_endproc
+ 192              	.LFE139:
+ 194              		.section	.text._isatty,"ax",%progbits
+ 195              		.align	1
+ARM GAS  /tmp/ccsJfh03.s 			page 5
+
+
+ 196              		.global	_isatty
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 200              		.fpu fpv4-sp-d16
+ 202              	_isatty:
+ 203              	.LVL13:
+ 204              	.LFB140:
+  40:SYSTEM/usart/syscalls.c **** 
+  41:SYSTEM/usart/syscalls.c **** int _isatty(int file)
+  42:SYSTEM/usart/syscalls.c **** {
+ 205              		.loc 1 42 1 is_stmt 1 view -0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+  43:SYSTEM/usart/syscalls.c ****     return 1;
+ 210              		.loc 1 43 5 view .LVU38
+  44:SYSTEM/usart/syscalls.c **** }
+ 211              		.loc 1 44 1 is_stmt 0 view .LVU39
+ 212 0000 0120     		movs	r0, #1
+ 213              	.LVL14:
+ 214              		.loc 1 44 1 view .LVU40
+ 215 0002 7047     		bx	lr
+ 216              		.cfi_endproc
+ 217              	.LFE140:
+ 219              		.section	.text._exit,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	_exit
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.fpu fpv4-sp-d16
+ 227              	_exit:
+ 228              	.LFB141:
+  45:SYSTEM/usart/syscalls.c **** 
+  46:SYSTEM/usart/syscalls.c **** void _exit(int status)
+  47:SYSTEM/usart/syscalls.c **** {
+ 229              		.loc 1 47 1 is_stmt 1 view -0
+ 230              		.cfi_startproc
+ 231              		@ Volatile: function does not return.
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+ 235              	.LVL15:
+ 236              	.L13:
+  48:SYSTEM/usart/syscalls.c ****     while(1);
+ 237              		.loc 1 48 5 discriminator 1 view .LVU42
+ 238              		.loc 1 48 13 discriminator 1 view .LVU43
+ 239              		.loc 1 48 10 discriminator 1 view .LVU44
+ 240 0000 FEE7     		b	.L13
+ 241              		.cfi_endproc
+ 242              	.LFE141:
+ 244              		.section	.text._kill,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	_kill
+ 247              		.syntax unified
+ARM GAS  /tmp/ccsJfh03.s 			page 6
+
+
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.fpu fpv4-sp-d16
+ 252              	_kill:
+ 253              	.LVL16:
+ 254              	.LFB142:
+  49:SYSTEM/usart/syscalls.c **** }
+  50:SYSTEM/usart/syscalls.c **** 
+  51:SYSTEM/usart/syscalls.c **** void _kill(int pid, int sig)
+  52:SYSTEM/usart/syscalls.c **** {
+ 255              		.loc 1 52 1 view -0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		@ link register save eliminated.
+  53:SYSTEM/usart/syscalls.c ****     return;
+ 260              		.loc 1 53 5 view .LVU46
+  54:SYSTEM/usart/syscalls.c **** }
+ 261              		.loc 1 54 1 is_stmt 0 view .LVU47
+ 262 0000 7047     		bx	lr
+ 263              		.cfi_endproc
+ 264              	.LFE142:
+ 266              		.section	.text._getpid,"ax",%progbits
+ 267              		.align	1
+ 268              		.global	_getpid
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.fpu fpv4-sp-d16
+ 274              	_getpid:
+ 275              	.LFB143:
+  55:SYSTEM/usart/syscalls.c **** 
+  56:SYSTEM/usart/syscalls.c **** int _getpid(void)
+  57:SYSTEM/usart/syscalls.c **** {
+ 276              		.loc 1 57 1 is_stmt 1 view -0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280              		@ link register save eliminated.
+  58:SYSTEM/usart/syscalls.c ****     return 1;
+ 281              		.loc 1 58 5 view .LVU49
+  59:SYSTEM/usart/syscalls.c **** }...
+ 282              		.loc 1 59 1 is_stmt 0 view .LVU50
+ 283 0000 0120     		movs	r0, #1
+ 284 0002 7047     		bx	lr
+ 285              		.cfi_endproc
+ 286              	.LFE143:
+ 288              		.text
+ 289              	.Letext0:
+ 290              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 291              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/lock.h"
+ 292              		.file 4 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_types.h"
+ 293              		.file 5 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/lib/gcc/arm-none-eabi/9.2.1/include/stddef
+ 294              		.file 6 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/reent.h"
+ 295              		.file 7 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 296              		.file 8 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_timeval.h"
+ 297              		.file 9 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/types.h"
+ARM GAS  /tmp/ccsJfh03.s 			page 7
+
+
+ 298              		.file 10 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/time.h"
+ 299              		.file 11 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/stat.h"
+ 300              		.file 12 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/stdlib.h"
+ 301              		.file 13 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/errno.h"
+ 302              		.file 14 "CORE/core_cm4.h"
+ 303              		.file 15 "USER/system_stm32f4xx.h"
+ 304              		.file 16 "USER/stm32f407xx.h"
+ 305              		.file 17 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 306              		.file 18 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 307              		.file 19 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 308              		.file 20 "SYSTEM/sys/sys.h"
+ 309              		.file 21 "SYSTEM/usart/usart.h"
+ARM GAS  /tmp/ccsJfh03.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 syscalls.c
+     /tmp/ccsJfh03.s:18     .text._write:0000000000000000 $t
+     /tmp/ccsJfh03.s:26     .text._write:0000000000000000 _write
+     /tmp/ccsJfh03.s:86     .text._write:0000000000000024 $d
+     /tmp/ccsJfh03.s:91     .text._read:0000000000000000 $t
+     /tmp/ccsJfh03.s:98     .text._read:0000000000000000 _read
+     /tmp/ccsJfh03.s:116    .text._close:0000000000000000 $t
+     /tmp/ccsJfh03.s:123    .text._close:0000000000000000 _close
+     /tmp/ccsJfh03.s:141    .text._lseek:0000000000000000 $t
+     /tmp/ccsJfh03.s:148    .text._lseek:0000000000000000 _lseek
+     /tmp/ccsJfh03.s:166    .text._fstat:0000000000000000 $t
+     /tmp/ccsJfh03.s:173    .text._fstat:0000000000000000 _fstat
+     /tmp/ccsJfh03.s:195    .text._isatty:0000000000000000 $t
+     /tmp/ccsJfh03.s:202    .text._isatty:0000000000000000 _isatty
+     /tmp/ccsJfh03.s:220    .text._exit:0000000000000000 $t
+     /tmp/ccsJfh03.s:227    .text._exit:0000000000000000 _exit
+     /tmp/ccsJfh03.s:245    .text._kill:0000000000000000 $t
+     /tmp/ccsJfh03.s:252    .text._kill:0000000000000000 _kill
+     /tmp/ccsJfh03.s:267    .text._getpid:0000000000000000 $t
+     /tmp/ccsJfh03.s:274    .text._getpid:0000000000000000 _getpid
+
+NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccK5PJTv.s 			page 1
+ARM GAS  /tmp/ccppX03r.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
   27:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     ==================================
   28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
   29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     [..]
-ARM GAS  /tmp/ccK5PJTv.s 			page 2
+ARM GAS  /tmp/ccppX03r.s 			page 2
 
 
   30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     The compilation define USE_HAL_RNG_REGISTER_CALLBACKS when set to 1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
   84:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
   85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * All rights reserved.</center></h2>
   86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   *
-ARM GAS  /tmp/ccK5PJTv.s 			page 3
+ARM GAS  /tmp/ccppX03r.s 			page 3
 
 
   87:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * This software component is licensed by ST under BSD 3-Clause license,
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  141:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       (+) DeInitialize the RNG peripheral
  142:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       (+) Initialize the RNG MSP
  143:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       (+) DeInitialize RNG MSP
-ARM GAS  /tmp/ccK5PJTv.s 			page 4
+ARM GAS  /tmp/ccppX03r.s 			page 4
 
 
  144:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  198:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   __HAL_RNG_ENABLE(hrng);
  199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
  200:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   /* Initialize the RNG state */
-ARM GAS  /tmp/ccK5PJTv.s 			page 5
+ARM GAS  /tmp/ccppX03r.s 			page 5
 
 
  201:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   hrng->State = HAL_RNG_STATE_READY;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  255:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
  256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** /**
  257:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * @brief  Initializes the RNG MSP.
-ARM GAS  /tmp/ccK5PJTv.s 			page 6
+ARM GAS  /tmp/ccppX03r.s 			page 6
 
 
  258:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * @param  hrng pointer to a RNG_HandleTypeDef structure that contains
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  183:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   {
   68              		.loc 1 183 11 is_stmt 0 view .LVU9
   69 0006 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
-ARM GAS  /tmp/ccK5PJTv.s 			page 7
+ARM GAS  /tmp/ccppX03r.s 			page 7
 
 
  183:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   {
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  160:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   }
  110              		.loc 1 160 12 view .LVU24
  111 002a 0120     		movs	r0, #1
-ARM GAS  /tmp/ccK5PJTv.s 			page 8
+ARM GAS  /tmp/ccppX03r.s 			page 8
 
 
  112              	.LVL6:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  153              		@ args = 0, pretend = 0, frame = 0
  154              		@ frame_needed = 0, uses_anonymous_args = 0
  219:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   {
-ARM GAS  /tmp/ccK5PJTv.s 			page 9
+ARM GAS  /tmp/ccppX03r.s 			page 9
 
 
  155              		.loc 1 219 3 view .LVU30
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  195              		.cfi_def_cfa_offset 0
  196              		.cfi_restore 4
  197              		.cfi_restore 14
-ARM GAS  /tmp/ccK5PJTv.s 			page 10
+ARM GAS  /tmp/ccppX03r.s 			page 10
 
 
  221:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   }
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  320:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     case HAL_RNG_MSPINIT_CB_ID :
  321:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       hrng->MspInitCallback = pCallback;
  322:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       break;
-ARM GAS  /tmp/ccK5PJTv.s 			page 11
+ARM GAS  /tmp/ccppX03r.s 			page 11
 
 
  323:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  377:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   *          @arg @ref HAL_RNG_MSPDEINIT_CB_ID MspDeInit callback ID
  378:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   * @retval HAL status
  379:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   */
-ARM GAS  /tmp/ccK5PJTv.s 			page 12
+ARM GAS  /tmp/ccppX03r.s 			page 12
 
 
  380:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** HAL_StatusTypeDef HAL_RNG_UnRegisterCallback(RNG_HandleTypeDef *hrng, HAL_RNG_CallbackIDTypeDef Cal
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  434:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     hrng->ErrorCode = HAL_RNG_ERROR_INVALID_CALLBACK;
  435:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     /* Return error status */
  436:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     status =  HAL_ERROR;
-ARM GAS  /tmp/ccK5PJTv.s 			page 13
+ARM GAS  /tmp/ccppX03r.s 			page 13
 
 
  437:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   }
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  491:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   /* Process locked */
  492:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   __HAL_LOCK(hrng);
  493:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
-ARM GAS  /tmp/ccK5PJTv.s 			page 14
+ARM GAS  /tmp/ccppX03r.s 			page 14
 
 
  494:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   if (HAL_RNG_STATE_READY == hrng->State)
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  220              		@ frame_needed = 0, uses_anonymous_args = 0
  221              		.loc 1 544 1 is_stmt 0 view .LVU48
  222 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-ARM GAS  /tmp/ccK5PJTv.s 			page 15
+ARM GAS  /tmp/ccppX03r.s 			page 15
 
 
  223              	.LCFI4:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  570:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****       }
  571:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     }
  572:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
-ARM GAS  /tmp/ccK5PJTv.s 			page 16
+ARM GAS  /tmp/ccppX03r.s 			page 16
 
 
  573:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     /* Get a 32bit Random number */
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  284 002e 0746     		mov	r7, r0
  285              	.LVL19:
  561:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     {
-ARM GAS  /tmp/ccK5PJTv.s 			page 17
+ARM GAS  /tmp/ccppX03r.s 			page 17
 
 
  286              		.loc 1 561 5 is_stmt 1 view .LVU72
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  322              		.loc 1 574 40 is_stmt 0 view .LVU90
  323 0052 9B68     		ldr	r3, [r3, #8]
  574:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     *random32bit = hrng->RandomNumber;
-ARM GAS  /tmp/ccK5PJTv.s 			page 18
+ARM GAS  /tmp/ccppX03r.s 			page 18
 
 
  324              		.loc 1 574 24 view .LVU91
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  361              		.loc 1 602 3 view .LVU100
  362              		.loc 1 602 3 view .LVU101
  363 0000 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
-ARM GAS  /tmp/ccK5PJTv.s 			page 19
+ARM GAS  /tmp/ccppX03r.s 			page 19
 
 
  364 0002 012B     		cmp	r3, #1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  611:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   }
  399              		.loc 1 611 5 is_stmt 1 view .LVU117
  400 0022 0268     		ldr	r2, [r0]
-ARM GAS  /tmp/ccK5PJTv.s 			page 20
+ARM GAS  /tmp/ccppX03r.s 			page 20
 
 
  401 0024 1368     		ldr	r3, [r2]
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  440 0002 0446     		mov	r4, r0
  634:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   if(HAL_RNG_GenerateRandomNumber(hrng, &(hrng->RandomNumber)) == HAL_OK)
  441              		.loc 1 634 3 is_stmt 1 view .LVU124
-ARM GAS  /tmp/ccK5PJTv.s 			page 21
+ARM GAS  /tmp/ccppX03r.s 			page 21
 
 
  442              		.loc 1 634 6 is_stmt 0 view .LVU125
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  478              		.loc 1 653 3 view .LVU132
  654:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** 
  655:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   /* Process locked */
-ARM GAS  /tmp/ccK5PJTv.s 			page 22
+ARM GAS  /tmp/ccppX03r.s 			page 22
 
 
  656:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   __HAL_LOCK(hrng);
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  519              		.thumb
  520              		.thumb_func
  521              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccK5PJTv.s 			page 23
+ARM GAS  /tmp/ccppX03r.s 			page 23
 
 
  523              	HAL_RNG_ReadLastRandomNumber:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  721:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     hrng->ErrorCallback(hrng);
  722:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** #else
  723:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     /* Call legacy weak Error callback */
-ARM GAS  /tmp/ccK5PJTv.s 			page 24
+ARM GAS  /tmp/ccppX03r.s 			page 24
 
 
  724:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     HAL_RNG_ErrorCallback(hrng);
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  536 0002 7047     		bx	lr
  537              		.cfi_endproc
  538              	.LFE141:
-ARM GAS  /tmp/ccK5PJTv.s 			page 25
+ARM GAS  /tmp/ccppX03r.s 			page 25
 
 
  540              		.section	.text.HAL_RNG_ReadyDataCallback,"ax",%progbits
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  791:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****   */
  792:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** __weak void HAL_RNG_ErrorCallback(RNG_HandleTypeDef *hrng)
  793:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** {
-ARM GAS  /tmp/ccK5PJTv.s 			page 26
+ARM GAS  /tmp/ccppX03r.s 			page 26
 
 
  574              		.loc 1 793 1 is_stmt 1 view -0
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  700:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     rngclockerror = 1U;
  617              		.loc 1 700 21 is_stmt 0 view .LVU165
  618 000e 0823     		movs	r3, #8
-ARM GAS  /tmp/ccK5PJTv.s 			page 27
+ARM GAS  /tmp/ccppX03r.s 			page 27
 
 
  619 0010 8360     		str	r3, [r0, #8]
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  657              		.loc 1 738 24 view .LVU181
  658 003a E160     		str	r1, [r4, #12]
  740:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c ****     {
-ARM GAS  /tmp/ccK5PJTv.s 			page 28
+ARM GAS  /tmp/ccppX03r.s 			page 28
 
 
  659              		.loc 1 740 5 is_stmt 1 view .LVU182
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  752:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** #endif /* USE_HAL_RNG_REGISTER_CALLBACKS */
  697              		.loc 1 752 7 view .LVU199
  698 005c 2046     		mov	r0, r4
-ARM GAS  /tmp/ccK5PJTv.s 			page 29
+ARM GAS  /tmp/ccppX03r.s 			page 29
 
 
  699 005e FFF7FEFF 		bl	HAL_RNG_ReadyDataCallback
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  725              	.LVL51:
  829:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c **** }
  726              		.loc 1 829 1 view .LVU204
-ARM GAS  /tmp/ccK5PJTv.s 			page 30
+ARM GAS  /tmp/ccppX03r.s 			page 30
 
 
  727 0002 7047     		bx	lr
@@ -1789,39 +1789,39 @@ ARM GAS  /tmp/ccK5PJTv.s 			page 1
  764              		.file 8 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  765              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h"
  766              		.file 10 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /tmp/ccK5PJTv.s 			page 31
+ARM GAS  /tmp/ccppX03r.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_rng.c
-     /tmp/ccK5PJTv.s:18     .text.HAL_RNG_MspInit:0000000000000000 $t
-     /tmp/ccK5PJTv.s:26     .text.HAL_RNG_MspInit:0000000000000000 HAL_RNG_MspInit
-     /tmp/ccK5PJTv.s:42     .text.HAL_RNG_Init:0000000000000000 $t
-     /tmp/ccK5PJTv.s:49     .text.HAL_RNG_Init:0000000000000000 HAL_RNG_Init
-     /tmp/ccK5PJTv.s:119    .text.HAL_RNG_MspDeInit:0000000000000000 $t
-     /tmp/ccK5PJTv.s:126    .text.HAL_RNG_MspDeInit:0000000000000000 HAL_RNG_MspDeInit
-     /tmp/ccK5PJTv.s:141    .text.HAL_RNG_DeInit:0000000000000000 $t
-     /tmp/ccK5PJTv.s:148    .text.HAL_RNG_DeInit:0000000000000000 HAL_RNG_DeInit
-     /tmp/ccK5PJTv.s:207    .text.HAL_RNG_GenerateRandomNumber:0000000000000000 $t
-     /tmp/ccK5PJTv.s:214    .text.HAL_RNG_GenerateRandomNumber:0000000000000000 HAL_RNG_GenerateRandomNumber
-     /tmp/ccK5PJTv.s:345    .text.HAL_RNG_GenerateRandomNumber_IT:0000000000000000 $t
-     /tmp/ccK5PJTv.s:352    .text.HAL_RNG_GenerateRandomNumber_IT:0000000000000000 HAL_RNG_GenerateRandomNumber_IT
-     /tmp/ccK5PJTv.s:420    .text.HAL_RNG_GetRandomNumber:0000000000000000 $t
-     /tmp/ccK5PJTv.s:427    .text.HAL_RNG_GetRandomNumber:0000000000000000 HAL_RNG_GetRandomNumber
-     /tmp/ccK5PJTv.s:463    .text.HAL_RNG_GetRandomNumber_IT:0000000000000000 $t
-     /tmp/ccK5PJTv.s:470    .text.HAL_RNG_GetRandomNumber_IT:0000000000000000 HAL_RNG_GetRandomNumber_IT
-     /tmp/ccK5PJTv.s:516    .text.HAL_RNG_ReadLastRandomNumber:0000000000000000 $t
-     /tmp/ccK5PJTv.s:523    .text.HAL_RNG_ReadLastRandomNumber:0000000000000000 HAL_RNG_ReadLastRandomNumber
-     /tmp/ccK5PJTv.s:541    .text.HAL_RNG_ReadyDataCallback:0000000000000000 $t
-     /tmp/ccK5PJTv.s:548    .text.HAL_RNG_ReadyDataCallback:0000000000000000 HAL_RNG_ReadyDataCallback
-     /tmp/ccK5PJTv.s:564    .text.HAL_RNG_ErrorCallback:0000000000000000 $t
-     /tmp/ccK5PJTv.s:571    .text.HAL_RNG_ErrorCallback:0000000000000000 HAL_RNG_ErrorCallback
-     /tmp/ccK5PJTv.s:586    .text.HAL_RNG_IRQHandler:0000000000000000 $t
-     /tmp/ccK5PJTv.s:593    .text.HAL_RNG_IRQHandler:0000000000000000 HAL_RNG_IRQHandler
-     /tmp/ccK5PJTv.s:707    .text.HAL_RNG_GetState:0000000000000000 $t
-     /tmp/ccK5PJTv.s:714    .text.HAL_RNG_GetState:0000000000000000 HAL_RNG_GetState
-     /tmp/ccK5PJTv.s:732    .text.HAL_RNG_GetError:0000000000000000 $t
-     /tmp/ccK5PJTv.s:739    .text.HAL_RNG_GetError:0000000000000000 HAL_RNG_GetError
+     /tmp/ccppX03r.s:18     .text.HAL_RNG_MspInit:0000000000000000 $t
+     /tmp/ccppX03r.s:26     .text.HAL_RNG_MspInit:0000000000000000 HAL_RNG_MspInit
+     /tmp/ccppX03r.s:42     .text.HAL_RNG_Init:0000000000000000 $t
+     /tmp/ccppX03r.s:49     .text.HAL_RNG_Init:0000000000000000 HAL_RNG_Init
+     /tmp/ccppX03r.s:119    .text.HAL_RNG_MspDeInit:0000000000000000 $t
+     /tmp/ccppX03r.s:126    .text.HAL_RNG_MspDeInit:0000000000000000 HAL_RNG_MspDeInit
+     /tmp/ccppX03r.s:141    .text.HAL_RNG_DeInit:0000000000000000 $t
+     /tmp/ccppX03r.s:148    .text.HAL_RNG_DeInit:0000000000000000 HAL_RNG_DeInit
+     /tmp/ccppX03r.s:207    .text.HAL_RNG_GenerateRandomNumber:0000000000000000 $t
+     /tmp/ccppX03r.s:214    .text.HAL_RNG_GenerateRandomNumber:0000000000000000 HAL_RNG_GenerateRandomNumber
+     /tmp/ccppX03r.s:345    .text.HAL_RNG_GenerateRandomNumber_IT:0000000000000000 $t
+     /tmp/ccppX03r.s:352    .text.HAL_RNG_GenerateRandomNumber_IT:0000000000000000 HAL_RNG_GenerateRandomNumber_IT
+     /tmp/ccppX03r.s:420    .text.HAL_RNG_GetRandomNumber:0000000000000000 $t
+     /tmp/ccppX03r.s:427    .text.HAL_RNG_GetRandomNumber:0000000000000000 HAL_RNG_GetRandomNumber
+     /tmp/ccppX03r.s:463    .text.HAL_RNG_GetRandomNumber_IT:0000000000000000 $t
+     /tmp/ccppX03r.s:470    .text.HAL_RNG_GetRandomNumber_IT:0000000000000000 HAL_RNG_GetRandomNumber_IT
+     /tmp/ccppX03r.s:516    .text.HAL_RNG_ReadLastRandomNumber:0000000000000000 $t
+     /tmp/ccppX03r.s:523    .text.HAL_RNG_ReadLastRandomNumber:0000000000000000 HAL_RNG_ReadLastRandomNumber
+     /tmp/ccppX03r.s:541    .text.HAL_RNG_ReadyDataCallback:0000000000000000 $t
+     /tmp/ccppX03r.s:548    .text.HAL_RNG_ReadyDataCallback:0000000000000000 HAL_RNG_ReadyDataCallback
+     /tmp/ccppX03r.s:564    .text.HAL_RNG_ErrorCallback:0000000000000000 $t
+     /tmp/ccppX03r.s:571    .text.HAL_RNG_ErrorCallback:0000000000000000 HAL_RNG_ErrorCallback
+     /tmp/ccppX03r.s:586    .text.HAL_RNG_IRQHandler:0000000000000000 $t
+     /tmp/ccppX03r.s:593    .text.HAL_RNG_IRQHandler:0000000000000000 HAL_RNG_IRQHandler
+     /tmp/ccppX03r.s:707    .text.HAL_RNG_GetState:0000000000000000 $t
+     /tmp/ccppX03r.s:714    .text.HAL_RNG_GetState:0000000000000000 HAL_RNG_GetState
+     /tmp/ccppX03r.s:732    .text.HAL_RNG_GetError:0000000000000000 $t
+     /tmp/ccppX03r.s:739    .text.HAL_RNG_GetError:0000000000000000 HAL_RNG_GetError
 
 UNDEFINED SYMBOLS
 HAL_GetTick

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfM201k.s 			page 1
+ARM GAS  /tmp/cc43uLkZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
   28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       (#) FLASH Memory Erase functions: 
   29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****            (++) Lock and Unlock the FLASH interface using HAL_FLASH_Unlock() and 
   30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****                 HAL_FLASH_Lock() functions
-ARM GAS  /tmp/ccfM201k.s 			page 2
+ARM GAS  /tmp/cc43uLkZ.s 			page 2
 
 
   31:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****            (++) Erase function: Erase sector, erase all sectors
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
   85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
   86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     
   87:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  /tmp/ccfM201k.s 			page 3
+ARM GAS  /tmp/cc43uLkZ.s 			page 3
 
 
   88:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /* Private variables ---------------------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  142:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****                 ##### Extended programming operation functions #####
  143:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****  ===============================================================================  
  144:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     [..]
-ARM GAS  /tmp/ccfM201k.s 			page 4
+ARM GAS  /tmp/cc43uLkZ.s 			page 4
 
 
  145:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     This subsection provides a set of functions allowing to manage the Extension FLASH 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       {
  200:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****         FLASH_Erase_Sector(index, (uint8_t) pEraseInit->VoltageRange);
  201:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
-ARM GAS  /tmp/ccfM201k.s 			page 5
+ARM GAS  /tmp/cc43uLkZ.s 			page 5
 
 
  202:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****         /* Wait for last operation to be completed */
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     pFlash.ProcedureOnGoing = FLASH_PROC_MASSERASE;
  257:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     pFlash.Bank = pEraseInit->Banks;
  258:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     FLASH_MassErase((uint8_t) pEraseInit->VoltageRange, pEraseInit->Banks);
-ARM GAS  /tmp/ccfM201k.s 			page 6
+ARM GAS  /tmp/cc43uLkZ.s 			page 6
 
 
  259:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  313:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   if((pOBInit->OptionType & OPTIONBYTE_RDP) == OPTIONBYTE_RDP)
  314:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
  315:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     status = FLASH_OB_RDP_LevelConfig(pOBInit->RDPLevel);
-ARM GAS  /tmp/ccfM201k.s 			page 7
+ARM GAS  /tmp/cc43uLkZ.s 			page 7
 
 
  316:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  370:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         contains the configuration information for the programming.
  371:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
  372:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status
-ARM GAS  /tmp/ccfM201k.s 			page 8
+ARM GAS  /tmp/cc43uLkZ.s 			page 8
 
 
  373:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  427:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
  428:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval None
  429:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
-ARM GAS  /tmp/ccfM201k.s 			page 9
+ARM GAS  /tmp/cc43uLkZ.s 			page 9
 
 
  430:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** void HAL_FLASHEx_AdvOBGetConfig(FLASH_AdvOBProgramInitTypeDef *pAdvOBInit)
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  484:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * 
  485:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status
  486:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
-ARM GAS  /tmp/ccfM201k.s 			page 10
+ARM GAS  /tmp/cc43uLkZ.s 			page 10
 
 
  487:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** HAL_StatusTypeDef HAL_FLASHEx_OB_DeSelectPCROP(void)
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  541:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
  542:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** static void FLASH_MassErase(uint8_t VoltageRange, uint32_t Banks)
  543:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
-ARM GAS  /tmp/ccfM201k.s 			page 11
+ARM GAS  /tmp/cc43uLkZ.s 			page 11
 
 
  544:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Check the parameters */
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  598:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   else if(VoltageRange == FLASH_VOLTAGE_RANGE_2)
  599:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
  600:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     tmp_psize = FLASH_PSIZE_HALF_WORD;
-ARM GAS  /tmp/ccfM201k.s 			page 12
+ARM GAS  /tmp/cc43uLkZ.s 			page 12
 
 
  601:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  655:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   status = FLASH_WaitForLastOperation((uint32_t)FLASH_TIMEOUT_VALUE);
  656:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  657:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   if(status == HAL_OK)
-ARM GAS  /tmp/ccfM201k.s 			page 13
+ARM GAS  /tmp/cc43uLkZ.s 			page 13
 
 
  658:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  712:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_BANK_2: Bank2 to be erased
  713:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_BANK_BOTH: Bank1 and Bank2 to be erased
  714:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *
-ARM GAS  /tmp/ccfM201k.s 			page 14
+ARM GAS  /tmp/cc43uLkZ.s 			page 14
 
 
  715:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status   
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  769:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *   
  770:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @note   This function can be used only for STM32F42xxx/43xxx devices.
  771:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *      
-ARM GAS  /tmp/ccfM201k.s 			page 15
+ARM GAS  /tmp/cc43uLkZ.s 			page 15
 
 
  772:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  BootConfig specifies the Dual Bank Boot Option byte.
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  826:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  827:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   if(status == HAL_OK)
  828:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
-ARM GAS  /tmp/ccfM201k.s 			page 16
+ARM GAS  /tmp/cc43uLkZ.s 			page 16
 
 
  829:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     if((Banks == FLASH_BANK_1) || (Banks == FLASH_BANK_BOTH))
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  883:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {  
  884:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
  885:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   
-ARM GAS  /tmp/ccfM201k.s 			page 17
+ARM GAS  /tmp/cc43uLkZ.s 			page 17
 
 
  886:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Check the parameters */
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  940:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_VOLTAGE_RANGE_2: when the device voltage range is 2.1V to 2.7V,
  941:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *                                  the operation will be done by half word (16-bit)
  942:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg FLASH_VOLTAGE_RANGE_3: when the device voltage range is 2.7V to 3.6V,
-ARM GAS  /tmp/ccfM201k.s 			page 18
+ARM GAS  /tmp/cc43uLkZ.s 			page 18
 
 
  943:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *                                  the operation will be done by word (32-bit)
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
   63              		.section	.text.FLASH_OB_BOR_LevelConfig,"ax",%progbits
   64              		.align	1
   65              		.syntax unified
-ARM GAS  /tmp/ccfM201k.s 			page 19
+ARM GAS  /tmp/cc43uLkZ.s 			page 19
 
 
   66              		.thumb
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1012:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   FLASH->CR |= FLASH_CR_STRT;
 1013:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
 1014:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
-ARM GAS  /tmp/ccfM201k.s 			page 20
+ARM GAS  /tmp/cc43uLkZ.s 			page 20
 
 
 1015:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1069:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
 1070:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
 1071:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   
-ARM GAS  /tmp/ccfM201k.s 			page 21
+ARM GAS  /tmp/cc43uLkZ.s 			page 21
 
 
 1072:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Check the parameters */
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1126:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg OB_PCROP_Sector_All                         
 1127:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval HAL Status  
 1128:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   */
-ARM GAS  /tmp/ccfM201k.s 			page 22
+ARM GAS  /tmp/cc43uLkZ.s 			page 22
 
 
 1129:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** static HAL_StatusTypeDef FLASH_OB_DisablePCROP(uint32_t Sector)
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1183:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *          This parameter can be one of the following values:
 1184:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg OB_IWDG_SW: Software IWDG selected
 1185:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *            @arg OB_IWDG_HW: Hardware IWDG selected
-ARM GAS  /tmp/ccfM201k.s 			page 23
+ARM GAS  /tmp/cc43uLkZ.s 			page 23
 
 
 1186:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @param  Stop Reset event when entering STOP mode.
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
   78              		.loc 1 1234 3 view .LVU11
 1235:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
 1236:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   /* Set the BOR Level */
-ARM GAS  /tmp/ccfM201k.s 			page 24
+ARM GAS  /tmp/cc43uLkZ.s 			page 24
 
 
 1237:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *(__IO uint8_t *)OPTCR_BYTE0_ADDRESS &= (~FLASH_OPTCR_BOR_LEV);
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  119 0000 024B     		ldr	r3, .L8
  120 0002 5869     		ldr	r0, [r3, #20]
 1253:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
-ARM GAS  /tmp/ccfM201k.s 			page 25
+ARM GAS  /tmp/cc43uLkZ.s 			page 25
 
 
  121              		.loc 1 1253 1 view .LVU22
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1265:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** /**
 1266:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @brief  Returns the FLASH Read Protection level.
 1267:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   * @retval FLASH ReadOut Protection Status:
-ARM GAS  /tmp/ccfM201k.s 			page 26
+ARM GAS  /tmp/cc43uLkZ.s 			page 26
 
 
 1268:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   *         This parameter can be one of the following values:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  198 0016 00BF     		.align	2
  199              	.L16:
  200 0018 153C0240 		.word	1073888277
-ARM GAS  /tmp/ccfM201k.s 			page 27
+ARM GAS  /tmp/cc43uLkZ.s 			page 27
 
 
  201              		.cfi_endproc
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  244              		@ args = 0, pretend = 0, frame = 0
  245              		@ frame_needed = 0, uses_anonymous_args = 0
 1033:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
-ARM GAS  /tmp/ccfM201k.s 			page 28
+ARM GAS  /tmp/cc43uLkZ.s 			page 28
 
 
  246              		.loc 1 1033 1 is_stmt 0 view .LVU43
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  288              		.align	1
  289              		.syntax unified
  290              		.thumb
-ARM GAS  /tmp/ccfM201k.s 			page 29
+ARM GAS  /tmp/cc43uLkZ.s 			page 29
 
 
  291              		.thumb_func
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  332 0018 1480     		strh	r4, [r2]	@ movhi
  333              	.L27:
 1084:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** }
-ARM GAS  /tmp/ccfM201k.s 			page 30
+ARM GAS  /tmp/cc43uLkZ.s 			page 30
 
 
  334              		.loc 1 1084 3 is_stmt 1 view .LVU71
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1174:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
  379              		.loc 1 1174 41 is_stmt 0 view .LVU83
  380 000e 014B     		ldr	r3, .L34
-ARM GAS  /tmp/ccfM201k.s 			page 31
+ARM GAS  /tmp/cc43uLkZ.s 			page 31
 
 
  381 0010 1C70     		strb	r4, [r3]
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1207:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   
  427              		.loc 1 1207 12 is_stmt 0 view .LVU94
  428 0008 4CF25030 		movw	r0, #50000
-ARM GAS  /tmp/ccfM201k.s 			page 32
+ARM GAS  /tmp/cc43uLkZ.s 			page 32
 
 
  429              	.LVL22:
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  473              	.LFB134:
  287:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_ERROR;
  474              		.loc 1 287 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccfM201k.s 			page 33
+ARM GAS  /tmp/cc43uLkZ.s 			page 33
 
 
  475              		.cfi_startproc
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  513 0020 C168     		ldr	r1, [r0, #12]
  514 0022 8068     		ldr	r0, [r0, #8]
  515              	.LVL27:
-ARM GAS  /tmp/ccfM201k.s 			page 34
+ARM GAS  /tmp/cc43uLkZ.s 			page 34
 
 
  308:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     }
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  555 0046 2368     		ldr	r3, [r4]
  327:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
  556              		.loc 1 327 5 view .LVU139
-ARM GAS  /tmp/ccfM201k.s 			page 35
+ARM GAS  /tmp/cc43uLkZ.s 			page 35
 
 
  557 0048 13F0080F 		tst	r3, #8
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  596 0072 207D     		ldrb	r0, [r4, #20]	@ zero_extendqisi2
  597              	.LVL39:
  329:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   }
-ARM GAS  /tmp/ccfM201k.s 			page 36
+ARM GAS  /tmp/cc43uLkZ.s 			page 36
 
 
  598              		.loc 1 329 14 view .LVU155
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  350:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  647              		.loc 1 350 3 is_stmt 1 view .LVU163
  350:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
-ARM GAS  /tmp/ccfM201k.s 			page 37
+ARM GAS  /tmp/cc43uLkZ.s 			page 37
 
 
  648              		.loc 1 350 34 is_stmt 0 view .LVU164
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  691              		@ frame_needed = 0, uses_anonymous_args = 0
  692              		@ link register save eliminated.
  983:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   uint32_t tmp_psize = 0U;
-ARM GAS  /tmp/ccfM201k.s 			page 38
+ARM GAS  /tmp/cc43uLkZ.s 			page 38
 
 
  693              		.loc 1 983 1 is_stmt 0 view .LVU178
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  732              		.loc 1 1009 3 is_stmt 1 view .LVU193
 1009:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   CLEAR_BIT(FLASH->CR, FLASH_CR_SNB);
  733              		.loc 1 1009 13 is_stmt 0 view .LVU194
-ARM GAS  /tmp/ccfM201k.s 			page 39
+ARM GAS  /tmp/cc43uLkZ.s 			page 39
 
 
  734 0024 1A69     		ldr	r2, [r3, #16]
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  780              		.syntax unified
  781              		.thumb
  782              		.thumb_func
-ARM GAS  /tmp/ccfM201k.s 			page 40
+ARM GAS  /tmp/cc43uLkZ.s 			page 40
 
 
  783              		.fpu fpv4-sp-d16
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  825              		.loc 1 253 16 is_stmt 0 discriminator 2 view .LVU216
  826 0026 0368     		ldr	r3, [r0]
  253:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   {
-ARM GAS  /tmp/ccfM201k.s 			page 41
+ARM GAS  /tmp/cc43uLkZ.s 			page 41
 
 
  827              		.loc 1 253 5 discriminator 2 view .LVU217
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  864              		.loc 1 256 5 is_stmt 1 view .LVU234
  256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****     pFlash.Bank = pEraseInit->Banks;
  865              		.loc 1 256 29 is_stmt 0 view .LVU235
-ARM GAS  /tmp/ccfM201k.s 			page 42
+ARM GAS  /tmp/cc43uLkZ.s 			page 42
 
 
  866 0048 064B     		ldr	r3, .L77
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
 1311:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** void FLASH_FlushCaches(void)
 1312:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** {
  909              		.loc 1 1312 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccfM201k.s 			page 43
+ARM GAS  /tmp/cc43uLkZ.s 			page 43
 
 
  910              		.cfi_startproc
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  948              		.loc 1 1328 5 is_stmt 1 view .LVU257
  949 0036 094B     		ldr	r3, .L82
  950 0038 1A68     		ldr	r2, [r3]
-ARM GAS  /tmp/ccfM201k.s 			page 44
+ARM GAS  /tmp/cc43uLkZ.s 			page 44
 
 
  951 003a 22F48062 		bic	r2, r2, #1024
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  999              		.cfi_offset 6, -12
  1000              		.cfi_offset 7, -8
  1001              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccfM201k.s 			page 45
+ARM GAS  /tmp/cc43uLkZ.s 			page 45
 
 
  164:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****   uint32_t index = 0U;
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  1039 002a 16D0     		beq	.L94
  195:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
  1040              		.loc 1 195 7 is_stmt 1 view .LVU283
-ARM GAS  /tmp/ccfM201k.s 			page 46
+ARM GAS  /tmp/cc43uLkZ.s 			page 46
 
 
  198:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c ****       {
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  1079              		.loc 1 198 98 discriminator 2 view .LVU299
  1080 0058 E9E7     		b	.L89
  1081              	.LVL72:
-ARM GAS  /tmp/ccfM201k.s 			page 47
+ARM GAS  /tmp/cc43uLkZ.s 			page 47
 
 
  1082              	.L94:
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  1122              		.loc 1 223 3 view .LVU313
  1123              	.LVL80:
  1124              	.L85:
-ARM GAS  /tmp/ccfM201k.s 			page 48
+ARM GAS  /tmp/cc43uLkZ.s 			page 48
 
 
  224:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c **** 
@@ -2849,58 +2849,58 @@ ARM GAS  /tmp/ccfM201k.s 			page 1
  1149              		.file 8 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  1150              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h"
  1151              		.file 10 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h"
-ARM GAS  /tmp/ccfM201k.s 			page 49
+ARM GAS  /tmp/cc43uLkZ.s 			page 49
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_flash_ex.c
-     /tmp/ccfM201k.s:18     .text.FLASH_MassErase:0000000000000000 $t
-     /tmp/ccfM201k.s:25     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
-     /tmp/ccfM201k.s:59     .text.FLASH_MassErase:0000000000000020 $d
-     /tmp/ccfM201k.s:64     .text.FLASH_OB_BOR_LevelConfig:0000000000000000 $t
-     /tmp/ccfM201k.s:70     .text.FLASH_OB_BOR_LevelConfig:0000000000000000 FLASH_OB_BOR_LevelConfig
-     /tmp/ccfM201k.s:99     .text.FLASH_OB_BOR_LevelConfig:0000000000000014 $d
-     /tmp/ccfM201k.s:104    .text.FLASH_OB_GetUser:0000000000000000 $t
-     /tmp/ccfM201k.s:110    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
-     /tmp/ccfM201k.s:127    .text.FLASH_OB_GetUser:000000000000000c $d
-     /tmp/ccfM201k.s:132    .text.FLASH_OB_GetWRP:0000000000000000 $t
-     /tmp/ccfM201k.s:138    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
-     /tmp/ccfM201k.s:155    .text.FLASH_OB_GetWRP:0000000000000008 $d
-     /tmp/ccfM201k.s:160    .text.FLASH_OB_GetRDP:0000000000000000 $t
-     /tmp/ccfM201k.s:166    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
-     /tmp/ccfM201k.s:200    .text.FLASH_OB_GetRDP:0000000000000018 $d
-     /tmp/ccfM201k.s:205    .text.FLASH_OB_GetBOR:0000000000000000 $t
-     /tmp/ccfM201k.s:211    .text.FLASH_OB_GetBOR:0000000000000000 FLASH_OB_GetBOR
-     /tmp/ccfM201k.s:228    .text.FLASH_OB_GetBOR:000000000000000c $d
-     /tmp/ccfM201k.s:233    .text.FLASH_OB_EnableWRP:0000000000000000 $t
-     /tmp/ccfM201k.s:239    .text.FLASH_OB_EnableWRP:0000000000000000 FLASH_OB_EnableWRP
-     /tmp/ccfM201k.s:283    .text.FLASH_OB_EnableWRP:000000000000001c $d
-     /tmp/ccfM201k.s:288    .text.FLASH_OB_DisableWRP:0000000000000000 $t
-     /tmp/ccfM201k.s:294    .text.FLASH_OB_DisableWRP:0000000000000000 FLASH_OB_DisableWRP
-     /tmp/ccfM201k.s:340    .text.FLASH_OB_DisableWRP:000000000000001c $d
-     /tmp/ccfM201k.s:345    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 $t
-     /tmp/ccfM201k.s:351    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 FLASH_OB_RDP_LevelConfig
-     /tmp/ccfM201k.s:389    .text.FLASH_OB_RDP_LevelConfig:0000000000000014 $d
-     /tmp/ccfM201k.s:394    .text.FLASH_OB_UserConfig:0000000000000000 $t
-     /tmp/ccfM201k.s:400    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
-     /tmp/ccfM201k.s:459    .text.FLASH_OB_UserConfig:0000000000000028 $d
-     /tmp/ccfM201k.s:464    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
-     /tmp/ccfM201k.s:471    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
-     /tmp/ccfM201k.s:617    .text.HAL_FLASHEx_OBProgram:0000000000000080 $d
-     /tmp/ccfM201k.s:622    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
-     /tmp/ccfM201k.s:629    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
-     /tmp/ccfM201k.s:678    .text.FLASH_Erase_Sector:0000000000000000 $t
-     /tmp/ccfM201k.s:685    .text.FLASH_Erase_Sector:0000000000000000 FLASH_Erase_Sector
-     /tmp/ccfM201k.s:773    .text.FLASH_Erase_Sector:0000000000000054 $d
-     /tmp/ccfM201k.s:778    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
-     /tmp/ccfM201k.s:785    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
-     /tmp/ccfM201k.s:894    .text.HAL_FLASHEx_Erase_IT:0000000000000064 $d
-     /tmp/ccfM201k.s:900    .text.FLASH_FlushCaches:0000000000000000 $t
-     /tmp/ccfM201k.s:907    .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
-     /tmp/ccfM201k.s:973    .text.FLASH_FlushCaches:000000000000005c $d
-     /tmp/ccfM201k.s:978    .text.HAL_FLASHEx_Erase:0000000000000000 $t
-     /tmp/ccfM201k.s:985    .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
-     /tmp/ccfM201k.s:1136   .text.HAL_FLASHEx_Erase:000000000000008c $d
+     /tmp/cc43uLkZ.s:18     .text.FLASH_MassErase:0000000000000000 $t
+     /tmp/cc43uLkZ.s:25     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
+     /tmp/cc43uLkZ.s:59     .text.FLASH_MassErase:0000000000000020 $d
+     /tmp/cc43uLkZ.s:64     .text.FLASH_OB_BOR_LevelConfig:0000000000000000 $t
+     /tmp/cc43uLkZ.s:70     .text.FLASH_OB_BOR_LevelConfig:0000000000000000 FLASH_OB_BOR_LevelConfig
+     /tmp/cc43uLkZ.s:99     .text.FLASH_OB_BOR_LevelConfig:0000000000000014 $d
+     /tmp/cc43uLkZ.s:104    .text.FLASH_OB_GetUser:0000000000000000 $t
+     /tmp/cc43uLkZ.s:110    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
+     /tmp/cc43uLkZ.s:127    .text.FLASH_OB_GetUser:000000000000000c $d
+     /tmp/cc43uLkZ.s:132    .text.FLASH_OB_GetWRP:0000000000000000 $t
+     /tmp/cc43uLkZ.s:138    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
+     /tmp/cc43uLkZ.s:155    .text.FLASH_OB_GetWRP:0000000000000008 $d
+     /tmp/cc43uLkZ.s:160    .text.FLASH_OB_GetRDP:0000000000000000 $t
+     /tmp/cc43uLkZ.s:166    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
+     /tmp/cc43uLkZ.s:200    .text.FLASH_OB_GetRDP:0000000000000018 $d
+     /tmp/cc43uLkZ.s:205    .text.FLASH_OB_GetBOR:0000000000000000 $t
+     /tmp/cc43uLkZ.s:211    .text.FLASH_OB_GetBOR:0000000000000000 FLASH_OB_GetBOR
+     /tmp/cc43uLkZ.s:228    .text.FLASH_OB_GetBOR:000000000000000c $d
+     /tmp/cc43uLkZ.s:233    .text.FLASH_OB_EnableWRP:0000000000000000 $t
+     /tmp/cc43uLkZ.s:239    .text.FLASH_OB_EnableWRP:0000000000000000 FLASH_OB_EnableWRP
+     /tmp/cc43uLkZ.s:283    .text.FLASH_OB_EnableWRP:000000000000001c $d
+     /tmp/cc43uLkZ.s:288    .text.FLASH_OB_DisableWRP:0000000000000000 $t
+     /tmp/cc43uLkZ.s:294    .text.FLASH_OB_DisableWRP:0000000000000000 FLASH_OB_DisableWRP
+     /tmp/cc43uLkZ.s:340    .text.FLASH_OB_DisableWRP:000000000000001c $d
+     /tmp/cc43uLkZ.s:345    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 $t
+     /tmp/cc43uLkZ.s:351    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 FLASH_OB_RDP_LevelConfig
+     /tmp/cc43uLkZ.s:389    .text.FLASH_OB_RDP_LevelConfig:0000000000000014 $d
+     /tmp/cc43uLkZ.s:394    .text.FLASH_OB_UserConfig:0000000000000000 $t
+     /tmp/cc43uLkZ.s:400    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
+     /tmp/cc43uLkZ.s:459    .text.FLASH_OB_UserConfig:0000000000000028 $d
+     /tmp/cc43uLkZ.s:464    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
+     /tmp/cc43uLkZ.s:471    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
+     /tmp/cc43uLkZ.s:617    .text.HAL_FLASHEx_OBProgram:0000000000000080 $d
+     /tmp/cc43uLkZ.s:622    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
+     /tmp/cc43uLkZ.s:629    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
+     /tmp/cc43uLkZ.s:678    .text.FLASH_Erase_Sector:0000000000000000 $t
+     /tmp/cc43uLkZ.s:685    .text.FLASH_Erase_Sector:0000000000000000 FLASH_Erase_Sector
+     /tmp/cc43uLkZ.s:773    .text.FLASH_Erase_Sector:0000000000000054 $d
+     /tmp/cc43uLkZ.s:778    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
+     /tmp/cc43uLkZ.s:785    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
+     /tmp/cc43uLkZ.s:894    .text.HAL_FLASHEx_Erase_IT:0000000000000064 $d
+     /tmp/cc43uLkZ.s:900    .text.FLASH_FlushCaches:0000000000000000 $t
+     /tmp/cc43uLkZ.s:907    .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
+     /tmp/cc43uLkZ.s:973    .text.FLASH_FlushCaches:000000000000005c $d
+     /tmp/cc43uLkZ.s:978    .text.HAL_FLASHEx_Erase:0000000000000000 $t
+     /tmp/cc43uLkZ.s:985    .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
+     /tmp/cc43uLkZ.s:1136   .text.HAL_FLASHEx_Erase:000000000000008c $d
 
 UNDEFINED SYMBOLS
 FLASH_WaitForLastOperation

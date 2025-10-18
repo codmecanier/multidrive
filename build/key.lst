@@ -1,0 +1,473 @@
+ARM GAS  /tmp/ccOE0xDj.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"key.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.KEY_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	KEY_Init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	KEY_Init:
+  27              	.LFB132:
+  28              		.file 1 "HARDWARE/KEY/key.c"
+   1:HARDWARE/KEY/key.c **** #include "key.h"
+   2:HARDWARE/KEY/key.c **** #include "delay.h"
+   3:HARDWARE/KEY/key.c **** //////////////////////////////////////////////////////////////////////////////////	 
+   4:HARDWARE/KEY/key.c **** //本程序只供学习使用，未经作者许可，不得用于其它任何用途
+   5:HARDWARE/KEY/key.c **** //ALIENTEK STM32F407开发板
+   6:HARDWARE/KEY/key.c **** //KEY驱动代码	   
+   7:HARDWARE/KEY/key.c **** //正点原子@ALIENTEK
+   8:HARDWARE/KEY/key.c **** //技术论坛:www.openedv.com
+   9:HARDWARE/KEY/key.c **** //创建日期:2017/4/6
+  10:HARDWARE/KEY/key.c **** //版本：V1.0
+  11:HARDWARE/KEY/key.c **** //版权所有，盗版必究。
+  12:HARDWARE/KEY/key.c **** //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
+  13:HARDWARE/KEY/key.c **** //All rights reserved									  
+  14:HARDWARE/KEY/key.c **** //////////////////////////////////////////////////////////////////////////////////
+  15:HARDWARE/KEY/key.c **** 
+  16:HARDWARE/KEY/key.c **** //按键初始化函数
+  17:HARDWARE/KEY/key.c **** void KEY_Init(void)
+  18:HARDWARE/KEY/key.c **** {
+  29              		.loc 1 18 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 32
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  40 0002 88B0     		sub	sp, sp, #32
+ARM GAS  /tmp/ccOE0xDj.s 			page 2
+
+
+  41              	.LCFI1:
+  42              		.cfi_def_cfa_offset 48
+  19:HARDWARE/KEY/key.c ****     GPIO_InitTypeDef GPIO_Initure;
+  43              		.loc 1 19 5 view .LVU1
+  20:HARDWARE/KEY/key.c ****     
+  21:HARDWARE/KEY/key.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();           //开启GPIOA时钟
+  44              		.loc 1 21 5 view .LVU2
+  45              	.LBB2:
+  46              		.loc 1 21 5 view .LVU3
+  47 0004 0024     		movs	r4, #0
+  48 0006 0194     		str	r4, [sp, #4]
+  49              		.loc 1 21 5 view .LVU4
+  50 0008 144B     		ldr	r3, .L3
+  51 000a 1A6B     		ldr	r2, [r3, #48]
+  52 000c 42F00102 		orr	r2, r2, #1
+  53 0010 1A63     		str	r2, [r3, #48]
+  54              		.loc 1 21 5 view .LVU5
+  55 0012 1A6B     		ldr	r2, [r3, #48]
+  56 0014 02F00102 		and	r2, r2, #1
+  57 0018 0192     		str	r2, [sp, #4]
+  58              		.loc 1 21 5 view .LVU6
+  59 001a 019A     		ldr	r2, [sp, #4]
+  60              	.LBE2:
+  61              		.loc 1 21 5 view .LVU7
+  22:HARDWARE/KEY/key.c ****     __HAL_RCC_GPIOE_CLK_ENABLE();           //开启GPIOE时钟
+  62              		.loc 1 22 5 view .LVU8
+  63              	.LBB3:
+  64              		.loc 1 22 5 view .LVU9
+  65 001c 0294     		str	r4, [sp, #8]
+  66              		.loc 1 22 5 view .LVU10
+  67 001e 1A6B     		ldr	r2, [r3, #48]
+  68 0020 42F01002 		orr	r2, r2, #16
+  69 0024 1A63     		str	r2, [r3, #48]
+  70              		.loc 1 22 5 view .LVU11
+  71 0026 1B6B     		ldr	r3, [r3, #48]
+  72 0028 03F01003 		and	r3, r3, #16
+  73 002c 0293     		str	r3, [sp, #8]
+  74              		.loc 1 22 5 view .LVU12
+  75 002e 029B     		ldr	r3, [sp, #8]
+  76              	.LBE3:
+  77              		.loc 1 22 5 view .LVU13
+  23:HARDWARE/KEY/key.c **** 
+  24:HARDWARE/KEY/key.c ****     
+  25:HARDWARE/KEY/key.c ****     GPIO_Initure.Pin=GPIO_PIN_0;            //PA0
+  78              		.loc 1 25 5 view .LVU14
+  79              		.loc 1 25 21 is_stmt 0 view .LVU15
+  80 0030 0126     		movs	r6, #1
+  81 0032 0396     		str	r6, [sp, #12]
+  26:HARDWARE/KEY/key.c ****     GPIO_Initure.Mode=GPIO_MODE_INPUT;      //输入
+  82              		.loc 1 26 5 is_stmt 1 view .LVU16
+  83              		.loc 1 26 22 is_stmt 0 view .LVU17
+  84 0034 0494     		str	r4, [sp, #16]
+  27:HARDWARE/KEY/key.c ****     GPIO_Initure.Pull=GPIO_PULLDOWN;        //下拉
+  85              		.loc 1 27 5 is_stmt 1 view .LVU18
+  86              		.loc 1 27 22 is_stmt 0 view .LVU19
+  87 0036 0223     		movs	r3, #2
+  88 0038 0593     		str	r3, [sp, #20]
+ARM GAS  /tmp/ccOE0xDj.s 			page 3
+
+
+  28:HARDWARE/KEY/key.c ****     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
+  89              		.loc 1 28 5 is_stmt 1 view .LVU20
+  90              		.loc 1 28 23 is_stmt 0 view .LVU21
+  91 003a 0325     		movs	r5, #3
+  92 003c 0695     		str	r5, [sp, #24]
+  29:HARDWARE/KEY/key.c ****     HAL_GPIO_Init(GPIOA,&GPIO_Initure);
+  93              		.loc 1 29 5 is_stmt 1 view .LVU22
+  94 003e 03A9     		add	r1, sp, #12
+  95 0040 0748     		ldr	r0, .L3+4
+  96 0042 FFF7FEFF 		bl	HAL_GPIO_Init
+  97              	.LVL0:
+  30:HARDWARE/KEY/key.c ****     
+  31:HARDWARE/KEY/key.c **** 	GPIO_Initure.Pin=GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4; //PE2,3,4
+  98              		.loc 1 31 2 view .LVU23
+  99              		.loc 1 31 18 is_stmt 0 view .LVU24
+ 100 0046 1C23     		movs	r3, #28
+ 101 0048 0393     		str	r3, [sp, #12]
+  32:HARDWARE/KEY/key.c ****     GPIO_Initure.Mode=GPIO_MODE_INPUT;      //输入
+ 102              		.loc 1 32 5 is_stmt 1 view .LVU25
+ 103              		.loc 1 32 22 is_stmt 0 view .LVU26
+ 104 004a 0494     		str	r4, [sp, #16]
+  33:HARDWARE/KEY/key.c ****     GPIO_Initure.Pull=GPIO_PULLUP;          //上拉
+ 105              		.loc 1 33 5 is_stmt 1 view .LVU27
+ 106              		.loc 1 33 22 is_stmt 0 view .LVU28
+ 107 004c 0596     		str	r6, [sp, #20]
+  34:HARDWARE/KEY/key.c ****     GPIO_Initure.Speed=GPIO_SPEED_HIGH;     //高速
+ 108              		.loc 1 34 5 is_stmt 1 view .LVU29
+ 109              		.loc 1 34 23 is_stmt 0 view .LVU30
+ 110 004e 0695     		str	r5, [sp, #24]
+  35:HARDWARE/KEY/key.c ****     HAL_GPIO_Init(GPIOE,&GPIO_Initure);
+ 111              		.loc 1 35 5 is_stmt 1 view .LVU31
+ 112 0050 03A9     		add	r1, sp, #12
+ 113 0052 0448     		ldr	r0, .L3+8
+ 114 0054 FFF7FEFF 		bl	HAL_GPIO_Init
+ 115              	.LVL1:
+  36:HARDWARE/KEY/key.c ****     
+  37:HARDWARE/KEY/key.c **** }
+ 116              		.loc 1 37 1 is_stmt 0 view .LVU32
+ 117 0058 08B0     		add	sp, sp, #32
+ 118              	.LCFI2:
+ 119              		.cfi_def_cfa_offset 16
+ 120              		@ sp needed
+ 121 005a 70BD     		pop	{r4, r5, r6, pc}
+ 122              	.L4:
+ 123              		.align	2
+ 124              	.L3:
+ 125 005c 00380240 		.word	1073887232
+ 126 0060 00000240 		.word	1073872896
+ 127 0064 00100240 		.word	1073876992
+ 128              		.cfi_endproc
+ 129              	.LFE132:
+ 131              		.section	.text.KEY_Scan,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	KEY_Scan
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ARM GAS  /tmp/ccOE0xDj.s 			page 4
+
+
+ 137              		.fpu fpv4-sp-d16
+ 139              	KEY_Scan:
+ 140              	.LVL2:
+ 141              	.LFB133:
+  38:HARDWARE/KEY/key.c **** 
+  39:HARDWARE/KEY/key.c **** //按键处理函数
+  40:HARDWARE/KEY/key.c **** //返回按键值
+  41:HARDWARE/KEY/key.c **** //mode:0,不支持连续按;1,支持连续按;
+  42:HARDWARE/KEY/key.c **** //0，没有任何按键按下
+  43:HARDWARE/KEY/key.c **** //1，WKUP按下 WK_UP
+  44:HARDWARE/KEY/key.c **** //注意此函数有响应优先级,KEY0>KEY1>KEY2>WK_UP!!
+  45:HARDWARE/KEY/key.c **** u8 KEY_Scan(u8 mode)
+  46:HARDWARE/KEY/key.c **** {
+ 142              		.loc 1 46 1 is_stmt 1 view -0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              		.loc 1 46 1 is_stmt 0 view .LVU34
+ 147 0000 08B5     		push	{r3, lr}
+ 148              	.LCFI3:
+ 149              		.cfi_def_cfa_offset 8
+ 150              		.cfi_offset 3, -8
+ 151              		.cfi_offset 14, -4
+  47:HARDWARE/KEY/key.c ****     static u8 key_up=1;     //按键松开标志
+ 152              		.loc 1 47 5 is_stmt 1 view .LVU35
+  48:HARDWARE/KEY/key.c ****     if(mode==1)key_up=1;    //支持连按
+ 153              		.loc 1 48 5 view .LVU36
+ 154              		.loc 1 48 7 is_stmt 0 view .LVU37
+ 155 0002 0128     		cmp	r0, #1
+ 156 0004 19D0     		beq	.L19
+ 157              	.L6:
+  49:HARDWARE/KEY/key.c ****     if(key_up&&(KEY0==0||KEY1==0||KEY2==0||WK_UP==1))
+ 158              		.loc 1 49 5 is_stmt 1 view .LVU38
+ 159              		.loc 1 49 8 is_stmt 0 view .LVU39
+ 160 0006 324B     		ldr	r3, .L25
+ 161 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 162              		.loc 1 49 7 view .LVU40
+ 163 000a 33B3     		cbz	r3, .L7
+ 164              		.loc 1 49 17 discriminator 1 view .LVU41
+ 165 000c 1021     		movs	r1, #16
+ 166 000e 3148     		ldr	r0, .L25+4
+ 167              	.LVL3:
+ 168              		.loc 1 49 17 discriminator 1 view .LVU42
+ 169 0010 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 170              	.LVL4:
+ 171              		.loc 1 49 14 discriminator 1 view .LVU43
+ 172 0014 20B1     		cbz	r0, .L8
+ 173              		.loc 1 49 26 discriminator 2 view .LVU44
+ 174 0016 0821     		movs	r1, #8
+ 175 0018 2E48     		ldr	r0, .L25+4
+ 176 001a FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 177              	.LVL5:
+ 178              		.loc 1 49 24 discriminator 2 view .LVU45
+ 179 001e 80B9     		cbnz	r0, .L20
+ 180              	.L8:
+  50:HARDWARE/KEY/key.c ****     {
+  51:HARDWARE/KEY/key.c ****         delay_ms(10);
+ARM GAS  /tmp/ccOE0xDj.s 			page 5
+
+
+ 181              		.loc 1 51 9 is_stmt 1 view .LVU46
+ 182 0020 0A20     		movs	r0, #10
+ 183 0022 FFF7FEFF 		bl	delay_ms
+ 184              	.LVL6:
+  52:HARDWARE/KEY/key.c ****         key_up=0;
+ 185              		.loc 1 52 9 view .LVU47
+ 186              		.loc 1 52 15 is_stmt 0 view .LVU48
+ 187 0026 2A4B     		ldr	r3, .L25
+ 188 0028 0022     		movs	r2, #0
+ 189 002a 1A70     		strb	r2, [r3]
+  53:HARDWARE/KEY/key.c ****         if(KEY0==0)       return KEY0_PRES;
+ 190              		.loc 1 53 9 is_stmt 1 view .LVU49
+ 191              		.loc 1 53 12 is_stmt 0 view .LVU50
+ 192 002c 1021     		movs	r1, #16
+ 193 002e 2948     		ldr	r0, .L25+4
+ 194 0030 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 195              	.LVL7:
+ 196              		.loc 1 53 11 view .LVU51
+ 197 0034 C8B9     		cbnz	r0, .L21
+ 198              		.loc 1 53 34 view .LVU52
+ 199 0036 0120     		movs	r0, #1
+ 200 0038 16E0     		b	.L9
+ 201              	.LVL8:
+ 202              	.L19:
+  48:HARDWARE/KEY/key.c ****     if(key_up&&(KEY0==0||KEY1==0||KEY2==0||WK_UP==1))
+ 203              		.loc 1 48 16 is_stmt 1 discriminator 1 view .LVU53
+  48:HARDWARE/KEY/key.c ****     if(key_up&&(KEY0==0||KEY1==0||KEY2==0||WK_UP==1))
+ 204              		.loc 1 48 22 is_stmt 0 discriminator 1 view .LVU54
+ 205 003a 254B     		ldr	r3, .L25
+ 206 003c 0122     		movs	r2, #1
+ 207 003e 1A70     		strb	r2, [r3]
+ 208 0040 E1E7     		b	.L6
+ 209              	.LVL9:
+ 210              	.L20:
+  49:HARDWARE/KEY/key.c ****     {
+ 211              		.loc 1 49 35 discriminator 3 view .LVU55
+ 212 0042 0421     		movs	r1, #4
+ 213 0044 2348     		ldr	r0, .L25+4
+ 214 0046 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 215              	.LVL10:
+  49:HARDWARE/KEY/key.c ****     {
+ 216              		.loc 1 49 33 discriminator 3 view .LVU56
+ 217 004a 0028     		cmp	r0, #0
+ 218 004c E8D0     		beq	.L8
+  49:HARDWARE/KEY/key.c ****     {
+ 219              		.loc 1 49 44 discriminator 4 view .LVU57
+ 220 004e 0121     		movs	r1, #1
+ 221 0050 2148     		ldr	r0, .L25+8
+ 222 0052 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 223              	.LVL11:
+  49:HARDWARE/KEY/key.c ****     {
+ 224              		.loc 1 49 42 discriminator 4 view .LVU58
+ 225 0056 0128     		cmp	r0, #1
+ 226 0058 E2D0     		beq	.L8
+ 227              	.L7:
+  54:HARDWARE/KEY/key.c ****         else if(KEY1==0)  return KEY1_PRES;
+  55:HARDWARE/KEY/key.c ****         else if(KEY2==0)  return KEY2_PRES;
+ARM GAS  /tmp/ccOE0xDj.s 			page 6
+
+
+  56:HARDWARE/KEY/key.c ****         else if(WK_UP==1) return WKUP_PRES;          
+  57:HARDWARE/KEY/key.c ****     }else if(KEY0==1&&KEY1==1&&KEY2==1&&WK_UP==0)key_up=1;
+ 228              		.loc 1 57 11 is_stmt 1 view .LVU59
+ 229              		.loc 1 57 14 is_stmt 0 view .LVU60
+ 230 005a 1021     		movs	r1, #16
+ 231 005c 1D48     		ldr	r0, .L25+4
+ 232 005e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 233              	.LVL12:
+ 234              		.loc 1 57 13 view .LVU61
+ 235 0062 0128     		cmp	r0, #1
+ 236 0064 13D0     		beq	.L22
+  58:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 237              		.loc 1 58 12 view .LVU62
+ 238 0066 0020     		movs	r0, #0
+ 239              	.L9:
+  59:HARDWARE/KEY/key.c **** }
+ 240              		.loc 1 59 1 view .LVU63
+ 241 0068 08BD     		pop	{r3, pc}
+ 242              	.L21:
+  54:HARDWARE/KEY/key.c ****         else if(KEY1==0)  return KEY1_PRES;
+ 243              		.loc 1 54 14 is_stmt 1 view .LVU64
+  54:HARDWARE/KEY/key.c ****         else if(KEY1==0)  return KEY1_PRES;
+ 244              		.loc 1 54 17 is_stmt 0 view .LVU65
+ 245 006a 0821     		movs	r1, #8
+ 246 006c 1948     		ldr	r0, .L25+4
+ 247 006e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 248              	.LVL13:
+  54:HARDWARE/KEY/key.c ****         else if(KEY1==0)  return KEY1_PRES;
+ 249              		.loc 1 54 16 view .LVU66
+ 250 0072 28B3     		cbz	r0, .L11
+  55:HARDWARE/KEY/key.c ****         else if(WK_UP==1) return WKUP_PRES;          
+ 251              		.loc 1 55 14 is_stmt 1 view .LVU67
+  55:HARDWARE/KEY/key.c ****         else if(WK_UP==1) return WKUP_PRES;          
+ 252              		.loc 1 55 17 is_stmt 0 view .LVU68
+ 253 0074 0421     		movs	r1, #4
+ 254 0076 1748     		ldr	r0, .L25+4
+ 255 0078 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 256              	.LVL14:
+  55:HARDWARE/KEY/key.c ****         else if(WK_UP==1) return WKUP_PRES;          
+ 257              		.loc 1 55 16 view .LVU69
+ 258 007c 10B3     		cbz	r0, .L12
+  56:HARDWARE/KEY/key.c ****     }else if(KEY0==1&&KEY1==1&&KEY2==1&&WK_UP==0)key_up=1;
+ 259              		.loc 1 56 14 is_stmt 1 view .LVU70
+  56:HARDWARE/KEY/key.c ****     }else if(KEY0==1&&KEY1==1&&KEY2==1&&WK_UP==0)key_up=1;
+ 260              		.loc 1 56 17 is_stmt 0 view .LVU71
+ 261 007e 0121     		movs	r1, #1
+ 262 0080 1548     		ldr	r0, .L25+8
+ 263 0082 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 264              	.LVL15:
+  56:HARDWARE/KEY/key.c ****     }else if(KEY0==1&&KEY1==1&&KEY2==1&&WK_UP==0)key_up=1;
+ 265              		.loc 1 56 16 view .LVU72
+ 266 0086 0128     		cmp	r0, #1
+ 267 0088 1ED0     		beq	.L13
+  58:HARDWARE/KEY/key.c **** }
+ 268              		.loc 1 58 12 view .LVU73
+ 269 008a 0020     		movs	r0, #0
+ 270 008c ECE7     		b	.L9
+ARM GAS  /tmp/ccOE0xDj.s 			page 7
+
+
+ 271              	.L22:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 272              		.loc 1 57 23 discriminator 1 view .LVU74
+ 273 008e 0821     		movs	r1, #8
+ 274 0090 1048     		ldr	r0, .L25+4
+ 275 0092 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 276              	.LVL16:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 277              		.loc 1 57 21 discriminator 1 view .LVU75
+ 278 0096 0128     		cmp	r0, #1
+ 279 0098 01D0     		beq	.L23
+  58:HARDWARE/KEY/key.c **** }
+ 280              		.loc 1 58 12 view .LVU76
+ 281 009a 0020     		movs	r0, #0
+ 282 009c E4E7     		b	.L9
+ 283              	.L23:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 284              		.loc 1 57 32 discriminator 2 view .LVU77
+ 285 009e 0421     		movs	r1, #4
+ 286 00a0 0C48     		ldr	r0, .L25+4
+ 287 00a2 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 288              	.LVL17:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 289              		.loc 1 57 30 discriminator 2 view .LVU78
+ 290 00a6 0128     		cmp	r0, #1
+ 291 00a8 01D0     		beq	.L24
+  58:HARDWARE/KEY/key.c **** }
+ 292              		.loc 1 58 12 view .LVU79
+ 293 00aa 0020     		movs	r0, #0
+ 294 00ac DCE7     		b	.L9
+ 295              	.L24:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 296              		.loc 1 57 41 discriminator 3 view .LVU80
+ 297 00ae 0121     		movs	r1, #1
+ 298 00b0 0948     		ldr	r0, .L25+8
+ 299 00b2 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 300              	.LVL18:
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 301              		.loc 1 57 39 discriminator 3 view .LVU81
+ 302 00b6 48B9     		cbnz	r0, .L17
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 303              		.loc 1 57 50 is_stmt 1 discriminator 4 view .LVU82
+  57:HARDWARE/KEY/key.c ****     return 0;   //无按键按下
+ 304              		.loc 1 57 56 is_stmt 0 discriminator 4 view .LVU83
+ 305 00b8 054B     		ldr	r3, .L25
+ 306 00ba 0122     		movs	r2, #1
+ 307 00bc 1A70     		strb	r2, [r3]
+ 308 00be D3E7     		b	.L9
+ 309              	.L11:
+  54:HARDWARE/KEY/key.c ****         else if(KEY2==0)  return KEY2_PRES;
+ 310              		.loc 1 54 34 view .LVU84
+ 311 00c0 0220     		movs	r0, #2
+ 312 00c2 D1E7     		b	.L9
+ 313              	.L12:
+  55:HARDWARE/KEY/key.c ****         else if(WK_UP==1) return WKUP_PRES;          
+ 314              		.loc 1 55 34 view .LVU85
+ 315 00c4 0320     		movs	r0, #3
+ARM GAS  /tmp/ccOE0xDj.s 			page 8
+
+
+ 316 00c6 CFE7     		b	.L9
+ 317              	.L13:
+  56:HARDWARE/KEY/key.c ****     }else if(KEY0==1&&KEY1==1&&KEY2==1&&WK_UP==0)key_up=1;
+ 318              		.loc 1 56 34 view .LVU86
+ 319 00c8 0420     		movs	r0, #4
+ 320 00ca CDE7     		b	.L9
+ 321              	.L17:
+  58:HARDWARE/KEY/key.c **** }
+ 322              		.loc 1 58 12 view .LVU87
+ 323 00cc 0020     		movs	r0, #0
+ 324 00ce CBE7     		b	.L9
+ 325              	.L26:
+ 326              		.align	2
+ 327              	.L25:
+ 328 00d0 00000000 		.word	.LANCHOR0
+ 329 00d4 00100240 		.word	1073876992
+ 330 00d8 00000240 		.word	1073872896
+ 331              		.cfi_endproc
+ 332              	.LFE133:
+ 334              		.section	.data.key_up.11010,"aw"
+ 335              		.set	.LANCHOR0,. + 0
+ 338              	key_up.11010:
+ 339 0000 01       		.byte	1
+ 340              		.text
+ 341              	.Letext0:
+ 342              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 343              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 344              		.file 4 "CORE/core_cm4.h"
+ 345              		.file 5 "./system_stm32f4xx.h"
+ 346              		.file 6 "./stm32f407xx.h"
+ 347              		.file 7 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 348              		.file 8 "SYSTEM/delay/delay.h"
+ 349              		.file 9 "SYSTEM/sys/sys.h"
+ARM GAS  /tmp/ccOE0xDj.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 key.c
+     /tmp/ccOE0xDj.s:18     .text.KEY_Init:0000000000000000 $t
+     /tmp/ccOE0xDj.s:26     .text.KEY_Init:0000000000000000 KEY_Init
+     /tmp/ccOE0xDj.s:125    .text.KEY_Init:000000000000005c $d
+     /tmp/ccOE0xDj.s:132    .text.KEY_Scan:0000000000000000 $t
+     /tmp/ccOE0xDj.s:139    .text.KEY_Scan:0000000000000000 KEY_Scan
+     /tmp/ccOE0xDj.s:328    .text.KEY_Scan:00000000000000d0 $d
+     /tmp/ccOE0xDj.s:338    .data.key_up.11010:0000000000000000 key_up.11010
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_ReadPin
+delay_ms

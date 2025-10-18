@@ -1,0 +1,486 @@
+ARM GAS  /tmp/ccGT8eH8.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sys.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Stm32_Clock_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	Stm32_Clock_Init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	Stm32_Clock_Init:
+  27              	.LVL0:
+  28              	.LFB132:
+  29              		.file 1 "SYSTEM/sys/sys.c"
+   1:SYSTEM/sys/sys.c **** #include "sys.h"
+   2:SYSTEM/sys/sys.c **** //////////////////////////////////////////////////////////////////////////////////	 
+   3:SYSTEM/sys/sys.c **** //本程序只供学习使用，未经作者许可，不得用于其它任何用途
+   4:SYSTEM/sys/sys.c **** //ALIENTEK STM32F407开发板
+   5:SYSTEM/sys/sys.c **** //系统时钟初始化	
+   6:SYSTEM/sys/sys.c **** //包括时钟设置/中断管理/GPIO设置等
+   7:SYSTEM/sys/sys.c **** //正点原子@ALIENTEK
+   8:SYSTEM/sys/sys.c **** //技术论坛:www.openedv.com
+   9:SYSTEM/sys/sys.c **** //创建日期:2017/4/6
+  10:SYSTEM/sys/sys.c **** //版本：V1.0
+  11:SYSTEM/sys/sys.c **** //版权所有，盗版必究。
+  12:SYSTEM/sys/sys.c **** //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
+  13:SYSTEM/sys/sys.c **** //All rights reserved
+  14:SYSTEM/sys/sys.c **** //********************************************************************************
+  15:SYSTEM/sys/sys.c **** //修改说明
+  16:SYSTEM/sys/sys.c **** //无
+  17:SYSTEM/sys/sys.c **** ////////////////////////////////////////////////////////////////////////////////// 
+  18:SYSTEM/sys/sys.c **** 
+  19:SYSTEM/sys/sys.c **** //时钟系统配置函数
+  20:SYSTEM/sys/sys.c **** //Fvco=Fs*(plln/pllm);
+  21:SYSTEM/sys/sys.c **** //SYSCLK=Fvco/pllp=Fs*(plln/(pllm*pllp));
+  22:SYSTEM/sys/sys.c **** //Fusb=Fvco/pllq=Fs*(plln/(pllm*pllq));
+  23:SYSTEM/sys/sys.c **** 
+  24:SYSTEM/sys/sys.c **** //Fvco:VCO频率
+  25:SYSTEM/sys/sys.c **** //SYSCLK:系统时钟频率
+  26:SYSTEM/sys/sys.c **** //Fusb:USB,SDIO,RNG等的时钟频率
+  27:SYSTEM/sys/sys.c **** //Fs:PLL输入时钟频率,可以是HSI,HSE等. 
+  28:SYSTEM/sys/sys.c **** //plln:主PLL倍频系数(PLL倍频),取值范围:64~432.
+  29:SYSTEM/sys/sys.c **** //pllm:主PLL和音频PLL分频系数(PLL之前的分频),取值范围:2~63.
+ARM GAS  /tmp/ccGT8eH8.s 			page 2
+
+
+  30:SYSTEM/sys/sys.c **** //pllp:系统时钟的主PLL分频系数(PLL之后的分频),取值范围:2,4,6,8.(仅限这4个值
+  31:SYSTEM/sys/sys.c **** //pllq:USB/SDIO/随机数产生器等的主PLL分频系数(PLL之后的分频),取值范围:2~15.
+  32:SYSTEM/sys/sys.c **** 
+  33:SYSTEM/sys/sys.c **** //外部晶振为8M的时候,推荐值:plln=336,pllm=8,pllp=2,pllq=7.
+  34:SYSTEM/sys/sys.c **** //得到:Fvco=8*(336/8)=336Mhz
+  35:SYSTEM/sys/sys.c **** //     SYSCLK=336/2=168Mhz
+  36:SYSTEM/sys/sys.c **** //     Fusb=336/7=48Mhz
+  37:SYSTEM/sys/sys.c **** //返回值:0,成功;1,失败
+  38:SYSTEM/sys/sys.c **** void Stm32_Clock_Init(u32 plln,u32 pllm,u32 pllp,u32 pllq)
+  39:SYSTEM/sys/sys.c **** {
+  30              		.loc 1 39 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 80
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 39 1 is_stmt 0 view .LVU1
+  35 0000 70B5     		push	{r4, r5, r6, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  42 0002 94B0     		sub	sp, sp, #80
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 96
+  40:SYSTEM/sys/sys.c ****     HAL_StatusTypeDef ret = HAL_OK;
+  45              		.loc 1 40 5 is_stmt 1 view .LVU2
+  46              	.LVL1:
+  41:SYSTEM/sys/sys.c ****     RCC_OscInitTypeDef RCC_OscInitStructure; 
+  47              		.loc 1 41 5 view .LVU3
+  42:SYSTEM/sys/sys.c ****     RCC_ClkInitTypeDef RCC_ClkInitStructure;
+  48              		.loc 1 42 5 view .LVU4
+  43:SYSTEM/sys/sys.c ****     
+  44:SYSTEM/sys/sys.c ****     __HAL_RCC_PWR_CLK_ENABLE(); //使能PWR时钟
+  49              		.loc 1 44 5 view .LVU5
+  50              	.LBB2:
+  51              		.loc 1 44 5 view .LVU6
+  52 0004 0026     		movs	r6, #0
+  53 0006 0196     		str	r6, [sp, #4]
+  54              		.loc 1 44 5 view .LVU7
+  55 0008 234C     		ldr	r4, .L9
+  56 000a 256C     		ldr	r5, [r4, #64]
+  57 000c 45F08055 		orr	r5, r5, #268435456
+  58 0010 2564     		str	r5, [r4, #64]
+  59              		.loc 1 44 5 view .LVU8
+  60 0012 246C     		ldr	r4, [r4, #64]
+  61 0014 04F08054 		and	r4, r4, #268435456
+  62 0018 0194     		str	r4, [sp, #4]
+  63              		.loc 1 44 5 view .LVU9
+  64 001a 019C     		ldr	r4, [sp, #4]
+  65              	.LBE2:
+  66              		.loc 1 44 5 view .LVU10
+  45:SYSTEM/sys/sys.c ****     
+  46:SYSTEM/sys/sys.c ****     //下面这个设置用来设置调压器输出电压级别，以便在器件未以最大频率
+  47:SYSTEM/sys/sys.c ****     //时使性能与功耗实现平衡。
+  48:SYSTEM/sys/sys.c ****     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);//设置调压器输出电压级�
+  67              		.loc 1 48 5 view .LVU11
+ARM GAS  /tmp/ccGT8eH8.s 			page 3
+
+
+  68              	.LBB3:
+  69              		.loc 1 48 5 view .LVU12
+  70 001c 0296     		str	r6, [sp, #8]
+  71              		.loc 1 48 5 view .LVU13
+  72 001e 1F4C     		ldr	r4, .L9+4
+  73 0020 2568     		ldr	r5, [r4]
+  74 0022 45F48045 		orr	r5, r5, #16384
+  75 0026 2560     		str	r5, [r4]
+  76              		.loc 1 48 5 view .LVU14
+  77 0028 2468     		ldr	r4, [r4]
+  78 002a 04F48044 		and	r4, r4, #16384
+  79 002e 0294     		str	r4, [sp, #8]
+  80              		.loc 1 48 5 view .LVU15
+  81 0030 029C     		ldr	r4, [sp, #8]
+  82              	.LBE3:
+  83              		.loc 1 48 5 view .LVU16
+  49:SYSTEM/sys/sys.c ****     
+  50:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.OscillatorType=RCC_OSCILLATORTYPE_HSE;    //时钟源为HSE
+  84              		.loc 1 50 5 view .LVU17
+  85              		.loc 1 50 40 is_stmt 0 view .LVU18
+  86 0032 0124     		movs	r4, #1
+  87 0034 0894     		str	r4, [sp, #32]
+  51:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.HSEState=RCC_HSE_ON;                      //打开HSE
+  88              		.loc 1 51 5 is_stmt 1 view .LVU19
+  89              		.loc 1 51 34 is_stmt 0 view .LVU20
+  90 0036 4FF48034 		mov	r4, #65536
+  91 003a 0994     		str	r4, [sp, #36]
+  52:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLState=RCC_PLL_ON;//打开PLL
+  92              		.loc 1 52 5 is_stmt 1 view .LVU21
+  93              		.loc 1 52 38 is_stmt 0 view .LVU22
+  94 003c 0224     		movs	r4, #2
+  95 003e 0E94     		str	r4, [sp, #56]
+  53:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLSource=RCC_PLLSOURCE_HSE;//PLL时钟源选择HSE
+  96              		.loc 1 53 5 is_stmt 1 view .LVU23
+  97              		.loc 1 53 39 is_stmt 0 view .LVU24
+  98 0040 4FF48004 		mov	r4, #4194304
+  99 0044 0F94     		str	r4, [sp, #60]
+  54:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLM=pllm; //主PLL和音频PLL分频系数(PLL之前的分频),取值
+ 100              		.loc 1 54 5 is_stmt 1 view .LVU25
+ 101              		.loc 1 54 34 is_stmt 0 view .LVU26
+ 102 0046 1091     		str	r1, [sp, #64]
+  55:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLN=plln; //主PLL倍频系数(PLL倍频),取值范围:64~432.  
+ 103              		.loc 1 55 5 is_stmt 1 view .LVU27
+ 104              		.loc 1 55 34 is_stmt 0 view .LVU28
+ 105 0048 1190     		str	r0, [sp, #68]
+  56:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLP=pllp; //系统时钟的主PLL分频系数(PLL之后的分频),取
+ 106              		.loc 1 56 5 is_stmt 1 view .LVU29
+ 107              		.loc 1 56 34 is_stmt 0 view .LVU30
+ 108 004a 1292     		str	r2, [sp, #72]
+  57:SYSTEM/sys/sys.c ****     RCC_OscInitStructure.PLL.PLLQ=pllq; //USB/SDIO/随机数产生器等的主PLL分频系数(PLL�
+ 109              		.loc 1 57 5 is_stmt 1 view .LVU31
+ 110              		.loc 1 57 34 is_stmt 0 view .LVU32
+ 111 004c 1393     		str	r3, [sp, #76]
+  58:SYSTEM/sys/sys.c ****     ret=HAL_RCC_OscConfig(&RCC_OscInitStructure);//初始化
+ 112              		.loc 1 58 5 is_stmt 1 view .LVU33
+ 113              		.loc 1 58 9 is_stmt 0 view .LVU34
+ 114 004e 08A8     		add	r0, sp, #32
+ARM GAS  /tmp/ccGT8eH8.s 			page 4
+
+
+ 115              	.LVL2:
+ 116              		.loc 1 58 9 view .LVU35
+ 117 0050 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 118              	.LVL3:
+  59:SYSTEM/sys/sys.c **** 	
+  60:SYSTEM/sys/sys.c ****     if(ret!=HAL_OK) while(1);
+ 119              		.loc 1 60 5 is_stmt 1 view .LVU36
+ 120              		.loc 1 60 7 is_stmt 0 view .LVU37
+ 121 0054 00B1     		cbz	r0, .L2
+ 122              	.L3:
+ 123              		.loc 1 60 21 is_stmt 1 discriminator 1 view .LVU38
+ 124              		.loc 1 60 29 discriminator 1 view .LVU39
+ 125              		.loc 1 60 26 discriminator 1 view .LVU40
+ 126 0056 FEE7     		b	.L3
+ 127              	.L2:
+  61:SYSTEM/sys/sys.c ****     
+  62:SYSTEM/sys/sys.c ****     //选中PLL作为系统时钟源并且配置HCLK,PCLK1和PCLK2
+  63:SYSTEM/sys/sys.c ****     RCC_ClkInitStructure.ClockType=(RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_PCLK1|RCC
+ 128              		.loc 1 63 5 view .LVU41
+ 129              		.loc 1 63 35 is_stmt 0 view .LVU42
+ 130 0058 0F23     		movs	r3, #15
+ 131 005a 0393     		str	r3, [sp, #12]
+  64:SYSTEM/sys/sys.c ****     RCC_ClkInitStructure.SYSCLKSource=RCC_SYSCLKSOURCE_PLLCLK;//设置系统时钟时钟源为PLL
+ 132              		.loc 1 64 5 is_stmt 1 view .LVU43
+ 133              		.loc 1 64 38 is_stmt 0 view .LVU44
+ 134 005c 0223     		movs	r3, #2
+ 135 005e 0493     		str	r3, [sp, #16]
+  65:SYSTEM/sys/sys.c ****     RCC_ClkInitStructure.AHBCLKDivider=RCC_SYSCLK_DIV1;//AHB分频系数为1
+ 136              		.loc 1 65 5 is_stmt 1 view .LVU45
+ 137              		.loc 1 65 39 is_stmt 0 view .LVU46
+ 138 0060 0023     		movs	r3, #0
+ 139 0062 0593     		str	r3, [sp, #20]
+  66:SYSTEM/sys/sys.c ****     RCC_ClkInitStructure.APB1CLKDivider=RCC_HCLK_DIV4; //APB1分频系数为4
+ 140              		.loc 1 66 5 is_stmt 1 view .LVU47
+ 141              		.loc 1 66 40 is_stmt 0 view .LVU48
+ 142 0064 4FF4A053 		mov	r3, #5120
+ 143 0068 0693     		str	r3, [sp, #24]
+  67:SYSTEM/sys/sys.c ****     RCC_ClkInitStructure.APB2CLKDivider=RCC_HCLK_DIV2; //APB2分频系数为2
+ 144              		.loc 1 67 5 is_stmt 1 view .LVU49
+ 145              		.loc 1 67 40 is_stmt 0 view .LVU50
+ 146 006a 4FF48053 		mov	r3, #4096
+ 147 006e 0793     		str	r3, [sp, #28]
+  68:SYSTEM/sys/sys.c ****     ret=HAL_RCC_ClockConfig(&RCC_ClkInitStructure,FLASH_LATENCY_5);//同时设置FLASH延时周期�
+ 148              		.loc 1 68 5 is_stmt 1 view .LVU51
+ 149              		.loc 1 68 9 is_stmt 0 view .LVU52
+ 150 0070 0521     		movs	r1, #5
+ 151 0072 03A8     		add	r0, sp, #12
+ 152              	.LVL4:
+ 153              		.loc 1 68 9 view .LVU53
+ 154 0074 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 155              	.LVL5:
+  69:SYSTEM/sys/sys.c **** 		
+  70:SYSTEM/sys/sys.c ****     if(ret!=HAL_OK) while(1);
+ 156              		.loc 1 70 5 is_stmt 1 view .LVU54
+ 157              		.loc 1 70 7 is_stmt 0 view .LVU55
+ 158 0078 00B1     		cbz	r0, .L4
+ 159              	.L5:
+ARM GAS  /tmp/ccGT8eH8.s 			page 5
+
+
+ 160              		.loc 1 70 21 is_stmt 1 discriminator 2 view .LVU56
+ 161              		.loc 1 70 29 discriminator 2 view .LVU57
+ 162              		.loc 1 70 26 discriminator 2 view .LVU58
+ 163 007a FEE7     		b	.L5
+ 164              	.L4:
+  71:SYSTEM/sys/sys.c **** 
+  72:SYSTEM/sys/sys.c **** 	 //STM32F405x/407x/415x/417x Z版本的器件支持预取功能
+  73:SYSTEM/sys/sys.c **** 	if (HAL_GetREVID() == 0x1001)
+ 165              		.loc 1 73 2 view .LVU59
+ 166              		.loc 1 73 6 is_stmt 0 view .LVU60
+ 167 007c FFF7FEFF 		bl	HAL_GetREVID
+ 168              	.LVL6:
+ 169              		.loc 1 73 5 view .LVU61
+ 170 0080 41F20103 		movw	r3, #4097
+ 171 0084 9842     		cmp	r0, r3
+ 172 0086 01D0     		beq	.L8
+ 173              	.L1:
+  74:SYSTEM/sys/sys.c **** 	{
+  75:SYSTEM/sys/sys.c **** 		__HAL_FLASH_PREFETCH_BUFFER_ENABLE();  //使能flash预取
+  76:SYSTEM/sys/sys.c **** 	}
+  77:SYSTEM/sys/sys.c **** }
+ 174              		.loc 1 77 1 view .LVU62
+ 175 0088 14B0     		add	sp, sp, #80
+ 176              	.LCFI2:
+ 177              		.cfi_remember_state
+ 178              		.cfi_def_cfa_offset 16
+ 179              		@ sp needed
+ 180 008a 70BD     		pop	{r4, r5, r6, pc}
+ 181              	.L8:
+ 182              	.LCFI3:
+ 183              		.cfi_restore_state
+  75:SYSTEM/sys/sys.c **** 	}
+ 184              		.loc 1 75 3 is_stmt 1 view .LVU63
+ 185 008c 044A     		ldr	r2, .L9+8
+ 186 008e 1368     		ldr	r3, [r2]
+ 187 0090 43F48073 		orr	r3, r3, #256
+ 188 0094 1360     		str	r3, [r2]
+ 189              		.loc 1 77 1 is_stmt 0 view .LVU64
+ 190 0096 F7E7     		b	.L1
+ 191              	.L10:
+ 192              		.align	2
+ 193              	.L9:
+ 194 0098 00380240 		.word	1073887232
+ 195 009c 00700040 		.word	1073770496
+ 196 00a0 003C0240 		.word	1073888256
+ 197              		.cfi_endproc
+ 198              	.LFE132:
+ 200              		.section	.text.WFI_SET,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	WFI_SET
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 206              		.fpu fpv4-sp-d16
+ 208              	WFI_SET:
+ 209              	.LFB133:
+  78:SYSTEM/sys/sys.c **** 
+ARM GAS  /tmp/ccGT8eH8.s 			page 6
+
+
+  79:SYSTEM/sys/sys.c **** #ifdef  USE_FULL_ASSERT
+  80:SYSTEM/sys/sys.c **** //当编译提示出错的时候此函数用来报告错误的文件和所在行
+  81:SYSTEM/sys/sys.c **** //file：指向源文件
+  82:SYSTEM/sys/sys.c **** //line：指向在文件中的行数
+  83:SYSTEM/sys/sys.c **** void assert_failed(uint8_t* file, uint32_t line)
+  84:SYSTEM/sys/sys.c **** { 
+  85:SYSTEM/sys/sys.c **** 	while (1)
+  86:SYSTEM/sys/sys.c **** 	{
+  87:SYSTEM/sys/sys.c **** 	}
+  88:SYSTEM/sys/sys.c **** }
+  89:SYSTEM/sys/sys.c **** #endif
+  90:SYSTEM/sys/sys.c **** 
+  91:SYSTEM/sys/sys.c **** // 等效于 WFI_SET() —— 执行 WFI 指令
+  92:SYSTEM/sys/sys.c **** __attribute__((naked)) void WFI_SET(void)
+  93:SYSTEM/sys/sys.c **** {
+ 210              		.loc 1 93 1 is_stmt 1 view -0
+ 211              		.cfi_startproc
+ 212              		@ Naked Function: prologue and epilogue provided by programmer.
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+  94:SYSTEM/sys/sys.c ****     __asm volatile(
+ 215              		.loc 1 94 5 view .LVU66
+ 216              		.syntax unified
+ 217              	@ 94 "SYSTEM/sys/sys.c" 1
+ 218 0000 30BF     		wfi
+ 219 0002 7047     		bx lr
+ 220              		
+ 221              	@ 0 "" 2
+  95:SYSTEM/sys/sys.c ****         "wfi\n\t"     // 等待中断指令
+  96:SYSTEM/sys/sys.c ****         "bx lr\n\t"   // 返回
+  97:SYSTEM/sys/sys.c ****     );
+  98:SYSTEM/sys/sys.c **** }
+ 222              		.loc 1 98 1 is_stmt 0 view .LVU67
+ 223              		.thumb
+ 224              		.syntax unified
+ 225              		.cfi_endproc
+ 226              	.LFE133:
+ 228              		.section	.text.INTX_DISABLE,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	INTX_DISABLE
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.fpu fpv4-sp-d16
+ 236              	INTX_DISABLE:
+ 237              	.LFB134:
+  99:SYSTEM/sys/sys.c **** 
+ 100:SYSTEM/sys/sys.c **** // 关闭所有中断 (不包括 Fault 和 NMI)
+ 101:SYSTEM/sys/sys.c **** __attribute__((naked)) void INTX_DISABLE(void)
+ 102:SYSTEM/sys/sys.c **** {
+ 238              		.loc 1 102 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ Naked Function: prologue and epilogue provided by programmer.
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103:SYSTEM/sys/sys.c ****     __asm volatile(
+ 243              		.loc 1 103 5 view .LVU69
+ARM GAS  /tmp/ccGT8eH8.s 			page 7
+
+
+ 244              		.syntax unified
+ 245              	@ 103 "SYSTEM/sys/sys.c" 1
+ 246 0000 72B6     		cpsid i
+ 247 0002 7047     		bx lr
+ 248              		
+ 249              	@ 0 "" 2
+ 104:SYSTEM/sys/sys.c ****         "cpsid i\n\t" // 关闭中断
+ 105:SYSTEM/sys/sys.c ****         "bx lr\n\t"
+ 106:SYSTEM/sys/sys.c ****     );
+ 107:SYSTEM/sys/sys.c **** }
+ 250              		.loc 1 107 1 is_stmt 0 view .LVU70
+ 251              		.thumb
+ 252              		.syntax unified
+ 253              		.cfi_endproc
+ 254              	.LFE134:
+ 256              		.section	.text.INTX_ENABLE,"ax",%progbits
+ 257              		.align	1
+ 258              		.global	INTX_ENABLE
+ 259              		.syntax unified
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.fpu fpv4-sp-d16
+ 264              	INTX_ENABLE:
+ 265              	.LFB135:
+ 108:SYSTEM/sys/sys.c **** 
+ 109:SYSTEM/sys/sys.c **** // 开启所有中断
+ 110:SYSTEM/sys/sys.c **** __attribute__((naked)) void INTX_ENABLE(void)
+ 111:SYSTEM/sys/sys.c **** {
+ 266              		.loc 1 111 1 is_stmt 1 view -0
+ 267              		.cfi_startproc
+ 268              		@ Naked Function: prologue and epilogue provided by programmer.
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112:SYSTEM/sys/sys.c ****     __asm volatile(
+ 271              		.loc 1 112 5 view .LVU72
+ 272              		.syntax unified
+ 273              	@ 112 "SYSTEM/sys/sys.c" 1
+ 274 0000 62B6     		cpsie i
+ 275 0002 7047     		bx lr
+ 276              		
+ 277              	@ 0 "" 2
+ 113:SYSTEM/sys/sys.c ****         "cpsie i\n\t" // 使能中断
+ 114:SYSTEM/sys/sys.c ****         "bx lr\n\t"
+ 115:SYSTEM/sys/sys.c ****     );
+ 116:SYSTEM/sys/sys.c **** }
+ 278              		.loc 1 116 1 is_stmt 0 view .LVU73
+ 279              		.thumb
+ 280              		.syntax unified
+ 281              		.cfi_endproc
+ 282              	.LFE135:
+ 284              		.section	.text.MSR_MSP,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	MSR_MSP
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 290              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccGT8eH8.s 			page 8
+
+
+ 292              	MSR_MSP:
+ 293              	.LVL7:
+ 294              	.LFB136:
+ 117:SYSTEM/sys/sys.c **** 
+ 118:SYSTEM/sys/sys.c **** // 设置主堆栈指针 MSP
+ 119:SYSTEM/sys/sys.c **** // 参数: addr → 要设置的堆栈顶地址
+ 120:SYSTEM/sys/sys.c **** __attribute__((naked)) void MSR_MSP(uint32_t addr)
+ 121:SYSTEM/sys/sys.c **** {
+ 295              		.loc 1 121 1 is_stmt 1 view -0
+ 296              		.cfi_startproc
+ 297              		@ Naked Function: prologue and epilogue provided by programmer.
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122:SYSTEM/sys/sys.c ****     __asm volatile(
+ 300              		.loc 1 122 5 view .LVU75
+ 301              		.syntax unified
+ 302              	@ 122 "SYSTEM/sys/sys.c" 1
+ 303 0000 80F30888 		msr msp, r0
+ 304 0004 7047     		bx lr
+ 305              		
+ 306              	@ 0 "" 2
+ 123:SYSTEM/sys/sys.c ****         "msr msp, r0\n\t" // 设置主栈指针
+ 124:SYSTEM/sys/sys.c ****         "bx lr\n\t"
+ 125:SYSTEM/sys/sys.c ****     );
+ 126:SYSTEM/sys/sys.c **** }
+ 307              		.loc 1 126 1 is_stmt 0 view .LVU76
+ 308              		.thumb
+ 309              		.syntax unified
+ 310              		.cfi_endproc
+ 311              	.LFE136:
+ 313              		.text
+ 314              	.Letext0:
+ 315              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+ 316              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+ 317              		.file 4 "CORE/core_cm4.h"
+ 318              		.file 5 "./system_stm32f4xx.h"
+ 319              		.file 6 "./stm32f407xx.h"
+ 320              		.file 7 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 321              		.file 8 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 322              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 323              		.file 10 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 324              		.file 11 "SYSTEM/sys/sys.h"
+ARM GAS  /tmp/ccGT8eH8.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sys.c
+     /tmp/ccGT8eH8.s:18     .text.Stm32_Clock_Init:0000000000000000 $t
+     /tmp/ccGT8eH8.s:26     .text.Stm32_Clock_Init:0000000000000000 Stm32_Clock_Init
+     /tmp/ccGT8eH8.s:194    .text.Stm32_Clock_Init:0000000000000098 $d
+     /tmp/ccGT8eH8.s:201    .text.WFI_SET:0000000000000000 $t
+     /tmp/ccGT8eH8.s:208    .text.WFI_SET:0000000000000000 WFI_SET
+     /tmp/ccGT8eH8.s:229    .text.INTX_DISABLE:0000000000000000 $t
+     /tmp/ccGT8eH8.s:236    .text.INTX_DISABLE:0000000000000000 INTX_DISABLE
+     /tmp/ccGT8eH8.s:257    .text.INTX_ENABLE:0000000000000000 $t
+     /tmp/ccGT8eH8.s:264    .text.INTX_ENABLE:0000000000000000 INTX_ENABLE
+     /tmp/ccGT8eH8.s:285    .text.MSR_MSP:0000000000000000 $t
+     /tmp/ccGT8eH8.s:292    .text.MSR_MSP:0000000000000000 MSR_MSP
+
+UNDEFINED SYMBOLS
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_GetREVID

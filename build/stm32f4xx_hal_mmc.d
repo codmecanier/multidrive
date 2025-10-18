@@ -1,6 +1,7 @@
 build/stm32f4xx_hal_mmc.o: \
  HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_mmc.c \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h stm32f4xx_hal_conf.h \
+ HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ USER/stm32f4xx_hal_conf.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h stm32f4xx.h \
  stm32f407xx.h CORE/core_cm4.h CORE/cmsis_version.h CORE/cmsis_compiler.h \
@@ -58,7 +59,7 @@ build/stm32f4xx_hal_mmc.o: \
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
-stm32f4xx_hal_conf.h:
+USER/stm32f4xx_hal_conf.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 

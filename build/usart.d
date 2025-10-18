@@ -1,9 +1,10 @@
-build/yaskawa.o: yaskawa.c yaskawa.h \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h stm32f4xx_hal_conf.h \
+build/usart.o: SYSTEM/usart/usart.c SYSTEM/usart/usart.h SYSTEM/sys/sys.h \
+ stm32f4xx.h stm32f407xx.h CORE/core_cm4.h CORE/cmsis_version.h \
+ CORE/cmsis_compiler.h CORE/cmsis_gcc.h CORE/mpu_armv7.h \
+ system_stm32f4xx.h HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ USER/stm32f4xx_hal_conf.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h stm32f4xx.h \
- stm32f407xx.h CORE/core_cm4.h CORE/cmsis_version.h CORE/cmsis_compiler.h \
- CORE/cmsis_gcc.h CORE/mpu_armv7.h system_stm32f4xx.h \
+ HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
@@ -53,17 +54,11 @@ build/yaskawa.o: yaskawa.c yaskawa.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
- HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h
+ HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h SYSTEM/delay/delay.h
 
-yaskawa.h:
+SYSTEM/usart/usart.h:
 
-HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
-
-stm32f4xx_hal_conf.h:
-
-HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
-
-HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
+SYSTEM/sys/sys.h:
 
 stm32f4xx.h:
 
@@ -80,6 +75,14 @@ CORE/cmsis_gcc.h:
 CORE/mpu_armv7.h:
 
 system_stm32f4xx.h:
+
+HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
+
+USER/stm32f4xx_hal_conf.h:
+
+HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
+
+HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 
@@ -180,3 +183,5 @@ HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h:
 
 HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h:
+
+SYSTEM/delay/delay.h:

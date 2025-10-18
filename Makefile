@@ -43,9 +43,12 @@ C_HAL_SOURCES := $(filter-out HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_time
 
 # C sources
 C_SOURCES =  \
-main.c \
-yaskawa.c \
-system_stm32f4xx.c \
+$(wildcard USER/*.c) \
+$(wildcard HARDWARE/KEY/*.c) \
+$(wildcard HARDWARE/LED/*.c) \
+$(wildcard SYSTEM/delay/*.c) \
+$(wildcard SYSTEM/sys/*.c) \
+$(wildcard SYSTEM/usart/*.c) \
 $(C_HAL_SOURCES)
 
 # ASM sources
@@ -105,6 +108,12 @@ C_INCLUDES =  \
 -I. \
 -IHALLIB/STM32F4xx_HAL_Driver/Inc \
 -ICORE \
+-IUSER \
+-IHARDWARE/KEY \
+-IHARDWARE/LED \
+-ISYSTEM/delay \
+-ISYSTEM/sys \
+-ISYSTEM/usart \
 
 
 # compile gcc flags

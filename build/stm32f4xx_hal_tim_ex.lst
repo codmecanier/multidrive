@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIYlE4x.s 			page 1
+ARM GAS  /tmp/ccbQ46nw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
   28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
   29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****             ##### How to use this driver #####
   30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   ==============================================================================
-ARM GAS  /tmp/ccIYlE4x.s 			page 2
+ARM GAS  /tmp/ccbQ46nw.s 			page 2
 
 
   31:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     [..]
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
   85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @brief TIM Extended HAL module driver
   86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @{
   87:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
-ARM GAS  /tmp/ccIYlE4x.s 			page 3
+ARM GAS  /tmp/ccbQ46nw.s 			page 3
 
 
   88:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  142:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   assert_param(IS_TIM_COUNTER_MODE(htim->Init.CounterMode));
  143:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   assert_param(IS_TIM_CLOCKDIVISION_DIV(htim->Init.ClockDivision));
  144:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   assert_param(IS_TIM_AUTORELOAD_PRELOAD(htim->Init.AutoReloadPreload));
-ARM GAS  /tmp/ccIYlE4x.s 			page 4
+ARM GAS  /tmp/ccbQ46nw.s 			page 4
 
 
  145:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   assert_param(IS_TIM_IC_POLARITY(sConfig->IC1Polarity));
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.OCNIdleState = TIM_OCNIDLESTATE_RESET;
  200:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.OCNPolarity = TIM_OCNPOLARITY_HIGH;
  201:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.OCPolarity = TIM_OCPOLARITY_HIGH;
-ARM GAS  /tmp/ccIYlE4x.s 			page 5
+ARM GAS  /tmp/ccbQ46nw.s 			page 5
 
 
  202:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.Pulse = sConfig->Commutation_Delay;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @retval None
  257:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
  258:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** __weak void HAL_TIMEx_HallSensor_MspInit(TIM_HandleTypeDef *htim)
-ARM GAS  /tmp/ccIYlE4x.s 			page 6
+ARM GAS  /tmp/ccbQ46nw.s 			page 6
 
 
  259:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  313:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @retval HAL status
  314:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
  315:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_HallSensor_Stop(TIM_HandleTypeDef *htim)
-ARM GAS  /tmp/ccIYlE4x.s 			page 7
+ARM GAS  /tmp/ccbQ46nw.s 			page 7
 
 
  316:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  370:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  371:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Disable the Input Capture channel 1
  372:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     (in the Hall Sensor Interface the three possible channels that can be used are TIM_CHANNEL_1, T
-ARM GAS  /tmp/ccIYlE4x.s 			page 8
+ARM GAS  /tmp/ccbQ46nw.s 			page 8
 
 
  373:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   TIM_CCxChannelCmd(htim->Instance, TIM_CHANNEL_1, TIM_CCx_DISABLE);
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  427:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  428:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Enable the DMA stream for Capture 1*/
  429:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   if (HAL_DMA_Start_IT(htim->hdma[TIM_DMA_ID_CC1], (uint32_t)&htim->Instance->CCR1, (uint32_t)pData
-ARM GAS  /tmp/ccIYlE4x.s 			page 9
+ARM GAS  /tmp/ccbQ46nw.s 			page 9
 
 
  430:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  484:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   [..]
  485:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     This section provides functions allowing to:
  486:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     (+) Start the Complementary Output Compare/PWM.
-ARM GAS  /tmp/ccIYlE4x.s 			page 10
+ARM GAS  /tmp/ccbQ46nw.s 			page 10
 
 
  487:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     (+) Stop the Complementary Output Compare/PWM.
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  541:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @retval HAL status
  542:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
  543:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_OCN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel)
-ARM GAS  /tmp/ccIYlE4x.s 			page 11
+ARM GAS  /tmp/ccbQ46nw.s 			page 11
 
 
  544:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  598:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       __HAL_TIM_ENABLE_IT(htim, TIM_IT_CC3);
  599:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
  600:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     }
-ARM GAS  /tmp/ccIYlE4x.s 			page 12
+ARM GAS  /tmp/ccbQ46nw.s 			page 12
 
 
  601:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  655:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       /* Disable the TIM Output Compare interrupt */
  656:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       __HAL_TIM_DISABLE_IT(htim, TIM_IT_CC2);
  657:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
-ARM GAS  /tmp/ccIYlE4x.s 			page 13
+ARM GAS  /tmp/ccbQ46nw.s 			page 13
 
 
  658:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     }
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  712:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
  713:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     return HAL_BUSY;
  714:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   }
-ARM GAS  /tmp/ccIYlE4x.s 			page 14
+ARM GAS  /tmp/ccbQ46nw.s 			page 14
 
 
  715:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   else if ((htim->State == HAL_TIM_STATE_READY))
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  769:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     }
  770:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  771:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     case TIM_CHANNEL_3:
-ARM GAS  /tmp/ccIYlE4x.s 			page 15
+ARM GAS  /tmp/ccbQ46nw.s 			page 15
 
 
  772:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     {
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  826:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  827:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   switch (Channel)
  828:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
-ARM GAS  /tmp/ccIYlE4x.s 			page 16
+ARM GAS  /tmp/ccbQ46nw.s 			page 16
 
 
  829:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     case TIM_CHANNEL_1:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  883:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   ==============================================================================
  884:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   [..]
  885:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     This section provides functions allowing to:
-ARM GAS  /tmp/ccIYlE4x.s 			page 17
+ARM GAS  /tmp/ccbQ46nw.s 			page 17
 
 
  886:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     (+) Start the Complementary PWM.
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  940:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  941:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** /**
  942:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @brief  Stops the PWM signal generation on the complementary output.
-ARM GAS  /tmp/ccIYlE4x.s 			page 18
+ARM GAS  /tmp/ccbQ46nw.s 			page 18
 
 
  943:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @param  htim TIM handle
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  997:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     {
  998:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       /* Enable the TIM Capture/Compare 2 interrupt */
  999:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       __HAL_TIM_ENABLE_IT(htim, TIM_IT_CC2);
-ARM GAS  /tmp/ccIYlE4x.s 			page 19
+ARM GAS  /tmp/ccbQ46nw.s 			page 19
 
 
 1000:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1054:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     case TIM_CHANNEL_1:
 1055:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     {
 1056:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       /* Disable the TIM Capture/Compare 1 interrupt */
-ARM GAS  /tmp/ccIYlE4x.s 			page 20
+ARM GAS  /tmp/ccbQ46nw.s 			page 20
 
 
 1057:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       __HAL_TIM_DISABLE_IT(htim, TIM_IT_CC1);
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1111:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
 1112:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pDa
 1113:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
-ARM GAS  /tmp/ccIYlE4x.s 			page 21
+ARM GAS  /tmp/ccbQ46nw.s 			page 21
 
 
 1114:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1168:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       /* Enable the DMA stream */
 1169:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       if (HAL_DMA_Start_IT(htim->hdma[TIM_DMA_ID_CC2], (uint32_t)pData, (uint32_t)&htim->Instance->
 1170:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       {
-ARM GAS  /tmp/ccIYlE4x.s 			page 22
+ARM GAS  /tmp/ccbQ46nw.s 			page 22
 
 
 1171:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****         return HAL_ERROR;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1225:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
 1226:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
 1227:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @retval HAL status
-ARM GAS  /tmp/ccIYlE4x.s 			page 23
+ARM GAS  /tmp/ccbQ46nw.s 			page 23
 
 
 1228:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1282:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
 1283:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
 1284:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** /** @defgroup TIMEx_Exported_Functions_Group4 Extended Timer Complementary One Pulse functions
-ARM GAS  /tmp/ccIYlE4x.s 			page 24
+ARM GAS  /tmp/ccbQ46nw.s 			page 24
 
 
 1285:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @brief    Timer Complementary One Pulse functions
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1339:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
 1340:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Check the parameters */
 1341:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, OutputChannel));
-ARM GAS  /tmp/ccIYlE4x.s 			page 25
+ARM GAS  /tmp/ccbQ46nw.s 			page 25
 
 
 1342:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1396:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
 1397:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel)
 1398:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
-ARM GAS  /tmp/ccIYlE4x.s 			page 26
+ARM GAS  /tmp/ccbQ46nw.s 			page 26
 
 
 1399:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Check the parameters */
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1453:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @param  htim TIM handle
 1454:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @param  InputTrigger the Internal trigger corresponding to the Timer Interfacing with the Hall 
 1455:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *          This parameter can be one of the following values:
-ARM GAS  /tmp/ccIYlE4x.s 			page 27
+ARM GAS  /tmp/ccbQ46nw.s 			page 27
 
 
 1456:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR0: Internal trigger 0 selected
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1510:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *          This parameter can be one of the following values:
 1511:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR0: Internal trigger 0 selected
 1512:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR1: Internal trigger 1 selected
-ARM GAS  /tmp/ccIYlE4x.s 			page 28
+ARM GAS  /tmp/ccbQ46nw.s 			page 28
 
 
 1513:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR2: Internal trigger 2 selected
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1567:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR0: Internal trigger 0 selected
 1568:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR1: Internal trigger 1 selected
 1569:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR2: Internal trigger 2 selected
-ARM GAS  /tmp/ccIYlE4x.s 			page 29
+ARM GAS  /tmp/ccbQ46nw.s 			page 29
 
 
 1570:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *            @arg TIM_TS_ITR3: Internal trigger 3 selected
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1624:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @retval HAL status
 1625:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
 1626:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
-ARM GAS  /tmp/ccIYlE4x.s 			page 30
+ARM GAS  /tmp/ccbQ46nw.s 			page 30
 
 
 1627:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****                                                         TIM_MasterConfigTypeDef *sMasterConfig)
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1681:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_ConfigBreakDeadTime(TIM_HandleTypeDef *htim,
 1682:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****                                                 TIM_BreakDeadTimeConfigTypeDef *sBreakDeadTimeConfi
 1683:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** {
-ARM GAS  /tmp/ccIYlE4x.s 			page 31
+ARM GAS  /tmp/ccbQ46nw.s 			page 31
 
 
 1684:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Keep this variable initialized to 0 as it is used to configure BDTR register */
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1738:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *           @arg TIM_TIM5_LSE:        TIM5 TI4 is connected to LSE
 1739:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *           @arg TIM_TIM5_RTC:        TIM5 TI4 is connected to the RTC wakeup interrupt
 1740:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *           @arg TIM_TIM5_TIM3_TRGO:  TIM5 ITR1 is connected to TIM3 TRGO          (*)
-ARM GAS  /tmp/ccIYlE4x.s 			page 32
+ARM GAS  /tmp/ccbQ46nw.s 			page 32
 
 
 1741:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   *           @arg TIM_TIM5_LPTIM:      TIM5 ITR1 is connected to LPTIM1 output      (*)
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1795:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** @verbatim
 1796:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   ==============================================================================
 1797:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****                     ##### Extended Callbacks functions #####
-ARM GAS  /tmp/ccIYlE4x.s 			page 33
+ARM GAS  /tmp/ccbQ46nw.s 			page 33
 
 
 1798:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   ==============================================================================
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1852:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   * @}
 1853:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   */
 1854:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 34
+ARM GAS  /tmp/ccbQ46nw.s 			page 34
 
 
 1855:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** /** @defgroup TIMEx_Exported_Functions_Group7 Extended Peripheral State functions
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1909:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** #endif /* USE_HAL_TIM_REGISTER_CALLBACKS */
 1910:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** }
 1911:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 35
+ARM GAS  /tmp/ccbQ46nw.s 			page 35
 
 
 1912:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** /**
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
   46 0008 03FA01F4 		lsl	r4, r3, r1
   47              	.LVL2:
 1949:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 36
+ARM GAS  /tmp/ccbQ46nw.s 			page 36
 
 
 1950:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Reset the CCxNE Bit */
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
   96              		.global	HAL_TIMEx_HallSensor_Init
   97              		.syntax unified
   98              		.thumb
-ARM GAS  /tmp/ccIYlE4x.s 			page 37
+ARM GAS  /tmp/ccbQ46nw.s 			page 37
 
 
   99              		.thumb_func
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  139 0012 4ED0     		beq	.L12
  140              	.LVL6:
  141              	.L6:
-ARM GAS  /tmp/ccIYlE4x.s 			page 38
+ARM GAS  /tmp/ccbQ46nw.s 			page 38
 
 
  171:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  181 004c 5360     		str	r3, [r2, #4]
  188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   htim->Instance->SMCR |= TIM_TS_TI1F_ED;
  182              		.loc 1 188 3 is_stmt 1 view .LVU47
-ARM GAS  /tmp/ccIYlE4x.s 			page 39
+ARM GAS  /tmp/ccbQ46nw.s 			page 39
 
 
  188:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   htim->Instance->SMCR |= TIM_TS_TI1F_ED;
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  220 007e 0193     		str	r3, [sp, #4]
  199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.OCNPolarity = TIM_OCNPOLARITY_HIGH;
  221              		.loc 1 199 3 is_stmt 1 view .LVU65
-ARM GAS  /tmp/ccIYlE4x.s 			page 40
+ARM GAS  /tmp/ccbQ46nw.s 			page 40
 
 
  199:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   OC_Config.OCNPolarity = TIM_OCNPOLARITY_HIGH;
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  258              		.loc 1 214 3 is_stmt 1 view .LVU83
  214:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** }
  259              		.loc 1 214 10 is_stmt 0 view .LVU84
-ARM GAS  /tmp/ccIYlE4x.s 			page 41
+ARM GAS  /tmp/ccbQ46nw.s 			page 41
 
 
  260 00ac 2846     		mov	r0, r5
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  308              		.cfi_startproc
  309              		@ args = 0, pretend = 0, frame = 0
  310              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccIYlE4x.s 			page 42
+ARM GAS  /tmp/ccbQ46nw.s 			page 42
 
 
  311              		@ link register save eliminated.
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  230:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  357              		.loc 1 230 3 discriminator 3 view .LVU103
  358 0020 1A68     		ldr	r2, [r3]
-ARM GAS  /tmp/ccIYlE4x.s 			page 43
+ARM GAS  /tmp/ccbQ46nw.s 			page 43
 
 
  359 0022 22F00102 		bic	r2, r2, #1
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  402              		.cfi_def_cfa_offset 8
  403              		.cfi_offset 4, -8
  404              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccIYlE4x.s 			page 44
+ARM GAS  /tmp/ccbQ46nw.s 			page 44
 
 
  405 0002 0446     		mov	r4, r0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  445              		.global	HAL_TIMEx_HallSensor_Stop
  446              		.syntax unified
  447              		.thumb
-ARM GAS  /tmp/ccIYlE4x.s 			page 45
+ARM GAS  /tmp/ccbQ46nw.s 			page 45
 
 
  448              		.thumb_func
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  492              		.loc 1 328 3 discriminator 5 view .LVU142
  329:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  493              		.loc 1 329 1 is_stmt 0 discriminator 5 view .LVU143
-ARM GAS  /tmp/ccIYlE4x.s 			page 46
+ARM GAS  /tmp/ccbQ46nw.s 			page 46
 
 
  494 002c 0020     		movs	r0, #0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  351:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
  540              		.loc 1 351 27 view .LVU154
  541 001a 9368     		ldr	r3, [r2, #8]
-ARM GAS  /tmp/ccIYlE4x.s 			page 47
+ARM GAS  /tmp/ccbQ46nw.s 			page 47
 
 
  351:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  373:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  587              		.loc 1 373 3 view .LVU166
  588 0004 0022     		movs	r2, #0
-ARM GAS  /tmp/ccIYlE4x.s 			page 48
+ARM GAS  /tmp/ccbQ46nw.s 			page 48
 
 
  589 0006 1146     		mov	r1, r2
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  635              	.LVL34:
  636              	.LFB140:
  393:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
-ARM GAS  /tmp/ccIYlE4x.s 			page 49
+ARM GAS  /tmp/ccbQ46nw.s 			page 49
 
 
  637              		.loc 1 393 1 is_stmt 1 view -0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  677 0020 84F83D30 		strb	r3, [r4, #61]
  678              	.L31:
  417:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Enable the Input Capture channel 1
-ARM GAS  /tmp/ccIYlE4x.s 			page 50
+ARM GAS  /tmp/ccbQ46nw.s 			page 50
 
 
  679              		.loc 1 417 3 is_stmt 1 view .LVU192
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  429:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
  718              		.loc 1 429 6 view .LVU208
  719 004e 90B9     		cbnz	r0, .L33
-ARM GAS  /tmp/ccIYlE4x.s 			page 51
+ARM GAS  /tmp/ccbQ46nw.s 			page 51
 
 
  434:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  762 0080 00000000 		.word	TIM_DMACaptureHalfCplt
  763 0084 00000000 		.word	TIM_DMAError
  764              		.cfi_endproc
-ARM GAS  /tmp/ccIYlE4x.s 			page 52
+ARM GAS  /tmp/ccbQ46nw.s 			page 52
 
 
  765              	.LFE140:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  811 0020 196A     		ldr	r1, [r3, #32]
  812 0022 41F21112 		movw	r2, #4369
  813 0026 1142     		tst	r1, r2
-ARM GAS  /tmp/ccIYlE4x.s 			page 53
+ARM GAS  /tmp/ccbQ46nw.s 			page 53
 
 
  814 0028 08D1     		bne	.L39
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  859 0004 0422     		movs	r2, #4
  860 0006 0068     		ldr	r0, [r0]
  861              	.LVL50:
-ARM GAS  /tmp/ccIYlE4x.s 			page 54
+ARM GAS  /tmp/ccbQ46nw.s 			page 54
 
 
  516:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  905              	HAL_TIMEx_OCN_Stop:
  906              	.LVL54:
  907              	.LFB143:
-ARM GAS  /tmp/ccIYlE4x.s 			page 55
+ARM GAS  /tmp/ccbQ46nw.s 			page 55
 
 
  544:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Check the parameters */
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  950 0032 1142     		tst	r1, r2
  951 0034 08D1     		bne	.L46
  555:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 56
+ARM GAS  /tmp/ccbQ46nw.s 			page 56
 
 
  952              		.loc 1 555 3 discriminator 1 view .LVU267
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  998 0008 0829     		cmp	r1, #8
  999 000a 26D0     		beq	.L50
  1000 000c C9B1     		cbz	r1, .L54
-ARM GAS  /tmp/ccIYlE4x.s 			page 57
+ARM GAS  /tmp/ccbQ46nw.s 			page 57
 
 
  1001              	.L51:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1041 0040 10BD     		pop	{r4, pc}
  1042              	.LVL62:
  1043              	.L54:
-ARM GAS  /tmp/ccIYlE4x.s 			page 58
+ARM GAS  /tmp/ccbQ46nw.s 			page 58
 
 
  584:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  640:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Check the parameters */
  1092              		.loc 1 640 3 is_stmt 1 view .LVU300
  642:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 59
+ARM GAS  /tmp/ccbQ46nw.s 			page 59
 
 
  1093              		.loc 1 642 3 view .LVU301
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1134              		.loc 1 682 3 is_stmt 1 discriminator 1 view .LVU314
  1135 0038 196A     		ldr	r1, [r3, #32]
  1136 003a 40F24442 		movw	r2, #1092
-ARM GAS  /tmp/ccIYlE4x.s 			page 60
+ARM GAS  /tmp/ccbQ46nw.s 			page 60
 
 
  1137 003e 1142     		tst	r1, r2
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1179 007a D368     		ldr	r3, [r2, #12]
  1180 007c 23F00403 		bic	r3, r3, #4
  1181 0080 D360     		str	r3, [r2, #12]
-ARM GAS  /tmp/ccIYlE4x.s 			page 61
+ARM GAS  /tmp/ccbQ46nw.s 			page 61
 
 
  657:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     }
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1227              		.loc 1 711 6 view .LVU337
  1228 000a 0228     		cmp	r0, #2
  1229 000c 20D0     		beq	.L65
-ARM GAS  /tmp/ccIYlE4x.s 			page 62
+ARM GAS  /tmp/ccbQ46nw.s 			page 62
 
 
  1230 000e 0D46     		mov	r5, r1
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1271              		.loc 1 802 6 is_stmt 0 view .LVU350
  1272 0042 062B     		cmp	r3, #6
  1273 0044 53D0     		beq	.L74
-ARM GAS  /tmp/ccIYlE4x.s 			page 63
+ARM GAS  /tmp/ccbQ46nw.s 			page 63
 
 
  804:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   }
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1313 006a 2348     		ldr	r0, .L79+4
  1314 006c 1064     		str	r0, [r2, #64]
  740:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 64
+ARM GAS  /tmp/ccbQ46nw.s 			page 64
 
 
  1315              		.loc 1 740 7 is_stmt 1 view .LVU366
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  759:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  1354              		.loc 1 759 17 is_stmt 0 view .LVU382
  1355 009a A26A     		ldr	r2, [r4, #40]
-ARM GAS  /tmp/ccIYlE4x.s 			page 65
+ARM GAS  /tmp/ccbQ46nw.s 			page 65
 
 
  759:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1394 00c6 0D48     		ldr	r0, .L79+8
  1395 00c8 D064     		str	r0, [r2, #76]
  781:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       {
-ARM GAS  /tmp/ccIYlE4x.s 			page 66
+ARM GAS  /tmp/ccbQ46nw.s 			page 66
 
 
  1396              		.loc 1 781 7 is_stmt 1 view .LVU399
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1442              		.syntax unified
  1443              		.thumb
  1444              		.thumb_func
-ARM GAS  /tmp/ccIYlE4x.s 			page 67
+ARM GAS  /tmp/ccbQ46nw.s 			page 67
 
 
  1445              		.fpu fpv4-sp-d16
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1491              		.loc 1 861 3 discriminator 3 view .LVU417
  1492 0030 5A6C     		ldr	r2, [r3, #68]
  1493 0032 22F40042 		bic	r2, r2, #32768
-ARM GAS  /tmp/ccIYlE4x.s 			page 68
+ARM GAS  /tmp/ccbQ46nw.s 			page 68
 
 
  1494 0036 5A64     		str	r2, [r3, #68]
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1534              		.loc 1 833 13 view .LVU431
  1535 006c FFF7FEFF 		bl	HAL_DMA_Abort_IT
  1536              	.LVL90:
-ARM GAS  /tmp/ccIYlE4x.s 			page 69
+ARM GAS  /tmp/ccbQ46nw.s 			page 69
 
 
  834:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     }
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1582              	HAL_TIMEx_PWMN_Start:
  1583              	.LVL97:
  1584              	.LFB148:
-ARM GAS  /tmp/ccIYlE4x.s 			page 70
+ARM GAS  /tmp/ccbQ46nw.s 			page 70
 
 
  918:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  934:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   }
  1625              		.loc 1 934 5 is_stmt 0 view .LVU457
  1626 0024 43F00103 		orr	r3, r3, #1
-ARM GAS  /tmp/ccIYlE4x.s 			page 71
+ARM GAS  /tmp/ccbQ46nw.s 			page 71
 
 
  1627 0028 1360     		str	r3, [r2]
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1673 0016 08D1     		bne	.L93
  960:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  1674              		.loc 1 960 3 discriminator 1 view .LVU468
-ARM GAS  /tmp/ccIYlE4x.s 			page 72
+ARM GAS  /tmp/ccbQ46nw.s 			page 72
 
 
  1675 0018 196A     		ldr	r1, [r3, #32]
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1721              	.LFB150:
  981:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
  1722              		.loc 1 981 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccIYlE4x.s 			page 73
+ARM GAS  /tmp/ccbQ46nw.s 			page 73
 
 
  1723              		.cfi_startproc
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1765 002e 03F00703 		and	r3, r3, #7
  1766              	.LVL108:
 1025:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
-ARM GAS  /tmp/ccIYlE4x.s 			page 74
+ARM GAS  /tmp/ccbQ46nw.s 			page 74
 
 
  1767              		.loc 1 1025 3 is_stmt 1 view .LVU492
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1811              		.align	1
  1812              		.global	HAL_TIMEx_PWMN_Stop_IT
  1813              		.syntax unified
-ARM GAS  /tmp/ccIYlE4x.s 			page 75
+ARM GAS  /tmp/ccbQ46nw.s 			page 75
 
 
  1814              		.thumb
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1857 001c 40F24442 		movw	r2, #1092
  1858 0020 1142     		tst	r1, r2
  1859 0022 03D1     		bne	.L107
-ARM GAS  /tmp/ccIYlE4x.s 			page 76
+ARM GAS  /tmp/ccbQ46nw.s 			page 76
 
 
 1086:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   }
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1902              		.loc 1 1093 3 discriminator 5 view .LVU527
 1096:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** }
  1903              		.loc 1 1096 3 discriminator 5 view .LVU528
-ARM GAS  /tmp/ccIYlE4x.s 			page 77
+ARM GAS  /tmp/ccbQ46nw.s 			page 77
 
 
 1097:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1951 0000 38B5     		push	{r3, r4, r5, lr}
  1952              	.LCFI24:
  1953              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccIYlE4x.s 			page 78
+ARM GAS  /tmp/ccbQ46nw.s 			page 78
 
 
  1954              		.cfi_offset 3, -16
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  1996              	.LVL122:
 1205:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  1997              		.loc 1 1205 3 view .LVU550
-ARM GAS  /tmp/ccIYlE4x.s 			page 79
+ARM GAS  /tmp/ccbQ46nw.s 			page 79
 
 
  1998 0030 2268     		ldr	r2, [r4]
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1125:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****     {
  2038              		.loc 1 1125 33 discriminator 1 view .LVU565
  2039 005c 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccIYlE4x.s 			page 80
+ARM GAS  /tmp/ccbQ46nw.s 			page 80
 
 
  2040 005e F9D0     		beq	.L115
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2079              	.LVL128:
  2080              	.L116:
 1162:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC2]->XferHalfCpltCallback = TIM_DMADelayPulseHalfCplt;
-ARM GAS  /tmp/ccIYlE4x.s 			page 81
+ARM GAS  /tmp/ccbQ46nw.s 			page 81
 
 
  2081              		.loc 1 1162 7 view .LVU581
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2119              		.loc 1 1181 17 is_stmt 0 view .LVU597
  2120 00b8 E26A     		ldr	r2, [r4, #44]
 1181:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC3]->XferHalfCpltCallback = TIM_DMADelayPulseHalfCplt;
-ARM GAS  /tmp/ccIYlE4x.s 			page 82
+ARM GAS  /tmp/ccbQ46nw.s 			page 82
 
 
  2121              		.loc 1 1181 52 view .LVU598
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2161              	.L121:
 1190:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       }
  2162              		.loc 1 1190 16 view .LVU613
-ARM GAS  /tmp/ccIYlE4x.s 			page 83
+ARM GAS  /tmp/ccbQ46nw.s 			page 83
 
 
  2163 00ea 0120     		movs	r0, #1
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2213              		.loc 1 1265 3 view .LVU619
  2214 0010 0022     		movs	r2, #0
  2215 0012 2946     		mov	r1, r5
-ARM GAS  /tmp/ccIYlE4x.s 			page 84
+ARM GAS  /tmp/ccbQ46nw.s 			page 84
 
 
  2216 0014 2068     		ldr	r0, [r4]
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2258 0058 84F83D30 		strb	r3, [r4, #61]
 1277:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** }
  2259              		.loc 1 1277 3 is_stmt 1 discriminator 5 view .LVU632
-ARM GAS  /tmp/ccIYlE4x.s 			page 85
+ARM GAS  /tmp/ccbQ46nw.s 			page 85
 
 
 1278:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
  2302              		.loc 1 1256 7 view .LVU645
 1256:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       break;
-ARM GAS  /tmp/ccIYlE4x.s 			page 86
+ARM GAS  /tmp/ccbQ46nw.s 			page 86
 
 
  2303              		.loc 1 1256 13 is_stmt 0 view .LVU646
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1325:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  2350              		.loc 1 1325 1 is_stmt 0 view .LVU656
  2351 0016 0020     		movs	r0, #0
-ARM GAS  /tmp/ccIYlE4x.s 			page 87
+ARM GAS  /tmp/ccbQ46nw.s 			page 87
 
 
  2352 0018 10BD     		pop	{r4, pc}
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1347:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  2399              		.loc 1 1347 3 discriminator 3 view .LVU666
  2400 0022 5A6C     		ldr	r2, [r3, #68]
-ARM GAS  /tmp/ccIYlE4x.s 			page 88
+ARM GAS  /tmp/ccbQ46nw.s 			page 88
 
 
  2401 0024 22F40042 		bic	r2, r2, #32768
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2446              		.loc 1 1367 1 is_stmt 0 view .LVU677
  2447 0000 10B5     		push	{r4, lr}
  2448              	.LCFI28:
-ARM GAS  /tmp/ccIYlE4x.s 			page 89
+ARM GAS  /tmp/ccbQ46nw.s 			page 89
 
 
  2449              		.cfi_def_cfa_offset 8
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2495              		.loc 1 1398 1 is_stmt 1 view -0
  2496              		.cfi_startproc
  2497              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccIYlE4x.s 			page 90
+ARM GAS  /tmp/ccbQ46nw.s 			page 90
 
 
  2498              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2541              		.loc 1 1412 3 discriminator 5 view .LVU698
 1415:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  2542              		.loc 1 1415 3 discriminator 5 view .LVU699
-ARM GAS  /tmp/ccIYlE4x.s 			page 91
+ARM GAS  /tmp/ccbQ46nw.s 			page 91
 
 
 1415:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2587              		.loc 1 1473 3 view .LVU711
  2588 0000 90F83C30 		ldrb	r3, [r0, #60]	@ zero_extendqisi2
  2589 0004 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccIYlE4x.s 			page 92
+ARM GAS  /tmp/ccbQ46nw.s 			page 92
 
 
  2590 0006 32D0     		beq	.L153
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2629              	.L152:
 1484:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Select the Commutation event source */
  2630              		.loc 1 1484 3 is_stmt 1 view .LVU727
-ARM GAS  /tmp/ccIYlE4x.s 			page 93
+ARM GAS  /tmp/ccbQ46nw.s 			page 93
 
 
 1484:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   /* Select the Commutation event source */
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2669              		.loc 1 1497 10 is_stmt 0 view .LVU743
  2670 0066 1846     		mov	r0, r3
  2671              	.LVL160:
-ARM GAS  /tmp/ccIYlE4x.s 			page 94
+ARM GAS  /tmp/ccbQ46nw.s 			page 94
 
 
 1498:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2718 000c 80F83C30 		strb	r3, [r0, #60]
 1528:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  2719              		.loc 1 1528 3 discriminator 2 view .LVU754
-ARM GAS  /tmp/ccIYlE4x.s 			page 95
+ARM GAS  /tmp/ccbQ46nw.s 			page 95
 
 
 1530:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****       (InputTrigger == TIM_TS_ITR2) || (InputTrigger == TIM_TS_ITR3))
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1541:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   htim->Instance->CR2 |= CommutationSource;
  2758              		.loc 1 1541 7 is_stmt 0 view .LVU771
  2759 003a 0168     		ldr	r1, [r0]
-ARM GAS  /tmp/ccIYlE4x.s 			page 96
+ARM GAS  /tmp/ccbQ46nw.s 			page 96
 
 
 1541:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   htim->Instance->CR2 |= CommutationSource;
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2800              		.loc 1 1528 3 view .LVU785
  2801 006e 0220     		movs	r0, #2
  2802              	.LVL168:
-ARM GAS  /tmp/ccIYlE4x.s 			page 97
+ARM GAS  /tmp/ccbQ46nw.s 			page 97
 
 
 1553:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2846              		.loc 1 1586 70 discriminator 2 view .LVU798
  2847 0016 2029     		cmp	r1, #32
  2848 0018 01D0     		beq	.L169
-ARM GAS  /tmp/ccIYlE4x.s 			page 98
+ARM GAS  /tmp/ccbQ46nw.s 			page 98
 
 
 1587:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   {
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1598:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  2887              		.loc 1 1598 23 view .LVU815
  2888 0046 4B68     		ldr	r3, [r1, #4]
-ARM GAS  /tmp/ccIYlE4x.s 			page 99
+ARM GAS  /tmp/ccbQ46nw.s 			page 99
 
 
  2889 0048 1A43     		orrs	r2, r2, r3
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1615:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** }
  2927              		.loc 1 1615 10 is_stmt 0 view .LVU832
  2928 0078 1846     		mov	r0, r3
-ARM GAS  /tmp/ccIYlE4x.s 			page 100
+ARM GAS  /tmp/ccbQ46nw.s 			page 100
 
 
  2929              	.LVL172:
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  2974              		.loc 1 1638 3 view .LVU843
  2975 0000 90F83C30 		ldrb	r3, [r0, #60]	@ zero_extendqisi2
  2976 0004 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccIYlE4x.s 			page 101
+ARM GAS  /tmp/ccbQ46nw.s 			page 101
 
 
  2977 0006 1CD0     		beq	.L180
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3014              		.loc 1 1655 11 is_stmt 0 discriminator 2 view .LVU860
  3015 0024 23F08005 		bic	r5, r3, #128
  3016              	.LVL180:
-ARM GAS  /tmp/ccIYlE4x.s 			page 102
+ARM GAS  /tmp/ccbQ46nw.s 			page 102
 
 
 1657:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3053              		.loc 1 1671 1 discriminator 2 view .LVU878
  3054 0040 7047     		bx	lr
  3055              	.LVL185:
-ARM GAS  /tmp/ccIYlE4x.s 			page 103
+ARM GAS  /tmp/ccbQ46nw.s 			page 103
 
 
  3056              	.L180:
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3097 000a 80F83C30 		strb	r3, [r0, #60]
 1698:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  3098              		.loc 1 1698 3 discriminator 2 view .LVU894
-ARM GAS  /tmp/ccIYlE4x.s 			page 104
+ARM GAS  /tmp/ccbQ46nw.s 			page 104
 
 
 1704:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   MODIFY_REG(tmpbdtr, TIM_BDTR_LOCK, sBreakDeadTimeConfig->LockLevel);
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3139              		.loc 1 1709 3 is_stmt 0 discriminator 2 view .LVU908
  3140 0034 4A69     		ldr	r2, [r1, #20]
  3141              	.LVL201:
-ARM GAS  /tmp/ccIYlE4x.s 			page 105
+ARM GAS  /tmp/ccbQ46nw.s 			page 105
 
 
 1709:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   MODIFY_REG(tmpbdtr, TIM_BDTR_AOE, sBreakDeadTimeConfig->AutomaticOutput);
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3180              		.cfi_endproc
  3181              	.LFE162:
  3183              		.section	.text.HAL_TIMEx_RemapConfig,"ax",%progbits
-ARM GAS  /tmp/ccIYlE4x.s 			page 106
+ARM GAS  /tmp/ccbQ46nw.s 			page 106
 
 
  3184              		.align	1
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3225              	.LVL214:
 1786:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  3226              		.loc 1 1786 1 view .LVU939
-ARM GAS  /tmp/ccIYlE4x.s 			page 107
+ARM GAS  /tmp/ccbQ46nw.s 			page 107
 
 
  3227 0018 7047     		bx	lr
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1903:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
  3278              		.loc 1 1903 3 is_stmt 1 view .LVU947
 1903:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccIYlE4x.s 			page 108
+ARM GAS  /tmp/ccbQ46nw.s 			page 108
 
 
  3279              		.loc 1 1903 15 is_stmt 0 view .LVU948
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3330              		.cfi_def_cfa_offset 8
  3331              		.cfi_offset 3, -8
  3332              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccIYlE4x.s 			page 109
+ARM GAS  /tmp/ccbQ46nw.s 			page 109
 
 
 1919:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c **** 
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
 1876:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c ****   return htim->State;
  3382              		.loc 1 1876 1 is_stmt 1 view -0
  3383              		.cfi_startproc
-ARM GAS  /tmp/ccIYlE4x.s 			page 110
+ARM GAS  /tmp/ccbQ46nw.s 			page 110
 
 
  3384              		@ args = 0, pretend = 0, frame = 0
@@ -6567,96 +6567,96 @@ ARM GAS  /tmp/ccIYlE4x.s 			page 1
  3405              		.file 9 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  3406              		.file 10 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
  3407              		.file 11 "HALLIB/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"
-ARM GAS  /tmp/ccIYlE4x.s 			page 111
+ARM GAS  /tmp/ccbQ46nw.s 			page 111
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_tim_ex.c
-     /tmp/ccIYlE4x.s:18     .text.TIM_CCxNChannelCmd:0000000000000000 $t
-     /tmp/ccIYlE4x.s:25     .text.TIM_CCxNChannelCmd:0000000000000000 TIM_CCxNChannelCmd
-     /tmp/ccIYlE4x.s:73     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 $t
-     /tmp/ccIYlE4x.s:80     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 HAL_TIMEx_HallSensor_MspInit
-     /tmp/ccIYlE4x.s:95     .text.HAL_TIMEx_HallSensor_Init:0000000000000000 $t
-     /tmp/ccIYlE4x.s:102    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 HAL_TIMEx_HallSensor_Init
-     /tmp/ccIYlE4x.s:297    .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 $t
-     /tmp/ccIYlE4x.s:304    .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 HAL_TIMEx_HallSensor_MspDeInit
-     /tmp/ccIYlE4x.s:319    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 $t
-     /tmp/ccIYlE4x.s:326    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 HAL_TIMEx_HallSensor_DeInit
-     /tmp/ccIYlE4x.s:385    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 $t
-     /tmp/ccIYlE4x.s:392    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 HAL_TIMEx_HallSensor_Start
-     /tmp/ccIYlE4x.s:444    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 $t
-     /tmp/ccIYlE4x.s:451    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 HAL_TIMEx_HallSensor_Stop
-     /tmp/ccIYlE4x.s:501    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:508    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 HAL_TIMEx_HallSensor_Start_IT
-     /tmp/ccIYlE4x.s:565    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:572    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 HAL_TIMEx_HallSensor_Stop_IT
-     /tmp/ccIYlE4x.s:627    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:634    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 HAL_TIMEx_HallSensor_Start_DMA
-     /tmp/ccIYlE4x.s:761    .text.HAL_TIMEx_HallSensor_Start_DMA:000000000000007c $d
-     /tmp/ccIYlE4x.s:768    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:775    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 HAL_TIMEx_HallSensor_Stop_DMA
-     /tmp/ccIYlE4x.s:835    .text.HAL_TIMEx_OCN_Start:0000000000000000 $t
-     /tmp/ccIYlE4x.s:842    .text.HAL_TIMEx_OCN_Start:0000000000000000 HAL_TIMEx_OCN_Start
-     /tmp/ccIYlE4x.s:898    .text.HAL_TIMEx_OCN_Stop:0000000000000000 $t
-     /tmp/ccIYlE4x.s:905    .text.HAL_TIMEx_OCN_Stop:0000000000000000 HAL_TIMEx_OCN_Stop
-     /tmp/ccIYlE4x.s:972    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:979    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 HAL_TIMEx_OCN_Start_IT
-     /tmp/ccIYlE4x.s:1071   .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1078   .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 HAL_TIMEx_OCN_Stop_IT
-     /tmp/ccIYlE4x.s:1196   .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1203   .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 HAL_TIMEx_OCN_Start_DMA
-     /tmp/ccIYlE4x.s:1433   .text.HAL_TIMEx_OCN_Start_DMA:00000000000000f4 $d
-     /tmp/ccIYlE4x.s:1440   .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1447   .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 HAL_TIMEx_OCN_Stop_DMA
-     /tmp/ccIYlE4x.s:1575   .text.HAL_TIMEx_PWMN_Start:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1582   .text.HAL_TIMEx_PWMN_Start:0000000000000000 HAL_TIMEx_PWMN_Start
-     /tmp/ccIYlE4x.s:1638   .text.HAL_TIMEx_PWMN_Stop:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1645   .text.HAL_TIMEx_PWMN_Stop:0000000000000000 HAL_TIMEx_PWMN_Stop
-     /tmp/ccIYlE4x.s:1712   .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1719   .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 HAL_TIMEx_PWMN_Start_IT
-     /tmp/ccIYlE4x.s:1811   .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1818   .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 HAL_TIMEx_PWMN_Stop_IT
-     /tmp/ccIYlE4x.s:1936   .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:1943   .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 HAL_TIMEx_PWMN_Start_DMA
-     /tmp/ccIYlE4x.s:2173   .text.HAL_TIMEx_PWMN_Start_DMA:00000000000000f4 $d
-     /tmp/ccIYlE4x.s:2180   .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2187   .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 HAL_TIMEx_PWMN_Stop_DMA
-     /tmp/ccIYlE4x.s:2315   .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2322   .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 HAL_TIMEx_OnePulseN_Start
-     /tmp/ccIYlE4x.s:2358   .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2365   .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 HAL_TIMEx_OnePulseN_Stop
-     /tmp/ccIYlE4x.s:2432   .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2439   .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 HAL_TIMEx_OnePulseN_Start_IT
-ARM GAS  /tmp/ccIYlE4x.s 			page 112
+     /tmp/ccbQ46nw.s:18     .text.TIM_CCxNChannelCmd:0000000000000000 $t
+     /tmp/ccbQ46nw.s:25     .text.TIM_CCxNChannelCmd:0000000000000000 TIM_CCxNChannelCmd
+     /tmp/ccbQ46nw.s:73     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 $t
+     /tmp/ccbQ46nw.s:80     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 HAL_TIMEx_HallSensor_MspInit
+     /tmp/ccbQ46nw.s:95     .text.HAL_TIMEx_HallSensor_Init:0000000000000000 $t
+     /tmp/ccbQ46nw.s:102    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 HAL_TIMEx_HallSensor_Init
+     /tmp/ccbQ46nw.s:297    .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 $t
+     /tmp/ccbQ46nw.s:304    .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 HAL_TIMEx_HallSensor_MspDeInit
+     /tmp/ccbQ46nw.s:319    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 $t
+     /tmp/ccbQ46nw.s:326    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 HAL_TIMEx_HallSensor_DeInit
+     /tmp/ccbQ46nw.s:385    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 $t
+     /tmp/ccbQ46nw.s:392    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 HAL_TIMEx_HallSensor_Start
+     /tmp/ccbQ46nw.s:444    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 $t
+     /tmp/ccbQ46nw.s:451    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 HAL_TIMEx_HallSensor_Stop
+     /tmp/ccbQ46nw.s:501    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:508    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 HAL_TIMEx_HallSensor_Start_IT
+     /tmp/ccbQ46nw.s:565    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:572    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 HAL_TIMEx_HallSensor_Stop_IT
+     /tmp/ccbQ46nw.s:627    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:634    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 HAL_TIMEx_HallSensor_Start_DMA
+     /tmp/ccbQ46nw.s:761    .text.HAL_TIMEx_HallSensor_Start_DMA:000000000000007c $d
+     /tmp/ccbQ46nw.s:768    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:775    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 HAL_TIMEx_HallSensor_Stop_DMA
+     /tmp/ccbQ46nw.s:835    .text.HAL_TIMEx_OCN_Start:0000000000000000 $t
+     /tmp/ccbQ46nw.s:842    .text.HAL_TIMEx_OCN_Start:0000000000000000 HAL_TIMEx_OCN_Start
+     /tmp/ccbQ46nw.s:898    .text.HAL_TIMEx_OCN_Stop:0000000000000000 $t
+     /tmp/ccbQ46nw.s:905    .text.HAL_TIMEx_OCN_Stop:0000000000000000 HAL_TIMEx_OCN_Stop
+     /tmp/ccbQ46nw.s:972    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:979    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 HAL_TIMEx_OCN_Start_IT
+     /tmp/ccbQ46nw.s:1071   .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1078   .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 HAL_TIMEx_OCN_Stop_IT
+     /tmp/ccbQ46nw.s:1196   .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1203   .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 HAL_TIMEx_OCN_Start_DMA
+     /tmp/ccbQ46nw.s:1433   .text.HAL_TIMEx_OCN_Start_DMA:00000000000000f4 $d
+     /tmp/ccbQ46nw.s:1440   .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1447   .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 HAL_TIMEx_OCN_Stop_DMA
+     /tmp/ccbQ46nw.s:1575   .text.HAL_TIMEx_PWMN_Start:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1582   .text.HAL_TIMEx_PWMN_Start:0000000000000000 HAL_TIMEx_PWMN_Start
+     /tmp/ccbQ46nw.s:1638   .text.HAL_TIMEx_PWMN_Stop:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1645   .text.HAL_TIMEx_PWMN_Stop:0000000000000000 HAL_TIMEx_PWMN_Stop
+     /tmp/ccbQ46nw.s:1712   .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1719   .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 HAL_TIMEx_PWMN_Start_IT
+     /tmp/ccbQ46nw.s:1811   .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1818   .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 HAL_TIMEx_PWMN_Stop_IT
+     /tmp/ccbQ46nw.s:1936   .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:1943   .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 HAL_TIMEx_PWMN_Start_DMA
+     /tmp/ccbQ46nw.s:2173   .text.HAL_TIMEx_PWMN_Start_DMA:00000000000000f4 $d
+     /tmp/ccbQ46nw.s:2180   .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2187   .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 HAL_TIMEx_PWMN_Stop_DMA
+     /tmp/ccbQ46nw.s:2315   .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2322   .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 HAL_TIMEx_OnePulseN_Start
+     /tmp/ccbQ46nw.s:2358   .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2365   .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 HAL_TIMEx_OnePulseN_Stop
+     /tmp/ccbQ46nw.s:2432   .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2439   .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 HAL_TIMEx_OnePulseN_Start_IT
+ARM GAS  /tmp/ccbQ46nw.s 			page 112
 
 
-     /tmp/ccIYlE4x.s:2485   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2492   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 HAL_TIMEx_OnePulseN_Stop_IT
-     /tmp/ccIYlE4x.s:2569   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2576   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 HAL_TIMEx_ConfigCommutEvent
-     /tmp/ccIYlE4x.s:2689   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2696   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 HAL_TIMEx_ConfigCommutEvent_IT
-     /tmp/ccIYlE4x.s:2809   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2816   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 HAL_TIMEx_ConfigCommutEvent_DMA
-     /tmp/ccIYlE4x.s:2946   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000084 $d
-     /tmp/ccIYlE4x.s:3261   .text.TIMEx_DMACommutationCplt:0000000000000000 TIMEx_DMACommutationCplt
-     /tmp/ccIYlE4x.s:3320   .text.TIMEx_DMACommutationHalfCplt:0000000000000000 TIMEx_DMACommutationHalfCplt
-     /tmp/ccIYlE4x.s:2953   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 $t
-     /tmp/ccIYlE4x.s:2960   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 HAL_TIMEx_MasterConfigSynchronization
-     /tmp/ccIYlE4x.s:3066   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3073   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 HAL_TIMEx_ConfigBreakDeadTime
-     /tmp/ccIYlE4x.s:3184   .text.HAL_TIMEx_RemapConfig:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3191   .text.HAL_TIMEx_RemapConfig:0000000000000000 HAL_TIMEx_RemapConfig
-     /tmp/ccIYlE4x.s:3232   .text.HAL_TIMEx_CommutCallback:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3239   .text.HAL_TIMEx_CommutCallback:0000000000000000 HAL_TIMEx_CommutCallback
-     /tmp/ccIYlE4x.s:3254   .text.TIMEx_DMACommutationCplt:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3291   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3298   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 HAL_TIMEx_CommutHalfCpltCallback
-     /tmp/ccIYlE4x.s:3313   .text.TIMEx_DMACommutationHalfCplt:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3350   .text.HAL_TIMEx_BreakCallback:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3357   .text.HAL_TIMEx_BreakCallback:0000000000000000 HAL_TIMEx_BreakCallback
-     /tmp/ccIYlE4x.s:3372   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 $t
-     /tmp/ccIYlE4x.s:3379   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 HAL_TIMEx_HallSensor_GetState
+     /tmp/ccbQ46nw.s:2485   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2492   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 HAL_TIMEx_OnePulseN_Stop_IT
+     /tmp/ccbQ46nw.s:2569   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2576   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 HAL_TIMEx_ConfigCommutEvent
+     /tmp/ccbQ46nw.s:2689   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2696   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 HAL_TIMEx_ConfigCommutEvent_IT
+     /tmp/ccbQ46nw.s:2809   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2816   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 HAL_TIMEx_ConfigCommutEvent_DMA
+     /tmp/ccbQ46nw.s:2946   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000084 $d
+     /tmp/ccbQ46nw.s:3261   .text.TIMEx_DMACommutationCplt:0000000000000000 TIMEx_DMACommutationCplt
+     /tmp/ccbQ46nw.s:3320   .text.TIMEx_DMACommutationHalfCplt:0000000000000000 TIMEx_DMACommutationHalfCplt
+     /tmp/ccbQ46nw.s:2953   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 $t
+     /tmp/ccbQ46nw.s:2960   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 HAL_TIMEx_MasterConfigSynchronization
+     /tmp/ccbQ46nw.s:3066   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3073   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 HAL_TIMEx_ConfigBreakDeadTime
+     /tmp/ccbQ46nw.s:3184   .text.HAL_TIMEx_RemapConfig:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3191   .text.HAL_TIMEx_RemapConfig:0000000000000000 HAL_TIMEx_RemapConfig
+     /tmp/ccbQ46nw.s:3232   .text.HAL_TIMEx_CommutCallback:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3239   .text.HAL_TIMEx_CommutCallback:0000000000000000 HAL_TIMEx_CommutCallback
+     /tmp/ccbQ46nw.s:3254   .text.TIMEx_DMACommutationCplt:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3291   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3298   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 HAL_TIMEx_CommutHalfCpltCallback
+     /tmp/ccbQ46nw.s:3313   .text.TIMEx_DMACommutationHalfCplt:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3350   .text.HAL_TIMEx_BreakCallback:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3357   .text.HAL_TIMEx_BreakCallback:0000000000000000 HAL_TIMEx_BreakCallback
+     /tmp/ccbQ46nw.s:3372   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 $t
+     /tmp/ccbQ46nw.s:3379   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 HAL_TIMEx_HallSensor_GetState
 
 UNDEFINED SYMBOLS
 TIM_Base_SetConfig

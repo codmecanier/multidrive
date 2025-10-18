@@ -1,85 +1,85 @@
 #include "sys.h"
 //////////////////////////////////////////////////////////////////////////////////	 
-//������ֻ��ѧϰʹ�ã�δ���������ɣ��������������κ���;
-//ALIENTEK STM32F407������
-//ϵͳʱ�ӳ�ʼ��	
-//����ʱ������/�жϹ���/GPIO���õ�
-//����ԭ��@ALIENTEK
-//������̳:www.openedv.com
-//��������:2017/4/6
-//�汾��V1.0
-//��Ȩ���У�����ؾ���
-//Copyright(C) �������������ӿƼ����޹�˾ 2014-2024
+//本程序只供学习使用，未经作者许可，不得用于其它任何用途
+//ALIENTEK STM32F407开发板
+//系统时钟初始化	
+//包括时钟设置/中断管理/GPIO设置等
+//正点原子@ALIENTEK
+//技术论坛:www.openedv.com
+//创建日期:2017/4/6
+//版本：V1.0
+//版权所有，盗版必究。
+//Copyright(C) 广州市星翼电子科技有限公司 2014-2024
 //All rights reserved
 //********************************************************************************
-//�޸�˵��
-//��
+//修改说明
+//无
 ////////////////////////////////////////////////////////////////////////////////// 
 
-//ʱ��ϵͳ���ú���
+//时钟系统配置函数
 //Fvco=Fs*(plln/pllm);
 //SYSCLK=Fvco/pllp=Fs*(plln/(pllm*pllp));
 //Fusb=Fvco/pllq=Fs*(plln/(pllm*pllq));
 
-//Fvco:VCOƵ��
-//SYSCLK:ϵͳʱ��Ƶ��
-//Fusb:USB,SDIO,RNG�ȵ�ʱ��Ƶ��
-//Fs:PLL����ʱ��Ƶ��,������HSI,HSE��. 
-//plln:��PLL��Ƶϵ��(PLL��Ƶ),ȡֵ��Χ:64~432.
-//pllm:��PLL����ƵPLL��Ƶϵ��(PLL֮ǰ�ķ�Ƶ),ȡֵ��Χ:2~63.
-//pllp:ϵͳʱ�ӵ���PLL��Ƶϵ��(PLL֮��ķ�Ƶ),ȡֵ��Χ:2,4,6,8.(������4��ֵ!)
-//pllq:USB/SDIO/������������ȵ���PLL��Ƶϵ��(PLL֮��ķ�Ƶ),ȡֵ��Χ:2~15.
+//Fvco:VCO频率
+//SYSCLK:系统时钟频率
+//Fusb:USB,SDIO,RNG等的时钟频率
+//Fs:PLL输入时钟频率,可以是HSI,HSE等. 
+//plln:主PLL倍频系数(PLL倍频),取值范围:64~432.
+//pllm:主PLL和音频PLL分频系数(PLL之前的分频),取值范围:2~63.
+//pllp:系统时钟的主PLL分频系数(PLL之后的分频),取值范围:2,4,6,8.(仅限这4个值!)
+//pllq:USB/SDIO/随机数产生器等的主PLL分频系数(PLL之后的分频),取值范围:2~15.
 
-//�ⲿ����Ϊ8M��ʱ��,�Ƽ�ֵ:plln=336,pllm=8,pllp=2,pllq=7.
-//�õ�:Fvco=8*(336/8)=336Mhz
+//外部晶振为8M的时候,推荐值:plln=336,pllm=8,pllp=2,pllq=7.
+//得到:Fvco=8*(336/8)=336Mhz
 //     SYSCLK=336/2=168Mhz
 //     Fusb=336/7=48Mhz
-//����ֵ:0,�ɹ�;1,ʧ��
+//返回值:0,成功;1,失败
 void Stm32_Clock_Init(u32 plln,u32 pllm,u32 pllp,u32 pllq)
 {
     HAL_StatusTypeDef ret = HAL_OK;
     RCC_OscInitTypeDef RCC_OscInitStructure; 
     RCC_ClkInitTypeDef RCC_ClkInitStructure;
     
-    __HAL_RCC_PWR_CLK_ENABLE(); //ʹ��PWRʱ��
+    __HAL_RCC_PWR_CLK_ENABLE(); //使能PWR时钟
     
-    //������������������õ�ѹ�������ѹ�����Ա�������δ�����Ƶ�ʹ���
-    //ʱʹ�����빦��ʵ��ƽ�⡣
-    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);//���õ�ѹ�������ѹ����1
+    //下面这个设置用来设置调压器输出电压级别，以便在器件未以最大频率工作
+    //时使性能与功耗实现平衡。
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);//设置调压器输出电压级别1
     
-    RCC_OscInitStructure.OscillatorType=RCC_OSCILLATORTYPE_HSE;    //ʱ��ԴΪHSE
-    RCC_OscInitStructure.HSEState=RCC_HSE_ON;                      //��HSE
-    RCC_OscInitStructure.PLL.PLLState=RCC_PLL_ON;//��PLL
-    RCC_OscInitStructure.PLL.PLLSource=RCC_PLLSOURCE_HSE;//PLLʱ��Դѡ��HSE
-    RCC_OscInitStructure.PLL.PLLM=pllm; //��PLL����ƵPLL��Ƶϵ��(PLL֮ǰ�ķ�Ƶ),ȡֵ��Χ:2~63.
-    RCC_OscInitStructure.PLL.PLLN=plln; //��PLL��Ƶϵ��(PLL��Ƶ),ȡֵ��Χ:64~432.  
-    RCC_OscInitStructure.PLL.PLLP=pllp; //ϵͳʱ�ӵ���PLL��Ƶϵ��(PLL֮��ķ�Ƶ),ȡֵ��Χ:2,4,6,8.(������4��ֵ!)
-    RCC_OscInitStructure.PLL.PLLQ=pllq; //USB/SDIO/������������ȵ���PLL��Ƶϵ��(PLL֮��ķ�Ƶ),ȡֵ��Χ:2~15.
-    ret=HAL_RCC_OscConfig(&RCC_OscInitStructure);//��ʼ��
+    RCC_OscInitStructure.OscillatorType=RCC_OSCILLATORTYPE_HSE;    //时钟源为HSE
+    RCC_OscInitStructure.HSEState=RCC_HSE_ON;                      //打开HSE
+    RCC_OscInitStructure.PLL.PLLState=RCC_PLL_ON;//打开PLL
+    RCC_OscInitStructure.PLL.PLLSource=RCC_PLLSOURCE_HSE;//PLL时钟源选择HSE
+    RCC_OscInitStructure.PLL.PLLM=pllm; //主PLL和音频PLL分频系数(PLL之前的分频),取值范围:2~63.
+    RCC_OscInitStructure.PLL.PLLN=plln; //主PLL倍频系数(PLL倍频),取值范围:64~432.  
+    RCC_OscInitStructure.PLL.PLLP=pllp; //系统时钟的主PLL分频系数(PLL之后的分频),取值范围:2,4,6,8.(仅限这4个值!)
+    RCC_OscInitStructure.PLL.PLLQ=pllq; //USB/SDIO/随机数产生器等的主PLL分频系数(PLL之后的分频),取值范围:2~15.
+    ret=HAL_RCC_OscConfig(&RCC_OscInitStructure);//初始化
 	
     if(ret!=HAL_OK) while(1);
     
-    //ѡ��PLL��Ϊϵͳʱ��Դ��������HCLK,PCLK1��PCLK2
+    //选中PLL作为系统时钟源并且配置HCLK,PCLK1和PCLK2
     RCC_ClkInitStructure.ClockType=(RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2);
-    RCC_ClkInitStructure.SYSCLKSource=RCC_SYSCLKSOURCE_PLLCLK;//����ϵͳʱ��ʱ��ԴΪPLL
-    RCC_ClkInitStructure.AHBCLKDivider=RCC_SYSCLK_DIV1;//AHB��Ƶϵ��Ϊ1
-    RCC_ClkInitStructure.APB1CLKDivider=RCC_HCLK_DIV4; //APB1��Ƶϵ��Ϊ4
-    RCC_ClkInitStructure.APB2CLKDivider=RCC_HCLK_DIV2; //APB2��Ƶϵ��Ϊ2
-    ret=HAL_RCC_ClockConfig(&RCC_ClkInitStructure,FLASH_LATENCY_5);//ͬʱ����FLASH��ʱ����Ϊ5WS��Ҳ����6��CPU���ڡ�
+    RCC_ClkInitStructure.SYSCLKSource=RCC_SYSCLKSOURCE_PLLCLK;//设置系统时钟时钟源为PLL
+    RCC_ClkInitStructure.AHBCLKDivider=RCC_SYSCLK_DIV1;//AHB分频系数为1
+    RCC_ClkInitStructure.APB1CLKDivider=RCC_HCLK_DIV4; //APB1分频系数为4
+    RCC_ClkInitStructure.APB2CLKDivider=RCC_HCLK_DIV2; //APB2分频系数为2
+    ret=HAL_RCC_ClockConfig(&RCC_ClkInitStructure,FLASH_LATENCY_5);//同时设置FLASH延时周期为5WS，也就是6个CPU周期。
 		
     if(ret!=HAL_OK) while(1);
 
-	 //STM32F405x/407x/415x/417x Z�汾������֧��Ԥȡ����
+	 //STM32F405x/407x/415x/417x Z版本的器件支持预取功能
 	if (HAL_GetREVID() == 0x1001)
 	{
-		__HAL_FLASH_PREFETCH_BUFFER_ENABLE();  //ʹ��flashԤȡ
+		__HAL_FLASH_PREFETCH_BUFFER_ENABLE();  //使能flash预取
 	}
 }
 
 #ifdef  USE_FULL_ASSERT
-//��������ʾ������ʱ��˺����������������ļ���������
-//file��ָ��Դ�ļ�
-//line��ָ�����ļ��е�����
+//当编译提示出错的时候此函数用来报告错误的文件和所在行
+//file：指向源文件
+//line：指向在文件中的行数
 void assert_failed(uint8_t* file, uint32_t line)
 { 
 	while (1)
@@ -88,28 +88,39 @@ void assert_failed(uint8_t* file, uint32_t line)
 }
 #endif
 
-//THUMBָ�֧�ֻ������
-//�������·���ʵ��ִ�л��ָ��WFI  
-__asm void WFI_SET(void)
+// 等效于 WFI_SET() —— 执行 WFI 指令
+__attribute__((naked)) void WFI_SET(void)
 {
-	WFI;		  
+    __asm volatile(
+        "wfi\n\t"     // 等待中断指令
+        "bx lr\n\t"   // 返回
+    );
 }
-//�ر������ж�(���ǲ�����fault��NMI�ж�)
-__asm void INTX_DISABLE(void)
+
+// 关闭所有中断 (不包括 Fault 和 NMI)
+__attribute__((naked)) void INTX_DISABLE(void)
 {
-	CPSID   I
-	BX      LR	  
+    __asm volatile(
+        "cpsid i\n\t" // 关闭中断
+        "bx lr\n\t"
+    );
 }
-//���������ж�
-__asm void INTX_ENABLE(void)
+
+// 开启所有中断
+__attribute__((naked)) void INTX_ENABLE(void)
 {
-	CPSIE   I
-	BX      LR  
+    __asm volatile(
+        "cpsie i\n\t" // 使能中断
+        "bx lr\n\t"
+    );
 }
-//����ջ����ַ
-//addr:ջ����ַ
-__asm void MSR_MSP(u32 addr) 
+
+// 设置主堆栈指针 MSP
+// 参数: addr → 要设置的堆栈顶地址
+__attribute__((naked)) void MSR_MSP(uint32_t addr)
 {
-	MSR MSP, r0 			//set Main Stack value
-	BX r14
+    __asm volatile(
+        "msr msp, r0\n\t" // 设置主栈指针
+        "bx lr\n\t"
+    );
 }

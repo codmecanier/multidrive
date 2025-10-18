@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccyjJ10T.s 			page 1
+ARM GAS  /tmp/ccP6azUg.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,7 +19,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   16              		.cfi_sections	.debug_frame
   17              		.section	.text.HAL_MspInit,"ax",%progbits
   18              		.align	1
-  19              		.global	HAL_MspInit
+  19              		.weak	HAL_MspInit
   20              		.arch armv7e-m
   21              		.syntax unified
   22              		.thumb
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   28:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
   29:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @defgroup HAL_MSP HAL MSP
   30:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief HAL MSP module.
-ARM GAS  /tmp/ccyjJ10T.s 			page 2
+ARM GAS  /tmp/ccP6azUg.s 			page 2
 
 
   31:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
@@ -81,7 +81,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   48:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level initialization (GPIOs, clock, DMA, interrupt).
   49:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   50:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  51:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_MspInit(void)
+  51:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_MspInit(void)
   52:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
   29              		.loc 1 52 1 view -0
   30              		.cfi_startproc
@@ -96,7 +96,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   37              	.LFE132:
   39              		.section	.text.HAL_MspDeInit,"ax",%progbits
   40              		.align	1
-  41              		.global	HAL_MspDeInit
+  41              		.weak	HAL_MspDeInit
   42              		.syntax unified
   43              		.thumb
   44              		.thumb_func
@@ -110,7 +110,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   59:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level de-initialization (GPIOs, clock, DMA, interrupt).
   60:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   61:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  62:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_MspDeInit(void)
+  62:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_MspDeInit(void)
   63:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
   49              		.loc 1 63 1 view -0
   50              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   52              		@ frame_needed = 0, uses_anonymous_args = 0
   53              		@ link register save eliminated.
   64:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-ARM GAS  /tmp/ccyjJ10T.s 			page 3
+ARM GAS  /tmp/ccP6azUg.s 			page 3
 
 
   65:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
@@ -128,7 +128,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   57              	.LFE133:
   59              		.section	.text.HAL_PPP_MspInit,"ax",%progbits
   60              		.align	1
-  61              		.global	HAL_PPP_MspInit
+  61              		.weak	HAL_PPP_MspInit
   62              		.syntax unified
   63              		.thumb
   64              		.thumb_func
@@ -142,7 +142,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   70:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level initialization (GPIOs, clock, DMA, interrupt)
   71:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   72:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  73:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspInit(void)
+  73:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_PPP_MspInit(void)
   74:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
   69              		.loc 1 74 1 view -0
   70              		.cfi_startproc
@@ -157,7 +157,7 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   77              	.LFE134:
   79              		.section	.text.HAL_PPP_MspDeInit,"ax",%progbits
   80              		.align	1
-  81              		.global	HAL_PPP_MspDeInit
+  81              		.weak	HAL_PPP_MspDeInit
   82              		.syntax unified
   83              		.thumb
   84              		.thumb_func
@@ -171,14 +171,14 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
   81:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level de-initialization (GPIOs, clock, DMA, interrupt)
   82:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   83:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  84:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspDeInit(void)
+  84:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_PPP_MspDeInit(void)
   85:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
   89              		.loc 1 85 1 view -0
   90              		.cfi_startproc
   91              		@ args = 0, pretend = 0, frame = 0
   92              		@ frame_needed = 0, uses_anonymous_args = 0
   93              		@ link register save eliminated.
-ARM GAS  /tmp/ccyjJ10T.s 			page 4
+ARM GAS  /tmp/ccP6azUg.s 			page 4
 
 
   86:HALLIB/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
@@ -193,18 +193,18 @@ ARM GAS  /tmp/ccyjJ10T.s 			page 1
  102              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
  103              		.file 4 "CORE/core_cm4.h"
  104              		.file 5 "./system_stm32f4xx.h"
-ARM GAS  /tmp/ccyjJ10T.s 			page 5
+ARM GAS  /tmp/ccP6azUg.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_msp_template.c
-     /tmp/ccyjJ10T.s:18     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/ccyjJ10T.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/ccyjJ10T.s:40     .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/ccyjJ10T.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/ccyjJ10T.s:60     .text.HAL_PPP_MspInit:0000000000000000 $t
-     /tmp/ccyjJ10T.s:67     .text.HAL_PPP_MspInit:0000000000000000 HAL_PPP_MspInit
-     /tmp/ccyjJ10T.s:80     .text.HAL_PPP_MspDeInit:0000000000000000 $t
-     /tmp/ccyjJ10T.s:87     .text.HAL_PPP_MspDeInit:0000000000000000 HAL_PPP_MspDeInit
+     /tmp/ccP6azUg.s:18     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccP6azUg.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccP6azUg.s:40     .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/ccP6azUg.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+     /tmp/ccP6azUg.s:60     .text.HAL_PPP_MspInit:0000000000000000 $t
+     /tmp/ccP6azUg.s:67     .text.HAL_PPP_MspInit:0000000000000000 HAL_PPP_MspInit
+     /tmp/ccP6azUg.s:80     .text.HAL_PPP_MspDeInit:0000000000000000 $t
+     /tmp/ccP6azUg.s:87     .text.HAL_PPP_MspDeInit:0000000000000000 HAL_PPP_MspDeInit
 
 NO UNDEFINED SYMBOLS

@@ -1,0 +1,171 @@
+ARM GAS  /tmp/ccr9IZ5a.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f4xx_hal_msp.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_MspInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_MspInit
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	HAL_MspInit:
+  27              	.LFB132:
+  28              		.file 1 "USER/stm32f4xx_hal_msp.c"
+   1:USER/stm32f4xx_hal_msp.c **** /**
+   2:USER/stm32f4xx_hal_msp.c ****   ******************************************************************************
+   3:USER/stm32f4xx_hal_msp.c ****   * @file    Templates/Src/stm32f4xx_hal_msp.c
+   4:USER/stm32f4xx_hal_msp.c ****   * @author  MCD Application Team
+   5:USER/stm32f4xx_hal_msp.c ****   * @brief   HAL MSP module.
+   6:USER/stm32f4xx_hal_msp.c ****   *         
+   7:USER/stm32f4xx_hal_msp.c ****   @verbatim
+   8:USER/stm32f4xx_hal_msp.c ****  ===============================================================================
+   9:USER/stm32f4xx_hal_msp.c ****                      ##### How to use this driver #####
+  10:USER/stm32f4xx_hal_msp.c ****  ===============================================================================
+  11:USER/stm32f4xx_hal_msp.c ****     [..]
+  12:USER/stm32f4xx_hal_msp.c ****     This file is generated automatically by STM32CubeMX and eventually modified 
+  13:USER/stm32f4xx_hal_msp.c ****     by the user
+  14:USER/stm32f4xx_hal_msp.c **** 
+  15:USER/stm32f4xx_hal_msp.c ****   @endverbatim
+  16:USER/stm32f4xx_hal_msp.c ****   ******************************************************************************
+  17:USER/stm32f4xx_hal_msp.c ****   * @attention
+  18:USER/stm32f4xx_hal_msp.c ****   *
+  19:USER/stm32f4xx_hal_msp.c ****   * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  20:USER/stm32f4xx_hal_msp.c ****   *
+  21:USER/stm32f4xx_hal_msp.c ****   * Redistribution and use in source and binary forms, with or without modification,
+  22:USER/stm32f4xx_hal_msp.c ****   * are permitted provided that the following conditions are met:
+  23:USER/stm32f4xx_hal_msp.c ****   *   1. Redistributions of source code must retain the above copyright notice,
+  24:USER/stm32f4xx_hal_msp.c ****   *      this list of conditions and the following disclaimer.
+  25:USER/stm32f4xx_hal_msp.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
+  26:USER/stm32f4xx_hal_msp.c ****   *      this list of conditions and the following disclaimer in the documentation
+  27:USER/stm32f4xx_hal_msp.c ****   *      and/or other materials provided with the distribution.
+  28:USER/stm32f4xx_hal_msp.c ****   *   3. Neither the name of STMicroelectronics nor the names of its contributors
+  29:USER/stm32f4xx_hal_msp.c ****   *      may be used to endorse or promote products derived from this software
+  30:USER/stm32f4xx_hal_msp.c ****   *      without specific prior written permission.
+ARM GAS  /tmp/ccr9IZ5a.s 			page 2
+
+
+  31:USER/stm32f4xx_hal_msp.c ****   *
+  32:USER/stm32f4xx_hal_msp.c ****   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  33:USER/stm32f4xx_hal_msp.c ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  34:USER/stm32f4xx_hal_msp.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  35:USER/stm32f4xx_hal_msp.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  36:USER/stm32f4xx_hal_msp.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  37:USER/stm32f4xx_hal_msp.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  38:USER/stm32f4xx_hal_msp.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  39:USER/stm32f4xx_hal_msp.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  40:USER/stm32f4xx_hal_msp.c ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  41:USER/stm32f4xx_hal_msp.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  42:USER/stm32f4xx_hal_msp.c ****   *
+  43:USER/stm32f4xx_hal_msp.c ****   ******************************************************************************
+  44:USER/stm32f4xx_hal_msp.c ****   */ 
+  45:USER/stm32f4xx_hal_msp.c **** 
+  46:USER/stm32f4xx_hal_msp.c **** /* Includes ------------------------------------------------------------------*/
+  47:USER/stm32f4xx_hal_msp.c **** #include "stm32f4xx_hal.h"
+  48:USER/stm32f4xx_hal_msp.c **** 
+  49:USER/stm32f4xx_hal_msp.c **** /** @addtogroup STM32F4xx_HAL_Driver
+  50:USER/stm32f4xx_hal_msp.c ****   * @{
+  51:USER/stm32f4xx_hal_msp.c ****   */
+  52:USER/stm32f4xx_hal_msp.c **** 
+  53:USER/stm32f4xx_hal_msp.c **** /** @defgroup HAL_MSP
+  54:USER/stm32f4xx_hal_msp.c ****   * @brief HAL MSP module.
+  55:USER/stm32f4xx_hal_msp.c ****   * @{
+  56:USER/stm32f4xx_hal_msp.c ****   */
+  57:USER/stm32f4xx_hal_msp.c **** 
+  58:USER/stm32f4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
+  59:USER/stm32f4xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
+  60:USER/stm32f4xx_hal_msp.c **** /* Private macro -------------------------------------------------------------*/
+  61:USER/stm32f4xx_hal_msp.c **** /* Private variables ---------------------------------------------------------*/
+  62:USER/stm32f4xx_hal_msp.c **** /* Private function prototypes -----------------------------------------------*/
+  63:USER/stm32f4xx_hal_msp.c **** /* Private functions ---------------------------------------------------------*/
+  64:USER/stm32f4xx_hal_msp.c **** 
+  65:USER/stm32f4xx_hal_msp.c **** /** @defgroup HAL_MSP_Private_Functions
+  66:USER/stm32f4xx_hal_msp.c ****   * @{
+  67:USER/stm32f4xx_hal_msp.c ****   */
+  68:USER/stm32f4xx_hal_msp.c **** 
+  69:USER/stm32f4xx_hal_msp.c **** /**
+  70:USER/stm32f4xx_hal_msp.c ****   * @brief  Initializes the Global MSP.
+  71:USER/stm32f4xx_hal_msp.c ****   * @param  None
+  72:USER/stm32f4xx_hal_msp.c ****   * @retval None
+  73:USER/stm32f4xx_hal_msp.c ****   */
+  74:USER/stm32f4xx_hal_msp.c **** void HAL_MspInit(void)
+  75:USER/stm32f4xx_hal_msp.c **** {
+  29              		.loc 1 75 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  76:USER/stm32f4xx_hal_msp.c ****   /* NOTE : This function is generated automatically by STM32CubeMX and eventually  
+  77:USER/stm32f4xx_hal_msp.c ****             modified by the user
+  78:USER/stm32f4xx_hal_msp.c ****    */ 
+  79:USER/stm32f4xx_hal_msp.c **** }
+  34              		.loc 1 79 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+ARM GAS  /tmp/ccr9IZ5a.s 			page 3
+
+
+  37              	.LFE132:
+  39              		.section	.text.HAL_MspDeInit,"ax",%progbits
+  40              		.align	1
+  41              		.global	HAL_MspDeInit
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  45              		.fpu fpv4-sp-d16
+  47              	HAL_MspDeInit:
+  48              	.LFB133:
+  80:USER/stm32f4xx_hal_msp.c **** 
+  81:USER/stm32f4xx_hal_msp.c **** /**
+  82:USER/stm32f4xx_hal_msp.c ****   * @brief  DeInitializes the Global MSP.
+  83:USER/stm32f4xx_hal_msp.c ****   * @param  None  
+  84:USER/stm32f4xx_hal_msp.c ****   * @retval None
+  85:USER/stm32f4xx_hal_msp.c ****   */
+  86:USER/stm32f4xx_hal_msp.c **** void HAL_MspDeInit(void)
+  87:USER/stm32f4xx_hal_msp.c **** {
+  49              		.loc 1 87 1 view -0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  88:USER/stm32f4xx_hal_msp.c ****   /* NOTE : This function is generated automatically by STM32CubeMX and eventually  
+  89:USER/stm32f4xx_hal_msp.c ****             modified by the user
+  90:USER/stm32f4xx_hal_msp.c ****    */
+  91:USER/stm32f4xx_hal_msp.c **** }
+  54              		.loc 1 91 1 view .LVU3
+  55 0000 7047     		bx	lr
+  56              		.cfi_endproc
+  57              	.LFE133:
+  59              		.text
+  60              	.Letext0:
+  61              		.file 2 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/machine/_default_typ
+  62              		.file 3 "/opt/gcc_arm/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include/sys/_stdint.h"
+  63              		.file 4 "CORE/core_cm4.h"
+  64              		.file 5 "./system_stm32f4xx.h"
+ARM GAS  /tmp/ccr9IZ5a.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f4xx_hal_msp.c
+     /tmp/ccr9IZ5a.s:18     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccr9IZ5a.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccr9IZ5a.s:40     .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/ccr9IZ5a.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+
+NO UNDEFINED SYMBOLS
